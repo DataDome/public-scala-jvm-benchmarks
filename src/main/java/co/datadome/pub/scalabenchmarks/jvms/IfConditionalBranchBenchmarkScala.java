@@ -26,7 +26,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package co.datadome.pub.scalaio2025;
+package co.datadome.pub.scalabenchmarks.jvms;
 
 import java.util.concurrent.TimeUnit;
 import org.openjdk.jmh.annotations.*;
