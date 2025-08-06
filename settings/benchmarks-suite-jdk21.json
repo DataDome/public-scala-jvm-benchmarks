@@ -1,0 +1,21 @@
+{
+  "globals": {
+    "jvmOpts": "",
+    "jmhOpts": "-foe true -wi 2 -w 5 -i 5 -r 5 -f 2 -rf csv -rff ((outputFilePath)).csv",
+    "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+  },
+  "benchmarks": [
+    {
+      "name": "IfConditionalBranchBenchmarkScala"
+    },
+    {
+      "name": "IfConditionalBranchBenchmark"
+    },
+    {
+      "name": "StringConcatenationBenchmark"
+    },
+    {
+      "name": "NQueensBenchmark"
+    }
+  ]
+}
