@@ -1,40 +1,50 @@
-**/HELP.md
+### Project-specific ###
 **/.RData
-.DS_Store
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
 *-schema-library/src/main/java/**
 generated-products.sql
 results
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-**/*.log
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+### Scala ###
+*.class
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+# sbt
+dist/*
+target/
+lib_managed/
+src_managed/
+project/target/
+project/project/target/
+.history
+.cache
+.lib
+
+# Bloop/Metals/BSP
+.bloop
+.metals
+.bsp
+project/metals.sbt
+project/**/metals.sbt
+
+
+### Intellij ###
+
+# Ignore everything except formatting configuration
+.idea/*
+!.idea/codeStyles
+.idea/codeStyles/*
+!.idea/codeStyles/Project.xml
+
 
 ### VS Code ###
-.vscode/
-.Rproj.user
+.vscode
+
+
+### Misc ###
+*.log
+logs
+
+# MacOS
+.DS_store
+
+
