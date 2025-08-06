@@ -6,13 +6,8 @@ version := "0.0.0"
 
 scalaVersion := "3.7.2"
 
-// Note: the preview and module options are also required in the .jvmopts file
 javacOptions ++= Seq(
   "-source", "21", "-target", "21",
-  "--enable-preview",
-  "--add-modules=jdk.incubator.vector",
-  "--add-exports=java.base/jdk.internal.vm.annotation=ALL-UNNAMED",
-  "--add-exports=java.management/sun.management=ALL-UNNAMED"
 )
 
 scalacOptions ++= Seq(

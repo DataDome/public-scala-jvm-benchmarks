@@ -46,7 +46,6 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import static com.ionutbalosin.jvm.performance.benchmarks.api.string.utils.StringUtils.generateCharArray;
-import static java.util.FormatProcessor.FMT;
 
 /*
  * This benchmark measures the performance of different formatting approaches utilizing various data types
