@@ -6,6 +6,7 @@ version := "0.0.0"
 
 scalaVersion := "3.7.2"
 
+// Note: the preview and module options are also required in the .jvmopts file
 javacOptions ++= Seq(
   "-source", "21", "-target", "21",
   "--enable-preview",
@@ -42,7 +43,7 @@ libraryDependencies ++= Seq(
 assembly / mainClass := None
 assembly / assemblyMergeStrategy := {
   case PathList("META-INF", _*) => MergeStrategy.discard
-  case _                        => MergeStrategy.first
+  case _ => MergeStrategy.first
 }
 
 Test / fork := true
