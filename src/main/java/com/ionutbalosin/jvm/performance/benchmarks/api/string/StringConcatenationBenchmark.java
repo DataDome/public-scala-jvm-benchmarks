@@ -146,9 +146,4 @@ public class StringConcatenationBenchmark {
   public String plus_operator() {
     return aString + anInt + aFloat+ aChar + aLong + aDouble + aBool + anObject ;
   }
-
-  @Benchmark
-  public String string_template() {
-    return STR."\{aString}\{anInt}\{aFloat}\{aChar}\{aLong}\{aDouble}\{aBool}\{anObject}";
-  }
 }

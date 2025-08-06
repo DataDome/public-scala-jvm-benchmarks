@@ -125,9 +125,4 @@ public class StringFormatBenchmark {
   public String string_formatted() {
     return "%s%d%.8f%s%d%.17f%b%s".formatted(aString, anInt, aFloat, aChar, aLong, aDouble, aBool, anObject);
   }
-
-  @Benchmark
-  public String format_processor() {
-    return FMT."%s\{aString}%d\{anInt}%.8f\{aFloat}%s\{aChar}%d\{aLong}%.17f\{aDouble}%b\{aBool}%s\{anObject}";
-  }
 }
