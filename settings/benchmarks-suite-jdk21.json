@@ -6,7 +6,8 @@
   },
   "benchmarks": [
     {
-      "name": "IfConditionalBranchBenchmarkScala"
+      "name": "IfConditionalBranchBenchmarkScala",
+      "lang": "scala"
     },
     {
       "name": "IfConditionalBranchBenchmark"

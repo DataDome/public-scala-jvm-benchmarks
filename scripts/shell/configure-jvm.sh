@@ -97,7 +97,7 @@ echo "+------------+"
 echo "| Select JVM |"
 echo "+------------+"
 echo "The JDK version is automatically detected based on the JDK distribution found at the preconfigured 'JAVA_HOME' path."
-echo "This assumes that the 'JAVA_HOME' variable has already been specified in the benchmark configuration scripts (i.e., the ./configure-jvm file). Otherwise, the subsequent execution will fail."
+echo "This assumes that the 'JAVA_HOME' variable has already been specified in the benchmark configuration (i.e., the ./settings/config.properties). Otherwise, the subsequent execution will fail."
 select_jvm
 
 echo ""

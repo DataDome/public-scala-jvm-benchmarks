@@ -30,8 +30,12 @@
 
 export JMH_JAR="target/scala-3.7.2/scala-jvm-benchmarks-assembly-0.0.0.jar"
 export JMH_BENCHMARKS="settings/benchmarks-suite-jdk${JDK_VERSION}.json"
+export JMH_SOURCES_JAVA="src/main/java/com/ionutbalosin/jvm/performance/benchmarks"
+export JMH_SOURCES_SCALA="src/main/scala/co/datadome/pub/scalabenchmarks/jvms"
 export JMH_OUTPUT_FOLDER="results/jdk-$JDK_VERSION/$ARCH/jmh/$JVM_IDENTIFIER"
 
 echo "JMH JAR: $JMH_JAR"
 echo "JMH benchmarks suite configuration file: $JMH_BENCHMARKS"
+echo "JMH benchmarks Java sources: $JMH_SOURCES_JAVA"
+echo "JMH benchmarks Scala sources: $JMH_SOURCES_SCALA"
 echo "JMH output folder: $JMH_OUTPUT_FOLDER"

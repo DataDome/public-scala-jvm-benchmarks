@@ -73,6 +73,7 @@ check_folder_exists() {
 set_environment_variables() {
   export JDK_VERSION="${1:-$JDK_VERSION}"
   export BENCHMARKS_ARCH="${2:-$ARCH}"
+  # TODO Following values should be loaded from ./configure-jmh.sh
   export JMH_BENCHMARKS="settings/benchmarks-suite-jdk${JDK_VERSION}.json"
   export JMH_OUTPUT_FOLDER="$(pwd)/results/jdk-$JDK_VERSION/$BENCHMARKS_ARCH/jmh"
   export GEOMETRIC_MEAN_OUTPUT_FOLDER="$(pwd)/results/jdk-$JDK_VERSION/$BENCHMARKS_ARCH/geomean"
@@ -132,14 +133,23 @@ preprocess_benchmark_results() {
 extract_benchmark_files() {
   benchmark_type="$1"
   no_of_benchmarks=$(./$JQ -r ".benchmarks | length" <"$JMH_BENCHMARKS")
-  benchmark_source_path="$(pwd)/benchmarks/src/main/java/com/ionutbalosin/jvm/performance/benchmarks/$benchmark_type"
+  benchmark_source_java_path="$(pwd)/$JMH_SOURCES_JAVA/$benchmark_type"
+  benchmark_source_scala_path="$(pwd)/$JMH_SOURCES_SCALA/$benchmark_type"
   benchmark_files=()
+  echo "Sources: $benchmark_source_java_path and $benchmark_source_scala_path"
 
   for ((counter = 0; counter < no_of_benchmarks; counter++)); do
     bench_name=$(./$JQ --argjson counter "$counter" -r ".benchmarks[$counter].name" <"$JMH_BENCHMARKS")
-
-    if [[ -n $(find "$benchmark_source_path" -type f -name "$bench_name.java") ]]; then
-      benchmark_files+=("$bench_name.csv")
+    bench_lang=$(./$JQ --argjson counter "$counter" -r ".benchmarks[$counter].lang" <"$JMH_BENCHMARKS")
+    echo "Bench: $bench_name ($bench_lang)"
+    if [[ "$bench_lang" == "scala" ]]; then
+      if [[ -n $(find "$benchmark_source_scala_path" -type f -name "$bench_name.scala") ]]; then
+        benchmark_files+=("$bench_name.csv")
+      fi
+    else
+      if [[ -n $(find "$benchmark_source_java_path" -type f -name "$bench_name.java") ]]; then
+        benchmark_files+=("$bench_name.csv")
+      fi
     fi
   done
 
