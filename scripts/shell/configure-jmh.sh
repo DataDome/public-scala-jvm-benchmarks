@@ -28,7 +28,7 @@
 # under the License.
 #
 
-export JMH_JAR="benchmarks/target/benchmarks.jar"
+export JMH_JAR="target/scala-3.7.2/scala-jvm-benchmarks-assembly-0.0.0.jar"
 export JMH_BENCHMARKS="settings/benchmarks-suite-jdk${JDK_VERSION}.json"
 export JMH_OUTPUT_FOLDER="results/jdk-$JDK_VERSION/$ARCH/jmh/$JVM_IDENTIFIER"
 

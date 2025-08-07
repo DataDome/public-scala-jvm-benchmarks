@@ -35,11 +35,16 @@ libraryDependencies ++= Seq(
 
 )
 
-assembly / mainClass := None
+assembly / mainClass := Some("org.openjdk.jmh.Main")
 assembly / assemblyMergeStrategy := {
-  case PathList("META-INF", _*) => MergeStrategy.discard
-  case _ => MergeStrategy.first
+  case PathList("META-INF", "MANIFEST.MF") => MergeStrategy.rename
+  case PathList("LICENSE") => MergeStrategy.rename
+  case _ => MergeStrategy.deduplicate // default
 }
+
+// rewire tasks, so that 'Jmh/assembly' automatically invokes 'Jmh/compile' (otherwise a clean 'Jmh/assembly' would miss content in the META-INF)
+Jmh / assembly := (Jmh / assembly).dependsOn(Jmh / compile).value
+
 
 Test / fork := true
 Test / testOptions += Tests.Argument("-oD") // show test duration

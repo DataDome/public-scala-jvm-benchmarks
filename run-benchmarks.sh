@@ -121,7 +121,7 @@ run_benchmark_suite() {
 }
 
 compile_benchmark_suite() {
-  CMD="./mvnw -P jdk${JDK_VERSION}_profile clean package"
+  CMD="sbt clean Jmh/assembly"
 
   echo "Compiling benchmark suite..."
   echo "$CMD"
