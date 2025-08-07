@@ -31,42 +31,64 @@
 configure_jvm() {
   export JAVA_HOME="$1"
   export JVM_NAME="$2"
-  export JVM_IDENTIFIER="$3"
 }
 
 select_jvm() {
-  echo ""
-  echo "Select a JVM:"
-  echo "  1) OpenJDK HotSpot VM"
-  echo "  2) GraalVM CE"
-  echo "  3) Oracle GraalVM (formerly GraalVM EE)"
-  echo "  4) Azul Prime VM (formerly Azul Zing VM)"
-  echo ""
+  if [ "$1" == "interactive" ]; then
+    echo ""
+    echo "Select a JVM:"
+    echo "  1) OpenJDK HotSpot VM"
+    echo "  2) GraalVM CE"
+    echo "  3) Oracle GraalVM (formerly GraalVM EE)"
+    echo "  4) Azul Prime VM (formerly Azul Zing VM)"
+    echo ""
 
-  while :; do
-    read -r INPUT_KEY
-    case $INPUT_KEY in
-    1)
-      configure_jvm "$OPENJDK_HOTSPOT_VM_HOME" "$OPENJDK_HOTSPOT_VM_NAME" "$OPENJDK_HOTSPOT_VM_IDENTIFIER"
-      break
-      ;;
-    2)
-      configure_jvm "$GRAAL_VM_CE_HOME" "$GRAAL_VM_CE_NAME" "$GRAAL_VM_CE_IDENTIFIER"
-      break
-      ;;
-    3)
-      configure_jvm "$GRAAL_VM_EE_HOME" "$GRAAL_VM_EE_NAME" "$GRAAL_VM_EE_IDENTIFIER"
-      break
-      ;;
-    4)
-      configure_jvm "$AZUL_PRIME_VM_HOME" "$AZUL_PRIME_VM_NAME" "$AZUL_PRIME_VM_IDENTIFIER"
-      break
-      ;;
-    *)
-      echo "Sorry, I don't understand. Please try again!"
-      ;;
-    esac
-  done
+    while :; do
+      read -r INPUT_KEY
+      case $INPUT_KEY in
+      1)
+        export JVM_IDENTIFIER="$OPENJDK_HOTSPOT_VM_IDENTIFIER"
+        break
+        ;;
+      2)
+        export JVM_IDENTIFIER="$GRAAL_VM_CE_IDENTIFIER"
+        break
+        ;;
+      3)
+        export JVM_IDENTIFIER="$GRAAL_VM_EE_IDENTIFIER"
+        break
+        ;;
+      4)
+        export JVM_IDENTIFIER="$AZUL_PRIME_VM_IDENTIFIER"
+        break
+        ;;
+      *)
+        echo "Sorry, I don't understand. Please try again!"
+        ;;
+      esac
+    done
+  else
+    JVM_IDENTIFIER=$1
+  fi
+
+  case $JVM_IDENTIFIER in
+  ("$OPENJDK_HOTSPOT_VM_IDENTIFIER")
+    configure_jvm "$OPENJDK_HOTSPOT_VM_HOME" "$OPENJDK_HOTSPOT_VM_NAME"
+    ;;
+  ("$GRAAL_VM_CE_IDENTIFIER")
+    configure_jvm "$GRAAL_VM_CE_HOME" "$GRAAL_VM_CE_NAME"
+    ;;
+  ("$GRAAL_VM_EE_IDENTIFIER")
+    configure_jvm "$GRAAL_VM_EE_HOME" "$GRAAL_VM_EE_NAME"
+    ;;
+  ("$AZUL_PRIME_VM_IDENTIFIER")
+    configure_jvm "$AZUL_PRIME_VM_HOME" "$AZUL_PRIME_VM_NAME"
+    ;;
+  *)
+    fail "Unknown JVM key: $JVM_KEY"
+    ;;
+  esac
+
 }
 
 set_environment_variables() {
@@ -98,7 +120,7 @@ echo "| Select JVM |"
 echo "+------------+"
 echo "The JDK version is automatically detected based on the JDK distribution found at the preconfigured 'JAVA_HOME' path."
 echo "This assumes that the 'JAVA_HOME' variable has already been specified in the benchmark configuration (i.e., the ./settings/config.properties). Otherwise, the subsequent execution will fail."
-select_jvm
+select_jvm $1
 
 echo ""
 echo "+---------------------------+"

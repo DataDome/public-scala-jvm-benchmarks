@@ -1,32 +1,4 @@
 #!/bin/bash
-#
-# JVM Performance Benchmarks
-#
-# Copyright (C) 2019-2025 Ionut Balosin
-# Website:      www.ionutbalosin.com
-# Social Media:
-#   LinkedIn:   ionutbalosin
-#   Bluesky:    @ionutbalosin.bsky.social
-#   X:          @ionutbalosin
-#   Mastodon:   ionutbalosin@mastodon.social
-#
-# Licensed to the Apache Software Foundation (ASF) under one
-# or more contributor license agreements.  See the NOTICE file
-# distributed with this work for additional information
-# regarding copyright ownership.  The ASF licenses this file
-# to you under the Apache License, Version 2.0 (the
-# "License"); you may not use this file except in compliance
-# with the License.  You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing,
-# software distributed under the License is distributed on an
-# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-# KIND, either express or implied.  See the License for the
-# specific language governing permissions and limitations
-# under the License.
-#
 
 time_converter() {
   if [[ -z $1 || $1 -lt 60 ]]; then
@@ -185,27 +157,37 @@ echo "+========================+"
 . ./scripts/shell/configure-jq.sh || exit 1
 
 echo ""
-echo "+=========================+"
-echo "| [5/8] JVM Configuration |"
-echo "+=========================+"
-. ./scripts/shell/configure-jvm.sh interactive || exit 1
-
-echo ""
-echo "+=========================+"
-echo "| [6/8] JMH Configuration |"
-echo "+=========================+"
-. ./scripts/shell/configure-jmh.sh || exit 1
-
-echo ""
 echo "+===============================+"
-echo "| [7/8] Compile benchmark suite |"
+echo "| [5/8] Compile benchmark suite |"
 echo "+===============================+"
 if ! compile_benchmark_suite; then
   exit 1
 fi
 
-echo ""
-echo "+===========================+"
-echo "| [8/8] Run benchmark suite |"
-echo "+===========================+"
-run_benchmark_suite
+
+for jvm in "$OPENJDK_HOTSPOT_VM_IDENTIFIER" "$GRAAL_VM_CE_IDENTIFIER" "$GRAAL_VM_EE_IDENTIFIER" "$AZUL_PRIME_VM_IDENTIFIER"; do
+
+  echo ""
+  echo "+============================================="
+  echo "| Running steps 6 to 8 with $jvm"
+  echo "+============================================="
+
+  echo ""
+  echo "+=========================+"
+  echo "| [6/8] JVM Configuration |"
+  echo "+=========================+"
+  . ./scripts/shell/configure-jvm.sh $jvm || exit 1
+
+  echo ""
+  echo "+=========================+"
+  echo "| [7/8] JMH Configuration |"
+  echo "+=========================+"
+  . ./scripts/shell/configure-jmh.sh || exit 1
+
+  echo ""
+  echo "+===========================+"
+  echo "| [8/8] Run benchmark suite |"
+  echo "+===========================+"
+  run_benchmark_suite
+
+done
