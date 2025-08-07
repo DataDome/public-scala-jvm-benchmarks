@@ -6,17 +6,18 @@
   },
   "benchmarks": [
     {
+      "name": "InfrastructureBaselineBenchmarkScala",
+      "lang": "scala"
+    },
+    {
+      "name": "InfrastructureBaselineBenchmark"
+    },
+    {
       "name": "IfConditionalBranchBenchmarkScala",
       "lang": "scala"
     },
     {
       "name": "IfConditionalBranchBenchmark"
-    },
-    {
-      "name": "StringConcatenationBenchmark"
-    },
-    {
-      "name": "NQueensBenchmark"
     }
   ]
 }
