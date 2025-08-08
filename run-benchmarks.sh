@@ -120,6 +120,12 @@ if [ "$DRY_RUN" == "--dry-run" ]; then
 fi
 
 echo ""
+echo "+=====================+"
+echo "| [0/8] JVM Selection |"
+echo "+=====================+"
+. ./scripts/shell/select-jvm.sh
+
+echo ""
 echo "+=======================+"
 echo "| [1/8] Load Properties |"
 echo "+=======================+"
@@ -156,7 +162,7 @@ echo ""
 echo "+=========================+"
 echo "| [6/8] JVM Configuration |"
 echo "+=========================+"
-. ./scripts/shell/configure-jvm.sh interactive || exit 1
+. ./scripts/shell/configure-jvm.sh || exit 1
 
 echo ""
 echo "+=========================+"

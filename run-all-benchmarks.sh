@@ -154,6 +154,7 @@ fi
 
 
 for jvm in "$OPENJDK_HOTSPOT_VM_IDENTIFIER" "$GRAAL_VM_CE_IDENTIFIER" "$GRAAL_VM_EE_IDENTIFIER" "$AZUL_PRIME_VM_IDENTIFIER"; do
+  export JVM_IDENTIFIER=$jvm
 
   echo ""
   echo "+============================================="
@@ -164,7 +165,7 @@ for jvm in "$OPENJDK_HOTSPOT_VM_IDENTIFIER" "$GRAAL_VM_CE_IDENTIFIER" "$GRAAL_VM
   echo "+=========================+"
   echo "| [6/8] JVM Configuration |"
   echo "+=========================+"
-  . ./scripts/shell/configure-jvm.sh $jvm || exit 1
+  . ./scripts/shell/configure-jvm.sh || exit 1
 
   echo ""
   echo "+=========================+"
