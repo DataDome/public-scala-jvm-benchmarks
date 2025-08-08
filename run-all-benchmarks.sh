@@ -72,8 +72,10 @@ run_benchmark_suite() {
   counter=0
   while [ $counter -lt $no_of_benchmarks ]; do
     bench_name=$(./$JQ --argjson counter "$counter" -r ".benchmarks[$counter].name" <"$JMH_BENCHMARKS")
+    bench_lang=$(./$JQ --argjson counter "$counter" -r ".benchmarks[$counter].lang" <"$JMH_BENCHMARKS")
+    bench_lang=$(default_if_empty "$bench_lang" "java")
     bench_output_file_name=$(./$JQ --argjson counter "$counter" -r ".benchmarks[$counter].outputFileName" <"$JMH_BENCHMARKS")
-    bench_output_file_name=$(default_if_empty "$bench_output_file_name" "$bench_name")
+    bench_output_file_name=$(default_if_empty "$bench_output_file_name" "$bench_name.$bench_lang")
     bench_jmh_opts=$(./$JQ --argjson counter "$counter" -r ".benchmarks[$counter].jmhOpts" <"$JMH_BENCHMARKS")
     bench_jmh_opts=$(default_if_empty "$bench_jmh_opts" "")
     bench_jvm_args_append=$(./$JQ --argjson counter "$counter" -r ".benchmarks[$counter].jvmArgsAppend" <"$JMH_BENCHMARKS")

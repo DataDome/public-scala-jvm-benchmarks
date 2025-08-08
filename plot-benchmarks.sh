@@ -130,14 +130,13 @@ extract_benchmark_files() {
   for ((counter = 0; counter < no_of_benchmarks; counter++)); do
     bench_name=$(./$JQ --argjson counter "$counter" -r ".benchmarks[$counter].name" <"$JMH_BENCHMARKS")
     bench_lang=$(./$JQ --argjson counter "$counter" -r ".benchmarks[$counter].lang" <"$JMH_BENCHMARKS")
-    echo "Bench: $bench_name ($bench_lang)"
     if [[ "$bench_lang" == "scala" ]]; then
       if [[ -n $(find "$benchmark_source_scala_path" -type f -name "$bench_name.scala") ]]; then
-        benchmark_files+=("$bench_name.csv")
+        benchmark_files+=("$bench_name.scala.csv")
       fi
     else
       if [[ -n $(find "$benchmark_source_java_path" -type f -name "$bench_name.java") ]]; then
-        benchmark_files+=("$bench_name.csv")
+        benchmark_files+=("$bench_name.java.csv")
       fi
     fi
   done
