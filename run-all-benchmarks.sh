@@ -107,16 +107,6 @@ compile_benchmark_suite() {
   fi
 }
 
-load_config_properties() {
-  if [ -f ./settings/config.properties ]; then
-    source ./settings/config.properties
-    echo "Configuration properties have been successfully loaded from the './settings/config.properties' file."
-  else
-    echo "ERROR: File './settings/config.properties' not found. Unable to continue!"
-    return 1
-  fi
-}
-
 echo ""
 echo "#################################################################"
 echo "#######       JVM Performance Benchmarks Test Suite       #######"
@@ -130,12 +120,10 @@ if [ "$DRY_RUN" == "--dry-run" ]; then
 fi
 
 echo ""
-echo "+================================+"
-echo "| [1/8] Configuration Properties |"
-echo "+================================+"
-if ! load_config_properties; then
-  exit 1
-fi
+echo "+=======================+"
+echo "| [1/8] Load Properties |"
+echo "+=======================+"
+. ./scripts/shell/load-properties.sh
 
 echo ""
 echo "+=============================+"

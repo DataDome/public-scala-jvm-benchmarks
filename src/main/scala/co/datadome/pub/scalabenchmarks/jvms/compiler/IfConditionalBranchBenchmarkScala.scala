@@ -1,4 +1,4 @@
-package co.datadome.pub.scalabenchmarks.jvms
+package co.datadome.pub.scalabenchmarks.jvms.compiler
 
 import org.openjdk.jmh.annotations.*
 

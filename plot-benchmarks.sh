@@ -51,16 +51,6 @@ check_command_line_options() {
   fi
 }
 
-load_config_properties() {
-  if [ -f ./settings/config.properties ]; then
-    source ./settings/config.properties
-    echo "Configuration properties have been successfully loaded from the './settings/config.properties' file."
-  else
-    echo "ERROR: File './settings/config.properties' not found. Unable to continue!"
-    return 1
-  fi
-}
-
 check_folder_exists() {
   folder="$1"
   if [ ! -d "$folder" ]; then
@@ -136,7 +126,6 @@ extract_benchmark_files() {
   benchmark_source_java_path="$(pwd)/$JMH_SOURCES_JAVA/$benchmark_type"
   benchmark_source_scala_path="$(pwd)/$JMH_SOURCES_SCALA/$benchmark_type"
   benchmark_files=()
-  echo "Sources: $benchmark_source_java_path and $benchmark_source_scala_path"
 
   for ((counter = 0; counter < no_of_benchmarks; counter++)); do
     bench_name=$(./$JQ --argjson counter "$counter" -r ".benchmarks[$counter].name" <"$JMH_BENCHMARKS")
@@ -258,12 +247,10 @@ if ! check_command_line_options "$@"; then
 fi
 
 echo ""
-echo "+================================+"
-echo "| [1/8] Configuration Properties |"
-echo "+================================+"
-if ! load_config_properties; then
-  exit 1
-fi
+echo "+=======================+"
+echo "| [1/8] Load Properties |"
+echo "+=======================+"
+. ./scripts/shell/load-properties.sh
 
 echo ""
 echo "+=============================+"
