@@ -19,7 +19,7 @@ import scala.util.Random
 @Measurement(iterations = 5, time = 10, timeUnit = TimeUnit.SECONDS)
 @Fork(value = 5)
 @State(Scope.Benchmark)
-class IfConditionalBranchBenchmarkScala {
+class IfConditionalBranchBenchmark {
 
   private val random: Random = new Random(16384)
   private val threshold = 4096
