@@ -6,6 +6,7 @@ args <- commandArgs(TRUE)
 print(length(args))
 
 if (length(args) < 20) {
+  cat("Arguments: ", args, "\n")
   stop("Usage: Rscript script.R <jmh_output_folder> <geometric_mean_output_folder>
         <openjdk_hotspot_vm_identifier> <graalvm_ce_identifier> <graalvm_ee_identifier> <azul_prime_vm_identifier>
         <openjdk_hotspot_vm_name> <graalvm_ce_name> <graalvm_ee_name> <azul_prime_vm_name>
