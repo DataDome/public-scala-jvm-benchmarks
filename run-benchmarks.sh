@@ -49,6 +49,7 @@ run_benchmark() {
 
   echo ""
   echo "Running $TEST_NAME benchmark ..."
+  date
   echo "$CMD"
   echo ""
 

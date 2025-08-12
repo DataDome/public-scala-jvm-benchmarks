@@ -49,6 +49,7 @@ run_benchmark() {
 
   echo ""
   echo "Running $TEST_NAME benchmark ..."
+  date
   echo "$CMD"
   echo ""
 
@@ -161,6 +162,8 @@ for jvm in "$OPENJDK_HOTSPOT_VM_IDENTIFIER" "$GRAAL_VM_CE_IDENTIFIER" "$GRAAL_VM
   echo ""
   echo "+============================================="
   echo "| Running steps 6 to 8 with $jvm"
+  echo "+============================================="
+  echo "| $(date)"
   echo "+============================================="
 
   echo ""
