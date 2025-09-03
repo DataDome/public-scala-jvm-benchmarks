@@ -1,32 +1,40 @@
 {
-  "globals": {
-    "jvmOpts": "",
-    "jmhOpts": "-foe true -wi 1 -w 1 -i 3 -r 1 -f 1 -rf csv -rff ((outputFilePath)).csv",
-    "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
-  },
-  "benchmarks": [
-    {
-      "name": "InfrastructureBaselineBenchmark"
+    "globals": {
+        "jvmOpts": "",
+        "jmhOpts": "-foe true -wi 1 -w 1 -i 3 -r 1 -f 1 -rf csv -rff ((outputFilePath)).csv",
+        "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
     },
-    {
-      "name": "InfrastructureBaselineBenchmark",
-      "lang": "scala"
-    },
-    {
-      "name": "IfConditionalBranchBenchmark"
-    },
-    {
-      "name": "IfConditionalBranchBenchmark",
-      "lang": "scala"
-    },
-    {
-      "name": "StringConcatenationBenchmark",
-      "jmhOpts": "-prof gc"
-    },
-    {
-      "name": "StringConcatenationBenchmark",
-      "jmhOpts": "-prof gc",
-      "lang": "scala"
-    }
-  ]
+    "benchmarks": [
+        {
+            "name": "InfrastructureBaselineBenchmark"
+        },
+        {
+            "name": "IfConditionalBranchBenchmark"
+        },
+        {
+            "name": "InfrastructureBaselineBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "JavaRandomBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "ScalaRandomBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "StringConcatenationBenchmark",
+            "jmhOpts": "-prof gc",
+            "lang": "scala"
+        },
+        {
+            "name": "StringRegexMatcherBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "IfConditionalBranchBenchmark",
+            "lang": "scala"
+        }
+    ]
 }

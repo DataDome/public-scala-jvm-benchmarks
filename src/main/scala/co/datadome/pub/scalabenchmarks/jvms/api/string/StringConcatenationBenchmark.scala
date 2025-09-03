@@ -29,8 +29,6 @@ import scala.util.Random
 @Fork(value = 5)
 @State(Scope.Benchmark)
 class StringConcatenationBenchmark {
-
-  // $ java -jar */*/benchmarks.jar ".*StringConcatenationBenchmark.*"
   // Recommended command line options:
   // - JMH options: -prof gc
 

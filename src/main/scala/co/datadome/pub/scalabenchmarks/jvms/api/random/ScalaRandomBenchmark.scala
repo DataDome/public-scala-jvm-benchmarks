@@ -9,16 +9,7 @@ import java.util.stream.{DoubleStream, IntStream, LongStream}
 import scala.compiletime.uninitialized
 import scala.util.Random;
 
-/*
- * Assess various types of implementations for pseudorandom number generators (PRNGs), including jumpable PRNGs,
- * and an additional class of splittable PRNG algorithms (LXM). The tested methods include ints, longs, doubles,
- * nextBoolean, nextInt, nextLong, nextDouble, nextBytes, nextFloat, nextGaussian, and nextExponential.
- *
- * Please note that ThreadLocalRandom is not included in this assessment because the RandomGeneratorFactory
- * lacks an implementation for it. Therefore, it is evaluated separately.
- *
- * JEP 356: Enhanced Pseudo-Random Number Generators was added in JDK 17
- */
+/** Assess the basic pseudorandom generator in Scala. */
 @BenchmarkMode(Array(Mode.AverageTime))
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @Warmup(iterations = 5, time = 10, timeUnit = TimeUnit.SECONDS)
@@ -26,8 +17,6 @@ import scala.util.Random;
 @Fork(value = 5)
 @State(Scope.Benchmark)
 class ScalaRandomBenchmark {
-
-  // $ java -jar */*/benchmarks.jar ".*RandomGeneratorBenchmark.*"
 
   @Param(Array("1024"))
   private var size: Int = uninitialized
