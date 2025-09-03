@@ -6,7 +6,7 @@
   },
   "benchmarks": [
     {
-      "name": "InfrastructureBaselineBenchmarkScala",
+      "name": "InfrastructureBaselineBenchmark",
       "lang": "scala"
     },
     {
@@ -14,7 +14,7 @@
     },
 
     {
-      "name": "IfConditionalBranchBenchmarkScala",
+      "name": "IfConditionalBranchBenchmark",
       "lang": "scala"
     },
     {
