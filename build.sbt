@@ -32,7 +32,7 @@ scalacOptions ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-
+  "org.scalatest" %% "scalatest" % "3.2.19" % Test
 )
 
 assembly / mainClass := Some("org.openjdk.jmh.Main")

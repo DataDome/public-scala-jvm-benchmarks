@@ -27,12 +27,14 @@ class StringRegexMatcherBenchmark {
 
   /** Matches only strings with at least two vowels, and captures the characters between the first and the last vowel. */
   @Param(Array("^[^aeuio]*[aeuio](.*)[aeuio][^aeuio]*$"))
-  private var regexString: String = uninitialized
+  var regexString: String = uninitialized
 
   private var words: Array[String] = uninitialized
   private var wordsCount: Int = uninitialized
   private var regex: Regex = uninitialized
+  private var regexNoCapturingGroup: Regex = uninitialized
   private var pattern: Pattern = uninitialized
+  private var patternNoCapturingGroup: Pattern = uninitialized
 
   @Setup
   def setup(): Unit = {
@@ -44,7 +46,9 @@ class StringRegexMatcherBenchmark {
     }
     wordsCount = words.length
     regex = regexString.r
+    regexNoCapturingGroup = regexString.filterNot(Set('(', ')')).r
     pattern = Pattern.compile(regexString)
+    patternNoCapturingGroup = Pattern.compile(regexString.filterNot(Set('(', ')')))
   }
 
   @Benchmark
@@ -53,7 +57,7 @@ class StringRegexMatcherBenchmark {
     var i = 0
     while (i < wordsCount) {
       val word = words(i)
-      val matches = pattern.matcher(word)
+      val matches = patternNoCapturingGroup.matcher(word)
       if (matches.matches()) {
         res ||= true
       }
@@ -69,9 +73,11 @@ class StringRegexMatcherBenchmark {
     while (i < wordsCount) {
       val word = words(i)
       val matches = pattern.matcher(word)
-      val content = matches.group(1)
-      if (content.nonEmpty) {
-        count += 1
+      if (matches.matches()) {
+        val content = matches.group(1)
+        if (content.nonEmpty) {
+          count += 1
+        }
       }
       i += 1
     }
@@ -85,7 +91,7 @@ class StringRegexMatcherBenchmark {
     while (i < wordsCount) {
       val word = words(i)
       word match {
-        case regex() => res ||= true
+        case regexNoCapturingGroup() => res ||= true
         case _ => // do nothing
       }
       i += 1
