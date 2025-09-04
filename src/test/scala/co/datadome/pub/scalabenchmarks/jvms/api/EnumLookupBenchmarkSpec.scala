@@ -5,26 +5,31 @@ import org.scalatest.matchers.should.Matchers
 
 class EnumLookupBenchmarkSpec extends AnyFunSuite with Matchers {
 
-  test("Setup works") {
+  private def withBench[A](f: EnumLookupBenchmark => A): A = {
     val bench = new EnumLookupBenchmark()
     bench.setup()
-    // Call at least one method to ensure no exceptions on simple path
-    bench.enum_values()
+    f(bench)
+    // no tear-down
   }
 
-  test("Call to enum_values returns the expected value") {
-    val bench = new EnumLookupBenchmark()
-    bench.setup()
-
-    val res = bench.enum_values()
-    res shouldBe EnumLookupBenchmark.Car.Koenigsegg
+  test("setup works") {
+    withBench { bench =>
+      // Call at least one method to ensure no exceptions on simple path
+      bench.enum_values()
+    }
   }
 
-  test("Call to cached_enum_values returns the expected value") {
-    val bench = new EnumLookupBenchmark()
-    bench.setup()
+  test("enum_values returns the expected value") {
+    withBench { bench =>
+      val res = bench.enum_values()
+      res shouldBe EnumLookupBenchmark.Car.Koenigsegg
+    }
+  }
 
-    val res = bench.cached_enum_values()
-    res shouldBe EnumLookupBenchmark.Car.Koenigsegg
+  test("cached_enum_values returns the expected value") {
+    withBench { bench =>
+      val res = bench.cached_enum_values()
+      res shouldBe EnumLookupBenchmark.Car.Koenigsegg
+    }
   }
 }

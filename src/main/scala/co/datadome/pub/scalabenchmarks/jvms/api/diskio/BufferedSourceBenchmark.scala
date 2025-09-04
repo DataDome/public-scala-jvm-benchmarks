@@ -21,10 +21,10 @@ class BufferedSourceBenchmark {
   private val FileName: String = CurrentDir + "/src/main/resources/lorem_ipsum.txt";
 
   @Param(Array("2048"))
-  private var bufferSize = uninitialized
+  var bufferSize: Int = uninitialized
 
   @Param(Array("ISO-8859-1", "UTF-8"))
-  private var encoding: String = uninitialized
+  var encoding: String = uninitialized
 
   private var charBuffer: Array[Char] = uninitialized
   private var source: BufferedSource = uninitialized
@@ -54,7 +54,7 @@ class BufferedSourceBenchmark {
 
   @Benchmark
   def getLines_mkString(): String = {
-    source.getLines().mkString
+    source.getLines().mkString("\n")
   }
 
   @Benchmark
