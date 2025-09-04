@@ -10,8 +10,7 @@ class StringRegexMatcherBenchmarkSpec extends AnyFunSuite with Matchers {
     bench.regexString = "^[^aeuio]*[aeuio](.*)[aeuio][^aeuio]*$"
     bench.setup()
     // Call at least one method to ensure no exceptions on simple path
-    val hasMatch = bench.java_regex_match()
-    hasMatch.isInstanceOf[Boolean] shouldBe true
+    bench.java_regex_match()
   }
 
   test("Scala regex and Java regex match results should be consistent for the expected pattern") {

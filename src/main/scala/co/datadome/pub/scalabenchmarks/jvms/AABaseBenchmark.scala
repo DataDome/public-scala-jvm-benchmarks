@@ -3,8 +3,7 @@ package co.datadome.pub.scalabenchmarks.jvms
 import org.openjdk.jmh.annotations.*
 
 import java.util.concurrent.TimeUnit
-import scala.compiletime.uninitialized
-import scala.util.Random
+import scala.io.BufferedSource
 
 
 /** Just a model of a Scala benchmark */
@@ -15,6 +14,16 @@ import scala.util.Random
 @Fork(value = 5)
 @State(Scope.Benchmark)
 class AABaseBenchmark {
+
+  @Setup
+  def setup(): Unit = {
+
+  }
+
+  @Benchmark
+  def my_benchmark(): String = {
+    ???
+  }
 
 
 }
