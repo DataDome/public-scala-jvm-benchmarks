@@ -3,7 +3,6 @@ package co.datadome.pub.scalabenchmarks.jvms
 import org.openjdk.jmh.annotations.*
 
 import java.util.concurrent.TimeUnit
-import scala.io.BufferedSource
 
 
 /** Just a model of a Scala benchmark */

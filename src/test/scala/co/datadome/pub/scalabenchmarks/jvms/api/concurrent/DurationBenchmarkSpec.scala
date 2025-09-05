@@ -1,4 +1,4 @@
-package co.datadome.pub.scalabenchmarks.jvms.api.duration
+package co.datadome.pub.scalabenchmarks.jvms.api.concurrent
 
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers

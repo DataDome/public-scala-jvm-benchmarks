@@ -2,12 +2,8 @@ package co.datadome.pub.scalabenchmarks.jvms.api.random
 
 import org.openjdk.jmh.annotations.*
 
-import java.security.SecureRandom
-import java.util.concurrent.{ThreadLocalRandom, TimeUnit}
-import java.util.random.{RandomGenerator, RandomGeneratorFactory}
-import java.util.stream.{DoubleStream, IntStream, LongStream}
-import scala.compiletime.uninitialized
-import scala.util.Random;
+import java.util.concurrent.TimeUnit
+import scala.compiletime.uninitialized;
 
 /** Assess the basic pseudorandom generator in Java. */
 @BenchmarkMode(Array(Mode.AverageTime))

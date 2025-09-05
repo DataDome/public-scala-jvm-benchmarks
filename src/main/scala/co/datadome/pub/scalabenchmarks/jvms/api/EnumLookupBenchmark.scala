@@ -4,8 +4,7 @@ import org.openjdk.jmh.annotations.*
 
 import java.util.concurrent.TimeUnit
 import scala.compiletime.uninitialized
-import scala.util.boundary.break
-import scala.util.{Random, boundary}
+import scala.util.Random
 
 
 /** Just a model of a Scala benchmark */

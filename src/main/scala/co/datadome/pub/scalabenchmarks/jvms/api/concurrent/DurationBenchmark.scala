@@ -1,9 +1,8 @@
-package co.datadome.pub.scalabenchmarks.jvms.api.duration
+package co.datadome.pub.scalabenchmarks.jvms.api.concurrent
 
 import org.openjdk.jmh.annotations.*
 
 import java.util.concurrent.TimeUnit
-import scala.io.BufferedSource
 import scala.concurrent.duration.*
 
 
