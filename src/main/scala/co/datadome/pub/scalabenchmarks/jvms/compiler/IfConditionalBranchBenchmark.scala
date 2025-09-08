@@ -41,8 +41,11 @@ class IfConditionalBranchBenchmark {
   @Benchmark
   def no_if_branch(): Int = {
     var sum = 0
-    for (value <- array) {
+    var i = 0
+    while (i < size) {
+      val value = array(0)
       sum += value
+      i += 1
     }
     sum
   }
@@ -52,8 +55,11 @@ class IfConditionalBranchBenchmark {
   @Benchmark
   def predictable_if_branch(): Int = {
     var sum = 0
-    for (value <- array) {
+    var i = 0
+    while (i < size) {
+      val value = array(0)
       if (value < threshold) sum += value
+      i += 1
     }
     sum
   }
@@ -63,8 +69,11 @@ class IfConditionalBranchBenchmark {
   @Benchmark
   def unpredictable_if_branch(): Int = {
     var sum = 0
-    for (value <- array) {
+    var i = 0
+    while (i < size) {
+      val value = array(0)
       if (value <= (threshold / 2)) sum += value
+      i += 1
     }
     sum
   }
