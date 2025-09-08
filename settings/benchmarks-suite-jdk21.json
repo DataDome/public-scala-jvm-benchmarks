@@ -1,7 +1,7 @@
 {
     "globals": {
         "jvmOpts": "",
-        "jmhOpts": "-foe true -wi 5 -w 1 -i 5 -r 2 -f 3 -rf csv -rff ((outputFilePath)).csv",
+        "jmhOpts": "-foe true -wi 5 -w 10 -i 5 -r 10 -f 5 -rf csv -rff ((outputFilePath)).csv",
         "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
     },
     "benchmarks": [
@@ -10,6 +10,26 @@
         },
         {
             "name": "InfrastructureBaselineBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "ListBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "ListBufferBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "MutableSetBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "SetBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "VectorBenchmark",
             "lang": "scala"
         },
         {

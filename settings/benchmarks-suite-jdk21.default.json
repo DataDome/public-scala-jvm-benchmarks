@@ -13,6 +13,26 @@
             "lang": "scala"
         },
         {
+            "name": "ListBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "ListBufferBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "MutableSetBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "SetBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "VectorBenchmark",
+            "lang": "scala"
+        },
+        {
             "name": "BufferedSourceBenchmark",
             "lang": "scala"
         },

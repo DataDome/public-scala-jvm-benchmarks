@@ -1,23 +1,69 @@
 {
-  "globals": {
-    "jvmOpts": "",
-    "jmhOpts": "-foe true -wi 1 -w 1 -i 3 -r 1 -f 1 -rf csv -rff ((outputFilePath)).csv",
-    "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
-  },
-  "benchmarks": [
-    {
-      "name": "InfrastructureBaselineBenchmarkScala",
-      "lang": "scala"
+    "globals": {
+        "jvmOpts": "",
+        "jmhOpts": "-foe true -wi 1 -w 1 -i 3 -r 1 -f 1 -rf csv -rff ((outputFilePath)).csv",
+        "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
     },
-    {
-      "name": "InfrastructureBaselineBenchmark"
-    },
-    {
-      "name": "IfConditionalBranchBenchmarkScala",
-      "lang": "scala"
-    },
-    {
-      "name": "IfConditionalBranchBenchmark"
-    }
-  ]
+    "benchmarks": [
+        {
+            "name": "InfrastructureBaselineBenchmark"
+        },
+        {
+            "name": "InfrastructureBaselineBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "ListBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "ListBufferBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "MutableSetBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "SetBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "VectorBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "BufferedSourceBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "DurationBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "FutureBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "JavaRandomBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "ScalaRandomBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "StringConcatenationBenchmark",
+            "jmhOpts": "-prof gc",
+            "lang": "scala"
+        },
+        {
+            "name": "StringRegexMatcherBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "IfConditionalBranchBenchmark",
+            "lang": "scala"
+        }
+    ]
 }
