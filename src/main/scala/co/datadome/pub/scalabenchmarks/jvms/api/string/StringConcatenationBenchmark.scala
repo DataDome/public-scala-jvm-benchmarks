@@ -62,31 +62,31 @@ class StringConcatenationBenchmark {
   }
 
   @Benchmark
-  def string_builder: String = {
+  def string_builder(): String = {
     // Do not explicitly set a capacity
     (new StringBuilder).append(aString).append(anInt).append(aFloat).append(aChar).append(aLong).append(aDouble).append(aBool).append(anObject).toString
   }
 
   @Benchmark
-  def java_string_builder: String = {
+  def java_string_builder(): String = {
     // Do not explicitly set a capacity
     (new java.lang.StringBuilder).append(aString).append(anInt).append(aFloat).append(aChar).append(aLong).append(aDouble).append(aBool).append(anObject).toString
   }
 
   @Benchmark
-  def java_string_buffer: String = {
+  def java_string_buffer(): String = {
     // Do not explicitly set a capacity
     (new java.lang.StringBuffer).append(aString).append(anInt).append(aFloat).append(aChar).append(aLong).append(aDouble).append(aBool).append(anObject).toString
   }
 
   @Benchmark
-  def string_concat: String = "".concat(aString).concat(valueOf(anInt)).concat(valueOf(aFloat)).concat(valueOf(aChar)).concat(valueOf(aLong)).concat(valueOf(aDouble)).concat(valueOf(aBool)).concat(valueOf(anObject))
+  def string_concat(): String = "".concat(aString).concat(valueOf(anInt)).concat(valueOf(aFloat)).concat(valueOf(aChar)).concat(valueOf(aLong)).concat(valueOf(aDouble)).concat(valueOf(aBool)).concat(valueOf(anObject))
 
   @Benchmark
-  def plus_operator: String = aString + anInt + aFloat + aChar + aLong + aDouble + aBool + anObject
+  def plus_operator(): String = aString + anInt + aFloat + aChar + aLong + aDouble + aBool + anObject
 
   @Benchmark
-  def template: String =
+  def template(): String =
     s"$aString$anInt$aFloat$aChar$aLong$aDouble$aBool$anObject"
 
 }

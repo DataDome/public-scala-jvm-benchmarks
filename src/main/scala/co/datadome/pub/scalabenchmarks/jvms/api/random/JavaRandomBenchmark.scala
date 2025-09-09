@@ -27,42 +27,42 @@ class JavaRandomBenchmark {
   }
 
   @Benchmark
-  def next_boolean: Boolean = {
+  def next_boolean(): Boolean = {
     javaRandom.nextBoolean()
   }
 
   @Benchmark
-  def next_bytes: Array[Byte] = {
+  def next_bytes(): Array[Byte] = {
     javaRandom.nextBytes(bytes);
     bytes
   }
 
   @Benchmark
-  def next_float: Float = {
+  def next_float(): Float = {
     javaRandom.nextFloat()
   }
 
   @Benchmark
-  def next_double: Double = {
+  def next_double(): Double = {
     javaRandom.nextDouble()
   }
 
   @Benchmark
-  def next_int: Int = {
+  def next_int(): Int = {
     javaRandom.nextInt()
   }
 
   @Benchmark
-  def next_long: Long = {
+  def next_long(): Long = {
     javaRandom.nextLong()
   }
 
   @Benchmark
-  def next_gaussian: Double = {
+  def next_gaussian(): Double = {
     javaRandom.nextGaussian()
   }
 
-  // Those methods are non-existent in Scala
+  // Those methods are non-existent in Scala, so no point benchmarking them to compare
   //  @Benchmark
   //  def next_exponential: Double = {
   //    javaRandom.nextExponential()

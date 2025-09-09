@@ -28,43 +28,43 @@ class ScalaRandomBenchmark {
   }
 
   @Benchmark
-  def next_boolean: Boolean = {
+  def next_boolean(): Boolean = {
     random.nextBoolean()
   }
 
   @Benchmark
-  def next_bytes: Array[Byte] = {
+  def next_bytes(): Array[Byte] = {
     random.nextBytes(bytes);
     bytes
   }
 
   @Benchmark
-  def next_float: Float = {
+  def next_float(): Float = {
     random.nextFloat()
   }
 
   @Benchmark
-  def next_double: Double = {
+  def next_double(): Double = {
     random.nextDouble()
   }
 
   @Benchmark
-  def next_int: Int = {
+  def next_int(): Int = {
     random.nextInt()
   }
 
   @Benchmark
-  def next_long: Long = {
+  def next_long(): Long = {
     random.nextLong()
   }
 
   @Benchmark
-  def next_gaussian: Double = {
+  def next_gaussian(): Double = {
     random.nextGaussian()
   }
 
   @Benchmark
-  def next_string: String = {
+  def next_string(): String = {
     random.nextString(size)
   }
 
