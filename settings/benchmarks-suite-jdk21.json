@@ -62,6 +62,18 @@
             "lang": "scala"
         },
         {
+            "name": "ArithmeticCanonicalizationBenchmark",
+            "lang": "java"
+        },
+        {
+            "name": "ArithmeticCanonicalizationBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "IfConditionalBranchBenchmark",
+            "lang": "java"
+        },
+        {
             "name": "IfConditionalBranchBenchmark",
             "lang": "scala"
         }
