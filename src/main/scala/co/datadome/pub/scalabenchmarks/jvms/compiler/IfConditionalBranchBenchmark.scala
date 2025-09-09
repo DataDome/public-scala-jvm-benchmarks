@@ -43,7 +43,7 @@ class IfConditionalBranchBenchmark {
     var sum = 0
     var i = 0
     while (i < size) {
-      val value = array(0)
+      val value = array(i)
       sum += value
       i += 1
     }
@@ -57,7 +57,7 @@ class IfConditionalBranchBenchmark {
     var sum = 0
     var i = 0
     while (i < size) {
-      val value = array(0)
+      val value = array(i)
       if (value < threshold) sum += value
       i += 1
     }
@@ -71,7 +71,7 @@ class IfConditionalBranchBenchmark {
     var sum = 0
     var i = 0
     while (i < size) {
-      val value = array(0)
+      val value = array(i)
       if (value <= (threshold / 2)) sum += value
       i += 1
     }
