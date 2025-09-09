@@ -19,7 +19,6 @@ class FutureBenchmark {
 
   val Timeout: FiniteDuration = 10.seconds
 
-
   @Param(Array("1000", "10000"))
   var computationSize: Int = uninitialized
 

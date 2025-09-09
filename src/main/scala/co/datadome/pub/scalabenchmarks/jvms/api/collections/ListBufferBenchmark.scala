@@ -23,7 +23,7 @@ class ListBufferBenchmark {
   private val random: Random = new Random(16384)
 
   @Param(Array("100", "1000"))
-  private var size: Int = uninitialized
+  var size: Int = uninitialized
 
   private var buffer: mutable.ListBuffer[Int] = uninitialized
 

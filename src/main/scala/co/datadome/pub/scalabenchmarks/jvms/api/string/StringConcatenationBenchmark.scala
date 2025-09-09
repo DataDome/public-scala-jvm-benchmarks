@@ -43,11 +43,14 @@ class StringConcatenationBenchmark {
   private var aBool: Boolean = uninitialized
   private var anObject: AnyRef = uninitialized
 
-  @Param(Array("128")) private var length: Int = uninitialized
+  @Param(Array("128"))
+  var length: Int = uninitialized
 
-  @Param private var coder: StringUtils.Coder = uninitialized
+  @Param
+  var coder: StringUtils.Coder = uninitialized
 
-  @Setup def setup(): Unit = {
+  @Setup
+  def setup(): Unit = {
     aString = new String(StringUtils.generateCharArray(length, coder))
     anInt = random.nextInt
     aFloat = random.nextFloat
@@ -58,26 +61,32 @@ class StringConcatenationBenchmark {
     anObject = random.nextBytes(1)
   }
 
-  @Benchmark def string_builder: String = {
+  @Benchmark
+  def string_builder: String = {
     // Do not explicitly set a capacity
     (new StringBuilder).append(aString).append(anInt).append(aFloat).append(aChar).append(aLong).append(aDouble).append(aBool).append(anObject).toString
   }
 
-  @Benchmark def java_string_builder: String = {
+  @Benchmark
+  def java_string_builder: String = {
     // Do not explicitly set a capacity
     (new java.lang.StringBuilder).append(aString).append(anInt).append(aFloat).append(aChar).append(aLong).append(aDouble).append(aBool).append(anObject).toString
   }
 
-  @Benchmark def java_string_buffer: String = {
+  @Benchmark
+  def java_string_buffer: String = {
     // Do not explicitly set a capacity
     (new java.lang.StringBuffer).append(aString).append(anInt).append(aFloat).append(aChar).append(aLong).append(aDouble).append(aBool).append(anObject).toString
   }
 
-  @Benchmark def string_concat: String = "".concat(aString).concat(valueOf(anInt)).concat(valueOf(aFloat)).concat(valueOf(aChar)).concat(valueOf(aLong)).concat(valueOf(aDouble)).concat(valueOf(aBool)).concat(valueOf(anObject))
+  @Benchmark
+  def string_concat: String = "".concat(aString).concat(valueOf(anInt)).concat(valueOf(aFloat)).concat(valueOf(aChar)).concat(valueOf(aLong)).concat(valueOf(aDouble)).concat(valueOf(aBool)).concat(valueOf(anObject))
 
-  @Benchmark def plus_operator: String = aString + anInt + aFloat + aChar + aLong + aDouble + aBool + anObject
+  @Benchmark
+  def plus_operator: String = aString + anInt + aFloat + aChar + aLong + aDouble + aBool + anObject
 
-  @Benchmark def template: String =
+  @Benchmark
+  def template: String =
     s"$aString$anInt$aFloat$aChar$aLong$aDouble$aBool$anObject"
 
 }

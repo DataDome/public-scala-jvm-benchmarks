@@ -23,7 +23,7 @@ class SetBenchmark {
   private val AlmostMaxValue = 90
 
   @Param(Array("100", "1000"))
-  private var size: Int = uninitialized
+  var size: Int = uninitialized
 
   private var set: Set[Int] = uninitialized
 

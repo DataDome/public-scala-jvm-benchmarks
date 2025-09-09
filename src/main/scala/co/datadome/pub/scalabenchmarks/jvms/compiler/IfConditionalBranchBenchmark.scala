@@ -27,7 +27,7 @@ class IfConditionalBranchBenchmark {
   private var array: Array[Int] = uninitialized
 
   @Param(Array("16384"))
-  private var size: Int = uninitialized
+  var size: Int = uninitialized
 
   @Setup
   def setup(): Unit = {

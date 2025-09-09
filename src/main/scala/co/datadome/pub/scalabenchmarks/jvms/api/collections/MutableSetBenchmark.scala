@@ -24,7 +24,7 @@ class MutableSetBenchmark {
   private val AlmostMaxValue = 90
 
   @Param(Array("100", "1000"))
-  private var size: Int = uninitialized
+  var size: Int = uninitialized
 
   private var set: mutable.Set[Int] = uninitialized
 
