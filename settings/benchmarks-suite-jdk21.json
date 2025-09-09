@@ -62,6 +62,14 @@
             "lang": "scala"
         },
         {
+            "name": "EnumLookupBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "LoopOptimizationBenchmark",
+            "lang": "scala"
+        },
+        {
             "name": "ArithmeticCanonicalizationBenchmark",
             "lang": "java"
         },
