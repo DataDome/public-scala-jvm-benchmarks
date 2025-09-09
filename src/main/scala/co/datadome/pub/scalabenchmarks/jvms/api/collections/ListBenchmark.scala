@@ -23,7 +23,7 @@ class ListBenchmark {
   @Param(Array("100", "1000"))
   var size: Int = uninitialized
 
-  private var list: List[Int] = Nil
+  private var list: List[Int] = uninitialized
 
   @Setup
   def setup(): Unit = {

@@ -104,7 +104,7 @@ class VectorBenchmark {
     var i = 0
     var sum = 0
     while (i < size) {
-      sum += vector(3 * i % size)
+      sum += vector(7 * i % size) // use a prime number
       i += 1
     }
     sum

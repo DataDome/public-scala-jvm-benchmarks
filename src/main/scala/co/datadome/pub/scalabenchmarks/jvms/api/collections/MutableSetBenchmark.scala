@@ -78,7 +78,7 @@ class MutableSetBenchmark {
 
   @Benchmark
   def map(): mutable.Set[Int] = {
-    set.map(_ * 2)
+    set.map(_ / 2) // integer division to enforce some set reduction
   }
 
   @Benchmark

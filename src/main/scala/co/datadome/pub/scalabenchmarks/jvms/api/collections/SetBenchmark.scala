@@ -77,7 +77,7 @@ class SetBenchmark {
 
   @Benchmark
   def map(): Set[Int] = {
-    set.map(_ * 2)
+    set.map(_ / 2) // integer division to enforce some set reduction
   }
 
   @Benchmark
