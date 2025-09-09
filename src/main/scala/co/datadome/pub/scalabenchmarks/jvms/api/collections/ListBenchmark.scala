@@ -79,6 +79,11 @@ class ListBenchmark {
   }
 
   @Benchmark
+  def foldLeft() = {
+    list.foldLeft(0)(_ + _)
+  }
+
+  @Benchmark
   def map(): List[Int] = {
     list.map(_ * 2)
   }

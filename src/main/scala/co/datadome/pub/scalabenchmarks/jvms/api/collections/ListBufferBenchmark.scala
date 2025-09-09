@@ -91,6 +91,11 @@ class ListBufferBenchmark {
   }
 
   @Benchmark
+  def foldLeft() = {
+    buffer.foldLeft(0)(_ + _)
+  }
+
+  @Benchmark
   def map(): mutable.ListBuffer[Int] = {
     buffer.map(_ * 2)
   }

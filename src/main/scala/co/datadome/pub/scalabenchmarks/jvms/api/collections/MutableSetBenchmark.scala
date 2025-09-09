@@ -77,6 +77,11 @@ class MutableSetBenchmark {
   }
 
   @Benchmark
+  def foldLeft() = {
+    set.foldLeft(0)(_ + _)
+  }
+
+  @Benchmark
   def map(): mutable.Set[Int] = {
     set.map(_ / 2) // integer division to enforce some set reduction
   }

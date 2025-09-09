@@ -79,6 +79,11 @@ class VectorBenchmark {
   }
 
   @Benchmark
+  def foldLeft() = {
+    vector.foldLeft(0)(_ + _)
+  }
+
+  @Benchmark
   def map(): Vector[Int] = {
     vector.map(_ * 2)
   }
