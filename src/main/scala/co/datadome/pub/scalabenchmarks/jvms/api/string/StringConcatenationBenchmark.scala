@@ -32,6 +32,8 @@ class StringConcatenationBenchmark {
   // Recommended command line options:
   // - JMH options: -prof gc
 
+  // TODO Make the benchmark deterministic: StringUtils should take a random instead of using its internal one
+
   final private val random = new Random(16384)
 
   private var aString: String = null
@@ -54,7 +56,7 @@ class StringConcatenationBenchmark {
     aString = new String(StringUtils.generateCharArray(length, coder))
     anInt = random.nextInt
     aFloat = random.nextFloat
-    aChar = generateCharArray(1, coder)(0)
+    aChar = random.nextPrintableChar()
     aLong = random.nextLong
     aDouble = random.nextDouble
     aBool = random.nextBoolean
