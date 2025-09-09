@@ -1,32 +1,30 @@
 package co.datadome.pub.scalabenchmarks.jvms.api
 
-import org.scalatest.funsuite.AnyFunSuite
-import org.scalatest.matchers.should.Matchers
+import co.datadome.pub.scalabenchmarks.jvms.TestSuite
 
-class EnumLookupBenchmarkSpec extends AnyFunSuite with Matchers {
+class EnumLookupBenchmarkSpec extends TestSuite {
 
   private def withBench[A](f: EnumLookupBenchmark => A): A = {
     val bench = new EnumLookupBenchmark()
     bench.setup()
     f(bench)
-    // no tear-down
   }
 
-  test("setup works") {
+  "setup" in {
     withBench { bench =>
       // Call at least one method to ensure no exceptions on simple path
       bench.enum_values()
     }
   }
 
-  test("enum_values returns the expected value") {
+  "enum_values" in {
     withBench { bench =>
       val res = bench.enum_values()
       res shouldBe EnumLookupBenchmark.Car.Koenigsegg
     }
   }
 
-  test("cached_enum_values returns the expected value") {
+  "cached_enum_values" in {
     withBench { bench =>
       val res = bench.cached_enum_values()
       res shouldBe EnumLookupBenchmark.Car.Koenigsegg

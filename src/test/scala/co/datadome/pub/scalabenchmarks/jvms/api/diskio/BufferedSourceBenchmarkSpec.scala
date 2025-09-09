@@ -1,9 +1,8 @@
 package co.datadome.pub.scalabenchmarks.jvms.api.diskio
 
-import org.scalatest.funsuite.AnyFunSuite
-import org.scalatest.matchers.should.Matchers
+import co.datadome.pub.scalabenchmarks.jvms.TestSuite
 
-class BufferedSourceBenchmarkSpec extends AnyFunSuite with Matchers {
+class BufferedSourceBenchmarkSpec extends TestSuite {
 
   private def withBench[A](bufferSize: Int = 2048, encoding: String = "UTF-8")(f: BufferedSourceBenchmark => A): A = {
     val bench = new BufferedSourceBenchmark()
@@ -14,14 +13,14 @@ class BufferedSourceBenchmarkSpec extends AnyFunSuite with Matchers {
     try f(bench) finally bench.tearDown()
   }
 
-  test("setup works") {
+  "setup" in {
     withBench() { bench =>
       // Call at least one method to ensure no exceptions on simple path
       bench.mkString()
     }
   }
 
-  test("mkString returns the expected result") {
+  "mkString" in {
     withBench() { bench =>
       val text = bench.mkString()
       text should startWith("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
@@ -29,7 +28,7 @@ class BufferedSourceBenchmarkSpec extends AnyFunSuite with Matchers {
     }
   }
 
-  test("getLines_mkString returns the expected result") {
+  "getLines_mkString" in {
     withBench() { bench =>
       val text = bench.getLines_mkString()
       text should startWith("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
@@ -37,7 +36,7 @@ class BufferedSourceBenchmarkSpec extends AnyFunSuite with Matchers {
     }
   }
 
-  test("reader_readBuffer returns the expected result") {
+  "reader_readBuffer" in {
     withBench() { bench =>
       val buffer = bench.reader_readBuffer()
       buffer.mkString should startWith("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
@@ -45,7 +44,7 @@ class BufferedSourceBenchmarkSpec extends AnyFunSuite with Matchers {
     }
   }
 
-  test("bufferedReader_readLine_once returns the expected result") {
+  "bufferedReader_readLine_once" in {
     withBench() { bench =>
       val line = bench.bufferedReader_readLine_once()
       line should startWith("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
