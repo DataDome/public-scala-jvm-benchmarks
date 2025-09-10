@@ -35,6 +35,7 @@ class MutableSetBenchmark {
 
   @Benchmark
   def add(): mutable.Set[Int] = {
+    set.clear()
     var i = 0
     while (i < size) {
       set += i

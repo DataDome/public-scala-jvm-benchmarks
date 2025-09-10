@@ -34,6 +34,7 @@ class SetBenchmark {
 
   @Benchmark
   def add(): Set[Int] = {
+    set = Set.empty
     var i = 0
     while (i < size) {
       set = set + i

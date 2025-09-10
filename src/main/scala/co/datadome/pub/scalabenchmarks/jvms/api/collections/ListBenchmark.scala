@@ -32,6 +32,7 @@ class ListBenchmark {
 
   @Benchmark
   def prepend(): List[Int] = {
+    list = Nil
     var i = 0
     while (i < size) {
       list = i :: list

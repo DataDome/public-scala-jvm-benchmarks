@@ -34,6 +34,7 @@ class ListBufferBenchmark {
 
   @Benchmark
   def prepend(): mutable.ListBuffer[Int] = {
+    buffer.clear()
     var i = 0
     while (i < size) {
       buffer.prepend(i)
