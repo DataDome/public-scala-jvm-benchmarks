@@ -1,4 +1,4 @@
-package co.datadome.pub.scalabenchmarks.jvms.libs
+package co.datadome.pub.scalabenchmarks.jvms.libs.catseffect
 
 import cats.effect.IO
 import cats.effect.unsafe.implicits.global
@@ -21,14 +21,16 @@ class CatsEffectBenchmark {
 
   }
 
-  @Benchmark
-  def hello_world(): Unit = {
-    IO.println("Hello, World!")
-      .unsafeRunAsync {
-        case Left(error) => throw error
-        case Right(_) => // do nothing
-      }
+  private def run[A](ea: IO[A]): A = {
+    ea.unsafeRunSync()
   }
+
+  @Benchmark
+  def hello_world(): Unit = run {
+    IO.println("Hello, World!")
+  }
+
+
 
   // TODO to be continued
 

@@ -1,4 +1,4 @@
-package co.datadome.pub.scalabenchmarks.jvms.libs
+package co.datadome.pub.scalabenchmarks.jvms.libs.zio
 
 import org.openjdk.jmh.annotations.*
 import zio.{Scope as _, *}
@@ -21,16 +21,26 @@ class ZioBenchmark {
 
   }
 
-  @Benchmark
-  def hello_world(): Unit = {
-    val z: IO[IOException, Unit] = Console.printLine("Hello, World!")
+  private def run[A](za: ZIO[Any, Throwable, A]): A = {
     Unsafe.unsafe { implicit unsafe =>
-      Runtime.default.unsafe.run(z) match {
+      Runtime.default.unsafe.run(za) match {
         case Exit.Failure(cause) => throw cause.squash
-        case Exit.Success(_) => // do nothing
+        case Exit.Success(a) => a
       }
     }
   }
+
+  @Benchmark
+  def hello_world(): Unit = run {
+    Console.printLine("Hello, World!")
+  }
+
+  @Benchmark
+  def factorial(): BigInt = run {
+    ParallelFactorial.factorial(1000)
+  }
+
+
 
   // TODO to be continued
 }

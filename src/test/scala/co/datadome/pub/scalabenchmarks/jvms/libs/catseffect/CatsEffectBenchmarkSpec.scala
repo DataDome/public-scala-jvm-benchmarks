@@ -1,4 +1,4 @@
-package co.datadome.pub.scalabenchmarks.jvms.libs
+package co.datadome.pub.scalabenchmarks.jvms.libs.catseffect
 
 import co.datadome.pub.scalabenchmarks.jvms.TestSuite
 
