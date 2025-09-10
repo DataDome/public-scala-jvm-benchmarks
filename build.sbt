@@ -4,7 +4,8 @@ description := "Benchmarks for Scala code on various JVMs"
 
 version := "0.0.0"
 
-scalaVersion := "3.7.2"
+// scalaVersion := "3.3.6" // latest LTS version
+scalaVersion := "3.7.3" // latest version
 
 javacOptions ++= Seq(
   "-source", "21", "-target", "21",
