@@ -84,6 +84,14 @@
         {
             "name": "IfConditionalBranchBenchmark",
             "lang": "scala"
+        },
+        {
+            "name": "CatsEffectBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "ZioBenchmark",
+            "lang": "scala"
         }
     ]
 }
