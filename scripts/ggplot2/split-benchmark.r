@@ -27,9 +27,38 @@ splitAndProcessBenchmark <- function(benchmark_file, param_name, column_values) 
   }
 }
 
+# API benchmarks #######################################################################################################
+
+splitAndProcessBenchmark("LoopOptimizationBenchmark.scala.csv", "size", list("100"))
+splitAndProcessBenchmark("LoopOptimizationBenchmark.scala.csv", "size", list("1000"))
+
+# Collections benchmarks
+splitAndProcessBenchmark("ListBenchmark.scala.csv", "size", list("100"))
+splitAndProcessBenchmark("ListBenchmark.scala.csv", "size", list("1000"))
+splitAndProcessBenchmark("ListBufferBenchmark.scala.csv", "size", list("100"))
+splitAndProcessBenchmark("ListBufferBenchmark.scala.csv", "size", list("1000"))
+splitAndProcessBenchmark("MutableSetBenchmark.scala.csv", "size", list("100"))
+splitAndProcessBenchmark("MutableSetBenchmark.scala.csv", "size", list("1000"))
+splitAndProcessBenchmark("SetBenchmark.scala.csv", "size", list("100"))
+splitAndProcessBenchmark("SetBenchmark.scala.csv", "size", list("1000"))
+splitAndProcessBenchmark("VectorBenchmark.scala.csv", "size", list("100"))
+splitAndProcessBenchmark("VectorBenchmark.scala.csv", "size", list("1000"))
+
+# Random benchmarks
+splitAndProcessBenchmark("JavaRandomBenchmark.scala.csv", "size", list("16"))
+splitAndProcessBenchmark("JavaRandomBenchmark.scala.csv", "size", list("256"))
+splitAndProcessBenchmark("ScalaRandomBenchmark.scala.csv", "size", list("16"))
+splitAndProcessBenchmark("ScalaRandomBenchmark.scala.csv", "size", list("256"))
+
+
+# Misc benchmarks ######################################################################################################
+
 # Split and process FactorialBenchmark
-splitAndProcessBenchmark("FactorialBenchmark.csv", "n", list("1000"))
-splitAndProcessBenchmark("FactorialBenchmark.csv", "n", list("5000"))
+splitAndProcessBenchmark("FactorialBenchmark.scala.csv", "n", list("1000"))
+splitAndProcessBenchmark("FactorialBenchmark.scala.csv", "n", list("5000"))
+
+
+# Old benchmarks #######################################################################################################
 
 # Split and process FibonacciBenchmark
 splitAndProcessBenchmark("FibonacciBenchmark.csv", "n", list("500"))
@@ -39,35 +68,11 @@ splitAndProcessBenchmark("FibonacciBenchmark.csv", "n", list("3000"))
 splitAndProcessBenchmark("NpeControlFlowBenchmark.csv", "nullThreshold", list("0"))
 splitAndProcessBenchmark("NpeControlFlowBenchmark.csv", "nullThreshold", list("16"))
 
-# Split and process SortVectorApiBenchmark
-splitAndProcessBenchmark("SortVectorApiBenchmark.csv", "arraySize", list("64"))
-splitAndProcessBenchmark("SortVectorApiBenchmark.csv", "arraySize", list("1024"))
-splitAndProcessBenchmark("SortVectorApiBenchmark.csv", "arraySize", list("65536"))
-
-# Split and process VectorApiBenchmark
-splitAndProcessBenchmark("VectorApiBenchmark.csv", "size", list("262144"))
-splitAndProcessBenchmark("VectorApiBenchmark.csv", "size", list("1048576"))
-
 # Split and process StackTraceBenchmark
 splitAndProcessBenchmark("StackTraceBenchmark.csv", "stackDepth", list("1"))
 splitAndProcessBenchmark("StackTraceBenchmark.csv", "stackDepth", list("10"))
 splitAndProcessBenchmark("StackTraceBenchmark.csv", "stackDepth", list("100"))
 splitAndProcessBenchmark("StackTraceBenchmark.csv", "stackDepth", list("1000"))
-
-# Split and process RandomGeneratorBenchmark
-splitAndProcessBenchmark("RandomGeneratorBenchmark.csv", "generatorName", list("L128X1024MixRandom"))
-splitAndProcessBenchmark("RandomGeneratorBenchmark.csv", "generatorName", list("L128X128MixRandom"))
-splitAndProcessBenchmark("RandomGeneratorBenchmark.csv", "generatorName", list("L128X256MixRandom"))
-splitAndProcessBenchmark("RandomGeneratorBenchmark.csv", "generatorName", list("L32X64MixRandom"))
-splitAndProcessBenchmark("RandomGeneratorBenchmark.csv", "generatorName", list("L64X1024MixRandom"))
-splitAndProcessBenchmark("RandomGeneratorBenchmark.csv", "generatorName", list("L64X128MixRandom"))
-splitAndProcessBenchmark("RandomGeneratorBenchmark.csv", "generatorName", list("L64X128StarStarRandom"))
-splitAndProcessBenchmark("RandomGeneratorBenchmark.csv", "generatorName", list("L64X256MixRandom"))
-splitAndProcessBenchmark("RandomGeneratorBenchmark.csv", "generatorName", list("Random"))
-splitAndProcessBenchmark("RandomGeneratorBenchmark.csv", "generatorName", list("SecureRandom"))
-splitAndProcessBenchmark("RandomGeneratorBenchmark.csv", "generatorName", list("SplittableRandom"))
-splitAndProcessBenchmark("RandomGeneratorBenchmark.csv", "generatorName", list("Xoroshiro128PlusPlus"))
-splitAndProcessBenchmark("RandomGeneratorBenchmark.csv", "generatorName", list("Xoshiro256PlusPlus"))
 
 # Split and process VPThreadSynchronizationBenchmark
 splitAndProcessBenchmark("VPThreadSynchronizationBenchmark.csv", "backoffType", list("NONE"))

@@ -14,7 +14,7 @@ import scala.compiletime.uninitialized;
 @State(Scope.Benchmark)
 class JavaRandomBenchmark {
 
-  @Param(Array("128"))
+  @Param(Array("16", "256"))
   var size: Int = uninitialized
 
   private var javaRandom: java.util.Random = uninitialized
