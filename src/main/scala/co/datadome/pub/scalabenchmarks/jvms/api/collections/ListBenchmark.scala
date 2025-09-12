@@ -32,13 +32,13 @@ class ListBenchmark {
 
   @Benchmark
   def prepend(): List[Int] = {
-    list = Nil
+    var list2: List[Int] = Nil
     var i = 0
     while (i < size) {
-      list = i :: list
+      list2 = i :: list2
       i += 1
     }
-    list
+    list2
   }
 
   @Benchmark

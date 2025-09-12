@@ -34,13 +34,13 @@ class SetBenchmark {
 
   @Benchmark
   def add(): Set[Int] = {
-    set = Set.empty
+    var set2 = Set.empty[Int]
     var i = 0
     while (i < size) {
-      set = set + i
+      set2 = set2 + i
       i += 1
     }
-    set
+    set2
   }
 
   @Benchmark

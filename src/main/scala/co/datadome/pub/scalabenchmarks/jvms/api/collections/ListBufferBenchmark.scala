@@ -34,23 +34,24 @@ class ListBufferBenchmark {
 
   @Benchmark
   def prepend(): mutable.ListBuffer[Int] = {
-    buffer.clear()
+    val buffer2 = mutable.ListBuffer[Int]()
     var i = 0
     while (i < size) {
-      buffer.prepend(i)
+      buffer2.prepend(i)
       i += 1
     }
-    buffer
+    buffer2
   }
 
   @Benchmark
   def append(): mutable.ListBuffer[Int] = {
+    val buffer2 = mutable.ListBuffer[Int]()
     var i = 0
     while (i < size) {
-      buffer.append(i)
+      buffer2.append(i)
       i += 1
     }
-    buffer
+    buffer2
   }
 
   @Benchmark

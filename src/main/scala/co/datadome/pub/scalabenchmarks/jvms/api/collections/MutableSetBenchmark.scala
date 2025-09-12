@@ -35,13 +35,13 @@ class MutableSetBenchmark {
 
   @Benchmark
   def add(): mutable.Set[Int] = {
-    set.clear()
+    val set2 = mutable.Set[Int]()
     var i = 0
     while (i < size) {
-      set += i
+      set2 += i
       i += 1
     }
-    set
+    set2
   }
 
   @Benchmark

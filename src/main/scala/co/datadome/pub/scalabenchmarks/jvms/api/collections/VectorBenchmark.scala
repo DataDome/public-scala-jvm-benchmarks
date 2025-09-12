@@ -32,13 +32,13 @@ class VectorBenchmark {
 
   @Benchmark
   def append(): Vector[Int] = {
-    vector = Vector.empty
+    var vector2 = Vector.empty[Int]
     var i = 0
     while (i < size) {
-      vector = vector :+ i
+      vector2 = vector2 :+ i
       i += 1
     }
-    vector
+    vector2
   }
 
   @Benchmark
