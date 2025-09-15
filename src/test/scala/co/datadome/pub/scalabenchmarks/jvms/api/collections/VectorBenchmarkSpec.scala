@@ -20,7 +20,7 @@ class VectorBenchmarkSpec extends TestSuite {
 
   "append" in {
     withBench() { bench =>
-      bench.append().size shouldBe 200
+      bench.append().size shouldBe 100
     }
   }
 

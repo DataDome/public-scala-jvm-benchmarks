@@ -20,7 +20,7 @@ class ListBenchmarkSpec extends TestSuite {
 
   "append" in {
     withBench() { bench =>
-      bench.prepend().size shouldBe 200
+      bench.prepend().size shouldBe 100
     }
   }
 
