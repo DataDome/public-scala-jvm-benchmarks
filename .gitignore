@@ -43,6 +43,8 @@ project/**/metals.sbt
 ### Misc ###
 *.log
 logs
+nohup.out
+benchmarks.log
 
 # MacOS
 .DS_store
