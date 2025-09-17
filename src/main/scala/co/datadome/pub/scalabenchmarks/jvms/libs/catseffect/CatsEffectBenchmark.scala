@@ -30,6 +30,11 @@ class CatsEffectBenchmark {
     IO.println("Hello, World!")
   }
 
+  @Benchmark
+  def factorial(): BigInt = run {
+    ParallelFactorial.factorial(1000)
+  }
+
 
 
   // TODO to be continued
