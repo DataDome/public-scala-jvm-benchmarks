@@ -56,6 +56,10 @@ run_benchmark() {
   if [ "$DRY_RUN" != "--dry-run" ]; then
     eval "$CMD"
   fi
+
+  echo ""
+  echo "Finished $TEST_NAME benchmark ($(date))"
+  date
 }
 
 run_benchmark_suite() {
