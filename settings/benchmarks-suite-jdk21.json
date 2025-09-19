@@ -130,6 +130,10 @@
         {
             "name": "PalindromeBenchmark",
             "lang": "scala"
+        },
+        {
+            "name": "PopulationVarianceBenchmark",
+            "lang": "scala"
         }
     ]
 }
