@@ -12,6 +12,8 @@
             "name": "InfrastructureBaselineBenchmark",
             "lang": "scala"
         },
+
+
         {
             "name": "ListBenchmark",
             "lang": "scala"
@@ -32,10 +34,7 @@
             "name": "VectorBenchmark",
             "lang": "scala"
         },
-        {
-            "name": "BufferedSourceBenchmark",
-            "lang": "scala"
-        },
+
         {
             "name": "DurationBenchmark",
             "lang": "scala"
@@ -44,6 +43,12 @@
             "name": "FutureBenchmark",
             "lang": "scala"
         },
+
+        {
+            "name": "BufferedSourceBenchmark",
+            "lang": "scala"
+        },
+
         {
             "name": "JavaRandomBenchmark",
             "lang": "scala"
@@ -52,6 +57,7 @@
             "name": "ScalaRandomBenchmark",
             "lang": "scala"
         },
+
         {
             "name": "StringConcatenationBenchmark",
             "jmhOpts": "-prof gc",
@@ -61,14 +67,18 @@
             "name": "StringRegexMatcherBenchmark",
             "lang": "scala"
         },
+
         {
             "name": "EnumLookupBenchmark",
             "lang": "scala"
         },
+
         {
             "name": "LoopOptimizationBenchmark",
             "lang": "scala"
         },
+
+
         {
             "name": "ArithmeticCanonicalizationBenchmark",
             "lang": "java"
@@ -85,6 +95,8 @@
             "name": "IfConditionalBranchBenchmark",
             "lang": "scala"
         },
+
+
         {
             "name": "CatsEffectBenchmark",
             "lang": "scala"
@@ -93,8 +105,22 @@
             "name": "ZioBenchmark",
             "lang": "scala"
         },
+
+
         {
             "name": "FactorialBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "GameOfLifeBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "NQueensBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "PalindromeBenchmark",
             "lang": "scala"
         }
     ]
