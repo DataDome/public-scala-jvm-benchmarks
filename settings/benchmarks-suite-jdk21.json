@@ -120,6 +120,10 @@
             "lang": "scala"
         },
         {
+            "name": "KnapsackBenchmark",
+            "lang": "scala"
+        },
+        {
             "name": "NQueensBenchmark",
             "lang": "scala"
         },

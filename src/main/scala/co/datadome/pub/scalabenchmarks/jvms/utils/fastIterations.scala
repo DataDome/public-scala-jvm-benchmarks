@@ -34,6 +34,15 @@ extension [A](inline as: Array[A]) {
       ix += 1
     }
   }
+
+  inline def fastReverseForeach(inline f: A => Unit): Unit = {
+    val asl = as.length
+    var ix = asl - 1
+    while (ix >= 0) {
+      f(as(ix))
+      ix -= 1
+    }
+  }
 }
 
 
