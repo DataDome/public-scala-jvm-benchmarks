@@ -102,7 +102,11 @@
             "lang": "scala"
         },
         {
-            "name": "ZioBenchmark",
+            "name": "ZioBasicBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "ZioPopVarianceBenchmark",
             "lang": "scala"
         },
 

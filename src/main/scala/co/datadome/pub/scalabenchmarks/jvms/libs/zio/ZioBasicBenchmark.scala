@@ -3,44 +3,28 @@ package co.datadome.pub.scalabenchmarks.jvms.libs.zio
 import org.openjdk.jmh.annotations.*
 import zio.{Scope as _, *}
 
-import java.io.IOException
 import java.util.concurrent.TimeUnit
 
 
-/** Just a model of a Scala benchmark */
+/** Simple benchmarks on ZIO (requiring no parameters) */
 @BenchmarkMode(Array(Mode.AverageTime))
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @Warmup(iterations = 5, time = 10, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 5, time = 10, timeUnit = TimeUnit.SECONDS)
 @Fork(value = 5)
 @State(Scope.Benchmark)
-class ZioBenchmark {
+class ZioBasicBenchmark {
 
   @Setup
-  def setup(): Unit = {
-
-  }
-
-  private def run[A](za: ZIO[Any, Throwable, A]): A = {
-    Unsafe.unsafe { implicit unsafe =>
-      Runtime.default.unsafe.run(za) match {
-        case Exit.Failure(cause) => throw cause.squash
-        case Exit.Success(a) => a
-      }
-    }
-  }
+  def setup(): Unit = ()
 
   @Benchmark
-  def hello_world(): Unit = run {
+  def hello_world(): Unit = ZioUtil.run {
     Console.printLine("Hello, World!")
   }
 
   @Benchmark
-  def factorial(): BigInt = run {
+  def factorial(): BigInt = ZioUtil.run {
     ParallelFactorial.factorial(1000)
   }
-
-
-
-  // TODO to be continued
 }

@@ -1,12 +1,11 @@
 package co.datadome.pub.scalabenchmarks.jvms.libs.zio
 
 import co.datadome.pub.scalabenchmarks.jvms.TestSuite
-import zio.ZIO
 
-class ZioBenchmarkSpec extends TestSuite {
+class ZioBasicBenchmarkSpec extends TestSuite {
 
-  private def withBench[A](f: ZioBenchmark => A): A = {
-    val bench = new ZioBenchmark()
+  private def withBench[A](f: ZioBasicBenchmark => A): A = {
+    val bench = new ZioBasicBenchmark()
     bench.setup()
     f(bench)
   }
@@ -32,6 +31,5 @@ class ZioBenchmarkSpec extends TestSuite {
       bench.factorial() shouldBe Factorial1000
     }
   }
-
 
 }
