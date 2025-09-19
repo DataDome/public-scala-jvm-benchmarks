@@ -5,6 +5,7 @@ import org.openjdk.jmh.annotations.*
 import java.util.concurrent.TimeUnit
 import scala.compiletime.uninitialized
 import scala.util.Random
+import co.datadome.pub.scalabenchmarks.jvms.utils.*
 
 
 /** Just a model of a Scala benchmark */
@@ -64,6 +65,24 @@ class LoopOptimizationBenchmark {
   def for_array(): Int = {
     var sum = 0
     for (n <- array) {
+      sum += n
+    }
+    sum
+  }
+
+  @Benchmark
+  def macro_fastForeach_array(): Int = {
+    var sum = 0
+    array.fastForeach { n =>
+      sum += n
+    }
+    sum
+  }
+
+  @Benchmark
+  def macro_fastLoop(): Int = {
+    var sum = 0
+    fastLoop(0, size) { n =>
       sum += n
     }
     sum
