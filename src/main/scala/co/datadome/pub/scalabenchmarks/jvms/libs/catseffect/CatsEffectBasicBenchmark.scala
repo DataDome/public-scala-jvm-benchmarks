@@ -1,37 +1,30 @@
 package co.datadome.pub.scalabenchmarks.jvms.libs.catseffect
 
 import cats.effect.IO
-import cats.effect.unsafe.implicits.global
 import org.openjdk.jmh.annotations.*
 
 import java.util.concurrent.TimeUnit
 
 
-/** Just a model of a Scala benchmark */
+/** Simple benchmarks on Cats-Effect (requiring no parameters) */
 @BenchmarkMode(Array(Mode.AverageTime))
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @Warmup(iterations = 5, time = 10, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 5, time = 10, timeUnit = TimeUnit.SECONDS)
 @Fork(value = 5)
 @State(Scope.Benchmark)
-class CatsEffectBenchmark {
+class CatsEffectBasicBenchmark {
 
   @Setup
-  def setup(): Unit = {
-
-  }
-
-  private def run[A](ea: IO[A]): A = {
-    ea.unsafeRunSync()
-  }
+  def setup(): Unit = ()
 
   @Benchmark
-  def hello_world(): Unit = run {
+  def hello_world(): Unit = CatsUtil.run {
     IO.println("Hello, World!")
   }
 
   @Benchmark
-  def factorial(): BigInt = run {
+  def factorial(): BigInt = CatsUtil.run {
     ParallelFactorial.factorial(1000)
   }
 

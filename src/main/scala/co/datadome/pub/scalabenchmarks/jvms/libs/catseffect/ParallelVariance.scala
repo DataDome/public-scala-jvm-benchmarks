@@ -1,0 +1,24 @@
+package co.datadome.pub.scalabenchmarks.jvms.libs.catseffect
+
+import cats.effect.IO
+
+
+object ParallelVariance {
+
+  val dac = new DivideAndConquer(100)
+
+  def variance(ages: Vector[Double]): IO[Double] = for {
+    total <- dac.window(0, ages.size)(computeTotal(ages, _, _))(_ + _)
+    average = total / ages.size
+    varianceSum <- dac.window(0, ages.size)(computeVariance(ages, average, _, _))(_ + _)
+  } yield varianceSum / ages.size
+
+  private def computeTotal(ages: Vector[Double], start: Int, end: Int): IO[Double] = IO {
+    ages.slice(start, end).sum
+  }
+
+  private def computeVariance(ages: Vector[Double], average: Double, start: Int, end: Int): IO[Double] = IO {
+    ages.slice(start, end).map(a => (a - average) * (a - average)).sum
+  }
+
+}

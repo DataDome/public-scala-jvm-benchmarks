@@ -98,7 +98,11 @@
 
 
         {
-            "name": "CatsEffectBenchmark",
+            "name": "CatsEffectBasicBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "CatsEffectPopVarianceBenchmark",
             "lang": "scala"
         },
         {
