@@ -7,7 +7,7 @@
     }
 }
 
-"Reasonable"
+"Reasonable (about 5H per JVM on devdet3)"
 {
     "globals": {
         "jvmOpts": "",
