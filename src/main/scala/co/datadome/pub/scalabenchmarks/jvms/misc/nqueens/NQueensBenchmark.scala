@@ -31,7 +31,7 @@ import scala.util.Random
  * In such cases, Simulated Annealing may become more practical, as it can efficiently explore the search space but without guaranteeing an optimal solution.
  */
 @BenchmarkMode(Array(Mode.AverageTime))
-@OutputTimeUnit(TimeUnit.NANOSECONDS)
+@OutputTimeUnit(TimeUnit.MILLISECONDS)
 @Warmup(iterations = 5, time = 10, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 5, time = 10, timeUnit = TimeUnit.SECONDS)
 @Fork(value = 5)
