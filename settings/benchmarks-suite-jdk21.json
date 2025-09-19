@@ -108,6 +108,10 @@
 
 
         {
+            "name": "DijkstraBenchmark",
+            "lang": "scala"
+        },
+        {
             "name": "FactorialBenchmark",
             "lang": "scala"
         },
