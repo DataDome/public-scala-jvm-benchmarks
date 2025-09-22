@@ -16,6 +16,11 @@
 
 
         {
+            "name": "MessageDigestJavaBenchmark",
+            "lang": "java"
+        },
+
+        {
             "name": "ListBenchmark",
             "lang": "scala"
         },
