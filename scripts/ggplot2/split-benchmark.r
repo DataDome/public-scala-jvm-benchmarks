@@ -45,10 +45,10 @@ splitAndProcessBenchmark("VectorBenchmark.scala.csv", "size", list("100"))
 splitAndProcessBenchmark("VectorBenchmark.scala.csv", "size", list("1000"))
 
 # Random benchmarks
-splitAndProcessBenchmark("JavaRandomBenchmark.scala.csv", "size", list("16"))
-splitAndProcessBenchmark("JavaRandomBenchmark.scala.csv", "size", list("256"))
-splitAndProcessBenchmark("ScalaRandomBenchmark.scala.csv", "size", list("16"))
-splitAndProcessBenchmark("ScalaRandomBenchmark.scala.csv", "size", list("256"))
+splitAndProcessBenchmark("JavaRandomBenchmarkSized.scala.csv", "size", list("16"))
+splitAndProcessBenchmark("JavaRandomBenchmarkSized.scala.csv", "size", list("256"))
+splitAndProcessBenchmark("ScalaRandomBenchmarkSized.scala.csv", "size", list("16"))
+splitAndProcessBenchmark("ScalaRandomBenchmarkSized.scala.csv", "size", list("256"))
 
 
 # Misc benchmarks ######################################################################################################

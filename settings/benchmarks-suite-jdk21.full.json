@@ -54,7 +54,15 @@
             "lang": "scala"
         },
         {
+            "name": "JavaRandomSizedBenchmark",
+            "lang": "scala"
+        },
+        {
             "name": "ScalaRandomBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "ScalaRandomSizedBenchmark",
             "lang": "scala"
         },
 
