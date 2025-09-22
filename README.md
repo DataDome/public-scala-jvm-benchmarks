@@ -36,3 +36,13 @@ All benchmarks are implemented using the [Java Microbenchmark Harness (JMH)](htt
 - X: [@gigiblender](https://twitter.com/gigiblender)
 - GitHub: [@gigiblender](https://github.com/gigiblender)
 - Mastodon: [@gigiblender](https://mastodon.online/@gigiblender)
+
+
+# How to run
+
+You'll need a bunch of JVM installed (you can use SDKMAN for this, except for Azul Prime which must be installed separately).
+Fill in the correct JVM addresses in settings/config.properties.
+
+You will also need Scala and sbt installations, which you can also get through SDKMAN.
+
+Finally, in order to plot the graphs, you'll need to install R.
