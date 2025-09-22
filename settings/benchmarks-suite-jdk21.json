@@ -160,6 +160,10 @@
         {
             "name": "PrimesBenchmark",
             "lang": "scala"
+        },
+        {
+            "name": "WordFrequencyBenchmark",
+            "lang": "scala"
         }
     ]
 }

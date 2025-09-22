@@ -106,3 +106,32 @@ extension [A](inline as: Iterable[A]) {
 }
 
 
+/** Scala iterator extension */
+extension [A](inline it: Iterator[A]) {
+
+  inline def fastFoldLeft[B](inline init: B)(inline f: (B, A) => B): B = {
+    var res = init
+    while (it.hasNext) {
+      res = f(res, it.next())
+    }
+    res
+  }
+
+  inline def fastCount(inline f: A => Boolean): Int = {
+    var res = 0
+    while (it.hasNext) {
+      if (f(it.next())) {
+        res += 1
+      }
+    }
+    res
+  }
+
+  inline def fastForeach(inline f: A => Unit): Unit = {
+    while (it.hasNext) {
+      f(it.next())
+    }
+  }
+}
+
+
