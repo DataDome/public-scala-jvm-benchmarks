@@ -4,7 +4,7 @@ import zio.ZIO
 
 object ParallelVariance {
 
-  val dac = new DivideAndConquer(100)
+  val dac = new DivideAndConquer(1_000_000)
 
   def variance(ages: Vector[Double]): ZIO[Any, Nothing, Double] = for {
     total <- dac.window(0, ages.size)(computeTotal(ages, _, _))(_ + _)
