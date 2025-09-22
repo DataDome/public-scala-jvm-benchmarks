@@ -17,7 +17,7 @@ class AdjacencyMatrix(val size: Int, val maxDistance: Int, seed: Int) {
     val visited: Array[Boolean] = Array.fill(size)(false)
     
     distances(source) = 0
-    fastLoop(0, size - 1) { i =>
+    fastLoop(0, size - 1) { _ =>
       val minDistNode = findMinDistanceNode(distances, visited)
       visited(minDistNode) = true
       fastLoop(0, size) { j =>

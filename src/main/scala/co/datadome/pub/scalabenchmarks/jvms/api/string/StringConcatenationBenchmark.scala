@@ -1,7 +1,6 @@
 package co.datadome.pub.scalabenchmarks.jvms.api.string
 
 import com.ionutbalosin.jvm.performance.benchmarks.api.string.utils.StringUtils
-import com.ionutbalosin.jvm.performance.benchmarks.api.string.utils.StringUtils.generateCharArray
 import org.openjdk.jmh.annotations.*
 
 import java.lang.String.valueOf

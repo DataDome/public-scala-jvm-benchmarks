@@ -3,7 +3,7 @@ package co.datadome.pub.scalabenchmarks.jvms.api.random
 import org.openjdk.jmh.annotations.*
 
 import java.util.concurrent.TimeUnit
-import scala.compiletime.uninitialized;
+import scala.compiletime.uninitialized
 
 /** Assess the basic pseudorandom generator in Java. */
 @BenchmarkMode(Array(Mode.AverageTime))
@@ -22,7 +22,7 @@ class JavaRandomBenchmark {
 
   @Setup
   def setup(): Unit = {
-    bytes = new Array(size);
+    bytes = new Array(size)
     javaRandom = new java.util.Random(42)
   }
 
@@ -33,7 +33,7 @@ class JavaRandomBenchmark {
 
   @Benchmark
   def next_bytes(): Array[Byte] = {
-    javaRandom.nextBytes(bytes);
+    javaRandom.nextBytes(bytes)
     bytes
   }
 

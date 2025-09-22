@@ -54,17 +54,17 @@ class InfrastructureBaselineBenchmark {
 
   @Benchmark
   def method_blank(): Unit = {
-    target_blank();
+    target_blank()
   }
 
   @Benchmark
   def method_inline(): Unit = {
-    target_inline();
+    target_inline()
   }
 
   @Benchmark
   def method_dont_inline(): Unit = {
-    target_dont_inline();
+    target_dont_inline()
   }
 
   /*
@@ -77,17 +77,17 @@ class InfrastructureBaselineBenchmark {
 
   @Benchmark
   def obj_return(): Unit = {
-    return that;
+    return that: Unit
   }
 
   @Benchmark
   def obj_blackhole_consume(bh: Blackhole): Unit = {
-    bh.consume(that);
+    bh.consume(that)
   }
 
   @Benchmark
   def obj_sink(): Unit = {
-    sink(that);
+    sink(that)
   }
 
   private def target_blank(): Unit = {

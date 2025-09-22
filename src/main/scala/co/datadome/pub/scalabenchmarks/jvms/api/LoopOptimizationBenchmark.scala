@@ -42,7 +42,6 @@ class LoopOptimizationBenchmark {
 
   @Benchmark
   def for_range(): Int = {
-    var i = 0
     var sum = 0
     for (i <- 0 until size) {
       sum += i

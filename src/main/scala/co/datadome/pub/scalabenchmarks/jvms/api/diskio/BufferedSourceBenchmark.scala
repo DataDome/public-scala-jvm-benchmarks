@@ -16,9 +16,8 @@ import scala.io.BufferedSource
 @State(Scope.Benchmark)
 class BufferedSourceBenchmark {
 
-  private val Space: String = "\\s+";
-  private val CurrentDir: String = System.getProperty("user.dir", ".");
-  private val FileName: String = CurrentDir + "/src/main/resources/lorem_ipsum.txt";
+  private val CurrentDir: String = System.getProperty("user.dir", ".")
+  private val FileName: String = CurrentDir + "/src/main/resources/lorem_ipsum.txt"
 
   @Param(Array("2048"))
   var bufferSize: Int = uninitialized

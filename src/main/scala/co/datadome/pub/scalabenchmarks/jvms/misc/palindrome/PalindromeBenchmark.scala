@@ -3,7 +3,6 @@ package co.datadome.pub.scalabenchmarks.jvms.misc.palindrome
 import org.openjdk.jmh.annotations.*
 
 import java.util.concurrent.TimeUnit
-import scala.compiletime.uninitialized
 import scala.io.Source
 
 
@@ -37,7 +36,7 @@ class PalindromeBenchmark {
 
   private val CurrentDir = System.getProperty("user.dir", ".")
   private val FileName = CurrentDir + "/src/main/resources/palindrome.list"
-  
+
   @Setup
   def setup(): Unit = {
   }

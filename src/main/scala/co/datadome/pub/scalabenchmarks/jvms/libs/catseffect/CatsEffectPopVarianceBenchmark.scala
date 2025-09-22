@@ -1,6 +1,5 @@
 package co.datadome.pub.scalabenchmarks.jvms.libs.catseffect
 
-import cats.effect.IO
 import org.openjdk.jmh.annotations.*
 
 import java.util.concurrent.TimeUnit

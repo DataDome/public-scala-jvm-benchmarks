@@ -1,10 +1,7 @@
 package co.datadome.pub.scalabenchmarks.jvms.misc.factorial
 
-import com.ionutbalosin.jvm.performance.benchmarks.miscellaneous.factorial.divideandconquer.DivideAndConquerBigIntegerMultiply
-import com.ionutbalosin.jvm.performance.benchmarks.miscellaneous.factorial.iterative.IterativeArrayMultiply
 import org.openjdk.jmh.annotations.*
 
-import java.math.BigInteger
 import java.util.concurrent.TimeUnit
 import scala.compiletime.uninitialized
 
@@ -23,26 +20,22 @@ import scala.compiletime.uninitialized
 @State(Scope.Benchmark)
 class FactorialBenchmark {
 
-  private var iterativeArrayMultiply: IterativeArrayMultiply = uninitialized;
-
   @Param(Array("1000", "5000"))
   var n: Int = uninitialized
 
   @Setup
-  def setup(): Unit = {
-    iterativeArrayMultiply = new IterativeArrayMultiply(n);
-  }
+  def setup(): Unit = ()
 
   // TODO Finish
 
-//  @Benchmark
-//  def iterative_array_multiply(): Array[Byte] = {
-//    iterativeArrayMultiply.factorial();
-//  }
+  //  @Benchmark
+  //  def iterative_array_multiply(): Array[Byte] = {
+  //    iterativeArrayMultiply.factorial()
+  //  }
 
   @Benchmark
   def iterative_big_int_multiply(): BigInt = {
-    IterativeBigIntMultiply.factorial(n);
+    IterativeBigIntMultiply.factorial(n)
   }
 
 }

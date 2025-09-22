@@ -4,7 +4,7 @@ import org.openjdk.jmh.annotations.*
 
 import java.util.concurrent.TimeUnit
 import scala.compiletime.uninitialized
-import scala.util.Random;
+import scala.util.Random
 
 /** Assess the basic pseudorandom generator in Scala. */
 @BenchmarkMode(Array(Mode.AverageTime))
@@ -23,7 +23,7 @@ class ScalaRandomBenchmark {
 
   @Setup
   def setup(): Unit = {
-    bytes = new Array(size);
+    bytes = new Array(size)
     random = new Random(42)
   }
 
@@ -34,7 +34,7 @@ class ScalaRandomBenchmark {
 
   @Benchmark
   def next_bytes(): Array[Byte] = {
-    random.nextBytes(bytes);
+    random.nextBytes(bytes)
     bytes
   }
 

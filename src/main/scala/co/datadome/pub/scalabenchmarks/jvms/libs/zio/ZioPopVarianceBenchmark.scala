@@ -1,7 +1,6 @@
 package co.datadome.pub.scalabenchmarks.jvms.libs.zio
 
 import org.openjdk.jmh.annotations.*
-import zio.{Scope as _, *}
 
 import java.util.concurrent.TimeUnit
 import scala.compiletime.uninitialized

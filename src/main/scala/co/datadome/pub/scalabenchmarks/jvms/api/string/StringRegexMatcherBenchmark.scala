@@ -21,9 +21,9 @@ import scala.util.matching.Regex
 @State(Scope.Benchmark)
 class StringRegexMatcherBenchmark {
 
-  private val Space: String = "\\s+";
-  private val CurrentDir: String = System.getProperty("user.dir", ".");
-  private val FileName: String = CurrentDir + "/src/main/resources/lorem_ipsum.txt";
+  private val Space: String = "\\s+"
+  private val CurrentDir: String = System.getProperty("user.dir", ".")
+  private val FileName: String = CurrentDir + "/src/main/resources/lorem_ipsum.txt"
 
   /** Matches only strings with at least two vowels, and captures the characters between the first and the last vowel. */
   @Param(Array("^[^aeuio]*[aeuio](.*)[aeuio][^aeuio]*$"))

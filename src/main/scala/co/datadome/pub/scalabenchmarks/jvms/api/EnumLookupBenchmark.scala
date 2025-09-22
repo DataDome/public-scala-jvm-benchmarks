@@ -25,17 +25,17 @@ class EnumLookupBenchmark {
 
   @Setup
   def setup(): Unit = {
-    lookUpValue = enumValues(random.nextInt(enumValues.length)).label;
+    lookUpValue = enumValues(random.nextInt(enumValues.length)).label
   }
 
   @Benchmark
   def cached_enum_values(): Car = {
-    Car.fromCachedValues(lookUpValue);
+    Car.fromCachedValues(lookUpValue)
   }
 
   @Benchmark
   def enum_values(): Car = {
-    Car.fromValues(lookUpValue);
+    Car.fromValues(lookUpValue)
   }
 }
 
@@ -98,7 +98,7 @@ object EnumLookupBenchmark {
         }
         i += 1
       }
-      throw new IllegalArgumentException(s"Unexpected value [$target]");
+      throw new IllegalArgumentException(s"Unexpected value [$target]")
     }
 
     def fromCachedValues(target: String): Car = {
@@ -110,7 +110,7 @@ object EnumLookupBenchmark {
         }
         i += 1
       }
-      throw new IllegalArgumentException(s"Unexpected value [$target]");
+      throw new IllegalArgumentException(s"Unexpected value [$target]")
     }
   }
 }
