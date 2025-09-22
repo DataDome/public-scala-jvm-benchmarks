@@ -6,7 +6,8 @@
     },
     "benchmarks": [
         {
-            "name": "InfrastructureBaselineBenchmark"
+            "name": "InfrastructureBaselineBenchmarkJava",
+            "lang": "java"
         },
         {
             "name": "InfrastructureBaselineBenchmark",

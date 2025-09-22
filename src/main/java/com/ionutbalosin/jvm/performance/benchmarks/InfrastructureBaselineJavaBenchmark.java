@@ -64,7 +64,7 @@ import org.openjdk.jmh.infra.Blackhole;
 @Measurement(iterations = 5, time = 10, timeUnit = TimeUnit.SECONDS)
 @Fork(value = 5)
 @State(Scope.Benchmark)
-public class InfrastructureBaselineBenchmark {
+public class InfrastructureBaselineJavaBenchmark {
 
   // $ java -jar */*/benchmarks.jar ".*InfrastructureBaselineBenchmark.*"
   // Recommended command line options:

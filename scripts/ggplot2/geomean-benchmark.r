@@ -36,7 +36,8 @@ compiler_names_map <- setNames(as.list(compiler_names), jvm_identifiers)
 
 # Define the list of benchmarks to be excluded from the geometric mean calculation
 excluded_benchmark_files <- c(
-  "InfrastructureBaselineBenchmark.csv"
+  "InfrastructureBaselineBenchmark.scala.csv",
+  "InfrastructureBaselineBenchmarkJava.java.csv"
 )
 
 # Remove duplicate elements to ensure the benchmark list has unique entries
