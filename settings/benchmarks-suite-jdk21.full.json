@@ -80,7 +80,7 @@
 
 
         {
-            "name": "ArithmeticCanonicalizationBenchmark",
+            "name": "ArithmeticCanonicalizationBenchmarkJava",
             "lang": "java"
         },
         {
@@ -88,7 +88,7 @@
             "lang": "scala"
         },
         {
-            "name": "IfConditionalBranchBenchmark",
+            "name": "IfConditionalBranchBenchmarkJava",
             "lang": "java"
         },
         {

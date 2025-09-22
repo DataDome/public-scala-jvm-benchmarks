@@ -28,25 +28,27 @@
  */
 package com.ionutbalosin.jvm.performance.benchmarks.compiler;
 
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.CompilerControl;
 import org.openjdk.jmh.annotations.Fork;
 import org.openjdk.jmh.annotations.Measurement;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Param;
 import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 
 /*
- * Tests the conditional branch optimizations within a loop using:
- * - a predictable branch pattern
- * - an unpredictable branch pattern
- * - no branch at all
+ * This benchmark checks whether the compiler performs arithmetic canonicalization, a process that
+ * involves transforming arithmetic expressions into a canonical form. This transformation includes
+ * restructuring expressions to a common, simplified form. Canonical forms are easier to analyze and
+ * optimize, potentially leading to better code generation and improved performance.
+ *
+ * Note: While replacing multiple operations with one, the canonicalized expression might even be
+ * more expensive than one of the original operations.
  */
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
@@ -54,65 +56,43 @@ import org.openjdk.jmh.annotations.Warmup;
 @Measurement(iterations = 5, time = 10, timeUnit = TimeUnit.SECONDS)
 @Fork(value = 5)
 @State(Scope.Benchmark)
-public class IfConditionalBranchBenchmark {
+public class ArithmeticCanonicalizationBenchmarkJava {
 
-  // $ java -jar */*/benchmarks.jar ".*IfConditionalBranchBenchmark.*"
+  // $ java -jar */*/benchmarks.jar ".*ArithmeticCanonicalizationBenchmark.*"
 
-  private final Random random = new Random(16384);
-  private final int THRESHOLD = 4096;
+  @Param({"true"})
+  private boolean isHeavy;
 
-  private int[] array;
+  // a big prime number
+  @Param({"179426549"})
+  private long value;
 
-  @Param({"16384"})
-  private int size;
-
-  @Setup
-  public void setup() {
-    array = new int[size];
-    for (int i = 0; i < size; i++) {
-      // all values are within [0, threshold)
-      array[i] = random.nextInt(THRESHOLD);
-    }
+  @Benchmark
+  public long shift() {
+    return doShift();
   }
 
   @Benchmark
-  public int no_if_branch() {
-    int sum = 0;
-
-    for (final int value : array) {
-      sum += value;
-    }
-
-    return sum;
+  public long add() {
+    return doAdd();
   }
 
-  // all values are less than the THRESHOLD, therefore the condition is true and the branch is
-  // always taken. This could be equivalent or very close to no_if_branch()
-  @Benchmark
-  public int predictable_if_branch() {
-    int sum = 0;
-
-    for (final int value : array) {
-      if (value < THRESHOLD) {
-        sum += value;
-      }
-    }
-
-    return sum;
+  @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+  private long doAdd() {
+    long val = this.value;
+    return isHeavy
+        ? val + val + val + val + val + val + val + val + val + val + val + val + val + val + val
+            + val + val + val + val + val + val + val + val + val + val + val + val + val + val
+            + val + val + val + val + val + val + val + val + val + val + val + val + val + val
+            + val + val + val + val + val + val + val + val + val + val + val + val + val + val
+            + val + val + val + val + val + val + val
+        // i.e., 64 additions
+        : val;
   }
 
-  // some values are bigger and some are smaller than THRESHOLD / 2, making this condition
-  // unpredictable
-  @Benchmark
-  public int unpredictable_if_branch() {
-    int sum = 0;
-
-    for (final int value : array) {
-      if (value <= (THRESHOLD / 2)) {
-        sum += value;
-      }
-    }
-
-    return sum;
+  @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+  private long doShift() {
+    long val = this.value;
+    return isHeavy ? val << 6 : val;
   }
 }
