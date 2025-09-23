@@ -120,11 +120,19 @@
             "lang": "scala"
         },
         {
+            "name": "Fs2Benchmark",
+            "lang": "scala"
+        },
+        {
             "name": "ZioBasicBenchmark",
             "lang": "scala"
         },
         {
             "name": "ZioPopVarianceBenchmark",
+            "lang": "scala"
+        },
+        {
+            "name": "ZioStreamsBenchmark",
             "lang": "scala"
         },
 
