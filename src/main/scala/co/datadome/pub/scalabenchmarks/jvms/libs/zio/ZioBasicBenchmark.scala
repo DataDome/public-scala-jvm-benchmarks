@@ -1,7 +1,7 @@
 package co.datadome.pub.scalabenchmarks.jvms.libs.zio
 
 import org.openjdk.jmh.annotations.*
-import zio.{Scope as _, *}
+import zio.{Scope as _, System as _, *}
 
 import java.util.concurrent.TimeUnit
 
@@ -15,16 +15,24 @@ import java.util.concurrent.TimeUnit
 @State(Scope.Benchmark)
 class ZioBasicBenchmark {
 
+  final private val CurrentDir: String = System.getProperty("user.dir", ".")
+  final private val WordFrequencyFile: String = CurrentDir + "/src/main/resources/word_frequency.txt"
+
   @Setup
   def setup(): Unit = ()
 
   @Benchmark
   def hello_world(): Unit = ZioUtil.run {
-    Console.printLine("Hello, World!")
+    zio.Console.printLine("Hello, World!")
   }
 
   @Benchmark
   def factorial(): BigInt = ZioUtil.run {
     ParallelFactorial.factorial(1000)
+  }
+
+  @Benchmark
+  def wordFrequency(): Map[String, Int] = ZioUtil.run {
+    WordFrequency.wordFrequency(WordFrequencyFile)
   }
 }

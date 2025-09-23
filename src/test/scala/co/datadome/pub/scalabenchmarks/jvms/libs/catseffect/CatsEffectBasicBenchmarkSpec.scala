@@ -1,6 +1,7 @@
 package co.datadome.pub.scalabenchmarks.jvms.libs.catseffect
 
 import co.datadome.pub.scalabenchmarks.jvms.TestSuite
+import co.datadome.pub.scalabenchmarks.jvms.misc.wordfrequency.WordFrequencyBenchmark
 
 class CatsEffectBasicBenchmarkSpec extends TestSuite {
 
@@ -29,6 +30,17 @@ class CatsEffectBasicBenchmarkSpec extends TestSuite {
   "factorial" in {
     withBench { bench =>
       bench.factorial() shouldBe Factorial1000
+    }
+  }
+
+  "wordFrequency" in {
+    withBench { bench =>
+      val result = bench.wordFrequency()
+      result.size should be(8887)
+      result.toSeq.sortBy(_._2).reverse.take(5) should be(Seq("the" -> 5426, "I" -> 3038, "and" -> 2887, "to" -> 2788, "of" -> 2734))
+
+      val otherBench = new WordFrequencyBenchmark
+      result should contain theSameElementsAs(otherBench.iterative())
     }
   }
 
