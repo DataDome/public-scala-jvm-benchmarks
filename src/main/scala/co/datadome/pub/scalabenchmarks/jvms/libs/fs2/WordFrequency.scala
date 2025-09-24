@@ -2,11 +2,7 @@ package co.datadome.pub.scalabenchmarks.jvms.libs.fs2
 
 import cats.effect.{IO, IOApp, Resource}
 import fs2.io.file.{Files, Path}
-import fs2.text
-import zio.*
-import zio.stream.*
 import fs2.{Stream, text}
-import fs2.io.file.{Files, Path}
 
 import scala.io.{BufferedSource, Source}
 import scala.util.matching.Regex
