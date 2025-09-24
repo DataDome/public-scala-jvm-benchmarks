@@ -37,7 +37,6 @@ libraryDependencies ++= Seq(
   "org.typelevel" %% "cats-effect" % "3.6.3",
 
   "co.fs2" %% "fs2-core" % "3.12.2",
-  "co.fs2" %% "fs2-io" % "3.12.2",
 
   "dev.zio" %% "zio" % "2.1.21",
   "dev.zio" %% "zio-streams" % "2.1.21",
