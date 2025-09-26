@@ -1,7 +1,8 @@
 package co.datadome.pub.scalabenchmarks.jvms.misc.primes
 
-import scala.util.Random
 import co.datadome.pub.scalabenchmarks.jvms.utils.*
+
+import scala.util.Random
 
 object MillerRabin {
 

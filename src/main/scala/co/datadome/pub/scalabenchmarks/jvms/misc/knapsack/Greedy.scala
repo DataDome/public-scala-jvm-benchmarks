@@ -1,7 +1,8 @@
 package co.datadome.pub.scalabenchmarks.jvms.misc.knapsack
 
-import scala.collection.mutable.ListBuffer
 import co.datadome.pub.scalabenchmarks.jvms.utils.*
+
+import scala.collection.mutable.ListBuffer
 
 
 object Greedy {

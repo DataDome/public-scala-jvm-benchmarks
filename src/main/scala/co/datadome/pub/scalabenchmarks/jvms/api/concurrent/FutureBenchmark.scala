@@ -4,8 +4,8 @@ import org.openjdk.jmh.annotations.*
 
 import java.util.concurrent.TimeUnit
 import scala.compiletime.uninitialized
-import scala.concurrent.{Await, Future}
 import scala.concurrent.duration.*
+import scala.concurrent.{Await, Future}
 
 
 /** Just a model of a Scala benchmark */

@@ -1,6 +1,6 @@
 package co.datadome.pub.scalabenchmarks.jvms.libs.zio
 
-import zio._
+import zio.*
 
 
 object ParallelFactorial {

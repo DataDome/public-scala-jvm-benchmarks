@@ -1,7 +1,8 @@
 package co.datadome.pub.scalabenchmarks.jvms.misc.dijkstra
 
-import scala.util.Random
 import co.datadome.pub.scalabenchmarks.jvms.utils.*
+
+import scala.util.Random
 
 class AdjacencyMatrix(val size: Int, val maxDistance: Int, seed: Int) {
 

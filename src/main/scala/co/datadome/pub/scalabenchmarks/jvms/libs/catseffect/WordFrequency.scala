@@ -1,8 +1,8 @@
 package co.datadome.pub.scalabenchmarks.jvms.libs.catseffect
 
 import cats.*
-import cats.implicits.*
 import cats.effect.*
+import cats.implicits.*
 
 import scala.io.{BufferedSource, Source}
 import scala.util.matching.Regex

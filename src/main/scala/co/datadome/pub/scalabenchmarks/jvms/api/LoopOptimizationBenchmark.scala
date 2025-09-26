@@ -1,11 +1,11 @@
 package co.datadome.pub.scalabenchmarks.jvms.api
 
+import co.datadome.pub.scalabenchmarks.jvms.utils.*
 import org.openjdk.jmh.annotations.*
 
 import java.util.concurrent.TimeUnit
 import scala.compiletime.uninitialized
 import scala.util.Random
-import co.datadome.pub.scalabenchmarks.jvms.utils.*
 
 
 /** Just a model of a Scala benchmark */
