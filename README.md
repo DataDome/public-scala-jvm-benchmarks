@@ -45,4 +45,19 @@ Fill in the correct JVM addresses in settings/config.properties.
 
 You will also need Scala and sbt installations, which you can also get through SDKMAN.
 
-Finally, in order to plot the graphs, you'll need to install R.
+In order to plot the graphs, you'll need to install R. On Ubuntu:
+```
+sudo apt install r-recommended
+sudo apt install r-base
+# Then a bunch of libraries required by the R libraries:
+sudo apt install libfontconfig1-dev libharfbuzz-dev libfribidi-dev
+```
+
+Finally, you have to install the R libraries:
+```
+chown $(whoami) /usr/lib/R/library # To avoid permission issues when installing R packages
+sudo R
+install.packages("ggplot2")
+install.packages("svglite")
+quit()
+```
