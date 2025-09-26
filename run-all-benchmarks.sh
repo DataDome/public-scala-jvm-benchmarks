@@ -128,32 +128,26 @@ fi
 
 echo ""
 echo "+=======================+"
-echo "| [1/8] Load Properties |"
+echo "| [1/7] Load Properties |"
 echo "+=======================+"
 . ./scripts/shell/load-properties.sh
 
 echo ""
-echo "+=============================+"
-echo "| [2/8] Hardware Architecture |"
-echo "+=============================+"
+echo "+================================+"
+echo "| [2/7] Load Architecture and OS |"
+echo "+================================+"
 . ./scripts/shell/configure-arch.sh
+. ./scripts/shell/configure-os.sh
 
 echo ""
 echo "+========================+"
-echo "| [3/8] OS Configuration |"
-echo "+========================+"
-. ./scripts/shell/configure-os.sh || exit 1
-. ./scripts/shell/configure-os-$OS.sh "$DRY_RUN"
-
-echo ""
-echo "+========================+"
-echo "| [4/8] JQ Configuration |"
+echo "| [3/7] JQ Configuration |"
 echo "+========================+"
 . ./scripts/shell/configure-jq.sh || exit 1
 
 echo ""
 echo "+===============================+"
-echo "| [5/8] Compile benchmark suite |"
+echo "| [4/7] Compile benchmark suite |"
 echo "+===============================+"
 if ! compile_benchmark_suite; then
   exit 1
@@ -165,26 +159,26 @@ for jvm in "$OPENJDK_HOTSPOT_VM_IDENTIFIER" "$GRAAL_VM_CE_IDENTIFIER" "$GRAAL_VM
 
   echo ""
   echo "+============================================="
-  echo "| Running steps 6 to 8 with $jvm"
+  echo "| Running steps 5 to 7 with $jvm"
   echo "+============================================="
   echo "| $(date)"
   echo "+============================================="
 
   echo ""
   echo "+=========================+"
-  echo "| [6/8] JVM Configuration |"
+  echo "| [5/7] JVM Configuration |"
   echo "+=========================+"
   . ./scripts/shell/configure-jvm.sh || exit 1
 
   echo ""
   echo "+=========================+"
-  echo "| [7/8] JMH Configuration |"
+  echo "| [6/7] JMH Configuration |"
   echo "+=========================+"
   . ./scripts/shell/configure-jmh.sh || exit 1
 
   echo ""
   echo "+===========================+"
-  echo "| [8/8] Run benchmark suite |"
+  echo "| [7/7] Run benchmark suite |"
   echo "+===========================+"
   run_benchmark_suite
 
