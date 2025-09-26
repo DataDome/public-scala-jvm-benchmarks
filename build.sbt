@@ -48,7 +48,7 @@ libraryDependencies ++= Seq(
 assembly / mainClass := Some("org.openjdk.jmh.Main")
 assembly / assemblyMergeStrategy := {
   case PathList("META-INF", "MANIFEST.MF") => MergeStrategy.rename
-  case PathList("LICENSE") => MergeStrategy.rename
+  case PathList("LICENSE") | PathList("CONTRIBUTING") | PathList("THIRD-PARTY") | PathList("NOTICE") => MergeStrategy.rename
   case _ => MergeStrategy.deduplicate // default
 }
 
