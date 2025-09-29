@@ -53,9 +53,11 @@ class KnapsackBenchmark {
     items = Array.fill(itemsCount)(Item(1 + random.nextInt(MaxItemValue), 1 + random.nextInt(MaxItemWeight)))
   }
 
-  @Benchmark def dynamic(): mutable.ListBuffer[Item] = Dynamic.knapsack(KnapsackCapacity, items)
+  @Benchmark
+  def dynamic(): mutable.ListBuffer[Item] = Dynamic.knapsack(KnapsackCapacity, items)
 
-  @Benchmark def greedy(): mutable.ListBuffer[Item] = Greedy.knapsack(KnapsackCapacity, items)
+  @Benchmark
+  def greedy(): mutable.ListBuffer[Item] = Greedy.knapsack(KnapsackCapacity, items)
 
 
 }

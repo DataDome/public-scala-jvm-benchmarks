@@ -50,12 +50,20 @@ splitAndProcessBenchmark("JavaRandomBenchmarkSized.scala.csv", "size", list("256
 splitAndProcessBenchmark("ScalaRandomBenchmarkSized.scala.csv", "size", list("16"))
 splitAndProcessBenchmark("ScalaRandomBenchmarkSized.scala.csv", "size", list("256"))
 
+# String benchmarks
+splitAndProcessBenchmark("StringConcatenationBenchmark.scala.csv", "coder", list("LATIN1"))
+splitAndProcessBenchmark("StringConcatenationBenchmark.scala.csv", "coder", list("UTF16"))
+
 
 # Misc benchmarks ######################################################################################################
 
-# Split and process FactorialBenchmark
+# FactorialBenchmark
 splitAndProcessBenchmark("FactorialBenchmark.scala.csv", "n", list("1000"))
 splitAndProcessBenchmark("FactorialBenchmark.scala.csv", "n", list("5000"))
+
+# FactorialBenchmark
+splitAndProcessBenchmark("NQueensBenchmark.scala.csv", "n", list("8"))
+splitAndProcessBenchmark("NQueensBenchmark.scala.csv", "n", list("24"))
 
 
 # Old benchmarks #######################################################################################################

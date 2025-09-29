@@ -117,7 +117,8 @@
         },
         {
             "name": "CatsEffectPopVarianceBenchmark",
-            "lang": "scala"
+            "lang": "scala",
+            "jmhOpts": "-r 30"
         },
         {
             "name": "CatsEffectWordFrequencyBenchmark",
@@ -129,7 +130,8 @@
         },
         {
             "name": "ZioPopVarianceBenchmark",
-            "lang": "scala"
+            "lang": "scala",
+          "jmhOpts": "-r 30"
         },
         {
             "name": "ZioWordFrequencyBenchmark",
@@ -139,7 +141,8 @@
 
         {
             "name": "DijkstraBenchmark",
-            "lang": "scala"
+            "lang": "scala",
+            "jmhOpts": "-r 30"
         },
         {
             "name": "FactorialBenchmark",
@@ -151,7 +154,8 @@
         },
         {
             "name": "KnapsackBenchmark",
-            "lang": "scala"
+            "lang": "scala",
+            "jmhOpts": "-r 30"
         },
         {
             "name": "NQueensBenchmark",
@@ -163,11 +167,13 @@
         },
         {
             "name": "PopulationVarianceBenchmark",
-            "lang": "scala"
+            "lang": "scala",
+            "jmhOpts": "-r 30"
         },
         {
             "name": "PrimesBenchmark",
-            "lang": "scala"
+            "lang": "scala",
+            "jmhOpts": "-r 30"
         },
         {
             "name": "WordFrequencyBenchmark",

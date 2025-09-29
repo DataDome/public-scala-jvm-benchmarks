@@ -1,10 +1,19 @@
+"Definitive"
+{
+  "globals": {
+    "jvmOpts": "",
+    "jmhOpts": "-foe true -wi 10 -w 10 -i 20 -r 10 -f 5 -rf csv -rff ((outputFilePath)).csv",
+    "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+  }
+}
+
 "Super-long (about 32h per JVM on devdet3)"
 {
-    "globals": {
-        "jvmOpts": "",
-        "jmhOpts": "-foe true -wi 5 -w 10 -i 5 -r 10 -f 5 -rf csv -rff ((outputFilePath)).csv",
-        "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
-    }
+  "globals": {
+    "jvmOpts": "",
+    "jmhOpts": "-foe true -wi 5 -w 10 -i 5 -r 10 -f 5 -rf csv -rff ((outputFilePath)).csv",
+    "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+  }
 }
 
 "Long (about 10H per JVM on devdet3)"
