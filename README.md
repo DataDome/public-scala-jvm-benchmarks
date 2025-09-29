@@ -44,6 +44,7 @@ You'll need a bunch of JVM installed (you can use SDKMAN for this, except for Az
 Fill in the correct JVM addresses in settings/config.properties.
 
 You will also need Scala and sbt installations, which you can also get through SDKMAN.
+Azul Prime is not available through SDKMAN and must be installed separately.
 
 In order to plot the graphs, you'll need to install R. On Ubuntu:
 ```
