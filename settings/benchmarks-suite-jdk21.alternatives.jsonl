@@ -18,36 +18,36 @@
 
 "Long (about 10H per JVM on devdet3)"
 {
-    "globals": {
-        "jvmOpts": "",
-        "jmhOpts": "-foe true -wi 5 -w 5 -i 5 -r 10 -f 2 -rf csv -rff ((outputFilePath)).csv",
-        "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
-    }
+  "globals": {
+    "jvmOpts": "",
+    "jmhOpts": "-foe true -wi 5 -w 5 -i 5 -r 10 -f 2 -rf csv -rff ((outputFilePath)).csv",
+    "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+  }
 }
 
 "Reasonable (about 5H per JVM on devdet3)"
 {
-    "globals": {
-        "jvmOpts": "",
-        "jmhOpts": "-foe true -wi 5 -w 5 -i 5 -r 10 -f 1 -rf csv -rff ((outputFilePath)).csv",
-        "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
-    }
+  "globals": {
+    "jvmOpts": "",
+    "jmhOpts": "-foe true -wi 5 -w 5 -i 5 -r 10 -f 1 -rf csv -rff ((outputFilePath)).csv",
+    "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+  }
 }
 
 "Quick"
 {
-    "globals": {
-        "jvmOpts": "",
-        "jmhOpts": "-foe true -wi 1 -w 1 -i 3 -r 1 -f 1 -rf csv -rff ((outputFilePath)).csv",
-        "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
-    }
+  "globals": {
+    "jvmOpts": "",
+    "jmhOpts": "-foe true -wi 1 -w 1 -i 3 -r 1 -f 1 -rf csv -rff ((outputFilePath)).csv",
+    "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+  }
 }
 
 "Minimal (won't provide plots but let us check all benchmarks run without error)"
 {
-    "globals": {
-        "jvmOpts": "",
-        "jmhOpts": "-foe true -wi 1 -w 1 -i 1 -r 1 -f 1 -rf csv -rff ((outputFilePath)).csv",
-        "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
-    }
+  "globals": {
+    "jvmOpts": "",
+    "jmhOpts": "-foe true -wi 1 -w 1 -i 1 -r 1 -f 1 -rf csv -rff ((outputFilePath)).csv",
+    "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+  }
 }
