@@ -1,7 +1,7 @@
 {
     "globals": {
         "jvmOpts": "",
-        "jmhOpts": "-foe true -wi 5 -w 5 -i 5 -r 10 -f 2 -rf csv -rff ((outputFilePath)).csv",
+        "jmhOpts": "-foe true -wi 5 -w 10 -i 5 -r 10 -f 5 -rf csv -rff ((outputFilePath)).csv",
         "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
     },
     "benchmarks": [
@@ -120,7 +120,7 @@
             "lang": "scala"
         },
         {
-            "name": "Fs2Benchmark",
+            "name": "CatsEffectWordFrequencyBenchmark",
             "lang": "scala"
         },
         {
@@ -132,7 +132,7 @@
             "lang": "scala"
         },
         {
-            "name": "ZioStreamsBenchmark",
+            "name": "ZioWordFrequencyBenchmark",
             "lang": "scala"
         },
 

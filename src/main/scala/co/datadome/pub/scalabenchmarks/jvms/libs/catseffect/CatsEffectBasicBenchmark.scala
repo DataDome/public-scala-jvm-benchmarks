@@ -14,10 +14,7 @@ import java.util.concurrent.TimeUnit
 @Fork(value = 5)
 @State(Scope.Benchmark)
 class CatsEffectBasicBenchmark {
-
-  final private val CurrentDir: String = System.getProperty("user.dir", ".")
-  final private val WordFrequencyFile: String = CurrentDir + "/src/main/resources/word_frequency.txt"
-
+  
   @Setup
   def setup(): Unit = ()
 
@@ -30,13 +27,6 @@ class CatsEffectBasicBenchmark {
   def factorial(): BigInt = CatsUtil.run {
     ParallelFactorial.factorial(1000)
   }
-
-  @Benchmark
-  def wordFrequency(): Map[String, Int] = CatsUtil.run {
-    WordFrequency.wordFrequency(WordFrequencyFile)
-  }
-
-
 
   // TODO to be continued
 

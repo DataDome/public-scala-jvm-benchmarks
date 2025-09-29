@@ -1,12 +1,12 @@
-package co.datadome.pub.scalabenchmarks.jvms.libs.fs2
+package co.datadome.pub.scalabenchmarks.jvms.libs.zio
 
 import co.datadome.pub.scalabenchmarks.jvms.TestSuite
 import co.datadome.pub.scalabenchmarks.jvms.misc.wordfrequency.WordFrequencyBenchmark
 
-class Fs2BenchmarkSpec extends TestSuite {
+class ZioWordFrequencyBenchmarkSpec extends TestSuite {
 
-  private def withBench[A](f: Fs2Benchmark => A): A = {
-    val bench = new Fs2Benchmark()
+  private def withBench[A](f: ZioWordFrequencyBenchmark => A): A = {
+    val bench = new ZioWordFrequencyBenchmark()
     bench.setup()
     f(bench)
   }
@@ -25,7 +25,7 @@ class Fs2BenchmarkSpec extends TestSuite {
       result.toSeq.sortBy(_._2).reverse.take(5) should be(Seq("the" -> 5426, "I" -> 3038, "and" -> 2887, "to" -> 2788, "of" -> 2734))
 
       val otherBench = new WordFrequencyBenchmark
-      result should contain theSameElementsAs (otherBench.iterative())
+      result should contain theSameElementsAs(otherBench.iterative())
     }
   }
 

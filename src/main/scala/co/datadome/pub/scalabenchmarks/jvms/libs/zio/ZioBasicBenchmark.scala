@@ -6,7 +6,7 @@ import zio.{Scope as _, System as _, *}
 import java.util.concurrent.TimeUnit
 
 
-/** Simple benchmarks on ZIO (requiring no parameters) */
+/** Simple benchmarks on ZIO */
 @BenchmarkMode(Array(Mode.AverageTime))
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @Warmup(iterations = 5, time = 10, timeUnit = TimeUnit.SECONDS)
@@ -14,9 +14,6 @@ import java.util.concurrent.TimeUnit
 @Fork(value = 5)
 @State(Scope.Benchmark)
 class ZioBasicBenchmark {
-
-  final private val CurrentDir: String = System.getProperty("user.dir", ".")
-  final private val WordFrequencyFile: String = CurrentDir + "/src/main/resources/word_frequency.txt"
 
   @Setup
   def setup(): Unit = ()
@@ -29,10 +26,5 @@ class ZioBasicBenchmark {
   @Benchmark
   def factorial(): BigInt = ZioUtil.run {
     ParallelFactorial.factorial(1000)
-  }
-
-  @Benchmark
-  def wordFrequency(): Map[String, Int] = ZioUtil.run {
-    WordFrequency.wordFrequency(WordFrequencyFile)
   }
 }
