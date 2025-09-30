@@ -99,6 +99,14 @@
       "lang": "scala"
     },
     {
+      "name": "CatsTypeclassesBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "CatsTypesBenchmark",
+      "lang": "scala"
+    },
+    {
       "name": "CatsEffectBasicBenchmark",
       "lang": "scala"
     },
