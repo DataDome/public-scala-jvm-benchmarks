@@ -34,7 +34,7 @@
   }
 }
 
-"Quick"
+"Quick (about 20m per JVM on devdet3)"
 {
   "globals": {
     "jvmOpts": "",
