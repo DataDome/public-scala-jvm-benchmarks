@@ -1,6 +1,5 @@
 package co.datadome.pub.scalabenchmarks.jvms.libs.catseffect
 
-import cats.effect.IO
 import org.openjdk.jmh.annotations.*
 
 import java.util.concurrent.TimeUnit
@@ -14,14 +13,14 @@ import java.util.concurrent.TimeUnit
 @Fork(value = 5)
 @State(Scope.Benchmark)
 class CatsEffectBasicBenchmark {
-  
+
   @Setup
   def setup(): Unit = ()
 
-  @Benchmark
-  def hello_world(): Unit = CatsUtil.run {
-    IO.println("Hello, World!")
-  }
+  //  @Benchmark
+  //  def hello_world(): Unit = CatsUtil.run {
+  //    IO.println("Hello, World!")
+  //  }
 
   @Benchmark
   def factorial(): BigInt = CatsUtil.run {

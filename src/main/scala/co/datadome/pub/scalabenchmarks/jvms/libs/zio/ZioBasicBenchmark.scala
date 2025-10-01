@@ -1,7 +1,6 @@
 package co.datadome.pub.scalabenchmarks.jvms.libs.zio
 
 import org.openjdk.jmh.annotations.*
-import zio.{Scope as _, System as _, *}
 
 import java.util.concurrent.TimeUnit
 
@@ -18,10 +17,10 @@ class ZioBasicBenchmark {
   @Setup
   def setup(): Unit = ()
 
-  @Benchmark
-  def hello_world(): Unit = ZioUtil.run {
-    zio.Console.printLine("Hello, World!")
-  }
+  //  @Benchmark
+  //  def hello_world(): Unit = ZioUtil.run {
+  //    zio.Console.printLine("Hello, World!")
+  //  }
 
   @Benchmark
   def factorial(): BigInt = ZioUtil.run {
