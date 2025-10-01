@@ -66,30 +66,4 @@ class ListBufferBenchmarkSpec extends TestSuite {
       bench.flatMap().size shouldBe 300
     }
   }
-
-  "sequential_access" in {
-    withBench() { bench =>
-      bench.sequential_access() shouldBe -1281627036
-    }
-  }
-
-  "random_access" in {
-    withBench() { bench =>
-      bench.random_access() shouldBe -1281627036
-    }
-  }
-
-  "sequential_update" in {
-    withBench() { bench =>
-      val buf = bench.sequential_update()
-      buf.size shouldBe 100
-    }
-  }
-
-  "random_update" in {
-    withBench() { bench =>
-      val buf = bench.random_update()
-      buf.size shouldBe 100
-    }
-  }
 }

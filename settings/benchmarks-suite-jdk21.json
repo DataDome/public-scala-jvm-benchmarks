@@ -18,6 +18,10 @@
       "lang": "scala"
     },
     {
+      "name": "ListBufferAccessBenchmark",
+      "lang": "scala"
+    },
+    {
       "name": "ListBufferBenchmark",
       "lang": "scala"
     },
@@ -27,6 +31,10 @@
     },
     {
       "name": "SetBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "SetAddBenchmark",
       "lang": "scala"
     },
     {

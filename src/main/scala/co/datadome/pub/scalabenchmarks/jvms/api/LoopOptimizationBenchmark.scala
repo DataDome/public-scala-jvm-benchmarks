@@ -19,7 +19,7 @@ class LoopOptimizationBenchmark {
 
   private val random = new Random
 
-  @Param(Array("100", "1000"))
+  @Param(Array("1000"))
   var size: Int = uninitialized
 
   private var array: Array[Int] = uninitialized

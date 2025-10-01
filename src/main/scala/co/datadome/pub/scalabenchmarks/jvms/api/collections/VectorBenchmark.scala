@@ -20,7 +20,7 @@ class VectorBenchmark {
 
   private val random: Random = new Random(16384)
 
-  @Param(Array("100", "1000"))
+  @Param(Array("1000"))
   var size: Int = uninitialized
 
   private var vector: Vector[Int] = uninitialized

@@ -15,7 +15,7 @@ import scala.util.Random
 @State(Scope.Benchmark)
 class ScalaRandomSizedBenchmark {
 
-  @Param(Array("32", "1024"))
+  @Param(Array("1024"))
   var size: Int = uninitialized
 
   private var random: Random = uninitialized

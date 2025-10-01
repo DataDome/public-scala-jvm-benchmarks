@@ -40,7 +40,7 @@ class NQueensBenchmark {
 
   private given random: Random = new Random(16384)
 
-  @Param(Array("8", "24"))
+  @Param(Array("24"))
   var n: Int = uninitialized
 
   @Setup

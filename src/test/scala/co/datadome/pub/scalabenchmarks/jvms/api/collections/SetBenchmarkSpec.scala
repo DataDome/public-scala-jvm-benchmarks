@@ -18,12 +18,6 @@ class SetBenchmarkSpec extends TestSuite {
     }
   }
 
-  "add" in {
-    withBench() { bench =>
-      bench.add().size shouldBe 100
-    }
-  }
-
   "read_size" in {
     withBench() { bench =>
       bench.read_size() shouldBe 62

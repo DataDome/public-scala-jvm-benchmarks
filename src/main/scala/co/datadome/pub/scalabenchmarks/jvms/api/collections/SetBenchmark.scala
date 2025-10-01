@@ -22,7 +22,7 @@ class SetBenchmark {
   private val MaxValue = 100
   private val AlmostMaxValue = 90
 
-  @Param(Array("100", "1000"))
+  @Param(Array("1000"))
   var size: Int = uninitialized
 
   private var set: Set[Int] = uninitialized
@@ -30,17 +30,6 @@ class SetBenchmark {
   @Setup
   def setup(): Unit = {
     set = Set.fill(size)(random.nextInt(MaxValue))
-  }
-
-  @Benchmark
-  def add(): Set[Int] = {
-    var set2 = Set.empty[Int]
-    var i = 0
-    while (i < size) {
-      set2 = set2 + i
-      i += 1
-    }
-    set2
   }
 
   @Benchmark
