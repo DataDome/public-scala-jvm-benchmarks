@@ -1,7 +1,6 @@
 package co.datadome.pub.scalabenchmarks.jvms.misc.palindrome
 
 import co.datadome.pub.scalabenchmarks.jvms.TestSuite
-import co.datadome.pub.scalabenchmarks.jvms.misc.gameoflife.GameOfLifeBenchmark
 
 class PalindromeBenchmarkSpec extends TestSuite {
 

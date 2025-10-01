@@ -2,8 +2,6 @@ package co.datadome.pub.scalabenchmarks.jvms.misc.primes
 
 import co.datadome.pub.scalabenchmarks.jvms.TestSuite
 
-import scala.collection.mutable
-
 class PrimesBenchmarkSpec extends TestSuite {
 
   private def withBench[A](n: Int = 8388608)(f: PrimesBenchmark => A): A = {

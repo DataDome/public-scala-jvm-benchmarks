@@ -1,7 +1,6 @@
 package co.datadome.pub.scalabenchmarks.jvms.misc.popvariance
 
 import co.datadome.pub.scalabenchmarks.jvms.TestSuite
-import co.datadome.pub.scalabenchmarks.jvms.misc.gameoflife.GameOfLifeBenchmark
 
 class PopulationVarianceBenchmarkSpec extends TestSuite {
   val Tolerance = 0.000000001d
