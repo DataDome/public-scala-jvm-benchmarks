@@ -13,7 +13,7 @@
       "name": "InfrastructureBaselineBenchmark",
       "lang": "scala"
     },
-    {
+    { // Results similar to Java
       "name": "MessageDigestJavaBenchmark",
       "lang": "java"
     },
