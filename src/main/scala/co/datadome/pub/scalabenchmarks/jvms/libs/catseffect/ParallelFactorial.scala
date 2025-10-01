@@ -12,7 +12,7 @@ object ParallelFactorial {
   private def compute(start: Int, end: Int): IO[BigInt] = IO {
     var result = BigInt(start)
     var i = start + 1
-    while (i <= end) {
+    while (i < end) {
       result = result * i
       i += 1
     }
