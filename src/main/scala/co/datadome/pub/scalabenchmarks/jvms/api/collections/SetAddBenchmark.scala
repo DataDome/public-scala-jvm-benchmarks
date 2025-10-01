@@ -24,18 +24,18 @@ class SetAddBenchmark {
   def setup(): Unit = ()
 
   @Benchmark
-  def add_different(): Set[Int] = {
+  def add_100(): Set[Int] = {
     var set = Set.empty[Int]
     var i = 0
     while (i < size) {
-      set = set + i
+      set = set + (i % 100)
       i += 1
     }
     set
   }
 
   @Benchmark
-  def add_same(): Set[Int] = {
+  def add_10(): Set[Int] = {
     var set = Set.empty[Int]
     var i = 0
     while (i < size) {

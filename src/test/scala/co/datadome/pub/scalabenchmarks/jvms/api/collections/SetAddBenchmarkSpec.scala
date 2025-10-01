@@ -4,7 +4,7 @@ import co.datadome.pub.scalabenchmarks.jvms.TestSuite
 
 class SetAddBenchmarkSpec extends TestSuite {
 
-  private def withBench[A](size: Int = 100)(f: SetAddBenchmark => A): A = {
+  private def withBench[A](size: Int = 1000)(f: SetAddBenchmark => A): A = {
     val bench = new SetAddBenchmark()
     bench.size = size
     bench.setup()
@@ -14,19 +14,19 @@ class SetAddBenchmarkSpec extends TestSuite {
   "setup" in {
     withBench() { bench =>
       // Call at least one method to ensure no exceptions on simple path
-      bench.add_same()
+      bench.add_10()
     }
   }
 
   "add_same" in {
     withBench() { bench =>
-      bench.add_same().size shouldBe 10
+      bench.add_10().size shouldBe 10
     }
   }
 
   "add_different" in {
     withBench() { bench =>
-      bench.add_different().size shouldBe 100
+      bench.add_100().size shouldBe 100
     }
   }
 }
