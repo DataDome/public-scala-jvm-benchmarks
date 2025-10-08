@@ -127,6 +127,10 @@
       "lang": "scala"
     },
     {
+      "name": "JsoniterBenchmark",
+      "lang": "scala"
+    },
+    {
       "name": "ZioBasicBenchmark",
       "lang": "scala"
     },

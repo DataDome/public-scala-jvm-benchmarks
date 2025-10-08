@@ -42,6 +42,9 @@ libraryDependencies ++= Seq(
   "dev.zio" %% "zio" % "2.1.21",
   "dev.zio" %% "zio-streams" % "2.1.21",
 
+  "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-core" % "2.32.0",
+  "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-macros" % "2.32.0" % "compile-internal",
+
   "org.scalatest" %% "scalatest" % "3.2.19" % Test
 )
 
