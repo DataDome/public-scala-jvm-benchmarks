@@ -8,6 +8,7 @@ class AdjacencyMatrix(val size: Int, val maxDistance: Int, seed: Int) {
 
   private val random = new Random(seed)
 
+  /* Dense graph with adjacency between all nodes. */
   private val graph: Array[Array[Int]] = Array.tabulate(size, size) { (i, j) =>
     if (i == j) 0
     else random.nextInt(maxDistance) + 1 // Random weight between 1 and maxDistance

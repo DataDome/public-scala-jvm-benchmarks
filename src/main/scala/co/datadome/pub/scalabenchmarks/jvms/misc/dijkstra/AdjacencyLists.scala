@@ -12,12 +12,12 @@ class AdjacencyLists(val size: Int, val maxDistance: Int, seed: Int) {
 
   private val random = new Random(seed)
 
-  /* In this case, this a dense graph with adjacency between all nodes. */
+  /* Sparse graph, where only 20% of couples are directly connected */
   private val graph: Array[mutable.ArrayBuffer[Node]] =
     Array.tabulate(size) { i =>
       val result = mutable.ArrayBuffer[Node]()
       fastLoop(0, size) { j =>
-        if (i != j) {
+        if (i != j && random.nextInt(10) == 0) { // 10% chance of having an edge
           val weight = random.nextInt(maxDistance) + 1 // random weight between 1 and maxDistance
           result.append(Node(j, weight)): Unit
         }
