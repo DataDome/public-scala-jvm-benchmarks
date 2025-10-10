@@ -91,7 +91,7 @@ class VectorBenchmark {
 
   @Benchmark
   def flatMap(): Vector[Int] = {
-    vector.flatMap(i => List(i - 1, i, i + 1))
+    vector.flatMap(i => Vector(i - 1, i, i + 1))
   }
 
   @Benchmark

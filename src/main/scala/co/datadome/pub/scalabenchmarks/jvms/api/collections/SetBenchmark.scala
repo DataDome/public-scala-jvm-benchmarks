@@ -77,7 +77,7 @@ class SetBenchmark {
 
   @Benchmark
   def flatMap(): Set[Int] = {
-    set.flatMap(i => List(i - 1, i, i + 1))
+    set.flatMap(i => Set(i - 1, i, i + 1))
   }
 
   @Benchmark
