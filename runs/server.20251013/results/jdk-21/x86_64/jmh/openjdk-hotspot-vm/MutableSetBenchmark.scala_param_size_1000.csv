@@ -1,0 +1,11 @@
+"Benchmark","Mode","Threads","Samples","Score","Score.Error..99.9..","Unit","Param..size"
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.MutableSetBenchmark.add","avgt",1,100,17309.212134,880.097124,"ns/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.MutableSetBenchmark.contains_few","avgt",1,100,6533.413712,135.72034,"ns/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.MutableSetBenchmark.contains_many","avgt",1,100,6095.467742,30.419537,"ns/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.MutableSetBenchmark.flatMap","avgt",1,100,5867.490171,245.055665,"ns/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.MutableSetBenchmark.foldLeft","avgt",1,100,1529.664919,7.064567,"ns/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.MutableSetBenchmark.for_loop","avgt",1,100,622.563367,2.309774,"ns/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.MutableSetBenchmark.foreach","avgt",1,100,620.988436,0.793141,"ns/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.MutableSetBenchmark.iterate","avgt",1,100,666.873297,1.815332,"ns/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.MutableSetBenchmark.map","avgt",1,100,2237.436736,19.82167,"ns/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.MutableSetBenchmark.read_size","avgt",1,100,0.859482,0.000081,"ns/op",1000
