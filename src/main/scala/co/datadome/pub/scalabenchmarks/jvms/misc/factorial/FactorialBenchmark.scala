@@ -38,4 +38,9 @@ class FactorialBenchmark {
     IterativeBigIntMultiply.factorial(n)
   }
 
+  @Benchmark
+  def dac_big_int_multiply(): BigInt = {
+    IterativeBigIntMultiply.factorial(n)
+  }
+
 }
