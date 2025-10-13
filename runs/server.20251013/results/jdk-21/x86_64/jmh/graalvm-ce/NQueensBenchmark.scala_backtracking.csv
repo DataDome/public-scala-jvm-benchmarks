@@ -1,0 +1,2 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: n"
+"co.datadome.pub.scalabenchmarks.jvms.misc.nqueens.NQueensBenchmark.backtracking","avgt",1,100,236.632695,1.307685,"ms/op",24

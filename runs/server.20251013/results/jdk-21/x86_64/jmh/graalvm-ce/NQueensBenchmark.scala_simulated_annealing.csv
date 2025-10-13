@@ -1,0 +1,2 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: n"
+"co.datadome.pub.scalabenchmarks.jvms.misc.nqueens.NQueensBenchmark.simulated_annealing","avgt",1,100,3.449824,0.028966,"ms/op",24
