@@ -1,0 +1,2 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: size"
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.SetBenchmark.flatMap","avgt",1,10,15739.856804,2174.742613,"ns/op",1000

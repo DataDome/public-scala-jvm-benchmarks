@@ -1,0 +1,3 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: popSize"
+"co.datadome.pub.scalabenchmarks.jvms.misc.popvariance.PopulationVarianceBenchmark.functional","avgt",1,10,1346.562925,149.653217,"ms/op",134217727
+"co.datadome.pub.scalabenchmarks.jvms.misc.popvariance.PopulationVarianceBenchmark.iterative","avgt",1,10,273.647326,13.447439,"ms/op",134217727

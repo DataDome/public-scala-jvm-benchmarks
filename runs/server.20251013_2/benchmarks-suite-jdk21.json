@@ -1,0 +1,49 @@
+{
+  "globals": {
+    "jvmOpts": "",
+    "jmhOpts": "-foe true -wi 5 -w 5 -i 5 -r 10 -f 2 -rf csv -rff ((outputFilePath)).csv",
+    "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+  },
+  "benchmarks": [
+    {
+      "name": "InfrastructureBaselineBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "MutableSetBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "SetBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "VectorBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "CatsEffectPopVarianceBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "ZioPopVarianceBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "DijkstraBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "KnapsackBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "PopulationVarianceBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "PrimesBenchmark",
+      "lang": "scala"
+    }
+  ]
+}

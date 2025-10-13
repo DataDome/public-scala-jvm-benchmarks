@@ -1,0 +1,5 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: n"
+"co.datadome.pub.scalabenchmarks.jvms.misc.primes.PrimesBenchmark.eratosthenes_sieve","avgt",1,10,35.791375,5.282754,"ms/op",8388608
+"co.datadome.pub.scalabenchmarks.jvms.misc.primes.PrimesBenchmark.miller_rabin","avgt",1,10,3879.764291,333.804512,"ms/op",8388608
+"co.datadome.pub.scalabenchmarks.jvms.misc.primes.PrimesBenchmark.trial_division_functional","avgt",1,10,4107.746867,1051.878834,"ms/op",8388608
+"co.datadome.pub.scalabenchmarks.jvms.misc.primes.PrimesBenchmark.trial_division_iterative","avgt",1,10,4701.666101,304.772507,"ms/op",8388608
