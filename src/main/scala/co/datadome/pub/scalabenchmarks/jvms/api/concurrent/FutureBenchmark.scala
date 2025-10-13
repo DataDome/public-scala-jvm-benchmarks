@@ -52,4 +52,9 @@ class FutureBenchmark {
     val f: Future[Int] = Future(computation())
     Await.result(f, Timeout)
   }
+
+  @Benchmark
+  def run_no_future(): Int = {
+    computation()
+  }
 }

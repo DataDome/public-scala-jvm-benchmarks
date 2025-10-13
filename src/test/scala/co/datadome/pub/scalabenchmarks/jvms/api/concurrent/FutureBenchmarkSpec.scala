@@ -14,7 +14,13 @@ class FutureBenchmarkSpec extends TestSuite {
   "setup" in {
     withBench() { bench =>
       // Call at least one method to ensure no exceptions on simple path
-      bench.run_future()
+      bench.run_no_future()
+    }
+  }
+
+  "run_no_future" in {
+    withBench() { bench =>
+      bench.run_no_future() shouldBe bench.computation()
     }
   }
 
