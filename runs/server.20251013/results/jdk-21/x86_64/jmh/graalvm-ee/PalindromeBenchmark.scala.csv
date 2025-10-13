@@ -1,0 +1,4 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
+"co.datadome.pub.scalabenchmarks.jvms.misc.palindrome.PalindromeBenchmark.functional","avgt",1,100,1.191147,0.034274,"ms/op"
+"co.datadome.pub.scalabenchmarks.jvms.misc.palindrome.PalindromeBenchmark.iterative","avgt",1,100,0.820951,0.013081,"ms/op"
+"co.datadome.pub.scalabenchmarks.jvms.misc.palindrome.PalindromeBenchmark.recursive","avgt",1,100,0.796825,0.013963,"ms/op"

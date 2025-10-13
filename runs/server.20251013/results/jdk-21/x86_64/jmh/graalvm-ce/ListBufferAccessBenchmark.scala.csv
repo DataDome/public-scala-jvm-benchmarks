@@ -1,0 +1,9 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: size"
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.ListBufferAccessBenchmark.random_access","avgt",1,100,7833.075100,31.870626,"ns/op",100
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.ListBufferAccessBenchmark.random_access","avgt",1,100,883885.146313,4820.694484,"ns/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.ListBufferAccessBenchmark.random_update","avgt",1,100,8989.688830,76.376823,"ns/op",100
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.ListBufferAccessBenchmark.random_update","avgt",1,100,1028300.611884,7122.837509,"ns/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.ListBufferAccessBenchmark.sequential_access","avgt",1,100,7608.961172,39.574147,"ns/op",100
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.ListBufferAccessBenchmark.sequential_access","avgt",1,100,880645.734478,2440.827793,"ns/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.ListBufferAccessBenchmark.sequential_update","avgt",1,100,8773.167234,47.330252,"ns/op",100
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.ListBufferAccessBenchmark.sequential_update","avgt",1,100,892244.019014,6492.825392,"ns/op",1000

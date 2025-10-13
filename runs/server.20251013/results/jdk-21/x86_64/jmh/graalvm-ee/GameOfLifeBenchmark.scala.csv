@@ -1,0 +1,3 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
+"co.datadome.pub.scalabenchmarks.jvms.misc.gameoflife.GameOfLifeBenchmark.array_copy","avgt",1,100,139.795149,1.015465,"ms/op"
+"co.datadome.pub.scalabenchmarks.jvms.misc.gameoflife.GameOfLifeBenchmark.in_place","avgt",1,100,20.700633,0.247311,"ms/op"

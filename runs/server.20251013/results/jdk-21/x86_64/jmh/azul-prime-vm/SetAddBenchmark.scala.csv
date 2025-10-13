@@ -1,0 +1,3 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: size"
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.SetAddBenchmark.add_10","avgt",1,100,4823.210299,48.842782,"ns/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.api.collections.SetAddBenchmark.add_100","avgt",1,100,14848.513523,546.416094,"ns/op",1000

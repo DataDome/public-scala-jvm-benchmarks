@@ -1,0 +1,7 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
+"co.datadome.pub.scalabenchmarks.jvms.api.random.ScalaRandomBenchmark.next_boolean","avgt",1,100,10.123780,0.106188,"ns/op"
+"co.datadome.pub.scalabenchmarks.jvms.api.random.ScalaRandomBenchmark.next_double","avgt",1,100,20.738827,0.130610,"ns/op"
+"co.datadome.pub.scalabenchmarks.jvms.api.random.ScalaRandomBenchmark.next_float","avgt",1,100,10.341602,0.059292,"ns/op"
+"co.datadome.pub.scalabenchmarks.jvms.api.random.ScalaRandomBenchmark.next_gaussian","avgt",1,100,57.576717,0.333329,"ns/op"
+"co.datadome.pub.scalabenchmarks.jvms.api.random.ScalaRandomBenchmark.next_int","avgt",1,100,10.320683,0.032641,"ns/op"
+"co.datadome.pub.scalabenchmarks.jvms.api.random.ScalaRandomBenchmark.next_long","avgt",1,100,20.621124,0.000652,"ns/op"

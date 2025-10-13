@@ -2,7 +2,7 @@
 **/.RData
 *-schema-library/src/main/java/**
 generated-products.sql
-results
+/results
 
 
 ### Scala ###

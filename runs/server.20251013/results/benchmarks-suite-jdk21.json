@@ -1,0 +1,180 @@
+{
+  "globals": {
+    "jvmOpts": "",
+    "jmhOpts": "-foe true -wi 10 -w 10 -i 20 -r 10 -f 5 -rf csv -rff ((outputFilePath)).csv",
+    "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+  },
+  "benchmarks": [
+    {
+      "name": "InfrastructureBaselineJavaBenchmark",
+      "lang": "java"
+    },
+    {
+      "name": "InfrastructureBaselineBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "ListBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "ListBufferAccessBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "ListBufferBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "MutableSetBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "SetBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "SetAddBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "VectorBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "DurationBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "FutureBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "BufferedSourceBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "JavaRandomBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "JavaRandomSizedBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "ScalaRandomBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "ScalaRandomSizedBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "StringConcatenationBenchmark",
+      "jmhOpts": "-prof gc",
+      "lang": "scala"
+    },
+    {
+      "name": "StringRegexMatcherBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "EnumLookupBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "LoopOptimizationBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "ArithmeticCanonicalizationBenchmarkJava",
+      "lang": "java"
+    },
+    {
+      "name": "ArithmeticCanonicalizationBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "IfConditionalBranchBenchmarkJava",
+      "lang": "java"
+    },
+    {
+      "name": "IfConditionalBranchBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "CatsTypeclassesBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "CatsTypesBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "CatsEffectBasicBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "CatsEffectPopVarianceBenchmark",
+      "lang": "scala",
+      "jmhOpts": "-r 30"
+    },
+    {
+      "name": "CatsEffectWordFrequencyBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "ZioBasicBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "ZioPopVarianceBenchmark",
+      "lang": "scala",
+      "jmhOpts": "-r 30"
+    },
+    {
+      "name": "ZioWordFrequencyBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "DijkstraBenchmark",
+      "lang": "scala",
+      "jmhOpts": "-r 30"
+    },
+    {
+      "name": "FactorialBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "GameOfLifeBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "KnapsackBenchmark",
+      "lang": "scala",
+      "jmhOpts": "-r 30"
+    },
+    {
+      "name": "NQueensBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "PalindromeBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "PopulationVarianceBenchmark",
+      "lang": "scala",
+      "jmhOpts": "-r 30"
+    },
+    {
+      "name": "PrimesBenchmark",
+      "lang": "scala",
+      "jmhOpts": "-r 30"
+    },
+    {
+      "name": "WordFrequencyBenchmark",
+      "lang": "scala"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: size"
+"co.datadome.pub.scalabenchmarks.jvms.api.random.JavaRandomSizedBenchmark.next_bytes","avgt",1,100,2655.251406,17.128334,"ns/op",1024

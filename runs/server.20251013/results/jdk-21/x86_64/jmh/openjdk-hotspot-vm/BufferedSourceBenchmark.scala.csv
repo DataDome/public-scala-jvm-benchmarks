@@ -1,0 +1,11 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: bufferSize","Param: encoding"
+"co.datadome.pub.scalabenchmarks.jvms.api.diskio.BufferedSourceBenchmark.bufferedReader_readLine_once","avgt",1,100,2142.552302,142.868612,"ns/op",2048,ISO-8859-1
+"co.datadome.pub.scalabenchmarks.jvms.api.diskio.BufferedSourceBenchmark.bufferedReader_readLine_once","avgt",1,100,2142.554898,116.889945,"ns/op",2048,UTF-8
+"co.datadome.pub.scalabenchmarks.jvms.api.diskio.BufferedSourceBenchmark.from_file","avgt",1,100,3646.264823,49.067692,"ns/op",2048,ISO-8859-1
+"co.datadome.pub.scalabenchmarks.jvms.api.diskio.BufferedSourceBenchmark.from_file","avgt",1,100,3627.197653,51.768140,"ns/op",2048,UTF-8
+"co.datadome.pub.scalabenchmarks.jvms.api.diskio.BufferedSourceBenchmark.getLines_mkString","avgt",1,100,660.916063,5.848218,"ns/op",2048,ISO-8859-1
+"co.datadome.pub.scalabenchmarks.jvms.api.diskio.BufferedSourceBenchmark.getLines_mkString","avgt",1,100,671.514735,5.016972,"ns/op",2048,UTF-8
+"co.datadome.pub.scalabenchmarks.jvms.api.diskio.BufferedSourceBenchmark.mkString","avgt",1,100,1150.559967,50.853162,"ns/op",2048,ISO-8859-1
+"co.datadome.pub.scalabenchmarks.jvms.api.diskio.BufferedSourceBenchmark.mkString","avgt",1,100,1128.488948,43.461905,"ns/op",2048,UTF-8
+"co.datadome.pub.scalabenchmarks.jvms.api.diskio.BufferedSourceBenchmark.reader_readBuffer","avgt",1,100,1561.006115,72.654110,"ns/op",2048,ISO-8859-1
+"co.datadome.pub.scalabenchmarks.jvms.api.diskio.BufferedSourceBenchmark.reader_readBuffer","avgt",1,100,1604.075426,80.414619,"ns/op",2048,UTF-8

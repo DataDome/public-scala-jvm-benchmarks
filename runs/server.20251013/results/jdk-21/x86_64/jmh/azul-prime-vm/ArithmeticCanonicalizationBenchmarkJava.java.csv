@@ -1,0 +1,3 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: isHeavy","Param: value"
+"com.ionutbalosin.jvm.performance.benchmarks.compiler.ArithmeticCanonicalizationBenchmarkJava.add","avgt",1,100,2.205686,0.053788,"ns/op",true,179426549
+"com.ionutbalosin.jvm.performance.benchmarks.compiler.ArithmeticCanonicalizationBenchmarkJava.shift","avgt",1,100,2.197746,0.050801,"ns/op",true,179426549

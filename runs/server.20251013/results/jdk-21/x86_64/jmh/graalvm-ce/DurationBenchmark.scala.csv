@@ -1,0 +1,6 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
+"co.datadome.pub.scalabenchmarks.jvms.api.concurrent.DurationBenchmark.add_finite","avgt",1,100,41.987198,0.228341,"ns/op"
+"co.datadome.pub.scalabenchmarks.jvms.api.concurrent.DurationBenchmark.add_infinite","avgt",1,100,0.716673,0.001505,"ns/op"
+"co.datadome.pub.scalabenchmarks.jvms.api.concurrent.DurationBenchmark.instantiation","avgt",1,100,3.147762,0.220434,"ns/op"
+"co.datadome.pub.scalabenchmarks.jvms.api.concurrent.DurationBenchmark.mult_finite","avgt",1,100,3.800709,0.240801,"ns/op"
+"co.datadome.pub.scalabenchmarks.jvms.api.concurrent.DurationBenchmark.mult_infinite","avgt",1,100,0.437446,0.004734,"ns/op"

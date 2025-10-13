@@ -1,0 +1,8 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
+"com.ionutbalosin.jvm.performance.benchmarks.InfrastructureBaselineJavaBenchmark.method_baseline","avgt",1,100,0.383999,0.003681,"ns/op"
+"com.ionutbalosin.jvm.performance.benchmarks.InfrastructureBaselineJavaBenchmark.method_blank","avgt",1,100,0.381330,0.003112,"ns/op"
+"com.ionutbalosin.jvm.performance.benchmarks.InfrastructureBaselineJavaBenchmark.method_dont_inline","avgt",1,100,1.765469,0.000266,"ns/op"
+"com.ionutbalosin.jvm.performance.benchmarks.InfrastructureBaselineJavaBenchmark.method_inline","avgt",1,100,0.383616,0.003013,"ns/op"
+"com.ionutbalosin.jvm.performance.benchmarks.InfrastructureBaselineJavaBenchmark.obj_blackhole_consume","avgt",1,100,0.560242,0.010530,"ns/op"
+"com.ionutbalosin.jvm.performance.benchmarks.InfrastructureBaselineJavaBenchmark.obj_return","avgt",1,100,0.544918,0.011798,"ns/op"
+"com.ionutbalosin.jvm.performance.benchmarks.InfrastructureBaselineJavaBenchmark.obj_sink","avgt",1,100,2.009904,0.010158,"ns/op"
