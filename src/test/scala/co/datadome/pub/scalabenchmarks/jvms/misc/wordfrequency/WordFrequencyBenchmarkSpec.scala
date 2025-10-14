@@ -33,4 +33,12 @@ class WordFrequencyBenchmarkSpec extends TestSuite {
       result.toSeq.sortBy(_._2).reverse.take(5) should be(Seq("the" -> 5426, "I" -> 3038, "and" -> 2887, "to" -> 2788, "of" -> 2734))
     }
   }
+
+  "dac" in {
+    withBench { bench =>
+      val result = bench.dac()
+      result.size should be(8887)
+      result.toSeq.sortBy(_._2).reverse.take(5) should be(Seq("the" -> 5426, "I" -> 3038, "and" -> 2887, "to" -> 2788, "of" -> 2734))
+    }
+  }
 }

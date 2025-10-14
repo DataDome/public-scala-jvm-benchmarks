@@ -40,7 +40,7 @@ class FactorialBenchmark {
 
   @Benchmark
   def dac_big_int_multiply(): BigInt = {
-    IterativeBigIntMultiply.factorial(n)
+    DacBigIntMultiply.factorial(n)
   }
 
 }

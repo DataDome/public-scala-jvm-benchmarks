@@ -41,6 +41,11 @@ class WordFrequencyBenchmark {
   }
 
   @Benchmark
+  def dac(): Map[String, Int] = {
+    Dac.frequencies(FileName)
+  }
+
+  @Benchmark
   def parallel_stream(): util.Map[String, java.lang.Long] = {
     ParallelStreamWordFrequency.frequencies(FileName)
   }

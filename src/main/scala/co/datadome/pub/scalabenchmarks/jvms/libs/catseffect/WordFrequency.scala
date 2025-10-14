@@ -11,12 +11,12 @@ import scala.util.matching.Regex
 
 
 object WordFrequency {
-  
-  private val Parallelism = 100
+
+  private val Threshold = 100
 
   private val Pattern: Regex = """[\W]+""".r
 
-  val dac = new DivideAndConquer(Parallelism)
+  val dac = new DivideAndConquer(Threshold)
 
   def wordFrequency(fileName: String): IO[Map[String, Int]] = {
     val openFile: IO[BufferedSource] = IO(Source.fromFile(fileName))
