@@ -13,12 +13,16 @@
       "name": "InfrastructureBaselineBenchmark",
       "lang": "scala"
     },
-    { // Results similar to Java
-      "name": "MessageDigestJavaBenchmark",
-      "lang": "java"
+    {
+      "name": "ArrayBenchmark",
+      "lang": "scala"
     },
     {
       "name": "ListBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "ListBufferAccessBenchmark",
       "lang": "scala"
     },
     {
@@ -31,6 +35,10 @@
     },
     {
       "name": "SetBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "SetAddBenchmark",
       "lang": "scala"
     },
     {
@@ -112,8 +120,7 @@
     },
     {
       "name": "CatsEffectPopVarianceBenchmark",
-      "lang": "scala",
-      "jmhOpts": "-r 30"
+      "lang": "scala"
     },
     {
       "name": "CatsEffectWordFrequencyBenchmark",
@@ -125,8 +132,7 @@
     },
     {
       "name": "ZioPopVarianceBenchmark",
-      "lang": "scala",
-      "jmhOpts": "-r 30"
+      "lang": "scala"
     },
     {
       "name": "ZioWordFrequencyBenchmark",
@@ -134,8 +140,7 @@
     },
     {
       "name": "DijkstraBenchmark",
-      "lang": "scala",
-      "jmhOpts": "-r 30"
+      "lang": "scala"
     },
     {
       "name": "FactorialBenchmark",
@@ -147,8 +152,7 @@
     },
     {
       "name": "KnapsackBenchmark",
-      "lang": "scala",
-      "jmhOpts": "-r 30"
+      "lang": "scala"
     },
     {
       "name": "NQueensBenchmark",
@@ -160,13 +164,11 @@
     },
     {
       "name": "PopulationVarianceBenchmark",
-      "lang": "scala",
-      "jmhOpts": "-r 30"
+      "lang": "scala"
     },
     {
       "name": "PrimesBenchmark",
-      "lang": "scala",
-      "jmhOpts": "-r 30"
+      "lang": "scala"
     },
     {
       "name": "WordFrequencyBenchmark",
