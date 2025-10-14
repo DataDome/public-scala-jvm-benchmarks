@@ -1,0 +1,2 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
+"co.datadome.pub.scalabenchmarks.jvms.libs.catseffect.CatsEffectWordFrequencyBenchmark.wordFrequencyStreamFs2","avgt",1,100,161.425239,0.454765,"ms/op"
