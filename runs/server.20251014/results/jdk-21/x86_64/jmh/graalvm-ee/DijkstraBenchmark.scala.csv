@@ -1,0 +1,3 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: size"
+"co.datadome.pub.scalabenchmarks.jvms.misc.dijkstra.DijkstraBenchmark.adjacency_lists","avgt",1,100,13453.737089,57.065575,"ms/op",8192
+"co.datadome.pub.scalabenchmarks.jvms.misc.dijkstra.DijkstraBenchmark.adjacency_matrix","avgt",1,100,104.324861,0.651810,"ms/op",8192
