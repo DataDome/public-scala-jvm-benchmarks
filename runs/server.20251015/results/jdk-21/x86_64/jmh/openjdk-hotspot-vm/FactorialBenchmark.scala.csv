@@ -1,0 +1,5 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: n"
+"co.datadome.pub.scalabenchmarks.jvms.misc.factorial.FactorialBenchmark.dac_big_int_multiply","avgt",1,100,47.836516,2.522569,"us/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.misc.factorial.FactorialBenchmark.dac_big_int_multiply","avgt",1,100,663.706779,33.768313,"us/op",5000
+"co.datadome.pub.scalabenchmarks.jvms.misc.factorial.FactorialBenchmark.iterative_big_int_multiply","avgt",1,100,176.172904,8.618554,"us/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.misc.factorial.FactorialBenchmark.iterative_big_int_multiply","avgt",1,100,5629.377499,313.283947,"us/op",5000
