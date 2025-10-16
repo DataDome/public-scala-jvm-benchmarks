@@ -14,79 +14,11 @@
       "lang": "scala"
     },
     {
-      "name": "ArithmeticCanonicalizationBenchmark",
-      "lang": "scala"
-    },
-    {
       "name": "IfConditionalBranchBenchmark",
       "lang": "scala"
     },
     {
-      "name": "CatsTypeclassesBenchmark",
-      "lang": "scala"
-    },
-    {
-      "name": "CatsTypesBenchmark",
-      "lang": "scala"
-    },
-    {
-      "name": "CatsEffectBasicBenchmark",
-      "lang": "scala"
-    },
-    {
-      "name": "CatsEffectPopVarianceBenchmark",
-      "lang": "scala"
-    },
-    {
-      "name": "CatsEffectWordFrequencyBenchmark",
-      "lang": "scala"
-    },
-    {
-      "name": "ZioBasicBenchmark",
-      "lang": "scala"
-    },
-    {
-      "name": "ZioPopVarianceBenchmark",
-      "lang": "scala"
-    },
-    {
-      "name": "ZioWordFrequencyBenchmark",
-      "lang": "scala"
-    },
-    {
-      "name": "DijkstraBenchmark",
-      "lang": "scala"
-    },
-    {
-      "name": "FactorialBenchmark",
-      "lang": "scala"
-    },
-    {
       "name": "GameOfLifeBenchmark",
-      "lang": "scala"
-    },
-    {
-      "name": "KnapsackBenchmark",
-      "lang": "scala"
-    },
-    {
-      "name": "NQueensBenchmark",
-      "lang": "scala"
-    },
-    {
-      "name": "PalindromeBenchmark",
-      "lang": "scala"
-    },
-    {
-      "name": "PopulationVarianceBenchmark",
-      "lang": "scala"
-    },
-    {
-      "name": "PrimesBenchmark",
-      "lang": "scala"
-    },
-    {
-      "name": "WordFrequencyBenchmark",
       "lang": "scala"
     }
   ]
