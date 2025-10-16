@@ -29,9 +29,9 @@ class FutureBenchmark {
     records = (0 to computationSize).map(_ * 13).toArray
   }
 
-  def computation(): Int = {
+  def computation(start: Int): Int = {
     var i = 0
-    var res = 0
+    var res = start
     while (i < records.length) {
       if (i % 3 == 2) {
         res += records(i)
@@ -49,12 +49,14 @@ class FutureBenchmark {
   @Benchmark
   def run_future(): Int = {
     import scala.concurrent.ExecutionContext.Implicits.global
-    val f: Future[Int] = Future(computation())
+    val f: Future[Int] = Future(computation(0))
+      .flatMap { i => Future(computation(i)) }
+      .flatMap { i => Future(computation(i)) }
     Await.result(f, Timeout)
   }
 
   @Benchmark
   def run_no_future(): Int = {
-    computation()
+    computation(computation(computation(0)))
   }
 }

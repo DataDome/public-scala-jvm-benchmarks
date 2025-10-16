@@ -20,13 +20,13 @@ class FutureBenchmarkSpec extends TestSuite {
 
   "run_no_future" in {
     withBench() { bench =>
-      bench.run_no_future() shouldBe bench.computation()
+      bench.run_no_future() shouldBe -1806737761
     }
   }
 
   "run_future" in {
     withBench() { bench =>
-      bench.run_future() shouldBe bench.computation()
+      bench.run_future() shouldBe -1806737761
     }
   }
 }
