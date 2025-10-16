@@ -1,0 +1,4 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: size"
+"co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.no_if_branch","avgt",1,10,4.695706,0.542263,"us/op",16384
+"co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.predictable_if_branch","avgt",1,10,6.985838,0.762804,"us/op",16384
+"co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.unpredictable_if_branch","avgt",1,10,56.601054,6.478441,"us/op",16384

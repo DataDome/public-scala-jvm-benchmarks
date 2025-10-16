@@ -1,0 +1,3 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
+"co.datadome.pub.scalabenchmarks.jvms.api.EnumLookupBenchmark.cached_enum_values","avgt",1,10,35.501510,3.645009,"ns/op"
+"co.datadome.pub.scalabenchmarks.jvms.api.EnumLookupBenchmark.enum_values","avgt",1,10,413.548417,118.704233,"ns/op"

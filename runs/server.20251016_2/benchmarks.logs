@@ -1,0 +1,2692 @@
+
+#################################################################
+#######       JVM Performance Benchmarks Test Suite       #######
+#################################################################
+
++=======================+
+| [1/7] Load Properties |
++=======================+
+Configuration properties have been successfully loaded from the './settings/config.properties' file.
+Constant properties have been successfully loaded from the './settings/constants.properties' file.
+
++================================+
+| [2/7] Load Architecture and OS |
++================================+
+Hardware Architecture: x86_64
+Operating system: linux
+
++========================+
+| [3/7] JQ Configuration |
++========================+
+JSON processor: scripts/jq/jq-linux-x86_64
+
++===============================+
+| [4/7] Compile benchmark suite |
++===============================+
+Compiling benchmark suite...
+sbt clean Jmh/assembly
+
+[info] welcome to sbt 1.11.6 (Eclipse Adoptium Java 21.0.8)
+[info] loading settings for project public-scala-jvm-benchmarks-build from plugins.sbt...
+[info] loading project definition from /home/grenoux/Repositories/public-scala-jvm-benchmarks/project
+[info] loading settings for project public-scala-jvm-benchmarks from build.sbt...
+[info] set current project to scala-jvm-benchmarks (in build file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/)
+[success] Total time: 0 s, completed Oct 16, 2025, 9:16:48 AM
+[info] compiling 78 Scala sources and 77 Java sources to /home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/classes ...
+[warn] -- [E198] Unused Symbol Warning: /home/grenoux/Repositories/public-scala-jvm-benchmarks/src/main/scala/co/datadome/pub/scalabenchmarks/jvms/AABaseBenchmark.scala:6:25 
+[warn] 6 |import scala.compiletime.uninitialized
+[warn]   |                         ^^^^^^^^^^^^^
+[warn]   |                         unused import
+[warn] -- [E198] Unused Symbol Warning: /home/grenoux/Repositories/public-scala-jvm-benchmarks/src/main/scala/co/datadome/pub/scalabenchmarks/jvms/api/collections/ArrayBenchmark.scala:18:14 
+[warn] 18 |  private val random: Random = new Random(16384)
+[warn]    |              ^^^^^^
+[warn]    |              unused private member
+[warn] two warnings found
+[info] /home/grenoux/Repositories/public-scala-jvm-benchmarks/src/main/java/com/ionutbalosin/jvm/performance/benchmarks/miscellaneous/memoryaccess/SequentialCollectionReadAccessBenchmark.java: SequentialCollectionReadAccessBenchmark.java uses unchecked or unsafe operations.
+[info] /home/grenoux/Repositories/public-scala-jvm-benchmarks/src/main/java/com/ionutbalosin/jvm/performance/benchmarks/miscellaneous/memoryaccess/SequentialCollectionReadAccessBenchmark.java: Recompile with -Xlint:unchecked for details.
+[info] done compiling
+[info] running (fork) org.openjdk.jmh.generators.bytecode.JmhBytecodeGenerator /home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/classes /home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/src_managed/jmh /home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/resource_managed/jmh default
+[info] Processing 576 classes from /home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/classes with "reflection" generator
+[info] Writing out Java source to /home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/src_managed/jmh and resources to /home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/resource_managed/jmh
+[info] compiling 789 Java sources to /home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/classes ...
+[info] done compiling
+[info] 40 file(s) merged using strategy 'Rename' (Run the task at debug level to see the details)
+[info] Built: /home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar
+[info] Jar hash: 18a545e5db485ab807848c3f8140f0d1e913bbee
+[success] Total time: 37 s, completed Oct 16, 2025, 9:17:25 AM
+Compilation completed successfully.
+
++=============================================
+| Running steps 5 to 7 with openjdk-hotspot-vm
++=============================================
+| Thu Oct 16 09:17:25 AM UTC 2025
++=============================================
+
++=========================+
+| [5/7] JVM Configuration |
++=========================+
+
++---------------------------+
+| JVM Environment Variables |
++---------------------------+
+Java home: /home/grenoux/.sdkman/candidates/java/25-tem
+JDK version: 25
+JVM name: OpenJDK HotSpot VM
+JVM identifier: openjdk-hotspot-vm
+
++=========================+
+| [6/7] JMH Configuration |
++=========================+
+JMH benchmarks suite configuration file: settings/benchmarks-suite-jdk25.json
+JMH output folder: results/jdk-25/x86_64/jmh/openjdk-hotspot-vm
+
++===========================+
+| [7/7] Run benchmark suite |
++===========================+
+Running OpenJDK HotSpot VM test suite ...
+Creating folder: 'results/jdk-25/x86_64/jmh/openjdk-hotspot-vm' ...
+
+Running EnumLookupBenchmark benchmark ...
+Thu Oct 16 09:17:26 AM UTC 2025
+java  -jar "target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar" "\\.EnumLookupBenchmark\\." -foe true -wi 5 -w 5 -i 5 -r 5 -f 2 -rf csv -rff results/jdk-25/x86_64/jmh/openjdk-hotspot-vm/EnumLookupBenchmark.scala.csv -jvmArgsAppend "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+36-LTS
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-tem/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.EnumLookupBenchmark.cached_enum_values
+
+# Run progress: 0.00% complete, ETA 00:03:20
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 35.543 ns/op
+# Warmup Iteration   2: 29.485 ns/op
+# Warmup Iteration   3: 38.023 ns/op
+# Warmup Iteration   4: 31.106 ns/op
+# Warmup Iteration   5: 31.108 ns/op
+Iteration   1: 31.106 ns/op
+Iteration   2: 31.112 ns/op
+Iteration   3: 31.110 ns/op
+Iteration   4: 31.109 ns/op
+Iteration   5: 31.108 ns/op
+
+# Run progress: 25.00% complete, ETA 00:02:32
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 35.335 ns/op
+# Warmup Iteration   2: 29.542 ns/op
+# Warmup Iteration   3: 31.103 ns/op
+# Warmup Iteration   4: 31.107 ns/op
+# Warmup Iteration   5: 31.106 ns/op
+Iteration   1: 31.109 ns/op
+Iteration   2: 31.108 ns/op
+Iteration   3: 31.108 ns/op
+Iteration   4: 31.109 ns/op
+Iteration   5: 31.109 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.EnumLookupBenchmark.cached_enum_values":
+  31.109 ±(99.9%) 0.002 ns/op [Average]
+  (min, avg, max) = (31.106, 31.109, 31.112), stdev = 0.001
+  CI (99.9%): [31.106, 31.111] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+36-LTS
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-tem/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.EnumLookupBenchmark.enum_values
+
+# Run progress: 50.00% complete, ETA 00:01:41
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 544.082 ns/op
+# Warmup Iteration   2: 561.247 ns/op
+# Warmup Iteration   3: 364.534 ns/op
+# Warmup Iteration   4: 357.903 ns/op
+# Warmup Iteration   5: 357.856 ns/op
+Iteration   1: 357.667 ns/op
+Iteration   2: 414.602 ns/op
+Iteration   3: 367.221 ns/op
+Iteration   4: 382.440 ns/op
+Iteration   5: 517.152 ns/op
+
+# Run progress: 75.00% complete, ETA 00:00:50
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 482.195 ns/op
+# Warmup Iteration   2: 363.824 ns/op
+# Warmup Iteration   3: 358.324 ns/op
+# Warmup Iteration   4: 358.180 ns/op
+# Warmup Iteration   5: 358.120 ns/op
+Iteration   1: 432.084 ns/op
+Iteration   2: 358.747 ns/op
+Iteration   3: 358.706 ns/op
+Iteration   4: 384.898 ns/op
+Iteration   5: 400.320 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.EnumLookupBenchmark.enum_values":
+  397.384 ±(99.9%) 74.252 ns/op [Average]
+  (min, avg, max) = (357.667, 397.384, 517.152), stdev = 49.113
+  CI (99.9%): [323.132, 471.636] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:03:22
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                               Mode  Cnt    Score    Error  Units
+EnumLookupBenchmark.cached_enum_values  avgt   10   31.109 ±  0.002  ns/op
+EnumLookupBenchmark.enum_values         avgt   10  397.384 ± 74.252  ns/op
+
+Benchmark result is saved to results/jdk-25/x86_64/jmh/openjdk-hotspot-vm/EnumLookupBenchmark.scala.csv
+
+Finished EnumLookupBenchmark benchmark (Thu Oct 16 09:20:49 AM UTC 2025)
+Thu Oct 16 09:20:49 AM UTC 2025
+
+Running LoopOptimizationBenchmark benchmark ...
+Thu Oct 16 09:20:50 AM UTC 2025
+java  -jar "target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar" "\\.LoopOptimizationBenchmark\\." -foe true -wi 5 -w 5 -i 5 -r 5 -f 2 -rf csv -rff results/jdk-25/x86_64/jmh/openjdk-hotspot-vm/LoopOptimizationBenchmark.scala.csv -jvmArgsAppend "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+36-LTS
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-tem/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.for_array
+# Parameters: (size = 1000)
+
+# Run progress: 0.00% complete, ETA 00:10:00
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 351.718 ns/op
+# Warmup Iteration   2: 292.771 ns/op
+# Warmup Iteration   3: 292.396 ns/op
+# Warmup Iteration   4: 292.237 ns/op
+# Warmup Iteration   5: 292.280 ns/op
+Iteration   1: 292.265 ns/op
+Iteration   2: 292.407 ns/op
+Iteration   3: 292.483 ns/op
+Iteration   4: 292.252 ns/op
+Iteration   5: 292.253 ns/op
+
+# Run progress: 8.33% complete, ETA 00:09:19
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 296.883 ns/op
+# Warmup Iteration   2: 292.573 ns/op
+# Warmup Iteration   3: 292.471 ns/op
+# Warmup Iteration   4: 292.335 ns/op
+# Warmup Iteration   5: 292.315 ns/op
+Iteration   1: 292.325 ns/op
+Iteration   2: 292.711 ns/op
+Iteration   3: 292.336 ns/op
+Iteration   4: 292.365 ns/op
+Iteration   5: 292.336 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.for_array":
+  292.373 ±(99.9%) 0.210 ns/op [Average]
+  (min, avg, max) = (292.252, 292.373, 292.711), stdev = 0.139
+  CI (99.9%): [292.164, 292.583] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+36-LTS
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-tem/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.for_range
+# Parameters: (size = 1000)
+
+# Run progress: 16.67% complete, ETA 00:08:27
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 364.038 ns/op
+# Warmup Iteration   2: 309.309 ns/op
+# Warmup Iteration   3: 303.504 ns/op
+# Warmup Iteration   4: 303.501 ns/op
+# Warmup Iteration   5: 303.500 ns/op
+Iteration   1: 303.504 ns/op
+Iteration   2: 303.503 ns/op
+Iteration   3: 303.500 ns/op
+Iteration   4: 303.516 ns/op
+Iteration   5: 303.500 ns/op
+
+# Run progress: 25.00% complete, ETA 00:07:37
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 372.356 ns/op
+# Warmup Iteration   2: 369.007 ns/op
+# Warmup Iteration   3: 303.604 ns/op
+# Warmup Iteration   4: 303.658 ns/op
+# Warmup Iteration   5: 303.716 ns/op
+Iteration   1: 303.630 ns/op
+Iteration   2: 303.646 ns/op
+Iteration   3: 303.663 ns/op
+Iteration   4: 303.632 ns/op
+Iteration   5: 303.631 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.for_range":
+  303.572 ±(99.9%) 0.109 ns/op [Average]
+  (min, avg, max) = (303.500, 303.572, 303.663), stdev = 0.072
+  CI (99.9%): [303.463, 303.682] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+36-LTS
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-tem/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.macro_fastForeach_array
+# Parameters: (size = 1000)
+
+# Run progress: 33.33% complete, ETA 00:06:46
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 340.179 ns/op
+# Warmup Iteration   2: 285.137 ns/op
+# Warmup Iteration   3: 284.762 ns/op
+# Warmup Iteration   4: 284.752 ns/op
+# Warmup Iteration   5: 284.755 ns/op
+Iteration   1: 284.759 ns/op
+Iteration   2: 284.757 ns/op
+Iteration   3: 284.753 ns/op
+Iteration   4: 284.764 ns/op
+Iteration   5: 284.758 ns/op
+
+# Run progress: 41.67% complete, ETA 00:05:55
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 323.940 ns/op
+# Warmup Iteration   2: 285.106 ns/op
+# Warmup Iteration   3: 284.750 ns/op
+# Warmup Iteration   4: 284.750 ns/op
+# Warmup Iteration   5: 284.762 ns/op
+Iteration   1: 284.753 ns/op
+Iteration   2: 284.744 ns/op
+Iteration   3: 284.753 ns/op
+Iteration   4: 284.748 ns/op
+Iteration   5: 284.746 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.macro_fastForeach_array":
+  284.753 ±(99.9%) 0.010 ns/op [Average]
+  (min, avg, max) = (284.744, 284.753, 284.764), stdev = 0.006
+  CI (99.9%): [284.744, 284.763] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+36-LTS
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-tem/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.macro_fastLoop
+# Parameters: (size = 1000)
+
+# Run progress: 50.00% complete, ETA 00:05:05
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 356.348 ns/op
+# Warmup Iteration   2: 302.618 ns/op
+# Warmup Iteration   3: 301.887 ns/op
+# Warmup Iteration   4: 301.863 ns/op
+# Warmup Iteration   5: 301.865 ns/op
+Iteration   1: 368.320 ns/op
+Iteration   2: 301.814 ns/op
+Iteration   3: 358.230 ns/op
+Iteration   4: 301.829 ns/op
+Iteration   5: 301.866 ns/op
+
+# Run progress: 58.33% complete, ETA 00:04:14
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 366.113 ns/op
+# Warmup Iteration   2: 365.693 ns/op
+# Warmup Iteration   3: 301.842 ns/op
+# Warmup Iteration   4: 301.778 ns/op
+# Warmup Iteration   5: 301.809 ns/op
+Iteration   1: 301.811 ns/op
+Iteration   2: 368.283 ns/op
+Iteration   3: 301.703 ns/op
+Iteration   4: 301.698 ns/op
+Iteration   5: 301.698 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.macro_fastLoop":
+  320.725 ±(99.9%) 46.319 ns/op [Average]
+  (min, avg, max) = (301.698, 320.725, 368.320), stdev = 30.637
+  CI (99.9%): [274.406, 367.044] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+36-LTS
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-tem/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.while_array
+# Parameters: (size = 1000)
+
+# Run progress: 66.67% complete, ETA 00:03:23
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 339.875 ns/op
+# Warmup Iteration   2: 285.837 ns/op
+# Warmup Iteration   3: 285.206 ns/op
+# Warmup Iteration   4: 285.212 ns/op
+# Warmup Iteration   5: 285.211 ns/op
+Iteration   1: 285.206 ns/op
+Iteration   2: 285.206 ns/op
+Iteration   3: 285.203 ns/op
+Iteration   4: 285.206 ns/op
+Iteration   5: 285.207 ns/op
+
+# Run progress: 75.00% complete, ETA 00:02:32
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 287.093 ns/op
+# Warmup Iteration   2: 285.822 ns/op
+# Warmup Iteration   3: 285.101 ns/op
+# Warmup Iteration   4: 285.059 ns/op
+# Warmup Iteration   5: 285.047 ns/op
+Iteration   1: 285.047 ns/op
+Iteration   2: 285.118 ns/op
+Iteration   3: 285.146 ns/op
+Iteration   4: 285.151 ns/op
+Iteration   5: 285.088 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.while_array":
+  285.158 ±(99.9%) 0.088 ns/op [Average]
+  (min, avg, max) = (285.047, 285.158, 285.207), stdev = 0.058
+  CI (99.9%): [285.070, 285.246] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+36-LTS
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-tem/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.while_range
+# Parameters: (size = 1000)
+
+# Run progress: 83.33% complete, ETA 00:01:41
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 354.914 ns/op
+# Warmup Iteration   2: 362.978 ns/op
+# Warmup Iteration   3: 301.834 ns/op
+# Warmup Iteration   4: 301.734 ns/op
+# Warmup Iteration   5: 301.731 ns/op
+Iteration   1: 301.741 ns/op
+Iteration   2: 301.762 ns/op
+Iteration   3: 301.795 ns/op
+Iteration   4: 301.759 ns/op
+Iteration   5: 301.745 ns/op
+
+# Run progress: 91.67% complete, ETA 00:00:50
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 362.501 ns/op
+# Warmup Iteration   2: 302.492 ns/op
+# Warmup Iteration   3: 301.816 ns/op
+# Warmup Iteration   4: 301.719 ns/op
+# Warmup Iteration   5: 301.722 ns/op
+Iteration   1: 301.715 ns/op
+Iteration   2: 301.716 ns/op
+Iteration   3: 301.730 ns/op
+Iteration   4: 301.711 ns/op
+Iteration   5: 301.729 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.while_range":
+  301.740 ±(99.9%) 0.040 ns/op [Average]
+  (min, avg, max) = (301.711, 301.740, 301.795), stdev = 0.026
+  CI (99.9%): [301.701, 301.780] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:10:09
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                          (size)  Mode  Cnt    Score    Error  Units
+LoopOptimizationBenchmark.for_array                  1000  avgt   10  292.373 ±  0.210  ns/op
+LoopOptimizationBenchmark.for_range                  1000  avgt   10  303.572 ±  0.109  ns/op
+LoopOptimizationBenchmark.macro_fastForeach_array    1000  avgt   10  284.753 ±  0.010  ns/op
+LoopOptimizationBenchmark.macro_fastLoop             1000  avgt   10  320.725 ± 46.319  ns/op
+LoopOptimizationBenchmark.while_array                1000  avgt   10  285.158 ±  0.088  ns/op
+LoopOptimizationBenchmark.while_range                1000  avgt   10  301.740 ±  0.040  ns/op
+
+Benchmark result is saved to results/jdk-25/x86_64/jmh/openjdk-hotspot-vm/LoopOptimizationBenchmark.scala.csv
+
+Finished LoopOptimizationBenchmark benchmark (Thu Oct 16 09:31:00 AM UTC 2025)
+Thu Oct 16 09:31:00 AM UTC 2025
+
+Running IfConditionalBranchBenchmark benchmark ...
+Thu Oct 16 09:31:01 AM UTC 2025
+java  -jar "target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar" "\\.IfConditionalBranchBenchmark\\." -foe true -wi 5 -w 5 -i 5 -r 5 -f 2 -rf csv -rff results/jdk-25/x86_64/jmh/openjdk-hotspot-vm/IfConditionalBranchBenchmark.scala.csv -jvmArgsAppend "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+36-LTS
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-tem/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.no_if_branch
+# Parameters: (size = 16384)
+
+# Run progress: 0.00% complete, ETA 00:05:00
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 5.631 us/op
+# Warmup Iteration   2: 4.696 us/op
+# Warmup Iteration   3: 4.694 us/op
+# Warmup Iteration   4: 5.607 us/op
+# Warmup Iteration   5: 4.694 us/op
+Iteration   1: 4.694 us/op
+Iteration   2: 4.694 us/op
+Iteration   3: 4.694 us/op
+Iteration   4: 4.694 us/op
+Iteration   5: 4.694 us/op
+
+# Run progress: 16.67% complete, ETA 00:04:14
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 5.439 us/op
+# Warmup Iteration   2: 4.695 us/op
+# Warmup Iteration   3: 4.693 us/op
+# Warmup Iteration   4: 4.693 us/op
+# Warmup Iteration   5: 5.718 us/op
+Iteration   1: 4.694 us/op
+Iteration   2: 4.694 us/op
+Iteration   3: 4.694 us/op
+Iteration   4: 4.694 us/op
+Iteration   5: 5.715 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.no_if_branch":
+  4.796 ±(99.9%) 0.488 us/op [Average]
+  (min, avg, max) = (4.694, 4.796, 5.715), stdev = 0.323
+  CI (99.9%): [4.308, 5.284] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+36-LTS
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-tem/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.predictable_if_branch
+# Parameters: (size = 16384)
+
+# Run progress: 33.33% complete, ETA 00:03:23
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 5.410 us/op
+# Warmup Iteration   2: 4.716 us/op
+# Warmup Iteration   3: 4.716 us/op
+# Warmup Iteration   4: 4.717 us/op
+# Warmup Iteration   5: 4.716 us/op
+Iteration   1: 4.716 us/op
+Iteration   2: 4.716 us/op
+Iteration   3: 4.716 us/op
+Iteration   4: 4.716 us/op
+Iteration   5: 4.716 us/op
+
+# Run progress: 50.00% complete, ETA 00:02:32
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 5.427 us/op
+# Warmup Iteration   2: 4.715 us/op
+# Warmup Iteration   3: 4.715 us/op
+# Warmup Iteration   4: 4.715 us/op
+# Warmup Iteration   5: 4.716 us/op
+Iteration   1: 5.656 us/op
+Iteration   2: 4.716 us/op
+Iteration   3: 4.716 us/op
+Iteration   4: 4.716 us/op
+Iteration   5: 4.716 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.predictable_if_branch":
+  4.810 ±(99.9%) 0.449 us/op [Average]
+  (min, avg, max) = (4.716, 4.810, 5.656), stdev = 0.297
+  CI (99.9%): [4.361, 5.259] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+36-LTS
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-tem/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.unpredictable_if_branch
+# Parameters: (size = 16384)
+
+# Run progress: 66.67% complete, ETA 00:01:41
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 16.430 us/op
+# Warmup Iteration   2: 14.084 us/op
+# Warmup Iteration   3: 14.080 us/op
+# Warmup Iteration   4: 14.080 us/op
+# Warmup Iteration   5: 14.080 us/op
+Iteration   1: 14.080 us/op
+Iteration   2: 14.080 us/op
+Iteration   3: 14.080 us/op
+Iteration   4: 14.080 us/op
+Iteration   5: 14.080 us/op
+
+# Run progress: 83.33% complete, ETA 00:00:50
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 15.969 us/op
+# Warmup Iteration   2: 14.081 us/op
+# Warmup Iteration   3: 14.077 us/op
+# Warmup Iteration   4: 14.077 us/op
+# Warmup Iteration   5: 14.077 us/op
+Iteration   1: 14.077 us/op
+Iteration   2: 14.077 us/op
+Iteration   3: 14.077 us/op
+Iteration   4: 14.078 us/op
+Iteration   5: 14.077 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.unpredictable_if_branch":
+  14.079 ±(99.9%) 0.002 us/op [Average]
+  (min, avg, max) = (14.077, 14.079, 14.080), stdev = 0.001
+  CI (99.9%): [14.076, 14.081] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:05:05
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                             (size)  Mode  Cnt   Score   Error  Units
+IfConditionalBranchBenchmark.no_if_branch              16384  avgt   10   4.796 ± 0.488  us/op
+IfConditionalBranchBenchmark.predictable_if_branch     16384  avgt   10   4.810 ± 0.449  us/op
+IfConditionalBranchBenchmark.unpredictable_if_branch   16384  avgt   10  14.079 ± 0.002  us/op
+
+Benchmark result is saved to results/jdk-25/x86_64/jmh/openjdk-hotspot-vm/IfConditionalBranchBenchmark.scala.csv
+
+Finished IfConditionalBranchBenchmark benchmark (Thu Oct 16 09:36:07 AM UTC 2025)
+Thu Oct 16 09:36:07 AM UTC 2025
+
+Running GameOfLifeBenchmark benchmark ...
+Thu Oct 16 09:36:07 AM UTC 2025
+java  -jar "target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar" "\\.GameOfLifeBenchmark\\." -foe true -wi 5 -w 5 -i 5 -r 5 -f 2 -rf csv -rff results/jdk-25/x86_64/jmh/openjdk-hotspot-vm/GameOfLifeBenchmark.scala.csv -jvmArgsAppend "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+36-LTS
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-tem/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.misc.gameoflife.GameOfLifeBenchmark.array_copy
+
+# Run progress: 0.00% complete, ETA 00:03:20
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 39.710 ms/op
+# Warmup Iteration   2: 33.979 ms/op
+# Warmup Iteration   3: 27.742 ms/op
+# Warmup Iteration   4: 33.449 ms/op
+# Warmup Iteration   5: 27.581 ms/op
+Iteration   1: 27.809 ms/op
+Iteration   2: 27.688 ms/op
+Iteration   3: 27.901 ms/op
+Iteration   4: 27.586 ms/op
+Iteration   5: 31.924 ms/op
+
+# Run progress: 25.00% complete, ETA 00:02:33
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 32.622 ms/op
+# Warmup Iteration   2: 27.609 ms/op
+# Warmup Iteration   3: 27.573 ms/op
+# Warmup Iteration   4: 27.605 ms/op
+# Warmup Iteration   5: 27.571 ms/op
+Iteration   1: 27.577 ms/op
+Iteration   2: 27.573 ms/op
+Iteration   3: 27.576 ms/op
+Iteration   4: 27.588 ms/op
+Iteration   5: 27.605 ms/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.misc.gameoflife.GameOfLifeBenchmark.array_copy":
+  28.083 ±(99.9%) 2.048 ms/op [Average]
+  (min, avg, max) = (27.573, 28.083, 31.924), stdev = 1.354
+  CI (99.9%): [26.035, 30.130] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+36-LTS
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-tem/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.misc.gameoflife.GameOfLifeBenchmark.in_place
+
+# Run progress: 50.00% complete, ETA 00:01:42
+# Fork: 1 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 28.653 ms/op
+# Warmup Iteration   2: 24.273 ms/op
+# Warmup Iteration   3: 24.265 ms/op
+# Warmup Iteration   4: 24.256 ms/op
+# Warmup Iteration   5: 24.240 ms/op
+Iteration   1: 24.260 ms/op
+Iteration   2: 24.259 ms/op
+Iteration   3: 24.258 ms/op
+Iteration   4: 24.252 ms/op
+Iteration   5: 24.239 ms/op
+
+# Run progress: 75.00% complete, ETA 00:00:50
+# Fork: 2 of 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 27.876 ms/op
+# Warmup Iteration   2: 24.294 ms/op
+# Warmup Iteration   3: 24.277 ms/op
+# Warmup Iteration   4: 24.280 ms/op
+# Warmup Iteration   5: 24.282 ms/op
+Iteration   1: 24.276 ms/op
+Iteration   2: 24.284 ms/op
+Iteration   3: 24.284 ms/op
+Iteration   4: 24.300 ms/op
+Iteration   5: 24.278 ms/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.misc.gameoflife.GameOfLifeBenchmark.in_place":
+  24.269 ±(99.9%) 0.028 ms/op [Average]
+  (min, avg, max) = (24.239, 24.269, 24.300), stdev = 0.018
+  CI (99.9%): [24.242, 24.297] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:03:23
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                       Mode  Cnt   Score   Error  Units
+GameOfLifeBenchmark.array_copy  avgt   10  28.083 ± 2.048  ms/op
+GameOfLifeBenchmark.in_place    avgt   10  24.269 ± 0.028  ms/op
+
+Benchmark result is saved to results/jdk-25/x86_64/jmh/openjdk-hotspot-vm/GameOfLifeBenchmark.scala.csv
+
+Finished GameOfLifeBenchmark benchmark (Thu Oct 16 09:39:31 AM UTC 2025)
+Thu Oct 16 09:39:31 AM UTC 2025
+
+Finished OpenJDK HotSpot VM test suite!
+
+Elapsed: 22 minutes and 6 seconds.
+
++=============================================
+| Running steps 5 to 7 with graalvm-ce
++=============================================
+| Thu Oct 16 09:39:31 AM UTC 2025
++=============================================
+
++=========================+
+| [5/7] JVM Configuration |
++=========================+
+
++---------------------------+
+| JVM Environment Variables |
++---------------------------+
+Java home: /home/grenoux/.sdkman/candidates/java/25-graalce
+JDK version: 25
+JVM name: GraalVM CE
+JVM identifier: graalvm-ce
+
++=========================+
+| [6/7] JMH Configuration |
++=========================+
+JMH benchmarks suite configuration file: settings/benchmarks-suite-jdk25.json
+JMH output folder: results/jdk-25/x86_64/jmh/graalvm-ce
+
++===========================+
+| [7/7] Run benchmark suite |
++===========================+
+Running GraalVM CE test suite ...
+Creating folder: 'results/jdk-25/x86_64/jmh/graalvm-ce' ...
+
+Running EnumLookupBenchmark benchmark ...
+Thu Oct 16 09:39:32 AM UTC 2025
+java  -jar "target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar" "\\.EnumLookupBenchmark\\." -foe true -wi 5 -w 5 -i 5 -r 5 -f 2 -rf csv -rff results/jdk-25/x86_64/jmh/graalvm-ce/EnumLookupBenchmark.scala.csv -jvmArgsAppend "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+37-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graalce/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.EnumLookupBenchmark.cached_enum_values
+
+# Run progress: 0.00% complete, ETA 00:03:20
+# Fork: 1 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 48.454 ns/op
+# Warmup Iteration   2: 41.311 ns/op
+# Warmup Iteration   3: 41.257 ns/op
+# Warmup Iteration   4: 36.976 ns/op
+# Warmup Iteration   5: 35.803 ns/op
+Iteration   1: 35.804 ns/op
+Iteration   2: 35.801 ns/op
+Iteration   3: 35.801 ns/op
+Iteration   4: 35.802 ns/op
+Iteration   5: 35.805 ns/op
+
+# Run progress: 25.00% complete, ETA 00:02:32
+# Fork: 2 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 41.153 ns/op
+# Warmup Iteration   2: 41.315 ns/op
+# Warmup Iteration   3: 41.369 ns/op
+# Warmup Iteration   4: 37.642 ns/op
+# Warmup Iteration   5: 50.716 ns/op
+Iteration   1: 36.069 ns/op
+Iteration   2: 35.801 ns/op
+Iteration   3: 35.801 ns/op
+Iteration   4: 35.801 ns/op
+Iteration   5: 48.076 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.EnumLookupBenchmark.cached_enum_values":
+  37.056 ±(99.9%) 5.855 ns/op [Average]
+  (min, avg, max) = (35.801, 37.056, 48.076), stdev = 3.873
+  CI (99.9%): [31.201, 42.911] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+37-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graalce/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.EnumLookupBenchmark.enum_values
+
+# Run progress: 50.00% complete, ETA 00:01:41
+# Fork: 1 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 587.690 ns/op
+# Warmup Iteration   2: 518.495 ns/op
+# Warmup Iteration   3: 624.047 ns/op
+# Warmup Iteration   4: 606.205 ns/op
+# Warmup Iteration   5: 516.644 ns/op
+Iteration   1: 516.899 ns/op
+Iteration   2: 516.719 ns/op
+Iteration   3: 516.786 ns/op
+Iteration   4: 516.606 ns/op
+Iteration   5: 516.804 ns/op
+
+# Run progress: 75.00% complete, ETA 00:00:50
+# Fork: 2 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 526.878 ns/op
+# Warmup Iteration   2: 520.339 ns/op
+# Warmup Iteration   3: 516.821 ns/op
+# Warmup Iteration   4: 516.317 ns/op
+# Warmup Iteration   5: 516.256 ns/op
+Iteration   1: 624.044 ns/op
+Iteration   2: 538.272 ns/op
+Iteration   3: 1079.481 ns/op
+Iteration   4: 645.700 ns/op
+Iteration   5: 516.261 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.EnumLookupBenchmark.enum_values":
+  598.757 ±(99.9%) 265.721 ns/op [Average]
+  (min, avg, max) = (516.261, 598.757, 1079.481), stdev = 175.758
+  CI (99.9%): [333.036, 864.478] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:03:22
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                               Mode  Cnt    Score     Error  Units
+EnumLookupBenchmark.cached_enum_values  avgt   10   37.056 ±   5.855  ns/op
+EnumLookupBenchmark.enum_values         avgt   10  598.757 ± 265.721  ns/op
+
+Benchmark result is saved to results/jdk-25/x86_64/jmh/graalvm-ce/EnumLookupBenchmark.scala.csv
+
+Finished EnumLookupBenchmark benchmark (Thu Oct 16 09:42:56 AM UTC 2025)
+Thu Oct 16 09:42:56 AM UTC 2025
+
+Running LoopOptimizationBenchmark benchmark ...
+Thu Oct 16 09:42:56 AM UTC 2025
+java  -jar "target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar" "\\.LoopOptimizationBenchmark\\." -foe true -wi 5 -w 5 -i 5 -r 5 -f 2 -rf csv -rff results/jdk-25/x86_64/jmh/graalvm-ce/LoopOptimizationBenchmark.scala.csv -jvmArgsAppend "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+37-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graalce/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.for_array
+# Parameters: (size = 1000)
+
+# Run progress: 0.00% complete, ETA 00:10:00
+# Fork: 1 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 547.571 ns/op
+# Warmup Iteration   2: 275.845 ns/op
+# Warmup Iteration   3: 277.197 ns/op
+# Warmup Iteration   4: 277.134 ns/op
+# Warmup Iteration   5: 277.191 ns/op
+Iteration   1: 277.002 ns/op
+Iteration   2: 277.175 ns/op
+Iteration   3: 277.131 ns/op
+Iteration   4: 277.201 ns/op
+Iteration   5: 277.032 ns/op
+
+# Run progress: 8.33% complete, ETA 00:09:21
+# Fork: 2 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 539.834 ns/op
+# Warmup Iteration   2: 338.587 ns/op
+# Warmup Iteration   3: 277.205 ns/op
+# Warmup Iteration   4: 277.066 ns/op
+# Warmup Iteration   5: 277.107 ns/op
+Iteration   1: 277.034 ns/op
+Iteration   2: 277.039 ns/op
+Iteration   3: 340.443 ns/op
+Iteration   4: 277.234 ns/op
+Iteration   5: 277.525 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.for_array":
+  283.481 ±(99.9%) 30.259 ns/op [Average]
+  (min, avg, max) = (277.002, 283.481, 340.443), stdev = 20.015
+  CI (99.9%): [253.222, 313.741] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+37-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graalce/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.for_range
+# Parameters: (size = 1000)
+
+# Run progress: 16.67% complete, ETA 00:08:29
+# Fork: 1 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 587.654 ns/op
+# Warmup Iteration   2: 634.957 ns/op
+# Warmup Iteration   3: 510.251 ns/op
+# Warmup Iteration   4: 510.287 ns/op
+# Warmup Iteration   5: 510.279 ns/op
+Iteration   1: 510.202 ns/op
+Iteration   2: 510.267 ns/op
+Iteration   3: 510.272 ns/op
+Iteration   4: 510.275 ns/op
+Iteration   5: 510.307 ns/op
+
+# Run progress: 25.00% complete, ETA 00:07:38
+# Fork: 2 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 601.253 ns/op
+# Warmup Iteration   2: 626.128 ns/op
+# Warmup Iteration   3: 510.669 ns/op
+# Warmup Iteration   4: 510.561 ns/op
+# Warmup Iteration   5: 510.561 ns/op
+Iteration   1: 510.509 ns/op
+Iteration   2: 510.623 ns/op
+Iteration   3: 510.560 ns/op
+Iteration   4: 510.704 ns/op
+Iteration   5: 510.689 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.for_range":
+  510.441 ±(99.9%) 0.296 ns/op [Average]
+  (min, avg, max) = (510.202, 510.441, 510.704), stdev = 0.196
+  CI (99.9%): [510.145, 510.736] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+37-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graalce/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.macro_fastForeach_array
+# Parameters: (size = 1000)
+
+# Run progress: 33.33% complete, ETA 00:06:47
+# Fork: 1 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 527.484 ns/op
+# Warmup Iteration   2: 329.659 ns/op
+# Warmup Iteration   3: 275.614 ns/op
+# Warmup Iteration   4: 330.751 ns/op
+# Warmup Iteration   5: 275.886 ns/op
+Iteration   1: 276.044 ns/op
+Iteration   2: 275.648 ns/op
+Iteration   3: 275.674 ns/op
+Iteration   4: 276.085 ns/op
+Iteration   5: 275.434 ns/op
+
+# Run progress: 41.67% complete, ETA 00:05:56
+# Fork: 2 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 464.725 ns/op
+# Warmup Iteration   2: 339.097 ns/op
+# Warmup Iteration   3: 339.858 ns/op
+# Warmup Iteration   4: 340.127 ns/op
+# Warmup Iteration   5: 275.540 ns/op
+Iteration   1: 275.665 ns/op
+Iteration   2: 275.386 ns/op
+Iteration   3: 275.310 ns/op
+Iteration   4: 345.243 ns/op
+Iteration   5: 332.715 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.macro_fastForeach_array":
+  288.320 ±(99.9%) 40.614 ns/op [Average]
+  (min, avg, max) = (275.310, 288.320, 345.243), stdev = 26.863
+  CI (99.9%): [247.707, 328.934] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+37-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graalce/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.macro_fastLoop
+# Parameters: (size = 1000)
+
+# Run progress: 50.00% complete, ETA 00:05:05
+# Fork: 1 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 64.903 ns/op
+# Warmup Iteration   2: 55.040 ns/op
+# Warmup Iteration   3: 57.535 ns/op
+# Warmup Iteration   4: 57.533 ns/op
+# Warmup Iteration   5: 57.533 ns/op
+Iteration   1: 57.527 ns/op
+Iteration   2: 57.532 ns/op
+Iteration   3: 57.531 ns/op
+Iteration   4: 57.534 ns/op
+Iteration   5: 57.530 ns/op
+
+# Run progress: 58.33% complete, ETA 00:04:14
+# Fork: 2 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 57.109 ns/op
+# Warmup Iteration   2: 57.572 ns/op
+# Warmup Iteration   3: 57.528 ns/op
+# Warmup Iteration   4: 57.524 ns/op
+# Warmup Iteration   5: 57.508 ns/op
+Iteration   1: 57.523 ns/op
+Iteration   2: 57.525 ns/op
+Iteration   3: 57.517 ns/op
+Iteration   4: 57.531 ns/op
+Iteration   5: 57.516 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.macro_fastLoop":
+  57.527 ±(99.9%) 0.010 ns/op [Average]
+  (min, avg, max) = (57.516, 57.527, 57.534), stdev = 0.006
+  CI (99.9%): [57.517, 57.536] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+37-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graalce/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.while_array
+# Parameters: (size = 1000)
+
+# Run progress: 66.67% complete, ETA 00:03:23
+# Fork: 1 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 715.494 ns/op
+# Warmup Iteration   2: 328.451 ns/op
+# Warmup Iteration   3: 275.440 ns/op
+# Warmup Iteration   4: 275.412 ns/op
+# Warmup Iteration   5: 275.447 ns/op
+Iteration   1: 275.436 ns/op
+Iteration   2: 275.408 ns/op
+Iteration   3: 275.393 ns/op
+Iteration   4: 275.460 ns/op
+Iteration   5: 275.503 ns/op
+
+# Run progress: 75.00% complete, ETA 00:02:32
+# Fork: 2 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 681.002 ns/op
+# Warmup Iteration   2: 336.253 ns/op
+# Warmup Iteration   3: 276.305 ns/op
+# Warmup Iteration   4: 276.272 ns/op
+# Warmup Iteration   5: 276.292 ns/op
+Iteration   1: 276.203 ns/op
+Iteration   2: 276.386 ns/op
+Iteration   3: 337.388 ns/op
+Iteration   4: 276.178 ns/op
+Iteration   5: 276.208 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.while_array":
+  281.956 ±(99.9%) 29.452 ns/op [Average]
+  (min, avg, max) = (275.393, 281.956, 337.388), stdev = 19.481
+  CI (99.9%): [252.504, 311.409] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+37-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graalce/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.while_range
+# Parameters: (size = 1000)
+
+# Run progress: 83.33% complete, ETA 00:01:41
+# Fork: 1 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 64.379 ns/op
+# Warmup Iteration   2: 57.960 ns/op
+# Warmup Iteration   3: 57.926 ns/op
+# Warmup Iteration   4: 58.383 ns/op
+# Warmup Iteration   5: 72.426 ns/op
+Iteration   1: 58.379 ns/op
+Iteration   2: 58.386 ns/op
+Iteration   3: 72.398 ns/op
+Iteration   4: 58.385 ns/op
+Iteration   5: 58.387 ns/op
+
+# Run progress: 91.67% complete, ETA 00:00:50
+# Fork: 2 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 66.536 ns/op
+# Warmup Iteration   2: 68.793 ns/op
+# Warmup Iteration   3: 57.935 ns/op
+# Warmup Iteration   4: 58.412 ns/op
+# Warmup Iteration   5: 58.406 ns/op
+Iteration   1: 58.402 ns/op
+Iteration   2: 58.404 ns/op
+Iteration   3: 70.154 ns/op
+Iteration   4: 58.372 ns/op
+Iteration   5: 58.376 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.while_range":
+  60.964 ±(99.9%) 8.255 ns/op [Average]
+  (min, avg, max) = (58.372, 60.964, 72.398), stdev = 5.460
+  CI (99.9%): [52.709, 69.219] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:10:10
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                          (size)  Mode  Cnt    Score    Error  Units
+LoopOptimizationBenchmark.for_array                  1000  avgt   10  283.481 ± 30.259  ns/op
+LoopOptimizationBenchmark.for_range                  1000  avgt   10  510.441 ±  0.296  ns/op
+LoopOptimizationBenchmark.macro_fastForeach_array    1000  avgt   10  288.320 ± 40.614  ns/op
+LoopOptimizationBenchmark.macro_fastLoop             1000  avgt   10   57.527 ±  0.010  ns/op
+LoopOptimizationBenchmark.while_array                1000  avgt   10  281.956 ± 29.452  ns/op
+LoopOptimizationBenchmark.while_range                1000  avgt   10   60.964 ±  8.255  ns/op
+
+Benchmark result is saved to results/jdk-25/x86_64/jmh/graalvm-ce/LoopOptimizationBenchmark.scala.csv
+
+Finished LoopOptimizationBenchmark benchmark (Thu Oct 16 09:53:07 AM UTC 2025)
+Thu Oct 16 09:53:07 AM UTC 2025
+
+Running IfConditionalBranchBenchmark benchmark ...
+Thu Oct 16 09:53:08 AM UTC 2025
+java  -jar "target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar" "\\.IfConditionalBranchBenchmark\\." -foe true -wi 5 -w 5 -i 5 -r 5 -f 2 -rf csv -rff results/jdk-25/x86_64/jmh/graalvm-ce/IfConditionalBranchBenchmark.scala.csv -jvmArgsAppend "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+37-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graalce/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.no_if_branch
+# Parameters: (size = 16384)
+
+# Run progress: 0.00% complete, ETA 00:05:00
+# Fork: 1 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 9.876 us/op
+# Warmup Iteration   2: 4.578 us/op
+# Warmup Iteration   3: 4.585 us/op
+# Warmup Iteration   4: 4.581 us/op
+# Warmup Iteration   5: 4.582 us/op
+Iteration   1: 4.580 us/op
+Iteration   2: 4.580 us/op
+Iteration   3: 4.584 us/op
+Iteration   4: 5.716 us/op
+Iteration   5: 4.583 us/op
+
+# Run progress: 16.67% complete, ETA 00:04:14
+# Fork: 2 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 9.933 us/op
+# Warmup Iteration   2: 4.580 us/op
+# Warmup Iteration   3: 4.583 us/op
+# Warmup Iteration   4: 4.587 us/op
+# Warmup Iteration   5: 4.585 us/op
+Iteration   1: 4.584 us/op
+Iteration   2: 4.583 us/op
+Iteration   3: 4.582 us/op
+Iteration   4: 4.582 us/op
+Iteration   5: 4.583 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.no_if_branch":
+  4.696 ±(99.9%) 0.542 us/op [Average]
+  (min, avg, max) = (4.580, 4.696, 5.716), stdev = 0.359
+  CI (99.9%): [4.153, 5.238] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+37-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graalce/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.predictable_if_branch
+# Parameters: (size = 16384)
+
+# Run progress: 33.33% complete, ETA 00:03:23
+# Fork: 1 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 11.628 us/op
+# Warmup Iteration   2: 6.827 us/op
+# Warmup Iteration   3: 6.826 us/op
+# Warmup Iteration   4: 6.825 us/op
+# Warmup Iteration   5: 6.825 us/op
+Iteration   1: 6.826 us/op
+Iteration   2: 6.826 us/op
+Iteration   3: 6.826 us/op
+Iteration   4: 6.827 us/op
+Iteration   5: 6.825 us/op
+
+# Run progress: 50.00% complete, ETA 00:02:32
+# Fork: 2 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 10.708 us/op
+# Warmup Iteration   2: 6.826 us/op
+# Warmup Iteration   3: 6.826 us/op
+# Warmup Iteration   4: 6.826 us/op
+# Warmup Iteration   5: 6.826 us/op
+Iteration   1: 6.825 us/op
+Iteration   2: 6.825 us/op
+Iteration   3: 6.826 us/op
+Iteration   4: 8.422 us/op
+Iteration   5: 6.831 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.predictable_if_branch":
+  6.986 ±(99.9%) 0.763 us/op [Average]
+  (min, avg, max) = (6.825, 6.986, 8.422), stdev = 0.505
+  CI (99.9%): [6.223, 7.749] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+37-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graalce/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.unpredictable_if_branch
+# Parameters: (size = 16384)
+
+# Run progress: 66.67% complete, ETA 00:01:41
+# Fork: 1 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 64.043 us/op
+# Warmup Iteration   2: 68.724 us/op
+# Warmup Iteration   3: 55.234 us/op
+# Warmup Iteration   4: 55.231 us/op
+# Warmup Iteration   5: 55.230 us/op
+Iteration   1: 55.232 us/op
+Iteration   2: 55.229 us/op
+Iteration   3: 55.238 us/op
+Iteration   4: 55.235 us/op
+Iteration   5: 55.232 us/op
+
+# Run progress: 83.33% complete, ETA 00:00:50
+# Fork: 2 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 64.355 us/op
+# Warmup Iteration   2: 69.094 us/op
+# Warmup Iteration   3: 55.229 us/op
+# Warmup Iteration   4: 55.233 us/op
+# Warmup Iteration   5: 55.232 us/op
+Iteration   1: 55.237 us/op
+Iteration   2: 68.797 us/op
+Iteration   3: 55.267 us/op
+Iteration   4: 55.273 us/op
+Iteration   5: 55.272 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.unpredictable_if_branch":
+  56.601 ±(99.9%) 6.478 us/op [Average]
+  (min, avg, max) = (55.229, 56.601, 68.797), stdev = 4.285
+  CI (99.9%): [50.123, 63.079] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:05:05
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                             (size)  Mode  Cnt   Score   Error  Units
+IfConditionalBranchBenchmark.no_if_branch              16384  avgt   10   4.696 ± 0.542  us/op
+IfConditionalBranchBenchmark.predictable_if_branch     16384  avgt   10   6.986 ± 0.763  us/op
+IfConditionalBranchBenchmark.unpredictable_if_branch   16384  avgt   10  56.601 ± 6.478  us/op
+
+Benchmark result is saved to results/jdk-25/x86_64/jmh/graalvm-ce/IfConditionalBranchBenchmark.scala.csv
+
+Finished IfConditionalBranchBenchmark benchmark (Thu Oct 16 09:58:14 AM UTC 2025)
+Thu Oct 16 09:58:14 AM UTC 2025
+
+Running GameOfLifeBenchmark benchmark ...
+Thu Oct 16 09:58:14 AM UTC 2025
+java  -jar "target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar" "\\.GameOfLifeBenchmark\\." -foe true -wi 5 -w 5 -i 5 -r 5 -f 2 -rf csv -rff results/jdk-25/x86_64/jmh/graalvm-ce/GameOfLifeBenchmark.scala.csv -jvmArgsAppend "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+37-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graalce/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.misc.gameoflife.GameOfLifeBenchmark.array_copy
+
+# Run progress: 0.00% complete, ETA 00:03:20
+# Fork: 1 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 26.607 ms/op
+# Warmup Iteration   2: 23.132 ms/op
+# Warmup Iteration   3: 23.112 ms/op
+# Warmup Iteration   4: 23.110 ms/op
+# Warmup Iteration   5: 23.125 ms/op
+Iteration   1: 23.109 ms/op
+Iteration   2: 23.098 ms/op
+Iteration   3: 23.115 ms/op
+Iteration   4: 23.120 ms/op
+Iteration   5: 23.086 ms/op
+
+# Run progress: 25.00% complete, ETA 00:02:33
+# Fork: 2 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 26.980 ms/op
+# Warmup Iteration   2: 23.327 ms/op
+# Warmup Iteration   3: 23.303 ms/op
+# Warmup Iteration   4: 27.782 ms/op
+# Warmup Iteration   5: 23.268 ms/op
+Iteration   1: 23.269 ms/op
+Iteration   2: 23.278 ms/op
+Iteration   3: 23.285 ms/op
+Iteration   4: 23.292 ms/op
+Iteration   5: 23.261 ms/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.misc.gameoflife.GameOfLifeBenchmark.array_copy":
+  23.191 ±(99.9%) 0.138 ms/op [Average]
+  (min, avg, max) = (23.086, 23.191, 23.292), stdev = 0.091
+  CI (99.9%): [23.053, 23.329] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, OpenJDK 64-Bit Server VM, 25+37-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graalce/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.misc.gameoflife.GameOfLifeBenchmark.in_place
+
+# Run progress: 50.00% complete, ETA 00:01:41
+# Fork: 1 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 26.321 ms/op
+# Warmup Iteration   2: 29.337 ms/op
+# Warmup Iteration   3: 23.779 ms/op
+# Warmup Iteration   4: 23.754 ms/op
+# Warmup Iteration   5: 23.749 ms/op
+Iteration   1: 23.742 ms/op
+Iteration   2: 23.761 ms/op
+Iteration   3: 23.754 ms/op
+Iteration   4: 23.739 ms/op
+Iteration   5: 23.749 ms/op
+
+# Run progress: 75.00% complete, ETA 00:00:50
+# Fork: 2 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 27.663 ms/op
+# Warmup Iteration   2: 29.242 ms/op
+# Warmup Iteration   3: 23.796 ms/op
+# Warmup Iteration   4: 23.793 ms/op
+# Warmup Iteration   5: 23.773 ms/op
+Iteration   1: 23.772 ms/op
+Iteration   2: 23.768 ms/op
+Iteration   3: 23.788 ms/op
+Iteration   4: 23.772 ms/op
+Iteration   5: 23.784 ms/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.misc.gameoflife.GameOfLifeBenchmark.in_place":
+  23.763 ±(99.9%) 0.026 ms/op [Average]
+  (min, avg, max) = (23.739, 23.763, 23.788), stdev = 0.017
+  CI (99.9%): [23.737, 23.788] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:03:23
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                       Mode  Cnt   Score   Error  Units
+GameOfLifeBenchmark.array_copy  avgt   10  23.191 ± 0.138  ms/op
+GameOfLifeBenchmark.in_place    avgt   10  23.763 ± 0.026  ms/op
+
+Benchmark result is saved to results/jdk-25/x86_64/jmh/graalvm-ce/GameOfLifeBenchmark.scala.csv
+
+Finished GameOfLifeBenchmark benchmark (Thu Oct 16 10:01:39 AM UTC 2025)
+Thu Oct 16 10:01:39 AM UTC 2025
+
+Finished GraalVM CE test suite!
+
+Elapsed: 22 minutes and 7 seconds.
+
++=============================================
+| Running steps 5 to 7 with graalvm-ee
++=============================================
+| Thu Oct 16 10:01:39 AM UTC 2025
++=============================================
+
++=========================+
+| [5/7] JVM Configuration |
++=========================+
+
++---------------------------+
+| JVM Environment Variables |
++---------------------------+
+Java home: /home/grenoux/.sdkman/candidates/java/25-graal
+JDK version: 25
+JVM name: GraalVM Oracle
+JVM identifier: graalvm-ee
+
++=========================+
+| [6/7] JMH Configuration |
++=========================+
+JMH benchmarks suite configuration file: settings/benchmarks-suite-jdk25.json
+JMH output folder: results/jdk-25/x86_64/jmh/graalvm-ee
+
++===========================+
+| [7/7] Run benchmark suite |
++===========================+
+Running GraalVM Oracle test suite ...
+Creating folder: 'results/jdk-25/x86_64/jmh/graalvm-ee' ...
+
+Running EnumLookupBenchmark benchmark ...
+Thu Oct 16 10:01:40 AM UTC 2025
+java  -jar "target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar" "\\.EnumLookupBenchmark\\." -foe true -wi 5 -w 5 -i 5 -r 5 -f 2 -rf csv -rff results/jdk-25/x86_64/jmh/graalvm-ee/EnumLookupBenchmark.scala.csv -jvmArgsAppend "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 25, Java HotSpot(TM) 64-Bit Server VM, 25+37-LTS-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graal/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.EnumLookupBenchmark.cached_enum_values
+
+# Run progress: 0.00% complete, ETA 00:03:20
+# Fork: 1 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 38.493 ns/op
+# Warmup Iteration   2: 35.857 ns/op
+# Warmup Iteration   3: 36.791 ns/op
+# Warmup Iteration   4: 42.884 ns/op
+# Warmup Iteration   5: 34.650 ns/op
+Iteration   1: 34.650 ns/op
+Iteration   2: 34.652 ns/op
+Iteration   3: 34.650 ns/op
+Iteration   4: 34.651 ns/op
+Iteration   5: 34.654 ns/op
+
+# Run progress: 25.00% complete, ETA 00:02:32
+# Fork: 2 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 50.965 ns/op
+# Warmup Iteration   2: 35.806 ns/op
+# Warmup Iteration   3: 39.662 ns/op
+# Warmup Iteration   4: 36.461 ns/op
+# Warmup Iteration   5: 41.539 ns/op
+Iteration   1: 34.651 ns/op
+Iteration   2: 35.107 ns/op
+Iteration   3: 34.999 ns/op
+Iteration   4: 34.655 ns/op
+Iteration   5: 42.346 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.EnumLookupBenchmark.cached_enum_values":
+  35.502 ±(99.9%) 3.645 ns/op [Average]
+  (min, avg, max) = (34.650, 35.502, 42.346), stdev = 2.411
+  CI (99.9%): [31.857, 39.147] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, Java HotSpot(TM) 64-Bit Server VM, 25+37-LTS-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graal/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.EnumLookupBenchmark.enum_values
+
+# Run progress: 50.00% complete, ETA 00:01:41
+# Fork: 1 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 339.304 ns/op
+# Warmup Iteration   2: 359.556 ns/op
+# Warmup Iteration   3: 368.834 ns/op
+# Warmup Iteration   4: 369.010 ns/op
+# Warmup Iteration   5: 447.898 ns/op
+Iteration   1: 368.499 ns/op
+Iteration   2: 368.734 ns/op
+Iteration   3: 368.433 ns/op
+Iteration   4: 368.543 ns/op
+Iteration   5: 368.550 ns/op
+
+# Run progress: 75.00% complete, ETA 00:00:50
+# Fork: 2 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 463.415 ns/op
+# Warmup Iteration   2: 486.868 ns/op
+# Warmup Iteration   3: 371.219 ns/op
+# Warmup Iteration   4: 371.064 ns/op
+# Warmup Iteration   5: 371.068 ns/op
+Iteration   1: 371.155 ns/op
+Iteration   2: 370.962 ns/op
+Iteration   3: 441.353 ns/op
+Iteration   4: 530.468 ns/op
+Iteration   5: 578.789 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.EnumLookupBenchmark.enum_values":
+  413.548 ±(99.9%) 118.704 ns/op [Average]
+  (min, avg, max) = (368.433, 413.548, 578.789), stdev = 78.516
+  CI (99.9%): [294.844, 532.253] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:03:22
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                               Mode  Cnt    Score     Error  Units
+EnumLookupBenchmark.cached_enum_values  avgt   10   35.502 ±   3.645  ns/op
+EnumLookupBenchmark.enum_values         avgt   10  413.548 ± 118.704  ns/op
+
+Benchmark result is saved to results/jdk-25/x86_64/jmh/graalvm-ee/EnumLookupBenchmark.scala.csv
+
+Finished EnumLookupBenchmark benchmark (Thu Oct 16 10:05:03 AM UTC 2025)
+Thu Oct 16 10:05:03 AM UTC 2025
+
+Running LoopOptimizationBenchmark benchmark ...
+Thu Oct 16 10:05:04 AM UTC 2025
+java  -jar "target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar" "\\.LoopOptimizationBenchmark\\." -foe true -wi 5 -w 5 -i 5 -r 5 -f 2 -rf csv -rff results/jdk-25/x86_64/jmh/graalvm-ee/LoopOptimizationBenchmark.scala.csv -jvmArgsAppend "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 25, Java HotSpot(TM) 64-Bit Server VM, 25+37-LTS-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graal/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.for_array
+# Parameters: (size = 1000)
+
+# Run progress: 0.00% complete, ETA 00:10:00
+# Fork: 1 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 62.584 ns/op
+# Warmup Iteration   2: 55.771 ns/op
+# Warmup Iteration   3: 55.906 ns/op
+# Warmup Iteration   4: 55.812 ns/op
+# Warmup Iteration   5: 75.613 ns/op
+Iteration   1: 63.102 ns/op
+Iteration   2: 63.066 ns/op
+Iteration   3: 63.109 ns/op
+Iteration   4: 62.253 ns/op
+Iteration   5: 62.796 ns/op
+
+# Run progress: 8.33% complete, ETA 00:09:20
+# Fork: 2 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 58.777 ns/op
+# Warmup Iteration   2: 71.433 ns/op
+# Warmup Iteration   3: 62.028 ns/op
+# Warmup Iteration   4: 62.050 ns/op
+# Warmup Iteration   5: 61.999 ns/op
+Iteration   1: 62.109 ns/op
+Iteration   2: 78.550 ns/op
+Iteration   3: 77.547 ns/op
+Iteration   4: 62.209 ns/op
+Iteration   5: 62.097 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.for_array":
+  65.684 ±(99.9%) 9.879 ns/op [Average]
+  (min, avg, max) = (62.097, 65.684, 78.550), stdev = 6.534
+  CI (99.9%): [55.805, 75.562] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, Java HotSpot(TM) 64-Bit Server VM, 25+37-LTS-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graal/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.for_range
+# Parameters: (size = 1000)
+
+# Run progress: 16.67% complete, ETA 00:08:28
+# Fork: 1 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 75.637 ns/op
+# Warmup Iteration   2: 73.491 ns/op
+# Warmup Iteration   3: 70.927 ns/op
+# Warmup Iteration   4: 70.921 ns/op
+# Warmup Iteration   5: 70.915 ns/op
+Iteration   1: 70.926 ns/op
+Iteration   2: 70.925 ns/op
+Iteration   3: 70.929 ns/op
+Iteration   4: 70.927 ns/op
+Iteration   5: 70.920 ns/op
+
+# Run progress: 25.00% complete, ETA 00:07:37
+# Fork: 2 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 81.992 ns/op
+# Warmup Iteration   2: 71.966 ns/op
+# Warmup Iteration   3: 69.895 ns/op
+# Warmup Iteration   4: 69.897 ns/op
+# Warmup Iteration   5: 69.899 ns/op
+Iteration   1: 69.917 ns/op
+Iteration   2: 69.912 ns/op
+Iteration   3: 69.918 ns/op
+Iteration   4: 69.913 ns/op
+Iteration   5: 69.912 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.for_range":
+  70.420 ±(99.9%) 0.805 ns/op [Average]
+  (min, avg, max) = (69.912, 70.420, 70.929), stdev = 0.533
+  CI (99.9%): [69.614, 71.225] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, Java HotSpot(TM) 64-Bit Server VM, 25+37-LTS-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graal/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.macro_fastForeach_array
+# Parameters: (size = 1000)
+
+# Run progress: 33.33% complete, ETA 00:06:46
+# Fork: 1 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 64.221 ns/op
+# Warmup Iteration   2: 66.287 ns/op
+# Warmup Iteration   3: 61.428 ns/op
+# Warmup Iteration   4: 61.508 ns/op
+# Warmup Iteration   5: 61.456 ns/op
+Iteration   1: 61.491 ns/op
+Iteration   2: 61.481 ns/op
+Iteration   3: 61.528 ns/op
+Iteration   4: 61.510 ns/op
+Iteration   5: 61.473 ns/op
+
+# Run progress: 41.67% complete, ETA 00:05:55
+# Fork: 2 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 72.857 ns/op
+# Warmup Iteration   2: 63.623 ns/op
+# Warmup Iteration   3: 72.986 ns/op
+# Warmup Iteration   4: 61.402 ns/op
+# Warmup Iteration   5: 61.432 ns/op
+Iteration   1: 61.376 ns/op
+Iteration   2: 61.431 ns/op
+Iteration   3: 61.407 ns/op
+Iteration   4: 61.371 ns/op
+Iteration   5: 61.363 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.macro_fastForeach_array":
+  61.443 ±(99.9%) 0.093 ns/op [Average]
+  (min, avg, max) = (61.363, 61.443, 61.528), stdev = 0.061
+  CI (99.9%): [61.351, 61.536] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, Java HotSpot(TM) 64-Bit Server VM, 25+37-LTS-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graal/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.macro_fastLoop
+# Parameters: (size = 1000)
+
+# Run progress: 50.00% complete, ETA 00:05:04
+# Fork: 1 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 77.780 ns/op
+# Warmup Iteration   2: 82.419 ns/op
+# Warmup Iteration   3: 81.804 ns/op
+# Warmup Iteration   4: 65.999 ns/op
+# Warmup Iteration   5: 65.998 ns/op
+Iteration   1: 65.999 ns/op
+Iteration   2: 66.000 ns/op
+Iteration   3: 66.000 ns/op
+Iteration   4: 65.998 ns/op
+Iteration   5: 66.344 ns/op
+
+# Run progress: 58.33% complete, ETA 00:04:13
+# Fork: 2 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 75.950 ns/op
+# Warmup Iteration   2: 79.098 ns/op
+# Warmup Iteration   3: 66.002 ns/op
+# Warmup Iteration   4: 66.971 ns/op
+# Warmup Iteration   5: 66.002 ns/op
+Iteration   1: 66.001 ns/op
+Iteration   2: 66.001 ns/op
+Iteration   3: 66.002 ns/op
+Iteration   4: 66.001 ns/op
+Iteration   5: 66.972 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.macro_fastLoop":
+  66.132 ±(99.9%) 0.475 ns/op [Average]
+  (min, avg, max) = (65.998, 66.132, 66.972), stdev = 0.314
+  CI (99.9%): [65.656, 66.607] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, Java HotSpot(TM) 64-Bit Server VM, 25+37-LTS-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graal/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.while_array
+# Parameters: (size = 1000)
+
+# Run progress: 66.67% complete, ETA 00:03:23
+# Fork: 1 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 67.708 ns/op
+# Warmup Iteration   2: 70.458 ns/op
+# Warmup Iteration   3: 58.354 ns/op
+# Warmup Iteration   4: 58.329 ns/op
+# Warmup Iteration   5: 58.394 ns/op
+Iteration   1: 58.361 ns/op
+Iteration   2: 58.388 ns/op
+Iteration   3: 70.688 ns/op
+Iteration   4: 58.130 ns/op
+Iteration   5: 59.028 ns/op
+
+# Run progress: 75.00% complete, ETA 00:02:32
+# Fork: 2 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 68.255 ns/op
+# Warmup Iteration   2: 57.856 ns/op
+# Warmup Iteration   3: 58.066 ns/op
+# Warmup Iteration   4: 58.071 ns/op
+# Warmup Iteration   5: 69.400 ns/op
+Iteration   1: 58.388 ns/op
+Iteration   2: 58.350 ns/op
+Iteration   3: 58.347 ns/op
+Iteration   4: 58.338 ns/op
+Iteration   5: 59.137 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.while_array":
+  59.716 ±(99.9%) 5.849 ns/op [Average]
+  (min, avg, max) = (58.130, 59.716, 70.688), stdev = 3.869
+  CI (99.9%): [53.867, 65.565] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, Java HotSpot(TM) 64-Bit Server VM, 25+37-LTS-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graal/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.while_range
+# Parameters: (size = 1000)
+
+# Run progress: 83.33% complete, ETA 00:01:41
+# Fork: 1 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 81.253 ns/op
+# Warmup Iteration   2: 65.699 ns/op
+# Warmup Iteration   3: 64.863 ns/op
+# Warmup Iteration   4: 65.426 ns/op
+# Warmup Iteration   5: 64.852 ns/op
+Iteration   1: 64.866 ns/op
+Iteration   2: 64.863 ns/op
+Iteration   3: 64.864 ns/op
+Iteration   4: 64.862 ns/op
+Iteration   5: 64.860 ns/op
+
+# Run progress: 91.67% complete, ETA 00:00:50
+# Fork: 2 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 82.850 ns/op
+# Warmup Iteration   2: 66.532 ns/op
+# Warmup Iteration   3: 65.551 ns/op
+# Warmup Iteration   4: 65.549 ns/op
+# Warmup Iteration   5: 64.857 ns/op
+Iteration   1: 64.858 ns/op
+Iteration   2: 65.562 ns/op
+Iteration   3: 64.860 ns/op
+Iteration   4: 64.858 ns/op
+Iteration   5: 64.860 ns/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.while_range":
+  64.931 ±(99.9%) 0.335 ns/op [Average]
+  (min, avg, max) = (64.858, 64.931, 65.562), stdev = 0.222
+  CI (99.9%): [64.596, 65.266] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:10:09
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                          (size)  Mode  Cnt   Score   Error  Units
+LoopOptimizationBenchmark.for_array                  1000  avgt   10  65.684 ± 9.879  ns/op
+LoopOptimizationBenchmark.for_range                  1000  avgt   10  70.420 ± 0.805  ns/op
+LoopOptimizationBenchmark.macro_fastForeach_array    1000  avgt   10  61.443 ± 0.093  ns/op
+LoopOptimizationBenchmark.macro_fastLoop             1000  avgt   10  66.132 ± 0.475  ns/op
+LoopOptimizationBenchmark.while_array                1000  avgt   10  59.716 ± 5.849  ns/op
+LoopOptimizationBenchmark.while_range                1000  avgt   10  64.931 ± 0.335  ns/op
+
+Benchmark result is saved to results/jdk-25/x86_64/jmh/graalvm-ee/LoopOptimizationBenchmark.scala.csv
+
+Finished LoopOptimizationBenchmark benchmark (Thu Oct 16 10:15:14 AM UTC 2025)
+Thu Oct 16 10:15:14 AM UTC 2025
+
+Running IfConditionalBranchBenchmark benchmark ...
+Thu Oct 16 10:15:14 AM UTC 2025
+java  -jar "target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar" "\\.IfConditionalBranchBenchmark\\." -foe true -wi 5 -w 5 -i 5 -r 5 -f 2 -rf csv -rff results/jdk-25/x86_64/jmh/graalvm-ee/IfConditionalBranchBenchmark.scala.csv -jvmArgsAppend "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 25, Java HotSpot(TM) 64-Bit Server VM, 25+37-LTS-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graal/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.no_if_branch
+# Parameters: (size = 16384)
+
+# Run progress: 0.00% complete, ETA 00:05:00
+# Fork: 1 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1.302 us/op
+# Warmup Iteration   2: 1.142 us/op
+# Warmup Iteration   3: 1.141 us/op
+# Warmup Iteration   4: 1.142 us/op
+# Warmup Iteration   5: 1.142 us/op
+Iteration   1: 1.142 us/op
+Iteration   2: 1.141 us/op
+Iteration   3: 1.141 us/op
+Iteration   4: 1.343 us/op
+Iteration   5: 1.142 us/op
+
+# Run progress: 16.67% complete, ETA 00:04:14
+# Fork: 2 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1.191 us/op
+# Warmup Iteration   2: 1.141 us/op
+# Warmup Iteration   3: 1.140 us/op
+# Warmup Iteration   4: 1.141 us/op
+# Warmup Iteration   5: 1.140 us/op
+Iteration   1: 1.142 us/op
+Iteration   2: 1.142 us/op
+Iteration   3: 1.142 us/op
+Iteration   4: 1.142 us/op
+Iteration   5: 1.141 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.no_if_branch":
+  1.162 ±(99.9%) 0.096 us/op [Average]
+  (min, avg, max) = (1.141, 1.162, 1.343), stdev = 0.064
+  CI (99.9%): [1.066, 1.258] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, Java HotSpot(TM) 64-Bit Server VM, 25+37-LTS-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graal/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.predictable_if_branch
+# Parameters: (size = 16384)
+
+# Run progress: 33.33% complete, ETA 00:03:23
+# Fork: 1 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 2.574 us/op
+# Warmup Iteration   2: 2.385 us/op
+# Warmup Iteration   3: 2.387 us/op
+# Warmup Iteration   4: 2.387 us/op
+# Warmup Iteration   5: 2.387 us/op
+Iteration   1: 2.387 us/op
+Iteration   2: 2.387 us/op
+Iteration   3: 2.950 us/op
+Iteration   4: 2.397 us/op
+Iteration   5: 2.396 us/op
+
+# Run progress: 50.00% complete, ETA 00:02:32
+# Fork: 2 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 2.762 us/op
+# Warmup Iteration   2: 2.394 us/op
+# Warmup Iteration   3: 2.961 us/op
+# Warmup Iteration   4: 2.387 us/op
+# Warmup Iteration   5: 2.387 us/op
+Iteration   1: 2.387 us/op
+Iteration   2: 2.387 us/op
+Iteration   3: 2.387 us/op
+Iteration   4: 2.387 us/op
+Iteration   5: 2.387 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.predictable_if_branch":
+  2.445 ±(99.9%) 0.268 us/op [Average]
+  (min, avg, max) = (2.387, 2.445, 2.950), stdev = 0.177
+  CI (99.9%): [2.177, 2.714] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, Java HotSpot(TM) 64-Bit Server VM, 25+37-LTS-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graal/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.unpredictable_if_branch
+# Parameters: (size = 16384)
+
+# Run progress: 66.67% complete, ETA 00:01:41
+# Fork: 1 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 2.420 us/op
+# Warmup Iteration   2: 2.916 us/op
+# Warmup Iteration   3: 2.398 us/op
+# Warmup Iteration   4: 2.397 us/op
+# Warmup Iteration   5: 2.398 us/op
+Iteration   1: 2.398 us/op
+Iteration   2: 2.398 us/op
+Iteration   3: 2.398 us/op
+Iteration   4: 2.397 us/op
+Iteration   5: 2.397 us/op
+
+# Run progress: 83.33% complete, ETA 00:00:50
+# Fork: 2 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 2.836 us/op
+# Warmup Iteration   2: 2.860 us/op
+# Warmup Iteration   3: 2.397 us/op
+# Warmup Iteration   4: 2.396 us/op
+# Warmup Iteration   5: 2.395 us/op
+Iteration   1: 2.396 us/op
+Iteration   2: 2.396 us/op
+Iteration   3: 2.843 us/op
+Iteration   4: 2.883 us/op
+Iteration   5: 2.396 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.compiler.IfConditionalBranchBenchmark.unpredictable_if_branch":
+  2.490 ±(99.9%) 0.297 us/op [Average]
+  (min, avg, max) = (2.396, 2.490, 2.883), stdev = 0.197
+  CI (99.9%): [2.193, 2.788] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:05:05
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                             (size)  Mode  Cnt  Score   Error  Units
+IfConditionalBranchBenchmark.no_if_branch              16384  avgt   10  1.162 ± 0.096  us/op
+IfConditionalBranchBenchmark.predictable_if_branch     16384  avgt   10  2.445 ± 0.268  us/op
+IfConditionalBranchBenchmark.unpredictable_if_branch   16384  avgt   10  2.490 ± 0.297  us/op
+
+Benchmark result is saved to results/jdk-25/x86_64/jmh/graalvm-ee/IfConditionalBranchBenchmark.scala.csv
+
+Finished IfConditionalBranchBenchmark benchmark (Thu Oct 16 10:20:20 AM UTC 2025)
+Thu Oct 16 10:20:20 AM UTC 2025
+
+Running GameOfLifeBenchmark benchmark ...
+Thu Oct 16 10:20:20 AM UTC 2025
+java  -jar "target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar" "\\.GameOfLifeBenchmark\\." -foe true -wi 5 -w 5 -i 5 -r 5 -f 2 -rf csv -rff results/jdk-25/x86_64/jmh/graalvm-ee/GameOfLifeBenchmark.scala.csv -jvmArgsAppend "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 25, Java HotSpot(TM) 64-Bit Server VM, 25+37-LTS-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graal/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.misc.gameoflife.GameOfLifeBenchmark.array_copy
+
+# Run progress: 0.00% complete, ETA 00:03:20
+# Fork: 1 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 26.214 ms/op
+# Warmup Iteration   2: 16.711 ms/op
+# Warmup Iteration   3: 14.798 ms/op
+# Warmup Iteration   4: 14.794 ms/op
+# Warmup Iteration   5: 14.794 ms/op
+Iteration   1: 14.796 ms/op
+Iteration   2: 14.790 ms/op
+Iteration   3: 14.791 ms/op
+Iteration   4: 14.795 ms/op
+Iteration   5: 14.789 ms/op
+
+# Run progress: 25.00% complete, ETA 00:02:33
+# Fork: 2 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 32.593 ms/op
+# Warmup Iteration   2: 17.556 ms/op
+# Warmup Iteration   3: 12.616 ms/op
+# Warmup Iteration   4: 12.610 ms/op
+# Warmup Iteration   5: 12.609 ms/op
+Iteration   1: 12.619 ms/op
+Iteration   2: 12.613 ms/op
+Iteration   3: 12.604 ms/op
+Iteration   4: 12.622 ms/op
+Iteration   5: 12.626 ms/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.misc.gameoflife.GameOfLifeBenchmark.array_copy":
+  13.705 ±(99.9%) 1.733 ms/op [Average]
+  (min, avg, max) = (12.604, 13.705, 14.796), stdev = 1.147
+  CI (99.9%): [11.971, 15.438] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, Java HotSpot(TM) 64-Bit Server VM, 25+37-LTS-jvmci-b01
+# VM invoker: /home/grenoux/.sdkman/candidates/java/25-graal/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:+EnableJVMCI -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.misc.gameoflife.GameOfLifeBenchmark.in_place
+
+# Run progress: 50.00% complete, ETA 00:01:42
+# Fork: 1 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 20.211 ms/op
+# Warmup Iteration   2: 12.255 ms/op
+# Warmup Iteration   3: 12.256 ms/op
+# Warmup Iteration   4: 12.251 ms/op
+# Warmup Iteration   5: 12.254 ms/op
+Iteration   1: 12.252 ms/op
+Iteration   2: 12.252 ms/op
+Iteration   3: 12.254 ms/op
+Iteration   4: 12.255 ms/op
+Iteration   5: 12.253 ms/op
+
+# Run progress: 75.00% complete, ETA 00:00:51
+# Fork: 2 of 2
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 22.373 ms/op
+# Warmup Iteration   2: 15.215 ms/op
+# Warmup Iteration   3: 12.235 ms/op
+# Warmup Iteration   4: 12.233 ms/op
+# Warmup Iteration   5: 12.224 ms/op
+Iteration   1: 12.233 ms/op
+Iteration   2: 12.226 ms/op
+Iteration   3: 12.228 ms/op
+Iteration   4: 12.219 ms/op
+Iteration   5: 12.227 ms/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.misc.gameoflife.GameOfLifeBenchmark.in_place":
+  12.240 ±(99.9%) 0.022 ms/op [Average]
+  (min, avg, max) = (12.219, 12.240, 12.255), stdev = 0.014
+  CI (99.9%): [12.218, 12.262] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:03:23
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                       Mode  Cnt   Score   Error  Units
+GameOfLifeBenchmark.array_copy  avgt   10  13.705 ± 1.733  ms/op
+GameOfLifeBenchmark.in_place    avgt   10  12.240 ± 0.022  ms/op
+
+Benchmark result is saved to results/jdk-25/x86_64/jmh/graalvm-ee/GameOfLifeBenchmark.scala.csv
+
+Finished GameOfLifeBenchmark benchmark (Thu Oct 16 10:23:45 AM UTC 2025)
+Thu Oct 16 10:23:45 AM UTC 2025
+
+Finished GraalVM Oracle test suite!
+
+Elapsed: 22 minutes and 6 seconds.
