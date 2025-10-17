@@ -1,0 +1,3 @@
+"Benchmark","Mode","Threads","Samples","Score","Score.Error..99.9..","Unit","Param..n"
+"co.datadome.pub.scalabenchmarks.jvms.misc.factorial.FactorialBenchmark.dac_big_int_multiply","avgt",1,5,594.937117,0.926097,"us/op",5000
+"co.datadome.pub.scalabenchmarks.jvms.misc.factorial.FactorialBenchmark.iterative_big_int_multiply","avgt",1,5,5142.697669,3.876943,"us/op",5000

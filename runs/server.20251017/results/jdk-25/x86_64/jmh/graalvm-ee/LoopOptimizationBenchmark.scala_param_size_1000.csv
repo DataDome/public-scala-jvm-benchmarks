@@ -1,0 +1,7 @@
+"Benchmark","Mode","Threads","Samples","Score","Score.Error..99.9..","Unit","Param..size"
+"co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.for_array","avgt",1,5,62.860124,1.984056,"ns/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.for_range","avgt",1,5,70.078437,0.046702,"ns/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.macro_fastForeach_array","avgt",1,5,61.531371,0.291724,"ns/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.macro_fastLoop","avgt",1,5,66.06228,0.540361,"ns/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.while_array","avgt",1,5,58.006351,0.075563,"ns/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.api.LoopOptimizationBenchmark.while_range","avgt",1,5,65.130958,1.229812,"ns/op",1000

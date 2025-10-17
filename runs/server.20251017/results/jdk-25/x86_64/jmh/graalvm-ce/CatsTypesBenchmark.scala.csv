@@ -1,0 +1,2 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: size"
+"co.datadome.pub.scalabenchmarks.jvms.libs.cats.CatsTypesBenchmark.eitherT","avgt",1,5,32.712534,18.387479,"us/op",1000

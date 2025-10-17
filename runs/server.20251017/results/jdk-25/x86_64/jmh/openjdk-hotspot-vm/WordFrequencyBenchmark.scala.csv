@@ -1,0 +1,6 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
+"co.datadome.pub.scalabenchmarks.jvms.misc.wordfrequency.WordFrequencyBenchmark.dac","avgt",1,5,64.666731,1.178981,"ms/op"
+"co.datadome.pub.scalabenchmarks.jvms.misc.wordfrequency.WordFrequencyBenchmark.functional","avgt",1,5,21.578498,8.785422,"ms/op"
+"co.datadome.pub.scalabenchmarks.jvms.misc.wordfrequency.WordFrequencyBenchmark.iterative","avgt",1,5,15.330644,0.043255,"ms/op"
+"co.datadome.pub.scalabenchmarks.jvms.misc.wordfrequency.WordFrequencyBenchmark.parallel_stream","avgt",1,5,4.988640,0.064701,"ms/op"
+"co.datadome.pub.scalabenchmarks.jvms.misc.wordfrequency.WordFrequencyBenchmark.pattern_stream","avgt",1,5,14.358025,0.007323,"ms/op"

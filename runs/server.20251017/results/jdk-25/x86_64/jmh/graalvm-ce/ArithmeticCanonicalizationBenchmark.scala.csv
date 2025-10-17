@@ -1,0 +1,3 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: isHeavy","Param: value"
+"co.datadome.pub.scalabenchmarks.jvms.compiler.ArithmeticCanonicalizationBenchmark.add","avgt",1,5,2.338843,0.000210,"ns/op",true,179426549
+"co.datadome.pub.scalabenchmarks.jvms.compiler.ArithmeticCanonicalizationBenchmark.shift","avgt",1,5,2.434569,0.819169,"ns/op",true,179426549
