@@ -1,0 +1,13 @@
+{
+  "globals": {
+    "jvmOpts": "",
+    "jmhOpts": "-foe true -wi 10 -w 10 -i 20 -r 10 -f 5 -rf csv -rff ((outputFilePath)).csv",
+    "jvmArgsAppend": "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+  },
+  "benchmarks": [
+    {
+      "name": "FutureBenchmark",
+      "lang": "scala"
+    }
+  ]
+}

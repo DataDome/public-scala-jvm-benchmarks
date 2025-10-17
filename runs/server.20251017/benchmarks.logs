@@ -1,0 +1,3313 @@
+
+#################################################################
+#######       JVM Performance Benchmarks Test Suite       #######
+#################################################################
+
++=======================+
+| [1/7] Load Properties |
++=======================+
+Configuration properties have been successfully loaded from the './settings/config.properties' file.
+Constant properties have been successfully loaded from the './settings/constants.properties' file.
+
++================================+
+| [2/7] Load Architecture and OS |
++================================+
+Hardware Architecture: x86_64
+Operating system: linux
+
++========================+
+| [3/7] JQ Configuration |
++========================+
+JSON processor: scripts/jq/jq-linux-x86_64
+
++===============================+
+| [4/7] Compile benchmark suite |
++===============================+
+Compiling benchmark suite...
+sbt clean Jmh/assembly
+
+[info] welcome to sbt 1.11.6 (Eclipse Adoptium Java 21.0.8)
+[info] loading settings for project public-scala-jvm-benchmarks-build from plugins.sbt...
+[info] loading project definition from /home/grenoux/Repositories/public-scala-jvm-benchmarks/project
+[info] loading settings for project public-scala-jvm-benchmarks from build.sbt...
+[info] set current project to scala-jvm-benchmarks (in build file:/home/grenoux/Repositories/public-scala-jvm-benchmarks/)
+[success] Total time: 0 s, completed Oct 17, 2025, 6:05:02 AM
+[info] compiling 78 Scala sources and 77 Java sources to /home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/classes ...
+[warn] -- [E198] Unused Symbol Warning: /home/grenoux/Repositories/public-scala-jvm-benchmarks/src/main/scala/co/datadome/pub/scalabenchmarks/jvms/AABaseBenchmark.scala:6:25 
+[warn] 6 |import scala.compiletime.uninitialized
+[warn]   |                         ^^^^^^^^^^^^^
+[warn]   |                         unused import
+[warn] -- [E198] Unused Symbol Warning: /home/grenoux/Repositories/public-scala-jvm-benchmarks/src/main/scala/co/datadome/pub/scalabenchmarks/jvms/api/collections/ArrayBenchmark.scala:18:14 
+[warn] 18 |  private val random: Random = new Random(16384)
+[warn]    |              ^^^^^^
+[warn]    |              unused private member
+[warn] two warnings found
+[info] /home/grenoux/Repositories/public-scala-jvm-benchmarks/src/main/java/com/ionutbalosin/jvm/performance/benchmarks/miscellaneous/memoryaccess/SequentialCollectionReadAccessBenchmark.java: SequentialCollectionReadAccessBenchmark.java uses unchecked or unsafe operations.
+[info] /home/grenoux/Repositories/public-scala-jvm-benchmarks/src/main/java/com/ionutbalosin/jvm/performance/benchmarks/miscellaneous/memoryaccess/SequentialCollectionReadAccessBenchmark.java: Recompile with -Xlint:unchecked for details.
+[info] done compiling
+[info] running (fork) org.openjdk.jmh.generators.bytecode.JmhBytecodeGenerator /home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/classes /home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/src_managed/jmh /home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/resource_managed/jmh default
+[info] Processing 576 classes from /home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/classes with "reflection" generator
+[info] Writing out Java source to /home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/src_managed/jmh and resources to /home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/resource_managed/jmh
+[info] compiling 789 Java sources to /home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/classes ...
+[info] done compiling
+[info] 40 file(s) merged using strategy 'Rename' (Run the task at debug level to see the details)
+[info] Built: /home/grenoux/Repositories/public-scala-jvm-benchmarks/target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar
+[info] Jar hash: e158c6abf79a4eaed684a464553a7b79d9f95367
+[success] Total time: 38 s, completed Oct 17, 2025, 6:05:41 AM
+Compilation completed successfully.
+
++=============================================
+| Running steps 5 to 7 with openjdk-hotspot-vm
++=============================================
+| Fri Oct 17 06:05:41 AM UTC 2025
++=============================================
+
++=========================+
+| [5/7] JVM Configuration |
++=========================+
+
++---------------------------+
+| JVM Environment Variables |
++---------------------------+
+Java home: /home/grenoux/.sdkman/candidates/java/21.0.8-tem
+JDK version: 21
+JVM name: OpenJDK HotSpot VM
+JVM identifier: openjdk-hotspot-vm
+
++=========================+
+| [6/7] JMH Configuration |
++=========================+
+JMH benchmarks suite configuration file: settings/benchmarks-suite-jdk21.json
+JMH output folder: results/jdk-21/x86_64/jmh/openjdk-hotspot-vm
+
++===========================+
+| [7/7] Run benchmark suite |
++===========================+
+Running OpenJDK HotSpot VM test suite ...
+WARNING: Folder 'results/jdk-21/x86_64/jmh/openjdk-hotspot-vm' already exists. Existing output benchmarks might be overwritten.
+
+Running FutureBenchmark benchmark ...
+Fri Oct 17 06:05:42 AM UTC 2025
+java  -jar "target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar" "\\.FutureBenchmark\\." -foe true -wi 10 -w 10 -i 20 -r 10 -f 5 -rf csv -rff results/jdk-21/x86_64/jmh/openjdk-hotspot-vm/FutureBenchmark.scala.csv -jvmArgsAppend "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+
+# JMH version: 1.37
+# VM version: JDK 21.0.8, OpenJDK 64-Bit Server VM, 21.0.8+9-LTS
+# VM invoker: /home/grenoux/.sdkman/candidates/java/21.0.8-tem/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 10 iterations, 10 s each
+# Measurement: 20 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_future
+# Parameters: (computationSize = 1000)
+
+# Run progress: 0.00% complete, ETA 01:40:00
+# Fork: 1 of 5
+# Warmup Iteration   1: 45.652 us/op
+# Warmup Iteration   2: 50.109 us/op
+# Warmup Iteration   3: 54.670 us/op
+# Warmup Iteration   4: 54.938 us/op
+# Warmup Iteration   5: 54.720 us/op
+# Warmup Iteration   6: 54.978 us/op
+# Warmup Iteration   7: 54.630 us/op
+# Warmup Iteration   8: 54.737 us/op
+# Warmup Iteration   9: 54.572 us/op
+# Warmup Iteration  10: 54.609 us/op
+Iteration   1: 54.777 us/op
+Iteration   2: 54.721 us/op
+Iteration   3: 54.662 us/op
+Iteration   4: 54.540 us/op
+Iteration   5: 54.611 us/op
+Iteration   6: 54.806 us/op
+Iteration   7: 54.756 us/op
+Iteration   8: 54.593 us/op
+Iteration   9: 54.394 us/op
+Iteration  10: 54.868 us/op
+Iteration  11: 54.842 us/op
+Iteration  12: 54.511 us/op
+Iteration  13: 54.694 us/op
+Iteration  14: 54.748 us/op
+Iteration  15: 54.853 us/op
+Iteration  16: 54.978 us/op
+Iteration  17: 54.967 us/op
+Iteration  18: 54.897 us/op
+Iteration  19: 54.945 us/op
+Iteration  20: 54.899 us/op
+
+# Run progress: 5.00% complete, ETA 01:35:23
+# Fork: 2 of 5
+# Warmup Iteration   1: 45.190 us/op
+# Warmup Iteration   2: 44.930 us/op
+# Warmup Iteration   3: 45.364 us/op
+# Warmup Iteration   4: 45.422 us/op
+# Warmup Iteration   5: 45.521 us/op
+# Warmup Iteration   6: 45.402 us/op
+# Warmup Iteration   7: 45.392 us/op
+# Warmup Iteration   8: 45.541 us/op
+# Warmup Iteration   9: 45.505 us/op
+# Warmup Iteration  10: 45.388 us/op
+Iteration   1: 45.375 us/op
+Iteration   2: 45.547 us/op
+Iteration   3: 45.403 us/op
+Iteration   4: 45.509 us/op
+Iteration   5: 45.363 us/op
+Iteration   6: 45.380 us/op
+Iteration   7: 45.525 us/op
+Iteration   8: 45.572 us/op
+Iteration   9: 45.439 us/op
+Iteration  10: 45.460 us/op
+Iteration  11: 45.471 us/op
+Iteration  12: 45.310 us/op
+Iteration  13: 45.496 us/op
+Iteration  14: 45.332 us/op
+Iteration  15: 45.329 us/op
+Iteration  16: 45.487 us/op
+Iteration  17: 45.509 us/op
+Iteration  18: 45.382 us/op
+Iteration  19: 45.321 us/op
+Iteration  20: 45.481 us/op
+
+# Run progress: 10.00% complete, ETA 01:30:21
+# Fork: 3 of 5
+# Warmup Iteration   1: 45.078 us/op
+# Warmup Iteration   2: 45.002 us/op
+# Warmup Iteration   3: 44.835 us/op
+# Warmup Iteration   4: 44.837 us/op
+# Warmup Iteration   5: 44.909 us/op
+# Warmup Iteration   6: 44.931 us/op
+# Warmup Iteration   7: 44.825 us/op
+# Warmup Iteration   8: 44.853 us/op
+# Warmup Iteration   9: 44.930 us/op
+# Warmup Iteration  10: 44.764 us/op
+Iteration   1: 44.960 us/op
+Iteration   2: 44.785 us/op
+Iteration   3: 44.847 us/op
+Iteration   4: 44.969 us/op
+Iteration   5: 44.956 us/op
+Iteration   6: 44.847 us/op
+Iteration   7: 44.824 us/op
+Iteration   8: 44.957 us/op
+Iteration   9: 44.843 us/op
+Iteration  10: 44.882 us/op
+Iteration  11: 44.734 us/op
+Iteration  12: 44.721 us/op
+Iteration  13: 44.901 us/op
+Iteration  14: 44.894 us/op
+Iteration  15: 44.752 us/op
+Iteration  16: 44.724 us/op
+Iteration  17: 44.922 us/op
+Iteration  18: 44.758 us/op
+Iteration  19: 44.916 us/op
+Iteration  20: 44.803 us/op
+
+# Run progress: 15.00% complete, ETA 01:25:19
+# Fork: 4 of 5
+# Warmup Iteration   1: 45.904 us/op
+# Warmup Iteration   2: 46.189 us/op
+# Warmup Iteration   3: 46.126 us/op
+# Warmup Iteration   4: 45.891 us/op
+# Warmup Iteration   5: 45.914 us/op
+# Warmup Iteration   6: 45.989 us/op
+# Warmup Iteration   7: 45.959 us/op
+# Warmup Iteration   8: 45.887 us/op
+# Warmup Iteration   9: 45.886 us/op
+# Warmup Iteration  10: 45.849 us/op
+Iteration   1: 46.026 us/op
+Iteration   2: 45.967 us/op
+Iteration   3: 45.828 us/op
+Iteration   4: 45.882 us/op
+Iteration   5: 45.916 us/op
+Iteration   6: 45.964 us/op
+Iteration   7: 45.865 us/op
+Iteration   8: 45.873 us/op
+Iteration   9: 45.843 us/op
+Iteration  10: 46.011 us/op
+Iteration  11: 45.995 us/op
+Iteration  12: 45.928 us/op
+Iteration  13: 45.938 us/op
+Iteration  14: 46.009 us/op
+Iteration  15: 45.984 us/op
+Iteration  16: 45.923 us/op
+Iteration  17: 45.915 us/op
+Iteration  18: 45.961 us/op
+Iteration  19: 45.989 us/op
+Iteration  20: 45.992 us/op
+
+# Run progress: 20.00% complete, ETA 01:20:18
+# Fork: 5 of 5
+# Warmup Iteration   1: 45.799 us/op
+# Warmup Iteration   2: 45.323 us/op
+# Warmup Iteration   3: 45.493 us/op
+# Warmup Iteration   4: 45.697 us/op
+# Warmup Iteration   5: 45.486 us/op
+# Warmup Iteration   6: 45.526 us/op
+# Warmup Iteration   7: 45.589 us/op
+# Warmup Iteration   8: 45.594 us/op
+# Warmup Iteration   9: 45.682 us/op
+# Warmup Iteration  10: 45.530 us/op
+Iteration   1: 45.503 us/op
+Iteration   2: 45.658 us/op
+Iteration   3: 45.656 us/op
+Iteration   4: 45.549 us/op
+Iteration   5: 45.510 us/op
+Iteration   6: 45.609 us/op
+Iteration   7: 45.542 us/op
+Iteration   8: 45.667 us/op
+Iteration   9: 45.538 us/op
+Iteration  10: 45.525 us/op
+Iteration  11: 45.242 us/op
+Iteration  12: 45.222 us/op
+Iteration  13: 45.153 us/op
+Iteration  14: 45.128 us/op
+Iteration  15: 45.217 us/op
+Iteration  16: 45.145 us/op
+Iteration  17: 45.193 us/op
+Iteration  18: 45.117 us/op
+Iteration  19: 45.112 us/op
+Iteration  20: 45.191 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_future":
+  47.270 ±(99.9%) 1.281 us/op [Average]
+  (min, avg, max) = (44.721, 47.270, 54.978), stdev = 3.778
+  CI (99.9%): [45.989, 48.552] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.8, OpenJDK 64-Bit Server VM, 21.0.8+9-LTS
+# VM invoker: /home/grenoux/.sdkman/candidates/java/21.0.8-tem/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 10 iterations, 10 s each
+# Measurement: 20 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_future
+# Parameters: (computationSize = 10000)
+
+# Run progress: 25.00% complete, ETA 01:15:17
+# Fork: 1 of 5
+# Warmup Iteration   1: 149.867 us/op
+# Warmup Iteration   2: 106.799 us/op
+# Warmup Iteration   3: 113.475 us/op
+# Warmup Iteration   4: 93.139 us/op
+# Warmup Iteration   5: 109.075 us/op
+# Warmup Iteration   6: 120.058 us/op
+# Warmup Iteration   7: 99.881 us/op
+# Warmup Iteration   8: 84.552 us/op
+# Warmup Iteration   9: 112.118 us/op
+# Warmup Iteration  10: 103.503 us/op
+Iteration   1: 114.277 us/op
+Iteration   2: 135.406 us/op
+Iteration   3: 79.082 us/op
+Iteration   4: 111.172 us/op
+Iteration   5: 146.559 us/op
+Iteration   6: 126.589 us/op
+Iteration   7: 89.885 us/op
+Iteration   8: 104.298 us/op
+Iteration   9: 105.881 us/op
+Iteration  10: 92.946 us/op
+Iteration  11: 135.066 us/op
+Iteration  12: 120.595 us/op
+Iteration  13: 116.078 us/op
+Iteration  14: 152.749 us/op
+Iteration  15: 94.308 us/op
+Iteration  16: 103.377 us/op
+Iteration  17: 89.055 us/op
+Iteration  18: 95.281 us/op
+Iteration  19: 101.505 us/op
+Iteration  20: 122.248 us/op
+
+# Run progress: 30.00% complete, ETA 01:10:16
+# Fork: 2 of 5
+# Warmup Iteration   1: 123.369 us/op
+# Warmup Iteration   2: 118.203 us/op
+# Warmup Iteration   3: 102.321 us/op
+# Warmup Iteration   4: 113.720 us/op
+# Warmup Iteration   5: 123.576 us/op
+# Warmup Iteration   6: 96.914 us/op
+# Warmup Iteration   7: 108.601 us/op
+# Warmup Iteration   8: 111.493 us/op
+# Warmup Iteration   9: 105.075 us/op
+# Warmup Iteration  10: 140.307 us/op
+Iteration   1: 83.456 us/op
+Iteration   2: 89.027 us/op
+Iteration   3: 100.477 us/op
+Iteration   4: 153.153 us/op
+Iteration   5: 125.560 us/op
+Iteration   6: 116.718 us/op
+Iteration   7: 121.236 us/op
+Iteration   8: 107.899 us/op
+Iteration   9: 128.320 us/op
+Iteration  10: 132.860 us/op
+Iteration  11: 115.314 us/op
+Iteration  12: 85.023 us/op
+Iteration  13: 108.386 us/op
+Iteration  14: 107.250 us/op
+Iteration  15: 108.008 us/op
+Iteration  16: 96.535 us/op
+Iteration  17: 98.835 us/op
+Iteration  18: 95.359 us/op
+Iteration  19: 108.334 us/op
+Iteration  20: 125.765 us/op
+
+# Run progress: 35.00% complete, ETA 01:05:14
+# Fork: 3 of 5
+# Warmup Iteration   1: 143.491 us/op
+# Warmup Iteration   2: 114.465 us/op
+# Warmup Iteration   3: 99.030 us/op
+# Warmup Iteration   4: 106.609 us/op
+# Warmup Iteration   5: 116.703 us/op
+# Warmup Iteration   6: 102.062 us/op
+# Warmup Iteration   7: 104.172 us/op
+# Warmup Iteration   8: 114.317 us/op
+# Warmup Iteration   9: 124.264 us/op
+# Warmup Iteration  10: 129.673 us/op
+Iteration   1: 117.660 us/op
+Iteration   2: 131.593 us/op
+Iteration   3: 98.650 us/op
+Iteration   4: 109.603 us/op
+Iteration   5: 121.270 us/op
+Iteration   6: 136.218 us/op
+Iteration   7: 79.153 us/op
+Iteration   8: 114.061 us/op
+Iteration   9: 96.626 us/op
+Iteration  10: 91.182 us/op
+Iteration  11: 106.213 us/op
+Iteration  12: 104.413 us/op
+Iteration  13: 92.026 us/op
+Iteration  14: 104.048 us/op
+Iteration  15: 128.323 us/op
+Iteration  16: 114.673 us/op
+Iteration  17: 87.624 us/op
+Iteration  18: 82.998 us/op
+Iteration  19: 113.809 us/op
+Iteration  20: 93.704 us/op
+
+# Run progress: 40.00% complete, ETA 01:00:13
+# Fork: 4 of 5
+# Warmup Iteration   1: 131.426 us/op
+# Warmup Iteration   2: 113.112 us/op
+# Warmup Iteration   3: 111.928 us/op
+# Warmup Iteration   4: 95.652 us/op
+# Warmup Iteration   5: 102.526 us/op
+# Warmup Iteration   6: 94.260 us/op
+# Warmup Iteration   7: 112.906 us/op
+# Warmup Iteration   8: 110.829 us/op
+# Warmup Iteration   9: 113.790 us/op
+# Warmup Iteration  10: 103.740 us/op
+Iteration   1: 89.916 us/op
+Iteration   2: 100.940 us/op
+Iteration   3: 124.636 us/op
+Iteration   4: 101.031 us/op
+Iteration   5: 131.579 us/op
+Iteration   6: 128.600 us/op
+Iteration   7: 109.967 us/op
+Iteration   8: 97.643 us/op
+Iteration   9: 126.812 us/op
+Iteration  10: 115.819 us/op
+Iteration  11: 78.991 us/op
+Iteration  12: 133.579 us/op
+Iteration  13: 136.266 us/op
+Iteration  14: 130.817 us/op
+Iteration  15: 113.125 us/op
+Iteration  16: 139.349 us/op
+Iteration  17: 116.129 us/op
+Iteration  18: 134.213 us/op
+Iteration  19: 125.632 us/op
+Iteration  20: 99.250 us/op
+
+# Run progress: 45.00% complete, ETA 00:55:12
+# Fork: 5 of 5
+# Warmup Iteration   1: 102.572 us/op
+# Warmup Iteration   2: 117.746 us/op
+# Warmup Iteration   3: 111.267 us/op
+# Warmup Iteration   4: 125.939 us/op
+# Warmup Iteration   5: 76.224 us/op
+# Warmup Iteration   6: 129.516 us/op
+# Warmup Iteration   7: 117.258 us/op
+# Warmup Iteration   8: 107.112 us/op
+# Warmup Iteration   9: 110.086 us/op
+# Warmup Iteration  10: 122.223 us/op
+Iteration   1: 111.588 us/op
+Iteration   2: 89.354 us/op
+Iteration   3: 96.814 us/op
+Iteration   4: 98.105 us/op
+Iteration   5: 96.732 us/op
+Iteration   6: 81.477 us/op
+Iteration   7: 90.878 us/op
+Iteration   8: 99.945 us/op
+Iteration   9: 100.632 us/op
+Iteration  10: 116.930 us/op
+Iteration  11: 81.568 us/op
+Iteration  12: 87.148 us/op
+Iteration  13: 97.597 us/op
+Iteration  14: 117.585 us/op
+Iteration  15: 141.014 us/op
+Iteration  16: 89.188 us/op
+Iteration  17: 99.127 us/op
+Iteration  18: 106.744 us/op
+Iteration  19: 94.495 us/op
+Iteration  20: 100.145 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_future":
+  108.991 ±(99.9%) 6.001 us/op [Average]
+  (min, avg, max) = (78.991, 108.991, 153.153), stdev = 17.695
+  CI (99.9%): [102.990, 114.992] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.8, OpenJDK 64-Bit Server VM, 21.0.8+9-LTS
+# VM invoker: /home/grenoux/.sdkman/candidates/java/21.0.8-tem/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 10 iterations, 10 s each
+# Measurement: 20 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_no_future
+# Parameters: (computationSize = 1000)
+
+# Run progress: 50.00% complete, ETA 00:50:11
+# Fork: 1 of 5
+# Warmup Iteration   1: 4.399 us/op
+# Warmup Iteration   2: 3.954 us/op
+# Warmup Iteration   3: 4.027 us/op
+# Warmup Iteration   4: 4.023 us/op
+# Warmup Iteration   5: 4.025 us/op
+# Warmup Iteration   6: 4.026 us/op
+# Warmup Iteration   7: 4.028 us/op
+# Warmup Iteration   8: 4.028 us/op
+# Warmup Iteration   9: 4.025 us/op
+# Warmup Iteration  10: 4.025 us/op
+Iteration   1: 4.024 us/op
+Iteration   2: 4.026 us/op
+Iteration   3: 4.026 us/op
+Iteration   4: 4.024 us/op
+Iteration   5: 4.026 us/op
+Iteration   6: 4.025 us/op
+Iteration   7: 4.025 us/op
+Iteration   8: 4.024 us/op
+Iteration   9: 4.025 us/op
+Iteration  10: 4.438 us/op
+Iteration  11: 4.008 us/op
+Iteration  12: 4.024 us/op
+Iteration  13: 4.028 us/op
+Iteration  14: 4.022 us/op
+Iteration  15: 4.025 us/op
+Iteration  16: 4.024 us/op
+Iteration  17: 4.028 us/op
+Iteration  18: 4.022 us/op
+Iteration  19: 4.029 us/op
+Iteration  20: 4.025 us/op
+
+# Run progress: 55.00% complete, ETA 00:45:10
+# Fork: 2 of 5
+# Warmup Iteration   1: 4.669 us/op
+# Warmup Iteration   2: 3.952 us/op
+# Warmup Iteration   3: 4.026 us/op
+# Warmup Iteration   4: 4.023 us/op
+# Warmup Iteration   5: 4.025 us/op
+# Warmup Iteration   6: 4.026 us/op
+# Warmup Iteration   7: 4.025 us/op
+# Warmup Iteration   8: 4.025 us/op
+# Warmup Iteration   9: 4.026 us/op
+# Warmup Iteration  10: 4.026 us/op
+Iteration   1: 4.027 us/op
+Iteration   2: 4.025 us/op
+Iteration   3: 4.024 us/op
+Iteration   4: 4.025 us/op
+Iteration   5: 4.025 us/op
+Iteration   6: 4.026 us/op
+Iteration   7: 4.025 us/op
+Iteration   8: 4.026 us/op
+Iteration   9: 4.026 us/op
+Iteration  10: 4.026 us/op
+Iteration  11: 4.026 us/op
+Iteration  12: 4.375 us/op
+Iteration  13: 4.030 us/op
+Iteration  14: 4.025 us/op
+Iteration  15: 4.390 us/op
+Iteration  16: 4.024 us/op
+Iteration  17: 4.026 us/op
+Iteration  18: 4.025 us/op
+Iteration  19: 4.025 us/op
+Iteration  20: 4.025 us/op
+
+# Run progress: 60.00% complete, ETA 00:40:08
+# Fork: 3 of 5
+# Warmup Iteration   1: 4.377 us/op
+# Warmup Iteration   2: 3.974 us/op
+# Warmup Iteration   3: 4.024 us/op
+# Warmup Iteration   4: 4.027 us/op
+# Warmup Iteration   5: 4.025 us/op
+# Warmup Iteration   6: 4.024 us/op
+# Warmup Iteration   7: 4.024 us/op
+# Warmup Iteration   8: 4.016 us/op
+# Warmup Iteration   9: 4.016 us/op
+# Warmup Iteration  10: 4.018 us/op
+Iteration   1: 4.017 us/op
+Iteration   2: 4.385 us/op
+Iteration   3: 4.026 us/op
+Iteration   4: 4.025 us/op
+Iteration   5: 4.024 us/op
+Iteration   6: 4.025 us/op
+Iteration   7: 4.024 us/op
+Iteration   8: 4.024 us/op
+Iteration   9: 4.025 us/op
+Iteration  10: 4.026 us/op
+Iteration  11: 4.393 us/op
+Iteration  12: 4.014 us/op
+Iteration  13: 4.378 us/op
+Iteration  14: 4.023 us/op
+Iteration  15: 4.024 us/op
+Iteration  16: 4.023 us/op
+Iteration  17: 4.023 us/op
+Iteration  18: 4.025 us/op
+Iteration  19: 4.025 us/op
+Iteration  20: 4.023 us/op
+
+# Run progress: 65.00% complete, ETA 00:35:07
+# Fork: 4 of 5
+# Warmup Iteration   1: 4.453 us/op
+# Warmup Iteration   2: 4.323 us/op
+# Warmup Iteration   3: 4.024 us/op
+# Warmup Iteration   4: 4.027 us/op
+# Warmup Iteration   5: 4.028 us/op
+# Warmup Iteration   6: 4.027 us/op
+# Warmup Iteration   7: 4.028 us/op
+# Warmup Iteration   8: 4.028 us/op
+# Warmup Iteration   9: 4.015 us/op
+# Warmup Iteration  10: 4.026 us/op
+Iteration   1: 4.028 us/op
+Iteration   2: 4.028 us/op
+Iteration   3: 4.028 us/op
+Iteration   4: 4.028 us/op
+Iteration   5: 4.029 us/op
+Iteration   6: 4.028 us/op
+Iteration   7: 4.031 us/op
+Iteration   8: 4.030 us/op
+Iteration   9: 4.027 us/op
+Iteration  10: 4.028 us/op
+Iteration  11: 4.027 us/op
+Iteration  12: 4.025 us/op
+Iteration  13: 4.025 us/op
+Iteration  14: 4.024 us/op
+Iteration  15: 4.025 us/op
+Iteration  16: 4.024 us/op
+Iteration  17: 4.026 us/op
+Iteration  18: 4.026 us/op
+Iteration  19: 4.026 us/op
+Iteration  20: 4.025 us/op
+
+# Run progress: 70.00% complete, ETA 00:30:06
+# Fork: 5 of 5
+# Warmup Iteration   1: 4.515 us/op
+# Warmup Iteration   2: 3.981 us/op
+# Warmup Iteration   3: 4.221 us/op
+# Warmup Iteration   4: 4.200 us/op
+# Warmup Iteration   5: 4.021 us/op
+# Warmup Iteration   6: 4.025 us/op
+# Warmup Iteration   7: 4.025 us/op
+# Warmup Iteration   8: 4.026 us/op
+# Warmup Iteration   9: 4.025 us/op
+# Warmup Iteration  10: 4.025 us/op
+Iteration   1: 4.021 us/op
+Iteration   2: 4.024 us/op
+Iteration   3: 4.025 us/op
+Iteration   4: 4.025 us/op
+Iteration   5: 4.026 us/op
+Iteration   6: 4.025 us/op
+Iteration   7: 4.024 us/op
+Iteration   8: 4.023 us/op
+Iteration   9: 4.024 us/op
+Iteration  10: 4.024 us/op
+Iteration  11: 4.022 us/op
+Iteration  12: 3.943 us/op
+Iteration  13: 4.024 us/op
+Iteration  14: 4.021 us/op
+Iteration  15: 4.024 us/op
+Iteration  16: 4.024 us/op
+Iteration  17: 4.022 us/op
+Iteration  18: 4.022 us/op
+Iteration  19: 4.026 us/op
+Iteration  20: 4.025 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_no_future":
+  4.046 ±(99.9%) 0.030 us/op [Average]
+  (min, avg, max) = (3.943, 4.046, 4.438), stdev = 0.089
+  CI (99.9%): [4.016, 4.076] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.8, OpenJDK 64-Bit Server VM, 21.0.8+9-LTS
+# VM invoker: /home/grenoux/.sdkman/candidates/java/21.0.8-tem/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 10 iterations, 10 s each
+# Measurement: 20 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_no_future
+# Parameters: (computationSize = 10000)
+
+# Run progress: 75.00% complete, ETA 00:25:05
+# Fork: 1 of 5
+# Warmup Iteration   1: 40.886 us/op
+# Warmup Iteration   2: 40.617 us/op
+# Warmup Iteration   3: 37.592 us/op
+# Warmup Iteration   4: 37.436 us/op
+# Warmup Iteration   5: 37.402 us/op
+# Warmup Iteration   6: 40.457 us/op
+# Warmup Iteration   7: 37.799 us/op
+# Warmup Iteration   8: 38.034 us/op
+# Warmup Iteration   9: 38.035 us/op
+# Warmup Iteration  10: 37.645 us/op
+Iteration   1: 37.599 us/op
+Iteration   2: 37.665 us/op
+Iteration   3: 37.647 us/op
+Iteration   4: 41.883 us/op
+Iteration   5: 37.565 us/op
+Iteration   6: 38.173 us/op
+Iteration   7: 37.704 us/op
+Iteration   8: 37.446 us/op
+Iteration   9: 37.503 us/op
+Iteration  10: 37.479 us/op
+Iteration  11: 37.190 us/op
+Iteration  12: 37.252 us/op
+Iteration  13: 37.112 us/op
+Iteration  14: 37.401 us/op
+Iteration  15: 37.607 us/op
+Iteration  16: 37.618 us/op
+Iteration  17: 37.578 us/op
+Iteration  18: 37.606 us/op
+Iteration  19: 40.834 us/op
+Iteration  20: 37.697 us/op
+
+# Run progress: 80.00% complete, ETA 00:20:04
+# Fork: 2 of 5
+# Warmup Iteration   1: 41.853 us/op
+# Warmup Iteration   2: 40.461 us/op
+# Warmup Iteration   3: 37.275 us/op
+# Warmup Iteration   4: 37.333 us/op
+# Warmup Iteration   5: 37.052 us/op
+# Warmup Iteration   6: 37.418 us/op
+# Warmup Iteration   7: 37.653 us/op
+# Warmup Iteration   8: 37.471 us/op
+# Warmup Iteration   9: 37.732 us/op
+# Warmup Iteration  10: 37.759 us/op
+Iteration   1: 37.746 us/op
+Iteration   2: 37.657 us/op
+Iteration   3: 38.027 us/op
+Iteration   4: 38.095 us/op
+Iteration   5: 38.225 us/op
+Iteration   6: 38.259 us/op
+Iteration   7: 38.172 us/op
+Iteration   8: 37.634 us/op
+Iteration   9: 37.620 us/op
+Iteration  10: 37.160 us/op
+Iteration  11: 37.107 us/op
+Iteration  12: 37.051 us/op
+Iteration  13: 37.246 us/op
+Iteration  14: 36.946 us/op
+Iteration  15: 37.025 us/op
+Iteration  16: 37.093 us/op
+Iteration  17: 37.028 us/op
+Iteration  18: 37.208 us/op
+Iteration  19: 37.181 us/op
+Iteration  20: 37.145 us/op
+
+# Run progress: 85.00% complete, ETA 00:15:03
+# Fork: 3 of 5
+# Warmup Iteration   1: 42.435 us/op
+# Warmup Iteration   2: 40.875 us/op
+# Warmup Iteration   3: 37.286 us/op
+# Warmup Iteration   4: 37.551 us/op
+# Warmup Iteration   5: 37.765 us/op
+# Warmup Iteration   6: 37.866 us/op
+# Warmup Iteration   7: 38.057 us/op
+# Warmup Iteration   8: 37.919 us/op
+# Warmup Iteration   9: 38.094 us/op
+# Warmup Iteration  10: 38.096 us/op
+Iteration   1: 37.946 us/op
+Iteration   2: 37.980 us/op
+Iteration   3: 37.459 us/op
+Iteration   4: 37.494 us/op
+Iteration   5: 37.334 us/op
+Iteration   6: 37.330 us/op
+Iteration   7: 37.449 us/op
+Iteration   8: 37.482 us/op
+Iteration   9: 37.559 us/op
+Iteration  10: 37.573 us/op
+Iteration  11: 37.247 us/op
+Iteration  12: 37.222 us/op
+Iteration  13: 37.195 us/op
+Iteration  14: 37.211 us/op
+Iteration  15: 37.255 us/op
+Iteration  16: 37.214 us/op
+Iteration  17: 37.239 us/op
+Iteration  18: 37.442 us/op
+Iteration  19: 37.612 us/op
+Iteration  20: 37.703 us/op
+
+# Run progress: 90.00% complete, ETA 00:10:02
+# Fork: 4 of 5
+# Warmup Iteration   1: 38.719 us/op
+# Warmup Iteration   2: 41.014 us/op
+# Warmup Iteration   3: 37.466 us/op
+# Warmup Iteration   4: 37.402 us/op
+# Warmup Iteration   5: 37.615 us/op
+# Warmup Iteration   6: 37.615 us/op
+# Warmup Iteration   7: 37.483 us/op
+# Warmup Iteration   8: 37.480 us/op
+# Warmup Iteration   9: 37.545 us/op
+# Warmup Iteration  10: 37.528 us/op
+Iteration   1: 37.536 us/op
+Iteration   2: 37.364 us/op
+Iteration   3: 37.328 us/op
+Iteration   4: 37.395 us/op
+Iteration   5: 37.451 us/op
+Iteration   6: 37.501 us/op
+Iteration   7: 37.518 us/op
+Iteration   8: 37.499 us/op
+Iteration   9: 37.581 us/op
+Iteration  10: 37.483 us/op
+Iteration  11: 37.461 us/op
+Iteration  12: 37.498 us/op
+Iteration  13: 37.330 us/op
+Iteration  14: 37.348 us/op
+Iteration  15: 37.327 us/op
+Iteration  16: 37.394 us/op
+Iteration  17: 37.350 us/op
+Iteration  18: 37.517 us/op
+Iteration  19: 37.477 us/op
+Iteration  20: 37.500 us/op
+
+# Run progress: 95.00% complete, ETA 00:05:01
+# Fork: 5 of 5
+# Warmup Iteration   1: 40.908 us/op
+# Warmup Iteration   2: 45.247 us/op
+# Warmup Iteration   3: 37.538 us/op
+# Warmup Iteration   4: 41.455 us/op
+# Warmup Iteration   5: 37.522 us/op
+# Warmup Iteration   6: 37.395 us/op
+# Warmup Iteration   7: 41.268 us/op
+# Warmup Iteration   8: 37.814 us/op
+# Warmup Iteration   9: 37.792 us/op
+# Warmup Iteration  10: 37.071 us/op
+Iteration   1: 37.316 us/op
+Iteration   2: 37.099 us/op
+Iteration   3: 37.112 us/op
+Iteration   4: 37.328 us/op
+Iteration   5: 36.982 us/op
+Iteration   6: 37.797 us/op
+Iteration   7: 42.200 us/op
+Iteration   8: 38.137 us/op
+Iteration   9: 37.905 us/op
+Iteration  10: 38.215 us/op
+Iteration  11: 38.209 us/op
+Iteration  12: 37.572 us/op
+Iteration  13: 37.399 us/op
+Iteration  14: 37.401 us/op
+Iteration  15: 37.415 us/op
+Iteration  16: 37.769 us/op
+Iteration  17: 37.801 us/op
+Iteration  18: 37.371 us/op
+Iteration  19: 37.304 us/op
+Iteration  20: 37.313 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_no_future":
+  37.616 ±(99.9%) 0.264 us/op [Average]
+  (min, avg, max) = (36.946, 37.616, 42.200), stdev = 0.778
+  CI (99.9%): [37.352, 37.880] (assumes normal distribution)
+
+
+# Run complete. Total time: 01:40:21
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                      (computationSize)  Mode  Cnt    Score   Error  Units
+FutureBenchmark.run_future                  1000  avgt  100   47.270 ± 1.281  us/op
+FutureBenchmark.run_future                 10000  avgt  100  108.991 ± 6.001  us/op
+FutureBenchmark.run_no_future               1000  avgt  100    4.046 ± 0.030  us/op
+FutureBenchmark.run_no_future              10000  avgt  100   37.616 ± 0.264  us/op
+
+Benchmark result is saved to results/jdk-21/x86_64/jmh/openjdk-hotspot-vm/FutureBenchmark.scala.csv
+
+Finished FutureBenchmark benchmark (Fri Oct 17 07:46:04 AM UTC 2025)
+Fri Oct 17 07:46:04 AM UTC 2025
+
+Finished OpenJDK HotSpot VM test suite!
+
+Elapsed: 100 minutes and 23 seconds.
+
++=============================================
+| Running steps 5 to 7 with graalvm-ce
++=============================================
+| Fri Oct 17 07:46:04 AM UTC 2025
++=============================================
+
++=========================+
+| [5/7] JVM Configuration |
++=========================+
+
++---------------------------+
+| JVM Environment Variables |
++---------------------------+
+Java home: /home/grenoux/.sdkman/candidates/java/21.0.2-graalce
+JDK version: 21
+JVM name: GraalVM CE
+JVM identifier: graalvm-ce
+
++=========================+
+| [6/7] JMH Configuration |
++=========================+
+JMH benchmarks suite configuration file: settings/benchmarks-suite-jdk21.json
+JMH output folder: results/jdk-21/x86_64/jmh/graalvm-ce
+
++===========================+
+| [7/7] Run benchmark suite |
++===========================+
+Running GraalVM CE test suite ...
+WARNING: Folder 'results/jdk-21/x86_64/jmh/graalvm-ce' already exists. Existing output benchmarks might be overwritten.
+
+Running FutureBenchmark benchmark ...
+Fri Oct 17 07:46:05 AM UTC 2025
+java  -jar "target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar" "\\.FutureBenchmark\\." -foe true -wi 10 -w 10 -i 20 -r 10 -f 5 -rf csv -rff results/jdk-21/x86_64/jmh/graalvm-ce/FutureBenchmark.scala.csv -jvmArgsAppend "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+
+# JMH version: 1.37
+# VM version: JDK 21.0.2, OpenJDK 64-Bit Server VM, 21.0.2+13-jvmci-23.1-b30
+# VM invoker: /home/grenoux/.sdkman/candidates/java/21.0.2-graalce/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 10 iterations, 10 s each
+# Measurement: 20 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_future
+# Parameters: (computationSize = 1000)
+
+# Run progress: 0.00% complete, ETA 01:40:00
+# Fork: 1 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 51.399 us/op
+# Warmup Iteration   2: 49.736 us/op
+# Warmup Iteration   3: 49.357 us/op
+# Warmup Iteration   4: 49.263 us/op
+# Warmup Iteration   5: 49.129 us/op
+# Warmup Iteration   6: 49.242 us/op
+# Warmup Iteration   7: 49.348 us/op
+# Warmup Iteration   8: 49.677 us/op
+# Warmup Iteration   9: 49.594 us/op
+# Warmup Iteration  10: 49.610 us/op
+Iteration   1: 49.634 us/op
+Iteration   2: 49.715 us/op
+Iteration   3: 49.704 us/op
+Iteration   4: 49.609 us/op
+Iteration   5: 49.597 us/op
+Iteration   6: 49.711 us/op
+Iteration   7: 49.686 us/op
+Iteration   8: 49.600 us/op
+Iteration   9: 49.625 us/op
+Iteration  10: 49.614 us/op
+Iteration  11: 49.764 us/op
+Iteration  12: 49.769 us/op
+Iteration  13: 49.685 us/op
+Iteration  14: 49.710 us/op
+Iteration  15: 49.732 us/op
+Iteration  16: 49.762 us/op
+Iteration  17: 49.657 us/op
+Iteration  18: 49.639 us/op
+Iteration  19: 49.696 us/op
+Iteration  20: 49.861 us/op
+
+# Run progress: 5.00% complete, ETA 01:35:23
+# Fork: 2 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 52.529 us/op
+# Warmup Iteration   2: 49.775 us/op
+# Warmup Iteration   3: 49.582 us/op
+# Warmup Iteration   4: 49.670 us/op
+# Warmup Iteration   5: 49.642 us/op
+# Warmup Iteration   6: 49.511 us/op
+# Warmup Iteration   7: 49.503 us/op
+# Warmup Iteration   8: 49.493 us/op
+# Warmup Iteration   9: 49.636 us/op
+# Warmup Iteration  10: 49.664 us/op
+Iteration   1: 49.518 us/op
+Iteration   2: 49.486 us/op
+Iteration   3: 49.626 us/op
+Iteration   4: 49.620 us/op
+Iteration   5: 49.477 us/op
+Iteration   6: 49.544 us/op
+Iteration   7: 49.506 us/op
+Iteration   8: 49.705 us/op
+Iteration   9: 49.674 us/op
+Iteration  10: 49.513 us/op
+Iteration  11: 49.546 us/op
+Iteration  12: 43.728 us/op
+Iteration  13: 39.967 us/op
+Iteration  14: 39.735 us/op
+Iteration  15: 35.469 us/op
+Iteration  16: 38.598 us/op
+Iteration  17: 40.254 us/op
+Iteration  18: 40.294 us/op
+Iteration  19: 39.725 us/op
+Iteration  20: 38.387 us/op
+
+# Run progress: 10.00% complete, ETA 01:30:22
+# Fork: 3 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 52.513 us/op
+# Warmup Iteration   2: 50.292 us/op
+# Warmup Iteration   3: 49.944 us/op
+# Warmup Iteration   4: 49.894 us/op
+# Warmup Iteration   5: 49.945 us/op
+# Warmup Iteration   6: 49.953 us/op
+# Warmup Iteration   7: 50.109 us/op
+# Warmup Iteration   8: 49.938 us/op
+# Warmup Iteration   9: 49.885 us/op
+# Warmup Iteration  10: 50.058 us/op
+Iteration   1: 50.084 us/op
+Iteration   2: 49.984 us/op
+Iteration   3: 49.890 us/op
+Iteration   4: 49.940 us/op
+Iteration   5: 49.968 us/op
+Iteration   6: 50.053 us/op
+Iteration   7: 50.011 us/op
+Iteration   8: 49.916 us/op
+Iteration   9: 50.040 us/op
+Iteration  10: 50.007 us/op
+Iteration  11: 49.905 us/op
+Iteration  12: 50.014 us/op
+Iteration  13: 50.091 us/op
+Iteration  14: 50.038 us/op
+Iteration  15: 50.176 us/op
+Iteration  16: 49.899 us/op
+Iteration  17: 49.883 us/op
+Iteration  18: 50.023 us/op
+Iteration  19: 50.132 us/op
+Iteration  20: 49.901 us/op
+
+# Run progress: 15.00% complete, ETA 01:25:20
+# Fork: 4 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 51.012 us/op
+# Warmup Iteration   2: 49.677 us/op
+# Warmup Iteration   3: 49.086 us/op
+# Warmup Iteration   4: 49.349 us/op
+# Warmup Iteration   5: 49.051 us/op
+# Warmup Iteration   6: 49.052 us/op
+# Warmup Iteration   7: 49.084 us/op
+# Warmup Iteration   8: 49.185 us/op
+# Warmup Iteration   9: 49.036 us/op
+# Warmup Iteration  10: 49.033 us/op
+Iteration   1: 49.724 us/op
+Iteration   2: 49.488 us/op
+Iteration   3: 49.566 us/op
+Iteration   4: 49.412 us/op
+Iteration   5: 49.458 us/op
+Iteration   6: 49.572 us/op
+Iteration   7: 49.618 us/op
+Iteration   8: 49.428 us/op
+Iteration   9: 49.472 us/op
+Iteration  10: 49.579 us/op
+Iteration  11: 49.480 us/op
+Iteration  12: 49.625 us/op
+Iteration  13: 49.608 us/op
+Iteration  14: 49.620 us/op
+Iteration  15: 49.757 us/op
+Iteration  16: 49.681 us/op
+Iteration  17: 49.658 us/op
+Iteration  18: 49.594 us/op
+Iteration  19: 49.674 us/op
+Iteration  20: 49.643 us/op
+
+# Run progress: 20.00% complete, ETA 01:20:18
+# Fork: 5 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 50.496 us/op
+# Warmup Iteration   2: 49.920 us/op
+# Warmup Iteration   3: 49.428 us/op
+# Warmup Iteration   4: 49.464 us/op
+# Warmup Iteration   5: 49.393 us/op
+# Warmup Iteration   6: 49.297 us/op
+# Warmup Iteration   7: 49.345 us/op
+# Warmup Iteration   8: 49.446 us/op
+# Warmup Iteration   9: 49.304 us/op
+# Warmup Iteration  10: 49.391 us/op
+Iteration   1: 49.321 us/op
+Iteration   2: 49.307 us/op
+Iteration   3: 49.478 us/op
+Iteration   4: 49.440 us/op
+Iteration   5: 49.342 us/op
+Iteration   6: 49.352 us/op
+Iteration   7: 49.438 us/op
+Iteration   8: 49.314 us/op
+Iteration   9: 49.426 us/op
+Iteration  10: 49.305 us/op
+Iteration  11: 49.283 us/op
+Iteration  12: 49.398 us/op
+Iteration  13: 49.319 us/op
+Iteration  14: 49.201 us/op
+Iteration  15: 49.223 us/op
+Iteration  16: 49.355 us/op
+Iteration  17: 49.215 us/op
+Iteration  18: 49.285 us/op
+Iteration  19: 49.219 us/op
+Iteration  20: 49.222 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_future":
+  48.732 ±(99.9%) 1.007 us/op [Average]
+  (min, avg, max) = (35.469, 48.732, 50.176), stdev = 2.969
+  CI (99.9%): [47.725, 49.739] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.2, OpenJDK 64-Bit Server VM, 21.0.2+13-jvmci-23.1-b30
+# VM invoker: /home/grenoux/.sdkman/candidates/java/21.0.2-graalce/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 10 iterations, 10 s each
+# Measurement: 20 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_future
+# Parameters: (computationSize = 10000)
+
+# Run progress: 25.00% complete, ETA 01:15:17
+# Fork: 1 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 141.690 us/op
+# Warmup Iteration   2: 118.001 us/op
+# Warmup Iteration   3: 121.022 us/op
+# Warmup Iteration   4: 156.229 us/op
+# Warmup Iteration   5: 103.594 us/op
+# Warmup Iteration   6: 104.087 us/op
+# Warmup Iteration   7: 118.149 us/op
+# Warmup Iteration   8: 119.565 us/op
+# Warmup Iteration   9: 96.683 us/op
+# Warmup Iteration  10: 106.724 us/op
+Iteration   1: 138.916 us/op
+Iteration   2: 104.766 us/op
+Iteration   3: 103.853 us/op
+Iteration   4: 107.930 us/op
+Iteration   5: 90.966 us/op
+Iteration   6: 90.498 us/op
+Iteration   7: 141.367 us/op
+Iteration   8: 105.389 us/op
+Iteration   9: 105.313 us/op
+Iteration  10: 100.058 us/op
+Iteration  11: 101.748 us/op
+Iteration  12: 156.075 us/op
+Iteration  13: 107.094 us/op
+Iteration  14: 91.077 us/op
+Iteration  15: 136.011 us/op
+Iteration  16: 136.779 us/op
+Iteration  17: 110.433 us/op
+Iteration  18: 120.314 us/op
+Iteration  19: 97.672 us/op
+Iteration  20: 98.018 us/op
+
+# Run progress: 30.00% complete, ETA 01:10:16
+# Fork: 2 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 87.081 us/op
+# Warmup Iteration   2: 110.863 us/op
+# Warmup Iteration   3: 113.800 us/op
+# Warmup Iteration   4: 106.277 us/op
+# Warmup Iteration   5: 91.913 us/op
+# Warmup Iteration   6: 123.484 us/op
+# Warmup Iteration   7: 121.232 us/op
+# Warmup Iteration   8: 125.333 us/op
+# Warmup Iteration   9: 103.366 us/op
+# Warmup Iteration  10: 82.620 us/op
+Iteration   1: 99.570 us/op
+Iteration   2: 131.137 us/op
+Iteration   3: 92.055 us/op
+Iteration   4: 96.260 us/op
+Iteration   5: 116.919 us/op
+Iteration   6: 125.405 us/op
+Iteration   7: 95.794 us/op
+Iteration   8: 119.201 us/op
+Iteration   9: 85.417 us/op
+Iteration  10: 117.792 us/op
+Iteration  11: 93.382 us/op
+Iteration  12: 101.313 us/op
+Iteration  13: 110.306 us/op
+Iteration  14: 129.670 us/op
+Iteration  15: 99.648 us/op
+Iteration  16: 102.253 us/op
+Iteration  17: 90.586 us/op
+Iteration  18: 120.065 us/op
+Iteration  19: 114.072 us/op
+Iteration  20: 130.971 us/op
+
+# Run progress: 35.00% complete, ETA 01:05:15
+# Fork: 3 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 112.767 us/op
+# Warmup Iteration   2: 169.134 us/op
+# Warmup Iteration   3: 160.945 us/op
+# Warmup Iteration   4: 171.880 us/op
+# Warmup Iteration   5: 170.432 us/op
+# Warmup Iteration   6: 129.964 us/op
+# Warmup Iteration   7: 143.381 us/op
+# Warmup Iteration   8: 144.385 us/op
+# Warmup Iteration   9: 145.090 us/op
+# Warmup Iteration  10: 125.750 us/op
+Iteration   1: 130.132 us/op
+Iteration   2: 158.263 us/op
+Iteration   3: 142.352 us/op
+Iteration   4: 108.392 us/op
+Iteration   5: 126.794 us/op
+Iteration   6: 130.807 us/op
+Iteration   7: 117.221 us/op
+Iteration   8: 141.824 us/op
+Iteration   9: 138.499 us/op
+Iteration  10: 108.487 us/op
+Iteration  11: 115.839 us/op
+Iteration  12: 85.109 us/op
+Iteration  13: 113.032 us/op
+Iteration  14: 130.253 us/op
+Iteration  15: 154.326 us/op
+Iteration  16: 134.173 us/op
+Iteration  17: 99.178 us/op
+Iteration  18: 116.090 us/op
+Iteration  19: 109.812 us/op
+Iteration  20: 104.311 us/op
+
+# Run progress: 40.00% complete, ETA 01:00:13
+# Fork: 4 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 146.056 us/op
+# Warmup Iteration   2: 121.653 us/op
+# Warmup Iteration   3: 100.193 us/op
+# Warmup Iteration   4: 113.992 us/op
+# Warmup Iteration   5: 148.181 us/op
+# Warmup Iteration   6: 95.170 us/op
+# Warmup Iteration   7: 125.456 us/op
+# Warmup Iteration   8: 97.185 us/op
+# Warmup Iteration   9: 89.728 us/op
+# Warmup Iteration  10: 101.713 us/op
+Iteration   1: 117.712 us/op
+Iteration   2: 144.500 us/op
+Iteration   3: 121.843 us/op
+Iteration   4: 153.104 us/op
+Iteration   5: 105.780 us/op
+Iteration   6: 160.495 us/op
+Iteration   7: 140.668 us/op
+Iteration   8: 117.676 us/op
+Iteration   9: 111.568 us/op
+Iteration  10: 114.952 us/op
+Iteration  11: 154.419 us/op
+Iteration  12: 170.136 us/op
+Iteration  13: 149.455 us/op
+Iteration  14: 110.653 us/op
+Iteration  15: 122.523 us/op
+Iteration  16: 98.905 us/op
+Iteration  17: 167.188 us/op
+Iteration  18: 134.586 us/op
+Iteration  19: 126.168 us/op
+Iteration  20: 101.474 us/op
+
+# Run progress: 45.00% complete, ETA 00:55:12
+# Fork: 5 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 143.519 us/op
+# Warmup Iteration   2: 126.303 us/op
+# Warmup Iteration   3: 103.833 us/op
+# Warmup Iteration   4: 113.228 us/op
+# Warmup Iteration   5: 111.261 us/op
+# Warmup Iteration   6: 103.636 us/op
+# Warmup Iteration   7: 150.729 us/op
+# Warmup Iteration   8: 126.940 us/op
+# Warmup Iteration   9: 167.285 us/op
+# Warmup Iteration  10: 100.528 us/op
+Iteration   1: 150.085 us/op
+Iteration   2: 136.073 us/op
+Iteration   3: 123.064 us/op
+Iteration   4: 126.018 us/op
+Iteration   5: 151.101 us/op
+Iteration   6: 133.825 us/op
+Iteration   7: 116.944 us/op
+Iteration   8: 95.182 us/op
+Iteration   9: 114.590 us/op
+Iteration  10: 109.052 us/op
+Iteration  11: 105.562 us/op
+Iteration  12: 128.379 us/op
+Iteration  13: 142.368 us/op
+Iteration  14: 113.704 us/op
+Iteration  15: 115.386 us/op
+Iteration  16: 97.787 us/op
+Iteration  17: 100.811 us/op
+Iteration  18: 122.052 us/op
+Iteration  19: 124.918 us/op
+Iteration  20: 112.418 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_future":
+  119.241 ±(99.9%) 6.707 us/op [Average]
+  (min, avg, max) = (85.109, 119.241, 170.136), stdev = 19.774
+  CI (99.9%): [112.535, 125.948] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.2, OpenJDK 64-Bit Server VM, 21.0.2+13-jvmci-23.1-b30
+# VM invoker: /home/grenoux/.sdkman/candidates/java/21.0.2-graalce/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 10 iterations, 10 s each
+# Measurement: 20 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_no_future
+# Parameters: (computationSize = 1000)
+
+# Run progress: 50.00% complete, ETA 00:50:11
+# Fork: 1 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 5.221 us/op
+# Warmup Iteration   2: 5.598 us/op
+# Warmup Iteration   3: 4.941 us/op
+# Warmup Iteration   4: 4.941 us/op
+# Warmup Iteration   5: 4.938 us/op
+# Warmup Iteration   6: 4.939 us/op
+# Warmup Iteration   7: 4.945 us/op
+# Warmup Iteration   8: 5.397 us/op
+# Warmup Iteration   9: 5.474 us/op
+# Warmup Iteration  10: 5.385 us/op
+Iteration   1: 5.464 us/op
+Iteration   2: 4.985 us/op
+Iteration   3: 4.984 us/op
+Iteration   4: 4.999 us/op
+Iteration   5: 4.985 us/op
+Iteration   6: 4.975 us/op
+Iteration   7: 4.983 us/op
+Iteration   8: 4.985 us/op
+Iteration   9: 4.979 us/op
+Iteration  10: 4.982 us/op
+Iteration  11: 4.970 us/op
+Iteration  12: 4.971 us/op
+Iteration  13: 4.970 us/op
+Iteration  14: 4.978 us/op
+Iteration  15: 4.982 us/op
+Iteration  16: 4.982 us/op
+Iteration  17: 4.983 us/op
+Iteration  18: 4.964 us/op
+Iteration  19: 4.978 us/op
+Iteration  20: 4.980 us/op
+
+# Run progress: 55.00% complete, ETA 00:45:10
+# Fork: 2 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 5.133 us/op
+# Warmup Iteration   2: 5.088 us/op
+# Warmup Iteration   3: 4.973 us/op
+# Warmup Iteration   4: 4.989 us/op
+# Warmup Iteration   5: 4.992 us/op
+# Warmup Iteration   6: 4.988 us/op
+# Warmup Iteration   7: 4.990 us/op
+# Warmup Iteration   8: 4.998 us/op
+# Warmup Iteration   9: 4.988 us/op
+# Warmup Iteration  10: 4.989 us/op
+Iteration   1: 4.993 us/op
+Iteration   2: 4.972 us/op
+Iteration   3: 4.989 us/op
+Iteration   4: 4.989 us/op
+Iteration   5: 4.991 us/op
+Iteration   6: 4.988 us/op
+Iteration   7: 4.990 us/op
+Iteration   8: 4.990 us/op
+Iteration   9: 4.989 us/op
+Iteration  10: 4.988 us/op
+Iteration  11: 4.988 us/op
+Iteration  12: 4.988 us/op
+Iteration  13: 4.988 us/op
+Iteration  14: 4.990 us/op
+Iteration  15: 4.988 us/op
+Iteration  16: 5.007 us/op
+Iteration  17: 4.989 us/op
+Iteration  18: 4.987 us/op
+Iteration  19: 4.987 us/op
+Iteration  20: 4.991 us/op
+
+# Run progress: 60.00% complete, ETA 00:40:08
+# Fork: 3 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 5.386 us/op
+# Warmup Iteration   2: 5.557 us/op
+# Warmup Iteration   3: 5.368 us/op
+# Warmup Iteration   4: 5.411 us/op
+# Warmup Iteration   5: 4.960 us/op
+# Warmup Iteration   6: 5.504 us/op
+# Warmup Iteration   7: 4.951 us/op
+# Warmup Iteration   8: 4.996 us/op
+# Warmup Iteration   9: 4.986 us/op
+# Warmup Iteration  10: 4.987 us/op
+Iteration   1: 4.971 us/op
+Iteration   2: 4.974 us/op
+Iteration   3: 4.986 us/op
+Iteration   4: 4.985 us/op
+Iteration   5: 4.989 us/op
+Iteration   6: 4.959 us/op
+Iteration   7: 4.969 us/op
+Iteration   8: 4.952 us/op
+Iteration   9: 4.967 us/op
+Iteration  10: 4.970 us/op
+Iteration  11: 4.945 us/op
+Iteration  12: 4.969 us/op
+Iteration  13: 5.434 us/op
+Iteration  14: 4.960 us/op
+Iteration  15: 4.945 us/op
+Iteration  16: 4.970 us/op
+Iteration  17: 4.976 us/op
+Iteration  18: 4.989 us/op
+Iteration  19: 4.971 us/op
+Iteration  20: 4.965 us/op
+
+# Run progress: 65.00% complete, ETA 00:35:07
+# Fork: 4 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 5.525 us/op
+# Warmup Iteration   2: 5.084 us/op
+# Warmup Iteration   3: 5.004 us/op
+# Warmup Iteration   4: 5.007 us/op
+# Warmup Iteration   5: 5.016 us/op
+# Warmup Iteration   6: 4.988 us/op
+# Warmup Iteration   7: 4.983 us/op
+# Warmup Iteration   8: 4.987 us/op
+# Warmup Iteration   9: 4.993 us/op
+# Warmup Iteration  10: 5.004 us/op
+Iteration   1: 4.956 us/op
+Iteration   2: 4.947 us/op
+Iteration   3: 4.947 us/op
+Iteration   4: 4.920 us/op
+Iteration   5: 4.947 us/op
+Iteration   6: 4.947 us/op
+Iteration   7: 4.935 us/op
+Iteration   8: 4.947 us/op
+Iteration   9: 4.932 us/op
+Iteration  10: 4.932 us/op
+Iteration  11: 4.983 us/op
+Iteration  12: 5.013 us/op
+Iteration  13: 5.013 us/op
+Iteration  14: 5.013 us/op
+Iteration  15: 5.014 us/op
+Iteration  16: 5.014 us/op
+Iteration  17: 5.013 us/op
+Iteration  18: 4.946 us/op
+Iteration  19: 4.945 us/op
+Iteration  20: 4.884 us/op
+
+# Run progress: 70.00% complete, ETA 00:30:06
+# Fork: 5 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 5.164 us/op
+# Warmup Iteration   2: 5.081 us/op
+# Warmup Iteration   3: 4.933 us/op
+# Warmup Iteration   4: 4.939 us/op
+# Warmup Iteration   5: 5.414 us/op
+# Warmup Iteration   6: 4.946 us/op
+# Warmup Iteration   7: 4.955 us/op
+# Warmup Iteration   8: 4.956 us/op
+# Warmup Iteration   9: 4.950 us/op
+# Warmup Iteration  10: 4.956 us/op
+Iteration   1: 4.959 us/op
+Iteration   2: 4.951 us/op
+Iteration   3: 4.953 us/op
+Iteration   4: 4.959 us/op
+Iteration   5: 4.959 us/op
+Iteration   6: 4.958 us/op
+Iteration   7: 4.959 us/op
+Iteration   8: 4.959 us/op
+Iteration   9: 4.960 us/op
+Iteration  10: 4.960 us/op
+Iteration  11: 4.960 us/op
+Iteration  12: 4.962 us/op
+Iteration  13: 4.962 us/op
+Iteration  14: 4.963 us/op
+Iteration  15: 4.962 us/op
+Iteration  16: 4.960 us/op
+Iteration  17: 4.956 us/op
+Iteration  18: 4.959 us/op
+Iteration  19: 4.958 us/op
+Iteration  20: 4.951 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_no_future":
+  4.981 ±(99.9%) 0.024 us/op [Average]
+  (min, avg, max) = (4.884, 4.981, 5.464), stdev = 0.071
+  CI (99.9%): [4.957, 5.005] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.2, OpenJDK 64-Bit Server VM, 21.0.2+13-jvmci-23.1-b30
+# VM invoker: /home/grenoux/.sdkman/candidates/java/21.0.2-graalce/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 10 iterations, 10 s each
+# Measurement: 20 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_no_future
+# Parameters: (computationSize = 10000)
+
+# Run progress: 75.00% complete, ETA 00:25:05
+# Fork: 1 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 51.489 us/op
+# Warmup Iteration   2: 53.732 us/op
+# Warmup Iteration   3: 49.756 us/op
+# Warmup Iteration   4: 49.739 us/op
+# Warmup Iteration   5: 49.736 us/op
+# Warmup Iteration   6: 49.733 us/op
+# Warmup Iteration   7: 49.733 us/op
+# Warmup Iteration   8: 49.731 us/op
+# Warmup Iteration   9: 53.741 us/op
+# Warmup Iteration  10: 49.503 us/op
+Iteration   1: 49.593 us/op
+Iteration   2: 49.584 us/op
+Iteration   3: 49.581 us/op
+Iteration   4: 49.562 us/op
+Iteration   5: 49.675 us/op
+Iteration   6: 49.566 us/op
+Iteration   7: 49.706 us/op
+Iteration   8: 49.730 us/op
+Iteration   9: 49.728 us/op
+Iteration  10: 49.730 us/op
+Iteration  11: 49.596 us/op
+Iteration  12: 49.422 us/op
+Iteration  13: 49.414 us/op
+Iteration  14: 49.452 us/op
+Iteration  15: 49.455 us/op
+Iteration  16: 49.410 us/op
+Iteration  17: 49.407 us/op
+Iteration  18: 49.406 us/op
+Iteration  19: 49.414 us/op
+Iteration  20: 49.449 us/op
+
+# Run progress: 80.00% complete, ETA 00:20:04
+# Fork: 2 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 49.179 us/op
+# Warmup Iteration   2: 53.880 us/op
+# Warmup Iteration   3: 49.034 us/op
+# Warmup Iteration   4: 48.878 us/op
+# Warmup Iteration   5: 49.699 us/op
+# Warmup Iteration   6: 49.694 us/op
+# Warmup Iteration   7: 49.124 us/op
+# Warmup Iteration   8: 49.711 us/op
+# Warmup Iteration   9: 49.668 us/op
+# Warmup Iteration  10: 49.292 us/op
+Iteration   1: 49.703 us/op
+Iteration   2: 49.688 us/op
+Iteration   3: 49.729 us/op
+Iteration   4: 49.696 us/op
+Iteration   5: 49.730 us/op
+Iteration   6: 49.726 us/op
+Iteration   7: 49.715 us/op
+Iteration   8: 49.695 us/op
+Iteration   9: 49.697 us/op
+Iteration  10: 49.725 us/op
+Iteration  11: 49.724 us/op
+Iteration  12: 49.721 us/op
+Iteration  13: 49.724 us/op
+Iteration  14: 49.734 us/op
+Iteration  15: 49.738 us/op
+Iteration  16: 49.731 us/op
+Iteration  17: 49.718 us/op
+Iteration  18: 49.723 us/op
+Iteration  19: 49.717 us/op
+Iteration  20: 49.728 us/op
+
+# Run progress: 85.00% complete, ETA 00:15:03
+# Fork: 3 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 50.931 us/op
+# Warmup Iteration   2: 54.293 us/op
+# Warmup Iteration   3: 49.753 us/op
+# Warmup Iteration   4: 49.756 us/op
+# Warmup Iteration   5: 49.764 us/op
+# Warmup Iteration   6: 49.757 us/op
+# Warmup Iteration   7: 49.757 us/op
+# Warmup Iteration   8: 49.768 us/op
+# Warmup Iteration   9: 49.763 us/op
+# Warmup Iteration  10: 49.766 us/op
+Iteration   1: 49.759 us/op
+Iteration   2: 49.774 us/op
+Iteration   3: 54.276 us/op
+Iteration   4: 48.755 us/op
+Iteration   5: 48.667 us/op
+Iteration   6: 49.547 us/op
+Iteration   7: 49.748 us/op
+Iteration   8: 49.748 us/op
+Iteration   9: 49.692 us/op
+Iteration  10: 49.738 us/op
+Iteration  11: 49.746 us/op
+Iteration  12: 49.750 us/op
+Iteration  13: 48.737 us/op
+Iteration  14: 49.640 us/op
+Iteration  15: 48.699 us/op
+Iteration  16: 49.184 us/op
+Iteration  17: 48.927 us/op
+Iteration  18: 49.728 us/op
+Iteration  19: 49.736 us/op
+Iteration  20: 49.733 us/op
+
+# Run progress: 90.00% complete, ETA 00:10:02
+# Fork: 4 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 51.032 us/op
+# Warmup Iteration   2: 54.547 us/op
+# Warmup Iteration   3: 50.630 us/op
+# Warmup Iteration   4: 50.385 us/op
+# Warmup Iteration   5: 50.407 us/op
+# Warmup Iteration   6: 50.381 us/op
+# Warmup Iteration   7: 55.917 us/op
+# Warmup Iteration   8: 50.638 us/op
+# Warmup Iteration   9: 50.637 us/op
+# Warmup Iteration  10: 50.641 us/op
+Iteration   1: 50.644 us/op
+Iteration   2: 50.644 us/op
+Iteration   3: 50.644 us/op
+Iteration   4: 50.645 us/op
+Iteration   5: 50.156 us/op
+Iteration   6: 50.186 us/op
+Iteration   7: 50.637 us/op
+Iteration   8: 50.634 us/op
+Iteration   9: 50.635 us/op
+Iteration  10: 50.636 us/op
+Iteration  11: 50.636 us/op
+Iteration  12: 50.636 us/op
+Iteration  13: 50.636 us/op
+Iteration  14: 50.635 us/op
+Iteration  15: 50.637 us/op
+Iteration  16: 50.635 us/op
+Iteration  17: 50.634 us/op
+Iteration  18: 50.633 us/op
+Iteration  19: 50.635 us/op
+Iteration  20: 50.624 us/op
+
+# Run progress: 95.00% complete, ETA 00:05:01
+# Fork: 5 of 5
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 51.540 us/op
+# Warmup Iteration   2: 54.669 us/op
+# Warmup Iteration   3: 50.368 us/op
+# Warmup Iteration   4: 50.475 us/op
+# Warmup Iteration   5: 50.441 us/op
+# Warmup Iteration   6: 50.404 us/op
+# Warmup Iteration   7: 50.313 us/op
+# Warmup Iteration   8: 50.271 us/op
+# Warmup Iteration   9: 50.228 us/op
+# Warmup Iteration  10: 50.413 us/op
+Iteration   1: 50.426 us/op
+Iteration   2: 54.219 us/op
+Iteration   3: 58.615 us/op
+Iteration   4: 49.931 us/op
+Iteration   5: 50.002 us/op
+Iteration   6: 49.287 us/op
+Iteration   7: 49.656 us/op
+Iteration   8: 49.578 us/op
+Iteration   9: 49.696 us/op
+Iteration  10: 49.689 us/op
+Iteration  11: 49.674 us/op
+Iteration  12: 49.622 us/op
+Iteration  13: 49.662 us/op
+Iteration  14: 49.696 us/op
+Iteration  15: 49.713 us/op
+Iteration  16: 49.659 us/op
+Iteration  17: 49.657 us/op
+Iteration  18: 49.689 us/op
+Iteration  19: 49.689 us/op
+Iteration  20: 49.685 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_no_future":
+  49.985 ±(99.9%) 0.397 us/op [Average]
+  (min, avg, max) = (48.667, 49.985, 58.615), stdev = 1.170
+  CI (99.9%): [49.588, 50.381] (assumes normal distribution)
+
+
+# Run complete. Total time: 01:40:20
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                      (computationSize)  Mode  Cnt    Score   Error  Units
+FutureBenchmark.run_future                  1000  avgt  100   48.732 ± 1.007  us/op
+FutureBenchmark.run_future                 10000  avgt  100  119.241 ± 6.707  us/op
+FutureBenchmark.run_no_future               1000  avgt  100    4.981 ± 0.024  us/op
+FutureBenchmark.run_no_future              10000  avgt  100   49.985 ± 0.397  us/op
+
+Benchmark result is saved to results/jdk-21/x86_64/jmh/graalvm-ce/FutureBenchmark.scala.csv
+
+Finished FutureBenchmark benchmark (Fri Oct 17 09:26:26 AM UTC 2025)
+Fri Oct 17 09:26:26 AM UTC 2025
+
+Finished GraalVM CE test suite!
+
+Elapsed: 100 minutes and 22 seconds.
+
++=============================================
+| Running steps 5 to 7 with graalvm-ee
++=============================================
+| Fri Oct 17 09:26:26 AM UTC 2025
++=============================================
+
++=========================+
+| [5/7] JVM Configuration |
++=========================+
+
++---------------------------+
+| JVM Environment Variables |
++---------------------------+
+Java home: /home/grenoux/.sdkman/candidates/java/21.0.8-graal
+JDK version: 21
+JVM name: GraalVM Oracle
+JVM identifier: graalvm-ee
+
++=========================+
+| [6/7] JMH Configuration |
++=========================+
+JMH benchmarks suite configuration file: settings/benchmarks-suite-jdk21.json
+JMH output folder: results/jdk-21/x86_64/jmh/graalvm-ee
+
++===========================+
+| [7/7] Run benchmark suite |
++===========================+
+Running GraalVM Oracle test suite ...
+WARNING: Folder 'results/jdk-21/x86_64/jmh/graalvm-ee' already exists. Existing output benchmarks might be overwritten.
+
+Running FutureBenchmark benchmark ...
+Fri Oct 17 09:26:27 AM UTC 2025
+java  -jar "target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar" "\\.FutureBenchmark\\." -foe true -wi 10 -w 10 -i 20 -r 10 -f 5 -rf csv -rff results/jdk-21/x86_64/jmh/graalvm-ee/FutureBenchmark.scala.csv -jvmArgsAppend "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+
+# JMH version: 1.37
+# VM version: JDK 21.0.8, Java HotSpot(TM) 64-Bit Server VM, 21.0.8+12-LTS-jvmci-23.1-b72
+# VM invoker: /home/grenoux/.sdkman/candidates/java/21.0.8-graal/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 10 iterations, 10 s each
+# Measurement: 20 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_future
+# Parameters: (computationSize = 1000)
+
+# Run progress: 0.00% complete, ETA 01:40:00
+# Fork: 1 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 46.546 us/op
+# Warmup Iteration   2: 45.303 us/op
+# Warmup Iteration   3: 45.377 us/op
+# Warmup Iteration   4: 45.260 us/op
+# Warmup Iteration   5: 45.506 us/op
+# Warmup Iteration   6: 45.372 us/op
+# Warmup Iteration   7: 45.400 us/op
+# Warmup Iteration   8: 45.449 us/op
+# Warmup Iteration   9: 45.507 us/op
+# Warmup Iteration  10: 45.397 us/op
+Iteration   1: 45.351 us/op
+Iteration   2: 45.556 us/op
+Iteration   3: 45.530 us/op
+Iteration   4: 45.612 us/op
+Iteration   5: 45.470 us/op
+Iteration   6: 45.499 us/op
+Iteration   7: 45.602 us/op
+Iteration   8: 45.634 us/op
+Iteration   9: 45.487 us/op
+Iteration  10: 45.526 us/op
+Iteration  11: 45.697 us/op
+Iteration  12: 45.338 us/op
+Iteration  13: 45.447 us/op
+Iteration  14: 45.335 us/op
+Iteration  15: 45.318 us/op
+Iteration  16: 45.411 us/op
+Iteration  17: 45.485 us/op
+Iteration  18: 45.328 us/op
+Iteration  19: 45.349 us/op
+Iteration  20: 45.441 us/op
+
+# Run progress: 5.00% complete, ETA 01:35:24
+# Fork: 2 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 46.547 us/op
+# Warmup Iteration   2: 45.855 us/op
+# Warmup Iteration   3: 45.195 us/op
+# Warmup Iteration   4: 45.289 us/op
+# Warmup Iteration   5: 45.343 us/op
+# Warmup Iteration   6: 45.399 us/op
+# Warmup Iteration   7: 45.279 us/op
+# Warmup Iteration   8: 45.285 us/op
+# Warmup Iteration   9: 45.386 us/op
+# Warmup Iteration  10: 45.247 us/op
+Iteration   1: 45.397 us/op
+Iteration   2: 45.320 us/op
+Iteration   3: 45.292 us/op
+Iteration   4: 45.383 us/op
+Iteration   5: 45.431 us/op
+Iteration   6: 45.277 us/op
+Iteration   7: 45.289 us/op
+Iteration   8: 45.375 us/op
+Iteration   9: 45.290 us/op
+Iteration  10: 45.434 us/op
+Iteration  11: 45.277 us/op
+Iteration  12: 45.259 us/op
+Iteration  13: 45.418 us/op
+Iteration  14: 45.399 us/op
+Iteration  15: 45.217 us/op
+Iteration  16: 45.266 us/op
+Iteration  17: 45.420 us/op
+Iteration  18: 45.266 us/op
+Iteration  19: 45.335 us/op
+Iteration  20: 45.221 us/op
+
+# Run progress: 10.00% complete, ETA 01:30:20
+# Fork: 3 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 46.110 us/op
+# Warmup Iteration   2: 45.829 us/op
+# Warmup Iteration   3: 45.661 us/op
+# Warmup Iteration   4: 45.089 us/op
+# Warmup Iteration   5: 45.025 us/op
+# Warmup Iteration   6: 45.188 us/op
+# Warmup Iteration   7: 45.057 us/op
+# Warmup Iteration   8: 45.256 us/op
+# Warmup Iteration   9: 45.057 us/op
+# Warmup Iteration  10: 45.145 us/op
+Iteration   1: 45.338 us/op
+Iteration   2: 45.336 us/op
+Iteration   3: 45.264 us/op
+Iteration   4: 45.194 us/op
+Iteration   5: 45.391 us/op
+Iteration   6: 45.270 us/op
+Iteration   7: 45.374 us/op
+Iteration   8: 45.263 us/op
+Iteration   9: 45.283 us/op
+Iteration  10: 45.414 us/op
+Iteration  11: 45.572 us/op
+Iteration  12: 45.401 us/op
+Iteration  13: 45.455 us/op
+Iteration  14: 45.624 us/op
+Iteration  15: 45.415 us/op
+Iteration  16: 45.548 us/op
+Iteration  17: 45.396 us/op
+Iteration  18: 45.445 us/op
+Iteration  19: 45.504 us/op
+Iteration  20: 45.545 us/op
+
+# Run progress: 15.00% complete, ETA 01:25:19
+# Fork: 4 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 46.144 us/op
+# Warmup Iteration   2: 45.646 us/op
+# Warmup Iteration   3: 45.864 us/op
+# Warmup Iteration   4: 45.860 us/op
+# Warmup Iteration   5: 45.754 us/op
+# Warmup Iteration   6: 45.760 us/op
+# Warmup Iteration   7: 45.820 us/op
+# Warmup Iteration   8: 45.931 us/op
+# Warmup Iteration   9: 45.915 us/op
+# Warmup Iteration  10: 45.854 us/op
+Iteration   1: 45.883 us/op
+Iteration   2: 46.026 us/op
+Iteration   3: 46.018 us/op
+Iteration   4: 45.903 us/op
+Iteration   5: 45.846 us/op
+Iteration   6: 45.881 us/op
+Iteration   7: 46.033 us/op
+Iteration   8: 45.984 us/op
+Iteration   9: 45.844 us/op
+Iteration  10: 45.912 us/op
+Iteration  11: 45.858 us/op
+Iteration  12: 45.866 us/op
+Iteration  13: 45.751 us/op
+Iteration  14: 45.803 us/op
+Iteration  15: 45.847 us/op
+Iteration  16: 45.977 us/op
+Iteration  17: 45.983 us/op
+Iteration  18: 45.842 us/op
+Iteration  19: 45.882 us/op
+Iteration  20: 45.980 us/op
+
+# Run progress: 20.00% complete, ETA 01:20:18
+# Fork: 5 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 46.306 us/op
+# Warmup Iteration   2: 45.189 us/op
+# Warmup Iteration   3: 44.934 us/op
+# Warmup Iteration   4: 45.123 us/op
+# Warmup Iteration   5: 44.979 us/op
+# Warmup Iteration   6: 45.128 us/op
+# Warmup Iteration   7: 44.954 us/op
+# Warmup Iteration   8: 45.048 us/op
+# Warmup Iteration   9: 45.206 us/op
+# Warmup Iteration  10: 45.145 us/op
+Iteration   1: 45.029 us/op
+Iteration   2: 45.052 us/op
+Iteration   3: 45.139 us/op
+Iteration   4: 45.026 us/op
+Iteration   5: 45.134 us/op
+Iteration   6: 44.988 us/op
+Iteration   7: 45.028 us/op
+Iteration   8: 45.116 us/op
+Iteration   9: 45.076 us/op
+Iteration  10: 44.999 us/op
+Iteration  11: 44.970 us/op
+Iteration  12: 45.137 us/op
+Iteration  13: 45.010 us/op
+Iteration  14: 45.114 us/op
+Iteration  15: 44.967 us/op
+Iteration  16: 44.890 us/op
+Iteration  17: 45.160 us/op
+Iteration  18: 45.108 us/op
+Iteration  19: 44.932 us/op
+Iteration  20: 45.011 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_future":
+  45.430 ±(99.9%) 0.100 us/op [Average]
+  (min, avg, max) = (44.890, 45.430, 46.033), stdev = 0.295
+  CI (99.9%): [45.330, 45.530] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.8, Java HotSpot(TM) 64-Bit Server VM, 21.0.8+12-LTS-jvmci-23.1-b72
+# VM invoker: /home/grenoux/.sdkman/candidates/java/21.0.8-graal/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 10 iterations, 10 s each
+# Measurement: 20 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_future
+# Parameters: (computationSize = 10000)
+
+# Run progress: 25.00% complete, ETA 01:15:17
+# Fork: 1 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 114.164 us/op
+# Warmup Iteration   2: 100.381 us/op
+# Warmup Iteration   3: 133.054 us/op
+# Warmup Iteration   4: 131.321 us/op
+# Warmup Iteration   5: 123.938 us/op
+# Warmup Iteration   6: 133.712 us/op
+# Warmup Iteration   7: 123.555 us/op
+# Warmup Iteration   8: 107.864 us/op
+# Warmup Iteration   9: 102.482 us/op
+# Warmup Iteration  10: 108.259 us/op
+Iteration   1: 117.514 us/op
+Iteration   2: 106.109 us/op
+Iteration   3: 91.499 us/op
+Iteration   4: 122.700 us/op
+Iteration   5: 143.442 us/op
+Iteration   6: 102.875 us/op
+Iteration   7: 131.882 us/op
+Iteration   8: 103.323 us/op
+Iteration   9: 115.563 us/op
+Iteration  10: 120.408 us/op
+Iteration  11: 125.273 us/op
+Iteration  12: 114.928 us/op
+Iteration  13: 113.815 us/op
+Iteration  14: 133.636 us/op
+Iteration  15: 103.980 us/op
+Iteration  16: 140.296 us/op
+Iteration  17: 90.846 us/op
+Iteration  18: 108.377 us/op
+Iteration  19: 117.015 us/op
+Iteration  20: 110.535 us/op
+
+# Run progress: 30.00% complete, ETA 01:10:16
+# Fork: 2 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 139.475 us/op
+# Warmup Iteration   2: 104.431 us/op
+# Warmup Iteration   3: 127.480 us/op
+# Warmup Iteration   4: 128.387 us/op
+# Warmup Iteration   5: 103.543 us/op
+# Warmup Iteration   6: 123.496 us/op
+# Warmup Iteration   7: 123.049 us/op
+# Warmup Iteration   8: 79.285 us/op
+# Warmup Iteration   9: 114.689 us/op
+# Warmup Iteration  10: 98.356 us/op
+Iteration   1: 115.626 us/op
+Iteration   2: 132.228 us/op
+Iteration   3: 122.535 us/op
+Iteration   4: 103.565 us/op
+Iteration   5: 132.662 us/op
+Iteration   6: 109.839 us/op
+Iteration   7: 92.220 us/op
+Iteration   8: 84.750 us/op
+Iteration   9: 136.185 us/op
+Iteration  10: 130.226 us/op
+Iteration  11: 144.115 us/op
+Iteration  12: 108.516 us/op
+Iteration  13: 109.663 us/op
+Iteration  14: 93.417 us/op
+Iteration  15: 109.631 us/op
+Iteration  16: 97.545 us/op
+Iteration  17: 97.419 us/op
+Iteration  18: 137.439 us/op
+Iteration  19: 113.374 us/op
+Iteration  20: 119.190 us/op
+
+# Run progress: 35.00% complete, ETA 01:05:14
+# Fork: 3 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 140.583 us/op
+# Warmup Iteration   2: 115.491 us/op
+# Warmup Iteration   3: 93.896 us/op
+# Warmup Iteration   4: 137.127 us/op
+# Warmup Iteration   5: 104.559 us/op
+# Warmup Iteration   6: 78.722 us/op
+# Warmup Iteration   7: 98.888 us/op
+# Warmup Iteration   8: 106.622 us/op
+# Warmup Iteration   9: 108.493 us/op
+# Warmup Iteration  10: 112.463 us/op
+Iteration   1: 109.238 us/op
+Iteration   2: 103.107 us/op
+Iteration   3: 122.610 us/op
+Iteration   4: 102.959 us/op
+Iteration   5: 113.037 us/op
+Iteration   6: 119.750 us/op
+Iteration   7: 111.190 us/op
+Iteration   8: 98.120 us/op
+Iteration   9: 140.211 us/op
+Iteration  10: 107.697 us/op
+Iteration  11: 129.539 us/op
+Iteration  12: 114.259 us/op
+Iteration  13: 132.359 us/op
+Iteration  14: 131.666 us/op
+Iteration  15: 115.895 us/op
+Iteration  16: 125.685 us/op
+Iteration  17: 116.945 us/op
+Iteration  18: 104.844 us/op
+Iteration  19: 107.372 us/op
+Iteration  20: 95.073 us/op
+
+# Run progress: 40.00% complete, ETA 01:00:13
+# Fork: 4 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 141.663 us/op
+# Warmup Iteration   2: 108.691 us/op
+# Warmup Iteration   3: 112.697 us/op
+# Warmup Iteration   4: 147.742 us/op
+# Warmup Iteration   5: 101.293 us/op
+# Warmup Iteration   6: 138.230 us/op
+# Warmup Iteration   7: 124.514 us/op
+# Warmup Iteration   8: 120.648 us/op
+# Warmup Iteration   9: 112.236 us/op
+# Warmup Iteration  10: 125.042 us/op
+Iteration   1: 131.388 us/op
+Iteration   2: 99.722 us/op
+Iteration   3: 105.405 us/op
+Iteration   4: 133.110 us/op
+Iteration   5: 131.501 us/op
+Iteration   6: 138.268 us/op
+Iteration   7: 91.741 us/op
+Iteration   8: 115.615 us/op
+Iteration   9: 112.493 us/op
+Iteration  10: 108.600 us/op
+Iteration  11: 88.576 us/op
+Iteration  12: 107.386 us/op
+Iteration  13: 90.265 us/op
+Iteration  14: 108.248 us/op
+Iteration  15: 116.710 us/op
+Iteration  16: 98.079 us/op
+Iteration  17: 93.556 us/op
+Iteration  18: 109.448 us/op
+Iteration  19: 101.392 us/op
+Iteration  20: 128.987 us/op
+
+# Run progress: 45.00% complete, ETA 00:55:12
+# Fork: 5 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 94.308 us/op
+# Warmup Iteration   2: 109.282 us/op
+# Warmup Iteration   3: 107.884 us/op
+# Warmup Iteration   4: 114.501 us/op
+# Warmup Iteration   5: 114.362 us/op
+# Warmup Iteration   6: 120.346 us/op
+# Warmup Iteration   7: 124.899 us/op
+# Warmup Iteration   8: 137.517 us/op
+# Warmup Iteration   9: 117.399 us/op
+# Warmup Iteration  10: 130.246 us/op
+Iteration   1: 120.208 us/op
+Iteration   2: 138.402 us/op
+Iteration   3: 127.784 us/op
+Iteration   4: 146.440 us/op
+Iteration   5: 109.920 us/op
+Iteration   6: 120.753 us/op
+Iteration   7: 125.354 us/op
+Iteration   8: 120.092 us/op
+Iteration   9: 144.020 us/op
+Iteration  10: 131.541 us/op
+Iteration  11: 118.516 us/op
+Iteration  12: 123.486 us/op
+Iteration  13: 99.524 us/op
+Iteration  14: 151.265 us/op
+Iteration  15: 110.590 us/op
+Iteration  16: 98.968 us/op
+Iteration  17: 122.744 us/op
+Iteration  18: 108.470 us/op
+Iteration  19: 131.947 us/op
+Iteration  20: 128.499 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_future":
+  115.947 ±(99.9%) 5.130 us/op [Average]
+  (min, avg, max) = (84.750, 115.947, 151.265), stdev = 15.126
+  CI (99.9%): [110.817, 121.077] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.8, Java HotSpot(TM) 64-Bit Server VM, 21.0.8+12-LTS-jvmci-23.1-b72
+# VM invoker: /home/grenoux/.sdkman/candidates/java/21.0.8-graal/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 10 iterations, 10 s each
+# Measurement: 20 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_no_future
+# Parameters: (computationSize = 1000)
+
+# Run progress: 50.00% complete, ETA 00:50:11
+# Fork: 1 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 4.563 us/op
+# Warmup Iteration   2: 4.121 us/op
+# Warmup Iteration   3: 4.170 us/op
+# Warmup Iteration   4: 4.169 us/op
+# Warmup Iteration   5: 4.170 us/op
+# Warmup Iteration   6: 4.168 us/op
+# Warmup Iteration   7: 4.168 us/op
+# Warmup Iteration   8: 4.170 us/op
+# Warmup Iteration   9: 4.175 us/op
+# Warmup Iteration  10: 4.167 us/op
+Iteration   1: 4.168 us/op
+Iteration   2: 4.168 us/op
+Iteration   3: 4.168 us/op
+Iteration   4: 4.167 us/op
+Iteration   5: 4.168 us/op
+Iteration   6: 4.168 us/op
+Iteration   7: 4.168 us/op
+Iteration   8: 4.168 us/op
+Iteration   9: 4.169 us/op
+Iteration  10: 4.168 us/op
+Iteration  11: 4.169 us/op
+Iteration  12: 4.170 us/op
+Iteration  13: 4.168 us/op
+Iteration  14: 4.168 us/op
+Iteration  15: 4.170 us/op
+Iteration  16: 4.167 us/op
+Iteration  17: 4.168 us/op
+Iteration  18: 4.168 us/op
+Iteration  19: 4.168 us/op
+Iteration  20: 4.169 us/op
+
+# Run progress: 55.00% complete, ETA 00:45:10
+# Fork: 2 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 4.447 us/op
+# Warmup Iteration   2: 4.155 us/op
+# Warmup Iteration   3: 4.053 us/op
+# Warmup Iteration   4: 4.043 us/op
+# Warmup Iteration   5: 4.044 us/op
+# Warmup Iteration   6: 4.045 us/op
+# Warmup Iteration   7: 4.046 us/op
+# Warmup Iteration   8: 4.044 us/op
+# Warmup Iteration   9: 4.044 us/op
+# Warmup Iteration  10: 4.045 us/op
+Iteration   1: 4.047 us/op
+Iteration   2: 4.047 us/op
+Iteration   3: 4.047 us/op
+Iteration   4: 4.051 us/op
+Iteration   5: 4.055 us/op
+Iteration   6: 4.055 us/op
+Iteration   7: 4.055 us/op
+Iteration   8: 4.055 us/op
+Iteration   9: 4.055 us/op
+Iteration  10: 4.056 us/op
+Iteration  11: 4.047 us/op
+Iteration  12: 4.047 us/op
+Iteration  13: 4.047 us/op
+Iteration  14: 4.048 us/op
+Iteration  15: 4.048 us/op
+Iteration  16: 4.049 us/op
+Iteration  17: 4.055 us/op
+Iteration  18: 4.055 us/op
+Iteration  19: 4.055 us/op
+Iteration  20: 4.056 us/op
+
+# Run progress: 60.00% complete, ETA 00:40:09
+# Fork: 3 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 4.506 us/op
+# Warmup Iteration   2: 4.214 us/op
+# Warmup Iteration   3: 4.032 us/op
+# Warmup Iteration   4: 4.032 us/op
+# Warmup Iteration   5: 4.031 us/op
+# Warmup Iteration   6: 4.031 us/op
+# Warmup Iteration   7: 4.031 us/op
+# Warmup Iteration   8: 4.031 us/op
+# Warmup Iteration   9: 4.031 us/op
+# Warmup Iteration  10: 4.031 us/op
+Iteration   1: 4.031 us/op
+Iteration   2: 4.030 us/op
+Iteration   3: 4.031 us/op
+Iteration   4: 4.032 us/op
+Iteration   5: 4.032 us/op
+Iteration   6: 4.032 us/op
+Iteration   7: 4.032 us/op
+Iteration   8: 4.032 us/op
+Iteration   9: 4.031 us/op
+Iteration  10: 4.032 us/op
+Iteration  11: 4.032 us/op
+Iteration  12: 4.032 us/op
+Iteration  13: 4.482 us/op
+Iteration  14: 4.031 us/op
+Iteration  15: 4.031 us/op
+Iteration  16: 4.032 us/op
+Iteration  17: 4.032 us/op
+Iteration  18: 4.034 us/op
+Iteration  19: 4.034 us/op
+Iteration  20: 4.035 us/op
+
+# Run progress: 65.00% complete, ETA 00:35:07
+# Fork: 4 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 4.767 us/op
+# Warmup Iteration   2: 4.119 us/op
+# Warmup Iteration   3: 4.056 us/op
+# Warmup Iteration   4: 4.057 us/op
+# Warmup Iteration   5: 4.058 us/op
+# Warmup Iteration   6: 4.058 us/op
+# Warmup Iteration   7: 4.058 us/op
+# Warmup Iteration   8: 4.058 us/op
+# Warmup Iteration   9: 4.057 us/op
+# Warmup Iteration  10: 4.059 us/op
+Iteration   1: 4.058 us/op
+Iteration   2: 4.058 us/op
+Iteration   3: 4.058 us/op
+Iteration   4: 4.058 us/op
+Iteration   5: 4.058 us/op
+Iteration   6: 4.058 us/op
+Iteration   7: 4.057 us/op
+Iteration   8: 4.057 us/op
+Iteration   9: 4.058 us/op
+Iteration  10: 4.058 us/op
+Iteration  11: 4.060 us/op
+Iteration  12: 4.057 us/op
+Iteration  13: 4.058 us/op
+Iteration  14: 4.058 us/op
+Iteration  15: 4.063 us/op
+Iteration  16: 4.066 us/op
+Iteration  17: 4.065 us/op
+Iteration  18: 4.058 us/op
+Iteration  19: 4.057 us/op
+Iteration  20: 4.058 us/op
+
+# Run progress: 70.00% complete, ETA 00:30:06
+# Fork: 5 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 4.497 us/op
+# Warmup Iteration   2: 4.565 us/op
+# Warmup Iteration   3: 4.034 us/op
+# Warmup Iteration   4: 4.033 us/op
+# Warmup Iteration   5: 4.033 us/op
+# Warmup Iteration   6: 4.035 us/op
+# Warmup Iteration   7: 4.034 us/op
+# Warmup Iteration   8: 4.036 us/op
+# Warmup Iteration   9: 4.037 us/op
+# Warmup Iteration  10: 4.036 us/op
+Iteration   1: 4.034 us/op
+Iteration   2: 4.033 us/op
+Iteration   3: 4.033 us/op
+Iteration   4: 4.033 us/op
+Iteration   5: 4.034 us/op
+Iteration   6: 4.034 us/op
+Iteration   7: 4.033 us/op
+Iteration   8: 4.033 us/op
+Iteration   9: 4.033 us/op
+Iteration  10: 4.033 us/op
+Iteration  11: 4.033 us/op
+Iteration  12: 4.034 us/op
+Iteration  13: 4.034 us/op
+Iteration  14: 4.033 us/op
+Iteration  15: 4.033 us/op
+Iteration  16: 4.034 us/op
+Iteration  17: 4.034 us/op
+Iteration  18: 4.034 us/op
+Iteration  19: 4.033 us/op
+Iteration  20: 4.034 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_no_future":
+  4.073 ±(99.9%) 0.022 us/op [Average]
+  (min, avg, max) = (4.030, 4.073, 4.482), stdev = 0.066
+  CI (99.9%): [4.051, 4.096] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.8, Java HotSpot(TM) 64-Bit Server VM, 21.0.8+12-LTS-jvmci-23.1-b72
+# VM invoker: /home/grenoux/.sdkman/candidates/java/21.0.8-graal/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:-UnlockExperimentalVMOptions -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 10 iterations, 10 s each
+# Measurement: 20 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_no_future
+# Parameters: (computationSize = 10000)
+
+# Run progress: 75.00% complete, ETA 00:25:05
+# Fork: 1 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 44.497 us/op
+# Warmup Iteration   2: 44.459 us/op
+# Warmup Iteration   3: 40.449 us/op
+# Warmup Iteration   4: 40.446 us/op
+# Warmup Iteration   5: 40.447 us/op
+# Warmup Iteration   6: 40.448 us/op
+# Warmup Iteration   7: 40.446 us/op
+# Warmup Iteration   8: 40.444 us/op
+# Warmup Iteration   9: 40.442 us/op
+# Warmup Iteration  10: 40.441 us/op
+Iteration   1: 40.444 us/op
+Iteration   2: 40.447 us/op
+Iteration   3: 40.441 us/op
+Iteration   4: 40.442 us/op
+Iteration   5: 40.444 us/op
+Iteration   6: 40.440 us/op
+Iteration   7: 40.444 us/op
+Iteration   8: 40.446 us/op
+Iteration   9: 40.443 us/op
+Iteration  10: 40.445 us/op
+Iteration  11: 40.442 us/op
+Iteration  12: 40.440 us/op
+Iteration  13: 40.442 us/op
+Iteration  14: 40.443 us/op
+Iteration  15: 40.443 us/op
+Iteration  16: 40.443 us/op
+Iteration  17: 40.441 us/op
+Iteration  18: 40.440 us/op
+Iteration  19: 40.439 us/op
+Iteration  20: 40.441 us/op
+
+# Run progress: 80.00% complete, ETA 00:20:04
+# Fork: 2 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 43.469 us/op
+# Warmup Iteration   2: 45.061 us/op
+# Warmup Iteration   3: 40.377 us/op
+# Warmup Iteration   4: 40.413 us/op
+# Warmup Iteration   5: 40.393 us/op
+# Warmup Iteration   6: 40.383 us/op
+# Warmup Iteration   7: 40.391 us/op
+# Warmup Iteration   8: 40.400 us/op
+# Warmup Iteration   9: 40.415 us/op
+# Warmup Iteration  10: 40.414 us/op
+Iteration   1: 40.409 us/op
+Iteration   2: 40.417 us/op
+Iteration   3: 40.415 us/op
+Iteration   4: 40.414 us/op
+Iteration   5: 40.415 us/op
+Iteration   6: 40.408 us/op
+Iteration   7: 40.417 us/op
+Iteration   8: 40.424 us/op
+Iteration   9: 40.418 us/op
+Iteration  10: 40.411 us/op
+Iteration  11: 40.412 us/op
+Iteration  12: 40.415 us/op
+Iteration  13: 40.425 us/op
+Iteration  14: 40.423 us/op
+Iteration  15: 40.425 us/op
+Iteration  16: 40.433 us/op
+Iteration  17: 40.438 us/op
+Iteration  18: 40.440 us/op
+Iteration  19: 40.453 us/op
+Iteration  20: 40.457 us/op
+
+# Run progress: 85.00% complete, ETA 00:15:03
+# Fork: 3 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 43.519 us/op
+# Warmup Iteration   2: 44.745 us/op
+# Warmup Iteration   3: 40.133 us/op
+# Warmup Iteration   4: 40.144 us/op
+# Warmup Iteration   5: 40.141 us/op
+# Warmup Iteration   6: 40.141 us/op
+# Warmup Iteration   7: 40.145 us/op
+# Warmup Iteration   8: 40.124 us/op
+# Warmup Iteration   9: 40.134 us/op
+# Warmup Iteration  10: 40.125 us/op
+Iteration   1: 40.134 us/op
+Iteration   2: 40.127 us/op
+Iteration   3: 40.130 us/op
+Iteration   4: 40.136 us/op
+Iteration   5: 40.134 us/op
+Iteration   6: 40.131 us/op
+Iteration   7: 40.133 us/op
+Iteration   8: 44.247 us/op
+Iteration   9: 40.079 us/op
+Iteration  10: 40.093 us/op
+Iteration  11: 40.079 us/op
+Iteration  12: 40.076 us/op
+Iteration  13: 40.072 us/op
+Iteration  14: 40.072 us/op
+Iteration  15: 40.088 us/op
+Iteration  16: 40.076 us/op
+Iteration  17: 40.123 us/op
+Iteration  18: 40.100 us/op
+Iteration  19: 40.109 us/op
+Iteration  20: 40.102 us/op
+
+# Run progress: 90.00% complete, ETA 00:10:02
+# Fork: 4 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 46.354 us/op
+# Warmup Iteration   2: 41.071 us/op
+# Warmup Iteration   3: 40.301 us/op
+# Warmup Iteration   4: 40.183 us/op
+# Warmup Iteration   5: 40.182 us/op
+# Warmup Iteration   6: 40.183 us/op
+# Warmup Iteration   7: 40.178 us/op
+# Warmup Iteration   8: 40.186 us/op
+# Warmup Iteration   9: 40.192 us/op
+# Warmup Iteration  10: 40.180 us/op
+Iteration   1: 40.181 us/op
+Iteration   2: 40.176 us/op
+Iteration   3: 40.175 us/op
+Iteration   4: 40.162 us/op
+Iteration   5: 40.163 us/op
+Iteration   6: 40.156 us/op
+Iteration   7: 40.220 us/op
+Iteration   8: 40.188 us/op
+Iteration   9: 40.168 us/op
+Iteration  10: 40.145 us/op
+Iteration  11: 40.155 us/op
+Iteration  12: 40.198 us/op
+Iteration  13: 40.263 us/op
+Iteration  14: 40.262 us/op
+Iteration  15: 40.245 us/op
+Iteration  16: 40.246 us/op
+Iteration  17: 40.242 us/op
+Iteration  18: 40.162 us/op
+Iteration  19: 40.177 us/op
+Iteration  20: 40.175 us/op
+
+# Run progress: 95.00% complete, ETA 00:05:01
+# Fork: 5 of 5
+Java HotSpot(TM) 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: 44.018 us/op
+# Warmup Iteration   2: 43.849 us/op
+# Warmup Iteration   3: 40.233 us/op
+# Warmup Iteration   4: 40.209 us/op
+# Warmup Iteration   5: 40.216 us/op
+# Warmup Iteration   6: 40.219 us/op
+# Warmup Iteration   7: 40.214 us/op
+# Warmup Iteration   8: 40.223 us/op
+# Warmup Iteration   9: 40.218 us/op
+# Warmup Iteration  10: 40.223 us/op
+Iteration   1: 40.223 us/op
+Iteration   2: 40.223 us/op
+Iteration   3: 40.221 us/op
+Iteration   4: 40.223 us/op
+Iteration   5: 40.215 us/op
+Iteration   6: 40.221 us/op
+Iteration   7: 40.214 us/op
+Iteration   8: 40.179 us/op
+Iteration   9: 40.176 us/op
+Iteration  10: 40.181 us/op
+Iteration  11: 40.190 us/op
+Iteration  12: 40.200 us/op
+Iteration  13: 40.199 us/op
+Iteration  14: 40.195 us/op
+Iteration  15: 40.194 us/op
+Iteration  16: 40.198 us/op
+Iteration  17: 40.191 us/op
+Iteration  18: 40.179 us/op
+Iteration  19: 40.192 us/op
+Iteration  20: 40.208 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_no_future":
+  40.314 ±(99.9%) 0.142 us/op [Average]
+  (min, avg, max) = (40.072, 40.314, 44.247), stdev = 0.420
+  CI (99.9%): [40.172, 40.457] (assumes normal distribution)
+
+
+# Run complete. Total time: 01:40:21
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                      (computationSize)  Mode  Cnt    Score   Error  Units
+FutureBenchmark.run_future                  1000  avgt  100   45.430 ± 0.100  us/op
+FutureBenchmark.run_future                 10000  avgt  100  115.947 ± 5.130  us/op
+FutureBenchmark.run_no_future               1000  avgt  100    4.073 ± 0.022  us/op
+FutureBenchmark.run_no_future              10000  avgt  100   40.314 ± 0.142  us/op
+
+Benchmark result is saved to results/jdk-21/x86_64/jmh/graalvm-ee/FutureBenchmark.scala.csv
+
+Finished FutureBenchmark benchmark (Fri Oct 17 11:06:49 AM UTC 2025)
+Fri Oct 17 11:06:49 AM UTC 2025
+
+Finished GraalVM Oracle test suite!
+
+Elapsed: 100 minutes and 23 seconds.
+
++=============================================
+| Running steps 5 to 7 with azul-prime-vm
++=============================================
+| Fri Oct 17 11:06:49 AM UTC 2025
++=============================================
+
++=========================+
+| [5/7] JVM Configuration |
++=========================+
+
++---------------------------+
+| JVM Environment Variables |
++---------------------------+
+Java home: /usr/lib/jvm/zing-jdk21
+JDK version: 21
+JVM name: Azul Prime VM
+JVM identifier: azul-prime-vm
+
++=========================+
+| [6/7] JMH Configuration |
++=========================+
+JMH benchmarks suite configuration file: settings/benchmarks-suite-jdk21.json
+JMH output folder: results/jdk-21/x86_64/jmh/azul-prime-vm
+
++===========================+
+| [7/7] Run benchmark suite |
++===========================+
+Running Azul Prime VM test suite ...
+WARNING: Folder 'results/jdk-21/x86_64/jmh/azul-prime-vm' already exists. Existing output benchmarks might be overwritten.
+
+Running FutureBenchmark benchmark ...
+Fri Oct 17 11:06:52 AM UTC 2025
+java  -jar "target/scala-3.7.3/scala-jvm-benchmarks-assembly-0.0.0.jar" "\\.FutureBenchmark\\." -foe true -wi 10 -w 10 -i 20 -r 10 -f 5 -rf csv -rff results/jdk-21/x86_64/jmh/azul-prime-vm/FutureBenchmark.scala.csv -jvmArgsAppend "-Xms4g -Xmx4g -XX:+AlwaysPreTouch"
+
+# JMH version: 1.37
+# VM version: JDK 21.0.8, Zing 64-Bit Tiered VM, 21.0.8-zing_25.08.0.0-b3-release-linux-X86_64
+# *** WARNING: JMH support for this VM is experimental. Be extra careful with the produced data.
+# VM invoker: /usr/lib/jvm/zing-jdk21.0.8-25.08.0.0-3-amd64/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 10 iterations, 10 s each
+# Measurement: 20 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_future
+# Parameters: (computationSize = 1000)
+
+# Run progress: 0.00% complete, ETA 01:40:00
+# Fork: 1 of 5
+# Warmup Iteration   1: 23.302 us/op
+# Warmup Iteration   2: 43.667 us/op
+# Warmup Iteration   3: 43.726 us/op
+# Warmup Iteration   4: 43.768 us/op
+# Warmup Iteration   5: 43.990 us/op
+# Warmup Iteration   6: 43.985 us/op
+# Warmup Iteration   7: 44.026 us/op
+# Warmup Iteration   8: 44.218 us/op
+# Warmup Iteration   9: 44.150 us/op
+# Warmup Iteration  10: 43.991 us/op
+Iteration   1: 44.013 us/op
+Iteration   2: 44.169 us/op
+Iteration   3: 44.035 us/op
+Iteration   4: 44.062 us/op
+Iteration   5: 43.980 us/op
+Iteration   6: 43.860 us/op
+Iteration   7: 44.057 us/op
+Iteration   8: 44.090 us/op
+Iteration   9: 43.910 us/op
+Iteration  10: 43.738 us/op
+Iteration  11: 44.043 us/op
+Iteration  12: 43.865 us/op
+Iteration  13: 44.030 us/op
+Iteration  14: 43.863 us/op
+Iteration  15: 43.891 us/op
+Iteration  16: 44.039 us/op
+Iteration  17: 44.022 us/op
+Iteration  18: 43.947 us/op
+Iteration  19: 44.012 us/op
+Iteration  20: 44.209 us/op
+
+# Run progress: 5.00% complete, ETA 01:37:04
+# Fork: 2 of 5
+# Warmup Iteration   1: 22.268 us/op
+# Warmup Iteration   2: 44.620 us/op
+# Warmup Iteration   3: 44.496 us/op
+# Warmup Iteration   4: 44.944 us/op
+# Warmup Iteration   5: 44.750 us/op
+# Warmup Iteration   6: 44.827 us/op
+# Warmup Iteration   7: 44.772 us/op
+# Warmup Iteration   8: 44.830 us/op
+# Warmup Iteration   9: 44.939 us/op
+# Warmup Iteration  10: 44.842 us/op
+Iteration   1: 44.839 us/op
+Iteration   2: 44.820 us/op
+Iteration   3: 44.851 us/op
+Iteration   4: 44.684 us/op
+Iteration   5: 44.764 us/op
+Iteration   6: 44.574 us/op
+Iteration   7: 44.660 us/op
+Iteration   8: 44.784 us/op
+Iteration   9: 44.730 us/op
+Iteration  10: 44.444 us/op
+Iteration  11: 44.543 us/op
+Iteration  12: 44.688 us/op
+Iteration  13: 44.708 us/op
+Iteration  14: 44.776 us/op
+Iteration  15: 44.542 us/op
+Iteration  16: 44.608 us/op
+Iteration  17: 44.842 us/op
+Iteration  18: 44.725 us/op
+Iteration  19: 44.594 us/op
+Iteration  20: 44.661 us/op
+
+# Run progress: 10.00% complete, ETA 01:31:52
+# Fork: 3 of 5
+# Warmup Iteration   1: 25.996 us/op
+# Warmup Iteration   2: 43.905 us/op
+# Warmup Iteration   3: 44.138 us/op
+# Warmup Iteration   4: 44.066 us/op
+# Warmup Iteration   5: 44.261 us/op
+# Warmup Iteration   6: 44.310 us/op
+# Warmup Iteration   7: 44.178 us/op
+# Warmup Iteration   8: 44.028 us/op
+# Warmup Iteration   9: 44.170 us/op
+# Warmup Iteration  10: 44.196 us/op
+Iteration   1: 44.189 us/op
+Iteration   2: 44.084 us/op
+Iteration   3: 44.049 us/op
+Iteration   4: 44.304 us/op
+Iteration   5: 44.171 us/op
+Iteration   6: 44.099 us/op
+Iteration   7: 44.019 us/op
+Iteration   8: 44.127 us/op
+Iteration   9: 44.212 us/op
+Iteration  10: 44.111 us/op
+Iteration  11: 44.265 us/op
+Iteration  12: 44.242 us/op
+Iteration  13: 44.339 us/op
+Iteration  14: 44.318 us/op
+Iteration  15: 44.284 us/op
+Iteration  16: 44.411 us/op
+Iteration  17: 44.260 us/op
+Iteration  18: 44.372 us/op
+Iteration  19: 44.342 us/op
+Iteration  20: 44.139 us/op
+
+# Run progress: 15.00% complete, ETA 01:26:47
+# Fork: 4 of 5
+# Warmup Iteration   1: 24.022 us/op
+# Warmup Iteration   2: 44.036 us/op
+# Warmup Iteration   3: 44.450 us/op
+# Warmup Iteration   4: 44.067 us/op
+# Warmup Iteration   5: 44.137 us/op
+# Warmup Iteration   6: 44.349 us/op
+# Warmup Iteration   7: 44.275 us/op
+# Warmup Iteration   8: 44.157 us/op
+# Warmup Iteration   9: 44.299 us/op
+# Warmup Iteration  10: 44.327 us/op
+Iteration   1: 44.218 us/op
+Iteration   2: 44.217 us/op
+Iteration   3: 44.003 us/op
+Iteration   4: 44.047 us/op
+Iteration   5: 44.259 us/op
+Iteration   6: 44.116 us/op
+Iteration   7: 44.122 us/op
+Iteration   8: 44.125 us/op
+Iteration   9: 44.291 us/op
+Iteration  10: 44.180 us/op
+Iteration  11: 44.381 us/op
+Iteration  12: 44.183 us/op
+Iteration  13: 44.362 us/op
+Iteration  14: 44.335 us/op
+Iteration  15: 44.232 us/op
+Iteration  16: 44.126 us/op
+Iteration  17: 44.255 us/op
+Iteration  18: 44.250 us/op
+Iteration  19: 44.301 us/op
+Iteration  20: 44.372 us/op
+
+# Run progress: 20.00% complete, ETA 01:21:42
+# Fork: 5 of 5
+# Warmup Iteration   1: 29.824 us/op
+# Warmup Iteration   2: 44.698 us/op
+# Warmup Iteration   3: 45.433 us/op
+# Warmup Iteration   4: 45.071 us/op
+# Warmup Iteration   5: 44.979 us/op
+# Warmup Iteration   6: 44.987 us/op
+# Warmup Iteration   7: 45.170 us/op
+# Warmup Iteration   8: 44.951 us/op
+# Warmup Iteration   9: 44.950 us/op
+# Warmup Iteration  10: 44.958 us/op
+Iteration   1: 45.014 us/op
+Iteration   2: 45.047 us/op
+Iteration   3: 45.183 us/op
+Iteration   4: 44.970 us/op
+Iteration   5: 45.057 us/op
+Iteration   6: 45.052 us/op
+Iteration   7: 45.009 us/op
+Iteration   8: 45.091 us/op
+Iteration   9: 45.128 us/op
+Iteration  10: 45.104 us/op
+Iteration  11: 44.915 us/op
+Iteration  12: 44.997 us/op
+Iteration  13: 45.057 us/op
+Iteration  14: 44.986 us/op
+Iteration  15: 45.087 us/op
+Iteration  16: 45.069 us/op
+Iteration  17: 44.949 us/op
+Iteration  18: 44.903 us/op
+Iteration  19: 45.135 us/op
+Iteration  20: 45.017 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_future":
+  44.432 ±(99.9%) 0.134 us/op [Average]
+  (min, avg, max) = (43.738, 44.432, 45.183), stdev = 0.395
+  CI (99.9%): [44.297, 44.566] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.8, Zing 64-Bit Tiered VM, 21.0.8-zing_25.08.0.0-b3-release-linux-X86_64
+# *** WARNING: JMH support for this VM is experimental. Be extra careful with the produced data.
+# VM invoker: /usr/lib/jvm/zing-jdk21.0.8-25.08.0.0-3-amd64/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 10 iterations, 10 s each
+# Measurement: 20 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_future
+# Parameters: (computationSize = 10000)
+
+# Run progress: 25.00% complete, ETA 01:16:36
+# Fork: 1 of 5
+# Warmup Iteration   1: 104.058 us/op
+# Warmup Iteration   2: 104.986 us/op
+# Warmup Iteration   3: 129.720 us/op
+# Warmup Iteration   4: 126.382 us/op
+# Warmup Iteration   5: 101.057 us/op
+# Warmup Iteration   6: 116.477 us/op
+# Warmup Iteration   7: 96.346 us/op
+# Warmup Iteration   8: 107.745 us/op
+# Warmup Iteration   9: 103.480 us/op
+# Warmup Iteration  10: 86.828 us/op
+Iteration   1: 131.647 us/op
+Iteration   2: 119.829 us/op
+Iteration   3: 120.616 us/op
+Iteration   4: 107.619 us/op
+Iteration   5: 124.132 us/op
+Iteration   6: 142.157 us/op
+Iteration   7: 127.339 us/op
+Iteration   8: 124.098 us/op
+Iteration   9: 115.364 us/op
+Iteration  10: 115.484 us/op
+Iteration  11: 119.322 us/op
+Iteration  12: 121.901 us/op
+Iteration  13: 109.749 us/op
+Iteration  14: 130.496 us/op
+Iteration  15: 112.764 us/op
+Iteration  16: 123.131 us/op
+Iteration  17: 118.557 us/op
+Iteration  18: 112.767 us/op
+Iteration  19: 95.238 us/op
+Iteration  20: 131.052 us/op
+
+# Run progress: 30.00% complete, ETA 01:11:29
+# Fork: 2 of 5
+# Warmup Iteration   1: 79.565 us/op
+# Warmup Iteration   2: 96.524 us/op
+# Warmup Iteration   3: 123.540 us/op
+# Warmup Iteration   4: 103.501 us/op
+# Warmup Iteration   5: 117.362 us/op
+# Warmup Iteration   6: 113.634 us/op
+# Warmup Iteration   7: 101.065 us/op
+# Warmup Iteration   8: 107.327 us/op
+# Warmup Iteration   9: 116.333 us/op
+# Warmup Iteration  10: 111.699 us/op
+Iteration   1: 101.068 us/op
+Iteration   2: 112.280 us/op
+Iteration   3: 123.453 us/op
+Iteration   4: 118.710 us/op
+Iteration   5: 115.990 us/op
+Iteration   6: 112.668 us/op
+Iteration   7: 97.141 us/op
+Iteration   8: 95.026 us/op
+Iteration   9: 115.419 us/op
+Iteration  10: 89.370 us/op
+Iteration  11: 98.511 us/op
+Iteration  12: 105.663 us/op
+Iteration  13: 102.371 us/op
+Iteration  14: 132.940 us/op
+Iteration  15: 118.115 us/op
+Iteration  16: 98.475 us/op
+Iteration  17: 106.374 us/op
+Iteration  18: 125.446 us/op
+Iteration  19: 105.238 us/op
+Iteration  20: 104.419 us/op
+
+# Run progress: 35.00% complete, ETA 01:06:22
+# Fork: 3 of 5
+# Warmup Iteration   1: 87.325 us/op
+# Warmup Iteration   2: 113.940 us/op
+# Warmup Iteration   3: 116.777 us/op
+# Warmup Iteration   4: 110.715 us/op
+# Warmup Iteration   5: 104.779 us/op
+# Warmup Iteration   6: 98.132 us/op
+# Warmup Iteration   7: 102.293 us/op
+# Warmup Iteration   8: 126.419 us/op
+# Warmup Iteration   9: 115.433 us/op
+# Warmup Iteration  10: 118.332 us/op
+Iteration   1: 105.580 us/op
+Iteration   2: 107.182 us/op
+Iteration   3: 114.239 us/op
+Iteration   4: 118.600 us/op
+Iteration   5: 108.930 us/op
+Iteration   6: 109.619 us/op
+Iteration   7: 106.884 us/op
+Iteration   8: 110.473 us/op
+Iteration   9: 125.526 us/op
+Iteration  10: 124.709 us/op
+Iteration  11: 111.974 us/op
+Iteration  12: 96.945 us/op
+Iteration  13: 121.846 us/op
+Iteration  14: 104.735 us/op
+Iteration  15: 135.909 us/op
+Iteration  16: 103.422 us/op
+Iteration  17: 115.521 us/op
+Iteration  18: 94.579 us/op
+Iteration  19: 131.933 us/op
+Iteration  20: 122.823 us/op
+
+# Run progress: 40.00% complete, ETA 01:01:15
+# Fork: 4 of 5
+# Warmup Iteration   1: 97.279 us/op
+# Warmup Iteration   2: 108.795 us/op
+# Warmup Iteration   3: 113.634 us/op
+# Warmup Iteration   4: 97.588 us/op
+# Warmup Iteration   5: 105.674 us/op
+# Warmup Iteration   6: 111.730 us/op
+# Warmup Iteration   7: 117.815 us/op
+# Warmup Iteration   8: 116.035 us/op
+# Warmup Iteration   9: 113.217 us/op
+# Warmup Iteration  10: 112.322 us/op
+Iteration   1: 104.028 us/op
+Iteration   2: 112.951 us/op
+Iteration   3: 110.363 us/op
+Iteration   4: 103.147 us/op
+Iteration   5: 111.862 us/op
+Iteration   6: 114.446 us/op
+Iteration   7: 112.755 us/op
+Iteration   8: 100.820 us/op
+Iteration   9: 121.034 us/op
+Iteration  10: 125.516 us/op
+Iteration  11: 123.717 us/op
+Iteration  12: 105.224 us/op
+Iteration  13: 112.902 us/op
+Iteration  14: 114.459 us/op
+Iteration  15: 116.326 us/op
+Iteration  16: 114.134 us/op
+Iteration  17: 103.625 us/op
+Iteration  18: 99.124 us/op
+Iteration  19: 109.712 us/op
+Iteration  20: 122.867 us/op
+
+# Run progress: 45.00% complete, ETA 00:56:08
+# Fork: 5 of 5
+# Warmup Iteration   1: 82.930 us/op
+# Warmup Iteration   2: 117.154 us/op
+# Warmup Iteration   3: 118.952 us/op
+# Warmup Iteration   4: 131.248 us/op
+# Warmup Iteration   5: 128.067 us/op
+# Warmup Iteration   6: 96.799 us/op
+# Warmup Iteration   7: 95.169 us/op
+# Warmup Iteration   8: 107.219 us/op
+# Warmup Iteration   9: 103.507 us/op
+# Warmup Iteration  10: 118.008 us/op
+Iteration   1: 108.725 us/op
+Iteration   2: 114.427 us/op
+Iteration   3: 100.926 us/op
+Iteration   4: 105.854 us/op
+Iteration   5: 103.730 us/op
+Iteration   6: 123.839 us/op
+Iteration   7: 118.685 us/op
+Iteration   8: 111.518 us/op
+Iteration   9: 107.329 us/op
+Iteration  10: 99.806 us/op
+Iteration  11: 120.565 us/op
+Iteration  12: 110.170 us/op
+Iteration  13: 95.922 us/op
+Iteration  14: 116.807 us/op
+Iteration  15: 104.975 us/op
+Iteration  16: 124.989 us/op
+Iteration  17: 107.717 us/op
+Iteration  18: 107.674 us/op
+Iteration  19: 113.084 us/op
+Iteration  20: 109.191 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_future":
+  112.983 ±(99.9%) 3.500 us/op [Average]
+  (min, avg, max) = (89.370, 112.983, 142.157), stdev = 10.319
+  CI (99.9%): [109.484, 116.483] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.8, Zing 64-Bit Tiered VM, 21.0.8-zing_25.08.0.0-b3-release-linux-X86_64
+# *** WARNING: JMH support for this VM is experimental. Be extra careful with the produced data.
+# VM invoker: /usr/lib/jvm/zing-jdk21.0.8-25.08.0.0-3-amd64/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 10 iterations, 10 s each
+# Measurement: 20 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_no_future
+# Parameters: (computationSize = 1000)
+
+# Run progress: 50.00% complete, ETA 00:51:02
+# Fork: 1 of 5
+# Warmup Iteration   1: 3.631 us/op
+# Warmup Iteration   2: 3.727 us/op
+# Warmup Iteration   3: 3.631 us/op
+# Warmup Iteration   4: 3.600 us/op
+# Warmup Iteration   5: 3.598 us/op
+# Warmup Iteration   6: 3.598 us/op
+# Warmup Iteration   7: 3.598 us/op
+# Warmup Iteration   8: 3.598 us/op
+# Warmup Iteration   9: 3.598 us/op
+# Warmup Iteration  10: 3.598 us/op
+Iteration   1: 3.598 us/op
+Iteration   2: 3.604 us/op
+Iteration   3: 3.598 us/op
+Iteration   4: 3.598 us/op
+Iteration   5: 3.598 us/op
+Iteration   6: 3.598 us/op
+Iteration   7: 3.598 us/op
+Iteration   8: 3.603 us/op
+Iteration   9: 3.598 us/op
+Iteration  10: 3.935 us/op
+Iteration  11: 3.618 us/op
+Iteration  12: 3.601 us/op
+Iteration  13: 3.598 us/op
+Iteration  14: 3.598 us/op
+Iteration  15: 3.597 us/op
+Iteration  16: 3.597 us/op
+Iteration  17: 3.598 us/op
+Iteration  18: 3.599 us/op
+Iteration  19: 3.610 us/op
+Iteration  20: 3.597 us/op
+
+# Run progress: 55.00% complete, ETA 00:45:55
+# Fork: 2 of 5
+# Warmup Iteration   1: 3.728 us/op
+# Warmup Iteration   2: 3.424 us/op
+# Warmup Iteration   3: 3.630 us/op
+# Warmup Iteration   4: 3.598 us/op
+# Warmup Iteration   5: 3.618 us/op
+# Warmup Iteration   6: 3.619 us/op
+# Warmup Iteration   7: 3.599 us/op
+# Warmup Iteration   8: 3.598 us/op
+# Warmup Iteration   9: 3.598 us/op
+# Warmup Iteration  10: 3.598 us/op
+Iteration   1: 3.598 us/op
+Iteration   2: 3.603 us/op
+Iteration   3: 3.598 us/op
+Iteration   4: 3.598 us/op
+Iteration   5: 3.598 us/op
+Iteration   6: 3.599 us/op
+Iteration   7: 3.598 us/op
+Iteration   8: 3.603 us/op
+Iteration   9: 3.598 us/op
+Iteration  10: 3.598 us/op
+Iteration  11: 3.598 us/op
+Iteration  12: 3.599 us/op
+Iteration  13: 3.599 us/op
+Iteration  14: 3.599 us/op
+Iteration  15: 3.599 us/op
+Iteration  16: 3.599 us/op
+Iteration  17: 3.598 us/op
+Iteration  18: 3.598 us/op
+Iteration  19: 3.599 us/op
+Iteration  20: 3.599 us/op
+
+# Run progress: 60.00% complete, ETA 00:40:49
+# Fork: 3 of 5
+# Warmup Iteration   1: 3.658 us/op
+# Warmup Iteration   2: 3.515 us/op
+# Warmup Iteration   3: 3.646 us/op
+# Warmup Iteration   4: 3.598 us/op
+# Warmup Iteration   5: 3.599 us/op
+# Warmup Iteration   6: 3.598 us/op
+# Warmup Iteration   7: 3.598 us/op
+# Warmup Iteration   8: 3.598 us/op
+# Warmup Iteration   9: 3.598 us/op
+# Warmup Iteration  10: 3.598 us/op
+Iteration   1: 3.598 us/op
+Iteration   2: 3.603 us/op
+Iteration   3: 3.598 us/op
+Iteration   4: 3.598 us/op
+Iteration   5: 3.598 us/op
+Iteration   6: 3.598 us/op
+Iteration   7: 3.598 us/op
+Iteration   8: 3.602 us/op
+Iteration   9: 3.603 us/op
+Iteration  10: 3.598 us/op
+Iteration  11: 3.598 us/op
+Iteration  12: 3.598 us/op
+Iteration  13: 3.599 us/op
+Iteration  14: 3.603 us/op
+Iteration  15: 3.598 us/op
+Iteration  16: 3.598 us/op
+Iteration  17: 3.599 us/op
+Iteration  18: 3.598 us/op
+Iteration  19: 3.599 us/op
+Iteration  20: 3.599 us/op
+
+# Run progress: 65.00% complete, ETA 00:35:43
+# Fork: 4 of 5
+# Warmup Iteration   1: 3.734 us/op
+# Warmup Iteration   2: 3.830 us/op
+# Warmup Iteration   3: 3.615 us/op
+# Warmup Iteration   4: 3.604 us/op
+# Warmup Iteration   5: 3.655 us/op
+# Warmup Iteration   6: 3.665 us/op
+# Warmup Iteration   7: 3.663 us/op
+# Warmup Iteration   8: 3.658 us/op
+# Warmup Iteration   9: 3.605 us/op
+# Warmup Iteration  10: 3.599 us/op
+Iteration   1: 3.599 us/op
+Iteration   2: 3.606 us/op
+Iteration   3: 3.598 us/op
+Iteration   4: 3.598 us/op
+Iteration   5: 3.598 us/op
+Iteration   6: 3.614 us/op
+Iteration   7: 3.598 us/op
+Iteration   8: 3.606 us/op
+Iteration   9: 3.598 us/op
+Iteration  10: 3.598 us/op
+Iteration  11: 3.598 us/op
+Iteration  12: 3.598 us/op
+Iteration  13: 3.598 us/op
+Iteration  14: 3.598 us/op
+Iteration  15: 3.636 us/op
+Iteration  16: 3.598 us/op
+Iteration  17: 3.599 us/op
+Iteration  18: 3.598 us/op
+Iteration  19: 3.598 us/op
+Iteration  20: 3.598 us/op
+
+# Run progress: 70.00% complete, ETA 00:30:37
+# Fork: 5 of 5
+# Warmup Iteration   1: 3.743 us/op
+# Warmup Iteration   2: 3.472 us/op
+# Warmup Iteration   3: 3.630 us/op
+# Warmup Iteration   4: 3.655 us/op
+# Warmup Iteration   5: 3.621 us/op
+# Warmup Iteration   6: 3.600 us/op
+# Warmup Iteration   7: 3.600 us/op
+# Warmup Iteration   8: 3.599 us/op
+# Warmup Iteration   9: 3.600 us/op
+# Warmup Iteration  10: 3.599 us/op
+Iteration   1: 3.599 us/op
+Iteration   2: 3.604 us/op
+Iteration   3: 3.600 us/op
+Iteration   4: 3.927 us/op
+Iteration   5: 3.598 us/op
+Iteration   6: 3.599 us/op
+Iteration   7: 3.606 us/op
+Iteration   8: 3.603 us/op
+Iteration   9: 3.599 us/op
+Iteration  10: 3.600 us/op
+Iteration  11: 3.599 us/op
+Iteration  12: 3.598 us/op
+Iteration  13: 3.598 us/op
+Iteration  14: 3.598 us/op
+Iteration  15: 3.598 us/op
+Iteration  16: 3.600 us/op
+Iteration  17: 3.598 us/op
+Iteration  18: 3.598 us/op
+Iteration  19: 3.598 us/op
+Iteration  20: 3.598 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_no_future":
+  3.607 ±(99.9%) 0.016 us/op [Average]
+  (min, avg, max) = (3.597, 3.607, 3.935), stdev = 0.047
+  CI (99.9%): [3.591, 3.622] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.8, Zing 64-Bit Tiered VM, 21.0.8-zing_25.08.0.0-b3-release-linux-X86_64
+# *** WARNING: JMH support for this VM is experimental. Be extra careful with the produced data.
+# VM invoker: /usr/lib/jvm/zing-jdk21.0.8-25.08.0.0-3-amd64/bin/java
+# VM options: -Xms4g -Xmx4g -XX:+AlwaysPreTouch
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 10 iterations, 10 s each
+# Measurement: 20 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_no_future
+# Parameters: (computationSize = 10000)
+
+# Run progress: 75.00% complete, ETA 00:25:31
+# Fork: 1 of 5
+# Warmup Iteration   1: 38.321 us/op
+# Warmup Iteration   2: 40.739 us/op
+# Warmup Iteration   3: 36.181 us/op
+# Warmup Iteration   4: 41.788 us/op
+# Warmup Iteration   5: 37.815 us/op
+# Warmup Iteration   6: 37.814 us/op
+# Warmup Iteration   7: 37.818 us/op
+# Warmup Iteration   8: 37.815 us/op
+# Warmup Iteration   9: 37.810 us/op
+# Warmup Iteration  10: 37.813 us/op
+Iteration   1: 37.814 us/op
+Iteration   2: 37.814 us/op
+Iteration   3: 37.814 us/op
+Iteration   4: 37.814 us/op
+Iteration   5: 37.815 us/op
+Iteration   6: 37.814 us/op
+Iteration   7: 37.814 us/op
+Iteration   8: 37.815 us/op
+Iteration   9: 41.731 us/op
+Iteration  10: 37.807 us/op
+Iteration  11: 37.808 us/op
+Iteration  12: 37.809 us/op
+Iteration  13: 37.807 us/op
+Iteration  14: 37.806 us/op
+Iteration  15: 37.806 us/op
+Iteration  16: 37.811 us/op
+Iteration  17: 37.809 us/op
+Iteration  18: 37.810 us/op
+Iteration  19: 37.810 us/op
+Iteration  20: 37.810 us/op
+
+# Run progress: 80.00% complete, ETA 00:20:25
+# Fork: 2 of 5
+# Warmup Iteration   1: 37.989 us/op
+# Warmup Iteration   2: 40.886 us/op
+# Warmup Iteration   3: 36.224 us/op
+# Warmup Iteration   4: 37.751 us/op
+# Warmup Iteration   5: 41.789 us/op
+# Warmup Iteration   6: 41.948 us/op
+# Warmup Iteration   7: 37.815 us/op
+# Warmup Iteration   8: 37.807 us/op
+# Warmup Iteration   9: 37.814 us/op
+# Warmup Iteration  10: 37.810 us/op
+Iteration   1: 37.809 us/op
+Iteration   2: 37.810 us/op
+Iteration   3: 37.812 us/op
+Iteration   4: 37.811 us/op
+Iteration   5: 37.812 us/op
+Iteration   6: 37.809 us/op
+Iteration   7: 37.802 us/op
+Iteration   8: 37.802 us/op
+Iteration   9: 37.802 us/op
+Iteration  10: 37.810 us/op
+Iteration  11: 41.905 us/op
+Iteration  12: 37.824 us/op
+Iteration  13: 37.817 us/op
+Iteration  14: 41.196 us/op
+Iteration  15: 37.813 us/op
+Iteration  16: 37.811 us/op
+Iteration  17: 37.810 us/op
+Iteration  18: 37.805 us/op
+Iteration  19: 37.798 us/op
+Iteration  20: 37.800 us/op
+
+# Run progress: 85.00% complete, ETA 00:15:18
+# Fork: 3 of 5
+# Warmup Iteration   1: 38.966 us/op
+# Warmup Iteration   2: 40.731 us/op
+# Warmup Iteration   3: 37.255 us/op
+# Warmup Iteration   4: 37.806 us/op
+# Warmup Iteration   5: 37.810 us/op
+# Warmup Iteration   6: 37.814 us/op
+# Warmup Iteration   7: 37.811 us/op
+# Warmup Iteration   8: 37.806 us/op
+# Warmup Iteration   9: 37.806 us/op
+# Warmup Iteration  10: 37.807 us/op
+Iteration   1: 37.808 us/op
+Iteration   2: 37.812 us/op
+Iteration   3: 37.813 us/op
+Iteration   4: 37.815 us/op
+Iteration   5: 37.814 us/op
+Iteration   6: 37.812 us/op
+Iteration   7: 37.812 us/op
+Iteration   8: 37.813 us/op
+Iteration   9: 37.813 us/op
+Iteration  10: 37.809 us/op
+Iteration  11: 37.812 us/op
+Iteration  12: 37.808 us/op
+Iteration  13: 37.809 us/op
+Iteration  14: 37.804 us/op
+Iteration  15: 37.806 us/op
+Iteration  16: 37.806 us/op
+Iteration  17: 37.809 us/op
+Iteration  18: 37.804 us/op
+Iteration  19: 37.803 us/op
+Iteration  20: 37.804 us/op
+
+# Run progress: 90.00% complete, ETA 00:10:12
+# Fork: 4 of 5
+# Warmup Iteration   1: 37.175 us/op
+# Warmup Iteration   2: 40.032 us/op
+# Warmup Iteration   3: 36.711 us/op
+# Warmup Iteration   4: 37.641 us/op
+# Warmup Iteration   5: 37.800 us/op
+# Warmup Iteration   6: 37.799 us/op
+# Warmup Iteration   7: 37.798 us/op
+# Warmup Iteration   8: 37.338 us/op
+# Warmup Iteration   9: 37.691 us/op
+# Warmup Iteration  10: 37.623 us/op
+Iteration   1: 37.799 us/op
+Iteration   2: 37.798 us/op
+Iteration   3: 37.799 us/op
+Iteration   4: 37.799 us/op
+Iteration   5: 37.805 us/op
+Iteration   6: 37.805 us/op
+Iteration   7: 37.802 us/op
+Iteration   8: 37.803 us/op
+Iteration   9: 37.804 us/op
+Iteration  10: 37.802 us/op
+Iteration  11: 37.804 us/op
+Iteration  12: 37.804 us/op
+Iteration  13: 37.800 us/op
+Iteration  14: 37.803 us/op
+Iteration  15: 37.804 us/op
+Iteration  16: 37.803 us/op
+Iteration  17: 37.805 us/op
+Iteration  18: 37.802 us/op
+Iteration  19: 37.804 us/op
+Iteration  20: 37.802 us/op
+
+# Run progress: 95.00% complete, ETA 00:05:06
+# Fork: 5 of 5
+# Warmup Iteration   1: 41.968 us/op
+# Warmup Iteration   2: 40.629 us/op
+# Warmup Iteration   3: 37.405 us/op
+# Warmup Iteration   4: 37.597 us/op
+# Warmup Iteration   5: 37.590 us/op
+# Warmup Iteration   6: 37.797 us/op
+# Warmup Iteration   7: 37.824 us/op
+# Warmup Iteration   8: 37.815 us/op
+# Warmup Iteration   9: 37.823 us/op
+# Warmup Iteration  10: 41.715 us/op
+Iteration   1: 37.806 us/op
+Iteration   2: 37.804 us/op
+Iteration   3: 37.805 us/op
+Iteration   4: 37.803 us/op
+Iteration   5: 37.801 us/op
+Iteration   6: 37.802 us/op
+Iteration   7: 37.804 us/op
+Iteration   8: 37.803 us/op
+Iteration   9: 37.800 us/op
+Iteration  10: 37.801 us/op
+Iteration  11: 37.800 us/op
+Iteration  12: 37.799 us/op
+Iteration  13: 37.797 us/op
+Iteration  14: 37.799 us/op
+Iteration  15: 37.800 us/op
+Iteration  16: 45.780 us/op
+Iteration  17: 37.806 us/op
+Iteration  18: 37.806 us/op
+Iteration  19: 37.808 us/op
+Iteration  20: 37.520 us/op
+
+
+Result "co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_no_future":
+  37.998 ±(99.9%) 0.347 us/op [Average]
+  (min, avg, max) = (37.520, 37.998, 45.780), stdev = 1.023
+  CI (99.9%): [37.651, 38.345] (assumes normal distribution)
+
+
+# Run complete. Total time: 01:42:06
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                      (computationSize)  Mode  Cnt    Score   Error  Units
+FutureBenchmark.run_future                  1000  avgt  100   44.432 ± 0.134  us/op
+FutureBenchmark.run_future                 10000  avgt  100  112.983 ± 3.500  us/op
+FutureBenchmark.run_no_future               1000  avgt  100    3.607 ± 0.016  us/op
+FutureBenchmark.run_no_future              10000  avgt  100   37.998 ± 0.347  us/op
+
+Benchmark result is saved to results/jdk-21/x86_64/jmh/azul-prime-vm/FutureBenchmark.scala.csv
+
+Finished FutureBenchmark benchmark (Fri Oct 17 12:49:02 PM UTC 2025)
+Fri Oct 17 12:49:02 PM UTC 2025
+
+Finished Azul Prime VM test suite!
+
+Elapsed: 102 minutes and 11 seconds.
