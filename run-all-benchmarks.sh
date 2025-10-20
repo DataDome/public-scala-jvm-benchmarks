@@ -153,8 +153,11 @@ if ! compile_benchmark_suite; then
   exit 1
 fi
 
-
-for jvm in "$OPENJDK_HOTSPOT_VM_IDENTIFIER" "$GRAAL_VM_CE_IDENTIFIER" "$GRAAL_VM_EE_IDENTIFIER" "$AZUL_PRIME_VM_IDENTIFIER"; do
+for jvm in "$AZUL_PRIME_VM_IDENTIFIER" "$OPENJDK_HOTSPOT_VM_IDENTIFIER" "$GRAAL_VM_CE_IDENTIFIER" "$GRAAL_VM_EE_IDENTIFIER"; do
+  if [ -z "$jvm" ]; then
+    # Empty JVM identifier, skip to the next one
+    continue
+  fi
   export JVM_IDENTIFIER=$jvm
 
   echo ""
@@ -169,6 +172,14 @@ for jvm in "$OPENJDK_HOTSPOT_VM_IDENTIFIER" "$GRAAL_VM_CE_IDENTIFIER" "$GRAAL_VM
   echo "| [5/7] JVM Configuration |"
   echo "+=========================+"
   . ./scripts/shell/configure-jvm.sh || exit 1
+
+  if [ -z "$JAVA_HOME" ]; then
+    echo ""
+    echo "+----------------------------------------------+"
+    echo "| JVM not configured, skipping to the next one |"
+    echo "+----------------------------------------------+"
+    continue
+  fi
 
   echo ""
   echo "+=========================+"

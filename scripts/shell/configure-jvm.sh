@@ -48,7 +48,7 @@ load_jvm_from_identifier() {
     configure_jvm "$AZUL_PRIME_VM_HOME" "$AZUL_PRIME_VM_NAME"
     ;;
   *)
-    echo "Unknown JVM key: $JVM_KEY"
+    echo "Unknown JVM identifier: $JVM_IDENTIFIER"
     exit 1
     ;;
   esac
