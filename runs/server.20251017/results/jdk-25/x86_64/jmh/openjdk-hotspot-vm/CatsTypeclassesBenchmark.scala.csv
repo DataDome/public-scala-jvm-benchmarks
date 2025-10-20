@@ -1,0 +1,6 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: size"
+"co.datadome.pub.scalabenchmarks.jvms.libs.cats.CatsTypeclassesBenchmark.foldable","avgt",1,5,2.620429,0.052900,"us/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.libs.cats.CatsTypeclassesBenchmark.forComprehension","avgt",1,5,14.439018,0.156912,"us/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.libs.cats.CatsTypeclassesBenchmark.functor","avgt",1,5,11.956851,3.252681,"us/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.libs.cats.CatsTypeclassesBenchmark.monad","avgt",1,5,9.051852,0.318283,"us/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.libs.cats.CatsTypeclassesBenchmark.monoid","avgt",1,5,13.162558,0.058076,"us/op",1000

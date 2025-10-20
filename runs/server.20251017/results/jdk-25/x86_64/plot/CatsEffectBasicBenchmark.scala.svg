@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='1440.00pt' height='283.46pt' viewBox='0 0 1440.00 283.46'>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHwxNDQwLjAwfDAuMDB8MjgzLjQ2'>
+    <rect x='0.00' y='0.00' width='1440.00' height='283.46' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHwxNDQwLjAwfDAuMDB8MjgzLjQ2)'>
+<rect x='0.00' y='0.00' width='1440.00' height='283.46' style='stroke-width: 1.07; stroke: #FFFFFF; fill: #FFFFFF;' />
+<rect x='88.37' y='35.77' width='1337.46' height='139.27' style='stroke-width: 1.07; stroke: none;' />
+<polyline points='346.70,175.05 346.70,35.77 ' style='stroke-width: 0.53; stroke: #F2F2F2; stroke-linecap: butt;' />
+<polyline points='741.77,175.05 741.77,35.77 ' style='stroke-width: 0.53; stroke: #F2F2F2; stroke-linecap: butt;' />
+<polyline points='1136.84,175.05 1136.84,35.77 ' style='stroke-width: 0.53; stroke: #F2F2F2; stroke-linecap: butt;' />
+<polyline points='88.37,105.41 1425.83,105.41 ' style='stroke-width: 1.07; stroke: #F2F2F2; stroke-linecap: butt;' />
+<polyline points='149.16,175.05 149.16,35.77 ' style='stroke-width: 1.07; stroke: #F2F2F2; stroke-linecap: butt;' />
+<polyline points='544.24,175.05 544.24,35.77 ' style='stroke-width: 1.07; stroke: #F2F2F2; stroke-linecap: butt;' />
+<polyline points='939.31,175.05 939.31,35.77 ' style='stroke-width: 1.07; stroke: #F2F2F2; stroke-linecap: butt;' />
+<polyline points='1334.38,175.05 1334.38,35.77 ' style='stroke-width: 1.07; stroke: #F2F2F2; stroke-linecap: butt;' />
+<rect x='149.16' y='64.79' width='1166.33' height='27.08' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #648FFF;' />
+<rect x='149.16' y='118.95' width='1202.99' height='27.08' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFB000;' />
+<rect x='149.16' y='91.87' width='1109.91' height='27.08' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #FE6100;' />
+<text x='1318.78' y='72.46' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='65.78px' lengthAdjust='spacingAndGlyphs'>147.61 us/op</text>
+<text x='1355.44' y='126.62' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='65.78px' lengthAdjust='spacingAndGlyphs'>152.25 us/op</text>
+<text x='1262.37' y='99.54' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='65.78px' lengthAdjust='spacingAndGlyphs'>140.47 us/op</text>
+<polyline points='1328.14,81.71 1328.14,74.94 ' style='stroke-width: 1.28; stroke: #000000; stroke-opacity: 0.70; stroke-linecap: butt;' />
+<polyline points='1328.14,78.33 1302.84,78.33 ' style='stroke-width: 1.28; stroke: #000000; stroke-opacity: 0.70; stroke-linecap: butt;' />
+<polyline points='1302.84,81.71 1302.84,74.94 ' style='stroke-width: 1.28; stroke: #000000; stroke-opacity: 0.70; stroke-linecap: butt;' />
+<polyline points='1365.03,135.88 1365.03,129.11 ' style='stroke-width: 1.28; stroke: #000000; stroke-opacity: 0.70; stroke-linecap: butt;' />
+<polyline points='1365.03,132.49 1339.28,132.49 ' style='stroke-width: 1.28; stroke: #000000; stroke-opacity: 0.70; stroke-linecap: butt;' />
+<polyline points='1339.28,135.88 1339.28,129.11 ' style='stroke-width: 1.28; stroke: #000000; stroke-opacity: 0.70; stroke-linecap: butt;' />
+<polyline points='1354.24,108.79 1354.24,102.02 ' style='stroke-width: 1.28; stroke: #000000; stroke-opacity: 0.70; stroke-linecap: butt;' />
+<polyline points='1354.24,105.41 1163.91,105.41 ' style='stroke-width: 1.28; stroke: #000000; stroke-opacity: 0.70; stroke-linecap: butt;' />
+<polyline points='1163.91,108.79 1163.91,102.02 ' style='stroke-width: 1.28; stroke: #000000; stroke-opacity: 0.70; stroke-linecap: butt;' />
+<line x1='149.16' y1='175.05' x2='149.16' y2='35.77' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<text x='83.44' y='110.36' text-anchor='end' style='font-size: 14.40px;fill: #4D4D4D; font-family: "Liberation Sans";' textLength='50.41px' lengthAdjust='spacingAndGlyphs'>factorial</text>
+<polyline points='85.63,105.41 88.37,105.41 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='149.16,177.79 149.16,175.05 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='544.24,177.79 544.24,175.05 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='939.31,177.79 939.31,175.05 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='1334.38,177.79 1334.38,175.05 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<text x='149.16' y='189.88' text-anchor='middle' style='font-size: 14.40px;fill: #4D4D4D; font-family: "Liberation Sans";' textLength='8.00px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='544.24' y='189.88' text-anchor='middle' style='font-size: 14.40px;fill: #4D4D4D; font-family: "Liberation Sans";' textLength='16.00px' lengthAdjust='spacingAndGlyphs'>50</text>
+<text x='939.31' y='189.88' text-anchor='middle' style='font-size: 14.40px;fill: #4D4D4D; font-family: "Liberation Sans";' textLength='24.00px' lengthAdjust='spacingAndGlyphs'>100</text>
+<text x='1334.38' y='189.88' text-anchor='middle' style='font-size: 14.40px;fill: #4D4D4D; font-family: "Liberation Sans";' textLength='24.00px' lengthAdjust='spacingAndGlyphs'>150</text>
+<text x='757.10' y='207.99' text-anchor='middle' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='44.05px' lengthAdjust='spacingAndGlyphs'>us/op</text>
+<text transform='translate(26.56,105.41) rotate(-90)' text-anchor='middle' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='91.06px' lengthAdjust='spacingAndGlyphs'>Benchmark</text>
+<rect x='515.29' y='222.68' width='483.61' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<text x='520.77' y='243.00' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='60.09px' lengthAdjust='spacingAndGlyphs'>Legend</text>
+<rect x='586.35' y='228.16' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none;' />
+<rect x='587.05' y='228.87' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #648FFF;' />
+<rect x='758.52' y='228.16' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none;' />
+<rect x='759.23' y='228.87' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #FE6100;' />
+<rect x='889.92' y='228.16' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none;' />
+<rect x='890.63' y='228.87' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFB000;' />
+<text x='609.10' y='241.75' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='143.94px' lengthAdjust='spacingAndGlyphs'>OpenJDK HotSpot VM</text>
+<text x='781.28' y='241.75' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='103.16px' lengthAdjust='spacingAndGlyphs'>GraalVM Oracle</text>
+<text x='912.68' y='241.75' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='80.75px' lengthAdjust='spacingAndGlyphs'>GraalVM CE</text>
+<text x='88.37' y='26.56' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='264.81px' lengthAdjust='spacingAndGlyphs'>CatsEffectBasicBenchmark.scala</text>
+<text x='1425.83' y='266.30' text-anchor='end' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='107.19px' lengthAdjust='spacingAndGlyphs'>JDK-25 / x86_64</text>
+</g>
+</g>
+</svg>

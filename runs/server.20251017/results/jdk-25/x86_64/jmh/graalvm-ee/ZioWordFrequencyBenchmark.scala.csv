@@ -1,0 +1,3 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
+"co.datadome.pub.scalabenchmarks.jvms.libs.zio.ZioWordFrequencyBenchmark.wordFrequency","avgt",1,5,14.878194,0.527543,"ms/op"
+"co.datadome.pub.scalabenchmarks.jvms.libs.zio.ZioWordFrequencyBenchmark.wordFrequencyStream","avgt",1,5,257.552172,18.213198,"ms/op"

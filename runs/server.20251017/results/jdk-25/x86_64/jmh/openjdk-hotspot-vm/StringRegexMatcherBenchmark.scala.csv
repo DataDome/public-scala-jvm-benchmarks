@@ -1,0 +1,5 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: regexString"
+"co.datadome.pub.scalabenchmarks.jvms.api.string.StringRegexMatcherBenchmark.java_regex_capture","avgt",1,5,293.452215,104.059201,"us/op",^[^aeuio]*[aeuio](.*)[aeuio][^aeuio]*$
+"co.datadome.pub.scalabenchmarks.jvms.api.string.StringRegexMatcherBenchmark.java_regex_match","avgt",1,5,191.703755,0.156612,"us/op",^[^aeuio]*[aeuio](.*)[aeuio][^aeuio]*$
+"co.datadome.pub.scalabenchmarks.jvms.api.string.StringRegexMatcherBenchmark.regex_capture","avgt",1,5,297.176332,3.594889,"us/op",^[^aeuio]*[aeuio](.*)[aeuio][^aeuio]*$
+"co.datadome.pub.scalabenchmarks.jvms.api.string.StringRegexMatcherBenchmark.regex_match","avgt",1,5,189.617233,2.224480,"us/op",^[^aeuio]*[aeuio](.*)[aeuio][^aeuio]*$
