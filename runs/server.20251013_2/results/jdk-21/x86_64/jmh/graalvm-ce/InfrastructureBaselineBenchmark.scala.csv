@@ -1,8 +1,0 @@
-"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
-"co.datadome.pub.scalabenchmarks.jvms.InfrastructureBaselineBenchmark.method_baseline","avgt",1,10,0.429933,0.000071,"ns/op"
-"co.datadome.pub.scalabenchmarks.jvms.InfrastructureBaselineBenchmark.method_blank","avgt",1,10,0.434401,0.021182,"ns/op"
-"co.datadome.pub.scalabenchmarks.jvms.InfrastructureBaselineBenchmark.method_dont_inline","avgt",1,10,1.924330,0.015873,"ns/op"
-"co.datadome.pub.scalabenchmarks.jvms.InfrastructureBaselineBenchmark.method_inline","avgt",1,10,0.447617,0.028108,"ns/op"
-"co.datadome.pub.scalabenchmarks.jvms.InfrastructureBaselineBenchmark.obj_blackhole_consume","avgt",1,10,0.572813,0.000012,"ns/op"
-"co.datadome.pub.scalabenchmarks.jvms.InfrastructureBaselineBenchmark.obj_return","avgt",1,10,0.451779,0.039573,"ns/op"
-"co.datadome.pub.scalabenchmarks.jvms.InfrastructureBaselineBenchmark.obj_sink","avgt",1,10,2.071839,0.102588,"ns/op"

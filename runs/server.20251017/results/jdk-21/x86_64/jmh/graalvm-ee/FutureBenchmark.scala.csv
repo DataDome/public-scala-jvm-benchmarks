@@ -1,5 +1,0 @@
-"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: computationSize"
-"co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_future","avgt",1,100,45.430193,0.099924,"us/op",1000
-"co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_future","avgt",1,100,115.947299,5.129986,"us/op",10000
-"co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_no_future","avgt",1,100,4.073305,0.022229,"us/op",1000
-"co.datadome.pub.scalabenchmarks.jvms.api.concurrent.FutureBenchmark.run_no_future","avgt",1,100,40.314423,0.142456,"us/op",10000

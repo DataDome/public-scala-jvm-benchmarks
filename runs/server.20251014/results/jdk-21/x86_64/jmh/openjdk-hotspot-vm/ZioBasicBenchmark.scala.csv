@@ -1,2 +1,0 @@
-"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
-"co.datadome.pub.scalabenchmarks.jvms.libs.zio.ZioBasicBenchmark.factorial","avgt",1,100,149.541578,1.208843,"us/op"

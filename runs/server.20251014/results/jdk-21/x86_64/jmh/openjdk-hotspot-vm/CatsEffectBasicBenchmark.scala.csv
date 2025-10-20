@@ -1,2 +1,0 @@
-"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
-"co.datadome.pub.scalabenchmarks.jvms.libs.catseffect.CatsEffectBasicBenchmark.factorial","avgt",1,100,147.542246,0.471980,"us/op"

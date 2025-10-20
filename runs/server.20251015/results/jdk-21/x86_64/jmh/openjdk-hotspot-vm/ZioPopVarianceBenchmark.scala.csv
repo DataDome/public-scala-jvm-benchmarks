@@ -1,2 +1,0 @@
-"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: popSize"
-"co.datadome.pub.scalabenchmarks.jvms.libs.zio.ZioPopVarianceBenchmark.variance","avgt",1,100,11476.195225,221.423529,"ms/op",134217727

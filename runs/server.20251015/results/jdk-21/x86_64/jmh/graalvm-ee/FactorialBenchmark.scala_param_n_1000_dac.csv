@@ -1,2 +1,0 @@
-"Benchmark","Mode","Threads","Samples","Score","Score.Error..99.9..","Unit","Param..n"
-"co.datadome.pub.scalabenchmarks.jvms.misc.factorial.FactorialBenchmark.dac_big_int_multiply","avgt",1,100,43.537977,2.22814,"us/op",1000

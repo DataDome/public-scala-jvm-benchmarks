@@ -1,2 +1,0 @@
-"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: sizeX","Param: sizeY"
-"co.datadome.pub.scalabenchmarks.jvms.api.collections.ArrayBenchmark.tabulate2","avgt",1,100,8377.307032,508.629549,"ns/op",100,100

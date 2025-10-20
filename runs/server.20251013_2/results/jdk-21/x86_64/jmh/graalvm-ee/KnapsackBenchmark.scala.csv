@@ -1,3 +1,0 @@
-"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: itemsCount"
-"co.datadome.pub.scalabenchmarks.jvms.misc.knapsack.KnapsackBenchmark.dynamic","avgt",1,10,498.223619,95.348863,"ms/op",50000
-"co.datadome.pub.scalabenchmarks.jvms.misc.knapsack.KnapsackBenchmark.greedy","avgt",1,10,10.533376,0.454307,"ms/op",50000
