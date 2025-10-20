@@ -63,7 +63,7 @@ set_environment_variables() {
   fi
   export PATH=$JAVA_HOME/bin:$PATH
 
-  supported_jdk_versions=("11" "17" "21")
+  supported_jdk_versions=("11" "17" "21" "25")
   JDK_VERSION=$(java -XshowSettings:properties 2>&1 >/dev/null | grep 'java.specification.version' | awk '{split($0, array, "="); print array[2]}' | xargs)
   if [[ " ${supported_jdk_versions[*]} " != *" ${JDK_VERSION} "* ]]; then
     echo ""
