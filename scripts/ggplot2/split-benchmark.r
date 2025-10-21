@@ -44,6 +44,17 @@ splitAndProcessBenchmark("SetBenchmark.scala.csv", "size", list("1000"))
 splitAndProcessBenchmark("VectorBenchmark.scala.csv", "size", list("100"))
 splitAndProcessBenchmark("VectorBenchmark.scala.csv", "size", list("1000"))
 
+# Compression benchmarks
+splitAndProcessBenchmark("GzipCompressionBenchmark.scala.csv", "size", list("1024"))
+splitAndProcessBenchmark("GzipCompressionBenchmark.scala.csv", "size", list("8192"))
+splitAndProcessBenchmark("GzipCompressionBenchmark.scala.csv", "size", list("65536"))
+splitAndProcessBenchmark("Lz4CompressionBenchmark.scala.csv", "size", list("1024"))
+splitAndProcessBenchmark("Lz4CompressionBenchmark.scala.csv", "size", list("8192"))
+splitAndProcessBenchmark("Lz4CompressionBenchmark.scala.csv", "size", list("65536"))
+splitAndProcessBenchmark("ZstdCompressionBenchmark.scala.csv", "size", list("1024"))
+splitAndProcessBenchmark("ZstdCompressionBenchmark.scala.csv", "size", list("8192"))
+splitAndProcessBenchmark("ZstdCompressionBenchmark.scala.csv", "size", list("65536"))
+
 # Random benchmarks
 splitAndProcessBenchmark("JavaRandomBenchmarkSized.scala.csv", "size", list("16"))
 splitAndProcessBenchmark("JavaRandomBenchmarkSized.scala.csv", "size", list("256"))

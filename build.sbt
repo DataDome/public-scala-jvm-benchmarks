@@ -45,6 +45,9 @@ libraryDependencies ++= Seq(
   "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-core" % "2.32.0",
   "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-macros" % "2.32.0" % "compile-internal",
 
+  "com.github.luben" % "zstd-jni" % "1.5.7-6",
+  "org.lz4" % "lz4-java" % "1.8.0",
+
   "org.scalatest" %% "scalatest" % "3.2.19" % Test
 )
 
@@ -52,6 +55,7 @@ assembly / mainClass := Some("org.openjdk.jmh.Main")
 assembly / assemblyMergeStrategy := {
   case PathList("META-INF", "MANIFEST.MF") => MergeStrategy.rename
   case PathList("LICENSE") | PathList("CONTRIBUTING") | PathList("THIRD-PARTY") | PathList("NOTICE") => MergeStrategy.rename
+  case PathList("module-info.class") => MergeStrategy.first
   case _ => MergeStrategy.deduplicate // default
 }
 

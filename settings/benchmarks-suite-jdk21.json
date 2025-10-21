@@ -46,6 +46,18 @@
       "lang": "scala"
     },
     {
+      "name": "GzipCompressionBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "Lz4CompressionBenchmark",
+      "lang": "scala"
+    },
+    {
+      "name": "ZstdCompressionBenchmark",
+      "lang": "scala"
+    },
+    {
       "name": "DurationBenchmark",
       "lang": "scala"
     },
