@@ -1,0 +1,5 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: size"
+"co.datadome.pub.scalabenchmarks.jvms.libs.jsoniter.JsoniterBenchmark.deserializeFromBytes","avgt",1,100,652.812937,9.952964,"us/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.libs.jsoniter.JsoniterBenchmark.deserializeFromString","avgt",1,100,715.603878,22.525991,"us/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.libs.jsoniter.JsoniterBenchmark.serializeToBytes","avgt",1,100,416.429532,19.840809,"us/op",1000
+"co.datadome.pub.scalabenchmarks.jvms.libs.jsoniter.JsoniterBenchmark.serializeToString","avgt",1,100,405.996996,18.329332,"us/op",1000
